@@ -1,0 +1,1135 @@
+# large recoil, bin width 0.5 GeV^2
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	1.02644e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	4.27062e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	2.61521e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	-3.95853e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	8.34196e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	2.91184e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	-6.11026e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	1.76019e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	2.19934e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	2.86354e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	-7.33503e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	1.5	1.61465e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	8.58705e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	4.37396e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	1.58924e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	-4.137e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	5.16584e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	-1.43724e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	-1.93497e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	8.58571e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	1.86214e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	2.54866e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	-7.36186e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1.5	2	1.66391e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	7.97221e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	4.48682e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	1.15404e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	-4.29105e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	3.7958e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	-6.62169e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	1.31445e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	1.70128e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	1.5015e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	2.34684e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	-7.35457e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	2.5	1.70542e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	7.83369e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	4.60248e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	9.85697e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	-4.43273e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	3.26628e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	-1.26768e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	4.05063e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	-4.01133e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	1.12616e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	2.20846e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	-7.337e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2.5	3	1.74677e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	7.95043e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	4.71771e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	9.62055e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	-4.56593e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	3.20048e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	-1.96744e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	6.46446e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	-8.98747e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	7.39819e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	2.11235e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	-7.32831e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	3.5	1.79176e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	8.21949e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	4.83063e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	1.02642e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	-4.69203e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	3.4199e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	-2.77049e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	8.65735e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	-1.3456e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	3.44597e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	2.04821e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	-7.3437e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3.5	4	1.84314e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	8.5859e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	4.93997e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	1.14866e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	-4.81151e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	3.82837e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	-3.68727e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	1.06883e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	-1.75492e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	-5.79817e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	2.01081e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	-7.39608e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	4.5	1.90353e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	9.01719e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	5.0448e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	1.31109e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	-4.92441e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	4.36891e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	-4.72956e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	1.25937e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	-2.13483e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	-4.66636e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	1.99786e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	-7.49772e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4.5	5	1.97583e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	9.49262e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	5.14438e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	1.50252e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	-5.03063e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	5.00516e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	-5.91061e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	1.43969e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	-2.4905e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	-8.80197e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	2.00911e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	-7.66196e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	5.5	2.06358e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	9.9981e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	5.23813e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	1.71541e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	-5.12998e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	5.71244e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	-7.24525e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	1.61137e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	-2.82538e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	-1.29755e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	2.0462e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	-7.90523e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5.5	6	2.17136e-24	0	0	0	0   (-0% / +0%)
+# low recoil, bin width 0.5 GeV^2
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	2.77305e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	3.88082e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	4.89465e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-3.84452e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	1.62889e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-1.11801e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	2.90013e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-3.99122e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-6.02133e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-4.18233e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	-2.18167e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	15.5	3.291e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	2.68394e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	3.68272e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	4.79186e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	-3.65051e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	1.59474e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	-1.23731e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	2.84242e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	-3.71926e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	-5.79154e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	2.57763e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	-1.94859e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15.5	16	3.03397e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	2.56291e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	3.45089e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	4.62457e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-3.42297e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	1.53912e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-1.35172e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	2.75338e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-3.39037e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-5.45381e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-4.18278e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	-1.70555e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	16.5	2.74328e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	2.40439e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	3.18039e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	4.38082e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-3.15695e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	1.45804e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-1.45261e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	2.62587e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-3.00018e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-4.99026e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-3.88991e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	-1.45156e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16.5	17	2.41415e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	2.20055e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	2.86352e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	4.04436e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-2.84471e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	1.3461e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-1.52604e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	2.44933e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-2.54388e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-4.37967e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-8.26934e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	-1.18557e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	17.5	2.04091e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	1.93905e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	2.48694e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	3.59052e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-2.47284e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	1.19509e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-1.5481e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	2.20654e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-2.01608e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-3.59668e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-4.08587e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	-9.06409e-25	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17.5	18	1.61685e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	1.59657e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	2.02327e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	2.97427e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	-2.01389e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	9.89999e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	-1.47307e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	1.86458e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	-1.41082e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	-2.61077e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	3.30783e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	-6.12828e-25	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	18.5	1.13394e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	1.10891e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	1.39323e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	2.07452e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	-1.38842e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	6.90532e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	-1.18608e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	1.33488e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	-7.21368e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	-1.38499e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	4.43484e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	-3.03418e-25	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18.5	19	5.82489e-25	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.20205e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.75599e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	4.12701e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-2.7492e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	1.37376e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-2.63503e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.72005e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-7.55918e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-1.49415e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	4.6609e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-3.1041e-26	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	6.13549e-26	0	0	0	0   (-0% / +0%)
+# large recoil, bin width 0.5 GeV^2
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	1.88515e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	8.64458e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	4.20444e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	-8.09553e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	1.35078e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	1.4746e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	-8.04523e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	2.61876e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	4.06148e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	5.4122e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	-1.46969e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+1	2	3.27856e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	1.58059e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	9.0893e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	2.13974e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	-8.72378e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	7.06207e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	-1.92985e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	5.36508e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	-2.31005e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	2.62765e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	4.55529e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	-1.46916e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+2	3	3.45219e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	1.61699e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	9.54834e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	1.98848e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	-9.25796e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	6.62038e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	-4.73793e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	1.51218e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	-2.24435e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	1.08442e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	4.16056e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	-1.4672e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+3	4	3.63489e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	1.76031e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	9.98477e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	2.45975e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	-9.73592e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	8.19729e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	-8.41683e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	2.32819e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	-3.88975e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	-5.24618e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	4.00867e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	-1.48938e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+4	5	3.87936e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	1.94907e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	1.03825e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	3.21793e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	-1.01606e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	1.07176e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	-1.31559e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	3.05106e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	-5.31588e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	-2.17775e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	4.05531e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	-1.55672e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+5	6	4.23493e-24	0	0	0	0   (-0% / +0%)
+# low recoil, bin width 0.5 GeV^2
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	5.457e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	7.56354e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	9.68651e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	-7.49503e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	3.22364e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	-2.35532e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	5.74254e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	-7.71047e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	-1.18129e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	8.75413e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	-4.13026e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+15	16	6.32496e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	4.9673e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	6.63128e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	9.00539e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	-6.57991e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	2.99716e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	-2.80433e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	5.37925e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	-6.39055e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	-1.04441e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	7.13442e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	-3.15712e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+16	17	5.15743e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	4.13959e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	5.35046e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	7.63488e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	-5.31755e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	2.54119e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	-3.07414e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	4.65587e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	-4.55996e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	-7.97635e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	2.3024e-39	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	-2.09198e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+17	18	3.65777e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	2.70548e-20	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	3.4165e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	5.04879e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	-3.40231e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	1.68053e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	-2.65915e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	3.19946e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	-2.13219e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	-3.99576e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	8.91888e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	-9.16246e-25	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+18	19	1.71643e-24	0	0	0	0   (-0% / +0%)
+# B->K^*ll::Gamma+Gammabar@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.20205e-21	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.75599e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_1s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	4.12701e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-2.7492e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_2s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	1.37376e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_3@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-2.63503e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_4@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	2.72005e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_5@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-7.55918e-23	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6s@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-1.49415e-22	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_6c@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	0	0	0	0	0   (-nan% / +nan%)
+# B->K^*ll::J_7@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	4.6609e-40	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_8@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	-3.1041e-26	0	0	0	0   (-0% / +0%)
+# B->K^*ll::J_9@LowRecoil: form-factors=KMPW2010,model=SM
+# s_min	s_max	central	delta_min	delta_max	delta_min	delta_max
+19	19.21	6.13549e-26	0	0	0	0   (-0% / +0%)

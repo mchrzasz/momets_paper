@@ -1,0 +1,577 @@
+% vim: set sts=4 et :
+\documentclass[aps,prd,reprint,nofootinbib,preprintnumbers]{revtex4}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+%% Shortcuts %%
+\newcommand{\dd}{\text{d}}
+\newcommand{\refapp}[1]{app.~(\ref{app:#1})}
+\newcommand{\refeq}[1]{eq.~(\ref{eq:#1})}
+\newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
+\newcommand{\reftab}[1]{tab.~(\ref{tab:#1})}
+\newcommand{\nuvec}{\vec{\nu}}
+\newcommand{\thvec}{\vec{\vartheta}}
+\let\oldtheta\theta
+\renewcommand{\theta}{\vartheta}
+\newcommand{\GeV}{\text{GeV}}
+\newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
+\let\eps\varepsilon
+\newcommand{\what}[1]{\widehat{#1}}
+\newcommand{\wwhat}[1]{\widehat{\widehat{#1}}}
+\DeclareMathOperator{\cov}{Cov}
+
+%% Draft Macros %%
+\newcommand{\todo}[1]{{\color{red}\bf ToDo: #1}}
+\newcommand{\danny}[1]{{\color{purple}#1}}
+\newcommand{\fred}[1]{{\color{gold!85!black}#1}}
+\newcommand{\nico}[1]{{\color{green!85!black}#1}}
+\newcommand{\citeneeded}{{\color{red}\bf [cite needed]}}
+
+\begin{document}
+
+\allowdisplaybreaks
+
+\preprint{SI-HEP-2014-xx}
+\title{Sample Based Determination of Angular Observables}
+\author{Frederik Beaujean}
+\email{frederik.beaujean@lmu.de}
+\affiliation{C2PAP, Universe Cluster, Ludwig-Maximilians-Universit\"at M\"unchen, Garching, Germany}
+\author{Marcin Chrzaszcz}
+\email{chrzaszcz.marcin@gmail.com}
+\author{Nicola Serra}
+\email{nicola.serra@cern.ch}
+\affiliation{Physik-Institut, Universit\"at Z\"urich, Z\"urich, Switzerland}
+\author{Danny van Dyk}
+\email{vandyk@tp1.physik.uni-siegen.de}
+\affiliation{Theoretische Physik 1, Naturwissenschaftlich-Technische Fakult\"at,
+Universit\"at Siegen, Siegen, Germany}
+
+\begin{abstract}
+We study means to determine angular observables for a generic angular distribution
+of either decays or scattering processes. \dots
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+In this letter we study how to obtain a set of angular observables $P_i$
+that arise in a generic multi-body processes without the need to carry out
+an explicit fit of an angular distribution to data. Instead, we present a method
+that only relies on orthogonality of angular functions, and estimation of integrals
+by means of Monte Carlo techniques.\\
+
+The initial motivation for studying what we wish to call the \emph{Method of Moments}
+is the determination of angular observables in the decay rare, FCNC-mediated decay
+$\bar{B}\to \bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$. However, we emphasize that
+he method we describe in the remainder of this letter is applicable to arbitrary
+decay or scattering processes.\\
+
+For the purpose of this work, let $P_i$ be a set of functions of $m$ non-angular
+kinematic variables $\nuvec$, $P_i \equiv P_i(\nuvec)$, with $\nuvec = (\nu_1, \dots \nu_m)$.
+These include, among others, invariant masses or center of mass energies pertinent
+to the respective decay or scattering processes. Let us further assume the angular
+observables to be defined via a suitably factorizing probability distribution (PDF),
+\begin{align}
+    \label{eq:def-P}
+    P(\nuvec, \thvec) = \sum_k P_i(\nuvec) \times f_i(\thvec)\,,
+\end{align}
+Here, the dependence on the $n$ decay angles $\thvec = (\theta_1, \dots, \theta_n)$ has been
+explicitly factored out in terms of the angular functions $f_i(\thvec)$, which we assume to fulfill the
+orthonormality relations
+\begin{equation}
+    \label{eq:def-ortho-rel}
+    \int_\Omega f_i(\thvec) f_j(\thvec) \dd^n \theta = \delta_{ij}\,.
+\end{equation}
+(For the purpose of this letter, however, it suffices that the system of angular
+functions $f_i(\thvec)$ can be transformed into an orthonorml basis. The transformations to these
+bases for a selection of decays has been written out in the appendices \ref{app:btokll} through
+\ref{app:lambdabtolambdall}.)\\
+
+
+For particle decays, we $P$ is expressed in terms of the fully differential decay width,
+\begin{align}
+    \label{eq:def-P-decay}
+    P(\nuvec, \thvec) \equiv \frac{1}{\Gamma}\frac{\dd^{n+m}\Gamma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
+\end{align}
+where $\Gamma$ is the total decay width. For a scattering process, one can similarly use
+\begin{align}
+    \label{eq:def-P-scattering}
+    P(\nuvec, \thvec) \equiv \frac{1}{\sigma}\frac{\dd^{n+m}\sigma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
+\end{align}
+where the total cross section $\sigma$ is used for the normalisation. Since the determination of
+the total decay width or total cross section can be quite difficult, we emphasize that different normalizations for
+$P$ can be used. For instance, the total decay width (or cross section) of the process of interest can be replaced
+by the corresponding quantity of a control-channel process.\\
+
+
+In the remainder of this letter we discuss how to obtain the angular observables $P_i(\nuvec)$ in an experimental
+setup where each recorded event is (approximately) as variate of $P$.
+We lay down the groundwork in section \ref{sec:sample-based-det}. Section \ref{sec:systematics} is dedicated to
+the impact of systematic effects, such as mismodelling of the underlying physics and detector acceptance
+effects. Numerical studies for one uni-angular and one triple-angular distribution are provided in section
+\ref{sec:numerics}. In a series of appendices we discuss the relevant orthonormal bases of angular functions
+at the hand of the several rare $b$ decays.
+
+
+
+\section{Sample Based Determination}
+\label{sec:sample-based-det}
+
+From the orthonormality relations \refeq{def-ortho-rel} follows that a single angular observable $P_i$
+can be projected out of the full PDF $P$ by means of
+\begin{equation}
+    \label{eq:det-Pi-analytical}
+    P_i(\nuvec) = \int_{\thvec = 0}^{2\pi} f_i(\thvec) P(\nuvec, \thvec) \dd^n \theta\,.
+\end{equation}
+In point of fact, $P_i$ is the $f_i$-moment of the PDF $P$. Additionally, Integration over the non-angular variables yields
+\begin{equation}
+    \langle P_i\rangle
+    \equiv \int P_i(\nuvec) \dd^m \nu
+    = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\,.
+\end{equation}
+The remainder of this section is describes the method of moments, in which we replace the
+analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.\\
+
+
+The central tenet of MC integration is the fact that the expectation value $E_P[g]$ of some function
+$g(x)$ under the probability density $P(x)$,
+\begin{equation}
+    E_P[g] \equiv \int g(x) P(x) \dd x
+\end{equation}
+can be replaced \citeneeded by an MC estimator $\what{E_P[g]}$
+\begin{equation}
+    \label{eq:mc-id}
+    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{N} \sum_{k=1} g(x^{(k)})\,.
+\end{equation}
+For the purpose of the estimation, the variates $x^{(k)}$, $k = 1, \dots, N$ must distributed under $P$,
+\begin{equation}
+    x^{(k)} \sim P\,.
+\end{equation}
+(Throughout this letter we denote all MC estimators with a wide hat.)\\
+
+
+We assume, for a moment, that $P$ describes the distribution of the underlying
+physical process truthfully. In that case, all events detected in an experimental setup are in fact, up to
+detection efficiencies, distributed as $P$. Application of \refeq{mc-id} then yields
+\begin{equation}
+    \langle P_i\rangle \to \widehat{\langle P_i\rangle} = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)})\,.
+\end{equation}
+However, it is often of interest to obtain the $\nuvec$-integrated observables for
+certain $\nuvec$ ranges, i.e. binned measurements of $\langle P_i\rangle$\footnote{%
+We refer for example to the determination of the angular observables $J_i$ in $\bar{B}\to\bar{K}^*\ell^+\ell^-$
+decays, see e.g. \cite{Aaij:2013iag}. For details on the relation between the $P_i$ and the angular observable $J_i$ in the
+aforementioned decay, we refer to appendix \ref{app:btokstarll}.
+}.
+Therefore, we introduce the bin-integrated quantities
+\begin{align}
+    \langle P_i\rangle_{\vec{a},\vec{b}}
+    & = \int_{\vec{a}}^{\vec{b}} P_i(\nuvec) \dd^m \nu\\
+    & = \int_{\vec{a}}^{\vec{b}} \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\\
+    & = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec)
+        \theta^{(m)}(\nuvec - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec) \dd^n\theta\right]\dd^m \nu\,.
+\end{align}
+Application of \refeq{mc-id} immediately yields
+\begin{equation}
+    \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}
+    = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)}) \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
+\end{equation}
+This basically reduces the determination of $P_i$ to a (weighted) counting experiment. As a consequence,
+the statistical error on $\what{P_i}$ can be expected to follow a multivariate gaussian distribution \citeneeded.
+In this case, the covariance $\cov[\what{P_i},\what{P_j}]$ is of particular interest. The latter can be replaced
+by a suitable MC estimator, the sample covariance
+\begin{equation}
+    \cov[\what{P}_i,\what{P}_j] \to \what{\cov}[\what{P}_i, \what{P}_j]_{\vec{a},\vec{b}}
+        = \frac{1}{N - 1} \sum_{k=1}^{N} \big[\hat{f}_i^{(k)} - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\hat{f}_j^{(k)} - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
+        \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
+\end{equation}
+
+
+
+\section{Sources of Systematic Uncertainties}
+\label{sec:systematics}
+
+In \refsec{sample-based-det}, we assumed that the PDF $P$ described the physical reality accurately,
+and that the experiment observed each event with perfect accuracy. In order to estimate systematic
+uncertainties, we lift these assumptions.
+
+\subsection{Mismodelling due to Contributions by Higher Partial Waves}
+\label{sec:systematics:partial-waves}
+
+\danny{
+So far, we assumed that our underlying physical process was accurately described by our PDF $P$.
+However, in several interesting processes we might only have an approximative result for $P$.
+We will now show that this is the case for the interesting class four-body decays $B\to P_1 P_2 \ell_1 \bar\ell_2$,
+which includes the rare $b\to s$-mediated $B$ decay $B \to K\pi\ell^+\ell^-$ and the $V_{ub}$ suppressed decay
+$B\to \pi\pi\ell^+\bar\nu_\ell$. For the sake of clarity and simplicity, we will here discuss
+the application of our method to the decay $B\to \pi\pi\ell^+\bar\nu_\ell$.\\
+
+We now face the problem that $P$ has a given dependence on the dilepton helicity angle $\theta_1$
+and the azimuthal angle $\theta_3$. However, the dipion system can have an arbitrary large
+total angular momentum; only the its third component is restricted to $J^{\pi\pi}_z = -1,0,+1$.
+Therefore, we will restrict integration to the angles $\theta_1$ and $\theta_3$. \dots
+}
+
+\subsection{Detector Acceptance Effects and Backgrounds}
+\label{sec:systematics:acceptance}
+
+Thanks to accurate detector simulations and control studies, the experimental analyses have become
+remarkably good at removing detector acceptance effects. In this section we therefore assume that
+there are only a small, residual acceptance effects left that affect the events. In particular, we
+assume that the latter can be modelled as a modified probability density,
+\begin{equation}
+    \label{eq:PDFwithDE}
+    P(\nuvec,\thvec) \to P(\nuvec,\thvec) \times \Omega(\thvec),
+\end{equation}
+where $\Omega$ is independent of the non-angular kinematics $\nuvec$. The latter assumption is only
+is invalid in general. However, if residual angular acceptance only weakly depends on $\vec{\nu}$, one
+can always choose appropriate bin $\vec{\nu}$ so that $\Omega$ is approximately constant with respect
+to $\vec{\nu}$. For such a case we parametrize
+\begin{equation}
+    \Omega_{m,l}(\thvec) = \prod_{i=1}^{m} \Big[1 + \sum_{j=1}^l \eps_i^{(j)} p_j(\cos\theta_i)\big]
+\end{equation}
+where $p_j(\cos\theta_i)$ denotes the $j$th Legendre polynomial. Since we only consider residual
+acceptance effects, we expect $\eps_i^{(j)} \ll 1$. \footnote{\danny{what are reasonable values/upper limits on the $\eps$?}}\\
+
+\paragraph{Uniangular Distribution}
+For definiteness and clarity, we consider first an uni-angular distribution $P(\theta)$.
+In this case we can parametrize the PDF $P$ as
+\begin{equation}
+    P(\theta) = P_1 + P_2 \cos\theta + P_2 \cos^2\theta\,,
+\end{equation}
+which is a parametrization that has been used in the literature for $\bar{B}\to\bar{K}\ell^+\ell^-$ decays \cite{Bobeth:2007dw}.
+While this system of angular functions is not orthonormal, it can easily be orthonormalized. For the basis of angular
+functions, see \refapp{btokll}.
+Considering detector acceptance effects up to second order in $\cos\theta$, the function $\Omega(\vec\theta)$ reads
+\begin{equation}
+    \Omega_{1,2}(\theta_1) = 1 + \eps_{1}^{(1)} \cos\theta + \frac{\eps_{1}^{(2)}}{2}\big(3 \cos^2\theta - 1\big)\qquad\eps_{1}^{(i)} = \order{\eps}\,.
+\end{equation}
+Inclusion of $\Omega_{1,2}$ as part of the PDF as proposed in \refeq{PDFwithDE} modifies the MC estimators for the angular observables.
+We find
+\begin{equation}
+\begin{aligned}
+    \wwhat{P_1} & = \Big(1 + \frac{\eps_{1}^{(2)}}{2}\Big) \what{P_1} + \frac{9 \eps_{1}^{(2)}}{70} \what{P_3}\\
+    \wwhat{P_2} & = \Big(1 - \frac{2 \eps_{1}^{(2)}}{5}\Big) \what{P_2} - \eps_{1}^{(1)} \what{P_1} - \frac{3\eps_{1}^{(1)}}{5} \what{P_3}\\
+    \wwhat{P_3} & = \Big(1 - \frac{11\eps_{1}^{(2)}}{14}\Big)\what{P_3} - \frac{3\eps_{1}^{(2)}}{2} \what{P_1} - \eps_{1}^{(1)} \what{P_2}\,.
+\end{aligned}
+\end{equation}
+Here $\what{P_i}$ denotes the uncorrected estimators, while $\wwhat{P_i}$ denotes the efficiency-corrected estimators of the angular observables.\\
+
+\paragraph{Triangular Distribution}
+
+\begin{table*}
+    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-1to6.tex}}}\\[2.5\medskipamount]
+    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-7to12.tex}}}\\[2.5\medskipamount]
+    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-13to18.tex}}}
+    \caption{The matrix $N_{ij}$ that appears in \refeq{eff-corrected-est-btokstarll}. Due to spatial
+        constraints, we split its display into columns $j=1s,1c,1i,2s,2c,2i$ (top),
+        $j=3,4,4i,5,5i,6s$ (middle) and $j=6c,7,7i,8,8i,9$ (bottom).
+        \label{tab:eff-corrected-est-btokstarll}
+    }
+\end{table*}
+
+As an example for a triangular distribution we use the decay $\bar{B}\to\bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$.
+A parametrization of its angular distribution can be found in \refapp{btokstarll}.\\
+
+For this type of distribution, we expand $\Omega_3$ to linear order in $\eps$,
+\begin{equation}
+    \Omega_{3,2}(\theta_1,\theta_2,\theta_3) = 1 + \sum_{i=1}^3 \sum_{j=1}^2 \eps_i^{(j)} p_j(\cos\theta_i) + \order{\eps^2}\,.
+\end{equation}
+This leads to a matrix-valued equation that relates the effiency-corrected estimators $\wwhat{P}_i$ to the uncorrected
+estimators $\what{P}_j$,
+\begin{equation}
+    \label{eq:eff-corrected-est-btokstarll}
+    \wwhat{P}_i = \sum_{j=1\text{s},\dots\,9} \big(\delta_{ij} + N_{ij}\big) \what{P}_j\,.
+\end{equation}
+We provide the matrix $N$ in \reftab{eff-corrected-est-btokstarll}.\\
+
+\paragraph{Recipe to determine the acceptance effects}
+
+The determination of the coefficients $\eps_i^{(j)}$ that parametrize the detectory effects is generally
+a difficult task. Here, we will show a systematic method to determine these coefficients. \dots
+
+
+\section{Toy Studies}
+\label{sec:numerics}
+
+\todo{
+\begin{itemize}
+    \item Simulate this for one angle $\theta_{1}$ (similar to $B\to K \ell^+\ell^-$) with varying samples sizes.
+    \item Simulate this for three angles $\theta_{1\dots 3}$ (similar to $B\to K^*(\to K \pi)\ell^+\ell^-$) with varying samples sizes.
+    \item Also, check explicitly the variance and covariance of the results for all sample sizes considered.
+\end{itemize}}
+
+
+
+\section{Conclusion}
+
+In this letter \dots
+\begin{enumerate}
+    \item errors on the means are in very good approximation gaussian.
+    \item correlation are small and faithfully model a multivariate gaussian.
+\end{enumerate}
+
+
+\acknowledgments
+
+The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung (BMBF).
+\dots
+\danny{Potential people to read the manuscript: Jochen Dingfelder (Belle-II, Bonn), Ulrik Egede (LHCb, Imperial London), Christoph Langenbruch (LHCb, Warwick), Michel De Cian (LHCb, Heidelberg).}
+
+\appendix
+
+\section{Application to $\bar{B}\to\bar{K}\ell^+\ell^-$}
+\label{app:btokll}
+
+The PDF for the decay $\bar{B}\to\bar{K}\ell^+\ell^-$ has been calculated for the most
+complete basis of dimension-six $b\to s \ell^+\ell^-$ operators. It reads \cite{Bobeth:2007dw,Bobeth:2012vn}
+\begin{equation}
+    P(q^2, \cos\theta_1) = \frac{1}{\Gamma} \frac{\dd^4\Gamma}{\dd q^2\,\dd \cos\theta_1} = \frac{a(q^2)}{\Gamma} + \frac{b(q^2)}{\Gamma} \cos\theta_1 + \frac{c(q^2)}{\Gamma} \cos^2\theta_1 = \sum_i P_i f_i(\cos\theta_1)\,,
+\end{equation}
+where the basis of angular functions $f_i$ reads
+\begin{equation}
+\begin{aligned}
+    f_1 & = 1\,, &
+    f_2 & = \cos\theta_1\,, &
+    f_2 & = \cos^2\theta_1\,.
+\end{aligned}
+\end{equation}
+Here we denote the dilepton mass squared as $q^2$, and the dilepton helicity angle as $\theta_1 \equiv \theta_{\ell}$. We transform the PDF from a $\cos\theta_1$-dependence
+to a $\theta_1$-dependence,
+\begin{equation}
+    P(q^2, \theta_1) = \sum_i P_i f_i(\cos\theta_1) \sin \theta_1\,.
+\end{equation}
+
+We provide dual basis $\hat{f}_i$ of angular functions which is dual to the basis $f_i$ in the sence that
+\begin{equation}
+    \int_0^\pi \dd\theta_1 \hat{f}_i(\theta_1) f_j(\theta_1) \sin\theta_1 = \delta_{ij}\,,
+\end{equation}
+thereby enabling us to project out exactly one of the angular
+observables $P_i(q^2)$
+\begin{equation}
+    \int_0^\pi \dd \theta_1\hat{f}_i(\theta_1) P(q^2, \theta_1) = P_i(q^2)\,.
+\end{equation}
+The dual basis reads
+\begin{equation}
+\begin{aligned}
+    \hat{f}_1 & = \frac{9}{8} - \frac{15}{8}\cos^2\theta_1\,, &
+    \hat{f}_2 & = \frac{3}{2}\cos\theta_1\,, &
+    \hat{f}_3 & = -\frac{15}{8} + \frac{45}{8}\cos^2\theta_1\,.
+\end{aligned}
+\end{equation}
+
+\section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ (S-wave and P-wave)}
+\label{app:btokstarll}
+
+The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ -- up to and including P-wave contributions -- has been calculated
+for the most general basis of dimension-six $b\to s$ operators. It reads \cite{Blake:2012mb,Bobeth:2012vn}
+\begin{equation}
+    P(q^2, \cos\theta_1, \cos\theta_2, \phi) = \frac{1}{\Gamma} \frac{\dd^4\Gamma}{\dd q^2\,\dd \cos\theta_1\,\dd \cos\theta_2\,\dd \phi} = \frac{3}{8\pi} \sum_i \frac{J_{i}(q^2)}{\Gamma} f_i(\cos\theta_1, \cos\theta_2, \phi)\,,
+\end{equation}
+where $\theta_1 \equiv \theta_\ell$ is the dilepton helicity angle, and $\theta_2 \equiv \theta_{K^*}$ is the $\bar{K}\pi$ helicity angle.
+The decay width is
+\begin{equation}
+    \Gamma = \frac{\big(3 J_{1c} - J_{2c}\big) + 2\big(3J_{1s} - J_{2s}\big)}{3}\,.
+\end{equation}
+The angular functions read \cite{Blake:2012mb,Bobeth:2012vn}
+\begin{equation}
+\begin{aligned}
+    f_{1s} & = \sin^2\theta_2 &
+    f_{1c} & = \cos^2\theta_2 &
+    f_{1i} & = \cos\theta_2\\
+    f_{2s} & = \sin^2\theta_2 \cos 2\theta_1 &
+    f_{2c} & = \cos^2\theta_2 \cos 2\theta_1 &
+    f_{2i} & = \cos\theta_2 \cos 2\theta_1\\
+    f_{3}  & = \sin^2\theta_2\sin^2\theta_1 \cos 2\phi &
+    f_{9}  & = \sin^2\theta_2\sin^2\theta_1 \sin 2\phi\\
+    f_{4}  & = \sin 2\theta_2 \sin 2\theta_1 \cos\phi & & &
+    f_{4i} & = \sin\theta_2 \sin 2\theta_1 \cos\phi\\
+    f_{5}  & = \sin 2\theta_2 \sin \theta_1 \cos\phi & & &
+    f_{5i} & = \sin\theta_2 \sin \theta_1 \cos\phi\\
+    f_{6s} & = \sin^2\theta_2 \cos\theta_1 &
+    f_{6c} & = \cos^2\theta_2 \cos\theta_1\\
+    f_{7}  & = \sin 2\theta_2 \sin \theta_1 \sin\phi & & &
+    f_{7i} & = \sin\theta_2 \sin \theta_1 \sin\phi\\
+    f_{8}  & = \sin 2\theta_2 \sin 2\theta_1 \sin\phi & & &
+    f_{8i} & = \sin\theta_2 \sin 2\theta_1 \sin\phi\,.
+\end{aligned}
+\end{equation}
+(Note here the notation, where indices with an \emph{i} arise only from S-wave/P-wave interference.)
+In terms of the angles $\theta_1$ and $\theta_2$, instead of their cosines, the PDF reads
+\begin{equation}
+    P(q^2, \theta_1, \theta_2, \phi) = \frac{3}{8\pi} \sum_i P_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \phi) \sin\theta_1 \sin\theta_2\,,
+\end{equation}
+where we also define $P_i(q^2) = J_i(q^2) / \Gamma$.\\
+
+We provide dual basis $\hat{f}_i$ of angular functions which is dual to the basis $f_j$ in the sense that
+\begin{equation}
+    \frac{3}{8\pi}\int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\theta_2,\phi) f_j(\theta_1,\theta_2,\phi) \sin\theta_1 \sin\theta_2 = \delta_{ij}\,,
+\end{equation}
+thereby enabling us to project out exactly one of the angular
+observables $P_i(q^2)$
+\begin{equation}
+    \int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\theta_2,\phi) P(q^2, \theta_1,\theta_2,\phi) = P_i(q^2)\,.
+\end{equation}
+The dual basis reads
+\begin{equation}
+\begin{aligned}
+    \hat{f}_{1s} & = \frac{\big( 63 \sin^2\theta_1 - 42 \cos^2\theta_1\big) + \big(  45 \sin^2\theta_1 - 30 \cos^2\theta_1\big)\cos 2\theta_2}{64} \,,\\
+    \hat{f}_{1c} & = \frac{\big(-21 \sin^2\theta_1 + 84 \cos^2\theta_1\big) + \big( -15 \sin^2\theta_1 + 60 \cos^2\theta_1\big)\cos 2\theta_2}{32} \,,\\
+    \hat{f}_{2s} & = \frac{\big( 45 \sin^2\theta_1 - 30 \cos^2\theta_1\big) + \big(+135 \sin^2\theta_1 - 90 \cos^2\theta_1\big)\cos 2\theta_2}{64} \,,\\
+    \hat{f}_{2c} & = \frac{\big(-15 \sin^2\theta_1 + 60 \cos^2\theta_1\big) + \big( -45 \sin^2\theta_1 +180 \cos^2\theta_1\big)\cos 2\theta_2}{32} \,,
+\end{aligned}
+\end{equation}
+as well as
+\begin{equation}
+\begin{aligned}
+    \hat{f}_{1sc}& = \frac{\big(21 + 15 \cos2\theta_2\big)\cos\theta_1}{16}               \,,&
+    \hat{f}_{2sc}& = \frac{\big(15 + 45 \cos2\theta_2\big)\cos\theta_1}{16}               \,,\\
+    \hat{f}_{6s} & = \frac{\big( 9\sin^2\theta_1 -  6 \cos^2\theta_1\big)\cos\theta_2}{4} \,,&
+    \hat{f}_{6c} & = \frac{\big(-3\sin^2\theta_1 + 12 \cos^2\theta_1\big)\cos\theta_2}{2} \,,\\
+    \hat{f}_{3}  & = \frac{75 \sin^2\theta_1 \sin^2\theta_2 \cos2\phi}{32}                \,,&
+    \hat{f}_{9}  & = \frac{75 \sin^2\theta_1 \sin^2\theta_2 \sin2\phi}{32}                \,,\\
+    \hat{f}_{4}  & = \frac{75 \sin 2\theta_1 \sin 2\theta_2 \cos \phi}{32}                \,,&
+    \hat{f}_{4i} & = \frac{15 \sin  \theta_1 \sin 2\theta_2 \cos \phi}{8}                 \,,\\
+    \hat{f}_{5}  & = \frac{15 \sin 2\theta_1 \sin  \theta_2 \cos \phi}{8}                 \,,&
+    \hat{f}_{5i} & = \frac{3  \sin  \theta_1 \sin  \theta_2 \cos \phi}{2}                 \,,\\
+    \hat{f}_{7}  & = \frac{15 \sin 2\theta_1 \sin  \theta_2 \sin \phi}{8}                 \,,&
+    \hat{f}_{7i} & = \frac{3  \sin  \theta_1 \sin  \theta_2 \sin \phi}{2}                 \,,\\
+    \hat{f}_{8}  & = \frac{75 \sin 2\theta_1 \sin 2\theta_2 \sin \phi}{32}                \,,&
+    \hat{f}_{8i} & = \frac{15 \sin  \theta_1 \sin 2\theta_2 \sin \phi}{8}                 \,.
+\end{aligned}
+\end{equation}
+
+\section{Application to $\bar{B}\to P_1 P_2\ell^+\ell^-$ (all partial waves)}
+\label{app:btokpill}
+
+The class of $P\to P_1 P_2 \ell_1\bar\ell_2$ decays, with $P,P_1,P_2$ pseudoscalar mesons,
+and $\ell_1$, $\bar\ell_2$ charge or neutral leptons, includes decays
+such as e.g. $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ and $\bar{B}\to \pi\pi\ell^-\bar\nu_\ell$.
+Their PDFs can generally be written as \cite{Lee:1992ih}
+\begin{equation}
+    P(q^2, k^2, \cos\theta_1, \cos \theta_2, \phi) = \frac{1}{\Gamma}\frac{\dd^5 \Gamma}{\dd q^2\,\dd k^2\, \dd\cos\theta_1\,\dd\cos\theta_2\,\dd\phi} = \frac{1}{4\pi} \sum_i \frac{I_i(q^2, k^2, \cos\theta_2)}{\Gamma} f_i(\cos\theta_1,\phi)\,,
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+    f_1 & = 1\,,              &
+    f_2 & = \cos 2\theta_1\,, &
+    f_6 & = \cos  \theta_1\,, \\
+    f_3 & = \sin^2\theta_1 \cos 2\phi\,,&
+    f_4 & = \sin 2\theta_1 \cos  \phi\,,&
+    f_5 & = \sin  \theta_1 \cos  \phi\,,\\
+    f_9 & = \sin^2\theta_1 \sin 2\phi\,.&
+    f_8 & = \sin 2\theta_1 \sin  \phi\,,&
+    f_7 & = \sin  \theta_1 \sin  \phi\,,
+\end{aligned}
+\end{equation}
+Here we denote dilepton mass squared and the dilepton helicity angle as $q^2$ and $\theta_1$, while
+the dimeson mass squared and the dimeson helicity angles are denoted as $k^2$ and $\theta_2$. The
+azimuthal angle is denoted as $\phi$. The total decay width is
+\begin{equation}
+    \langle \Gamma\rangle = \int_0^\pi \dd\theta_1\,\frac{\langle 3I_1(\cos\theta_1) - I_2(\cos\theta_1)}{3}\,.
+\end{equation}
+As usual, we transform from a $\cos\theta_1$-dependence to a $\theta_1$-dependence.
+\begin{equation}
+\begin{aligned}
+    P(q^2, k^2, \theta_1, \theta_2, \phi)
+    & = \frac{1}{4\pi} \sum_i \frac{I(q^2, k^2, \cos\theta_2)}{\Gamma} f_i(\theta_1, \phi) \sin\theta_1 \sin\theta_2\\
+    & \equiv \frac{1}{4\pi} \sum_i P_i(q^2, k^2, \theta_2) f_i(\theta_1, \phi) \sin\theta_2\,.
+\end{aligned}
+\end{equation}
+where we also define $P_i(q^2, k^2, \theta_2) \equiv \theta_2 I_i(q^2, k^2, \cos\theta_2) / \Gamma$.\\
+
+We provide a basis $\hat{f}_i$ of angular functions which is dual to the basis $f_j$ in the sense that
+\begin{equation}
+    \frac{1}{4\pi}\int_0^\pi \dd\theta_1 \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\phi) f_j(\theta_1,\phi) \sin\theta_1 = \delta_{ij}\,,
+\end{equation}
+thereby enabling us to project out exactly one of the angular
+observables $P_i(q^2)$
+\begin{equation}
+    \int_0^\pi \dd\theta_1 \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\phi) P(q^2, k^2, \theta_1,\theta_2,\phi) = P_i(q^2, k^2, \theta_2)\,.
+\end{equation}
+The dual basis reads
+\begin{equation}
+\begin{aligned}
+    \hat{f}_1 & = \frac{21 + 15 \cos 2\theta_1}{16}\,, &
+    \hat{f}_2 & = \frac{15 + 45 \cos 2\theta_1}{16}\,, &
+    \hat{f}_6 & = 3 \cos\theta_1                   \,, \\
+    \hat{f}_3 & = \frac{15}{4}                \cos 2\phi     \,, &
+    \hat{f}_4 & = \frac{15}{4} \sin 2\theta_1 \cos  \phi     \,, &
+    \hat{f}_5 & = 3            \sin  \theta_1 \cos  \phi     \,, \\
+    \hat{f}_9 & = \frac{15}{4}                \sin 2\phi     \,, &
+    \hat{f}_8 & = \frac{15}{4} \sin 2\theta_1 \sin  \phi     \,, &
+    \hat{f}_7 & = 3            \sin  \theta_1 \sin  \phi     \,.
+\end{aligned}
+\end{equation}
+
+
+\section{Application to $\Lambda_b\to \Lambda(\to N \pi)\ell^+\ell^-$}
+\label{app:lambdabtolambdall}
+
+The physical PDF for the decay -- in the presence of Standard Model operator and their chirality flipped counter parts -- reads \cite{Boeer:2014xx}
+\begin{equation}
+    P_{\Lambda_b}(q^2, \cos\theta_1, \cos\theta_2, \phi) = \frac{1}{\Gamma} \frac{\dd^4\Gamma}{\dd q^2\,\dd \cos\theta_1\,\dd \cos\theta_2\,\dd \phi} = \frac{3}{8\pi} \sum_i \frac{K_{i}(q^2)}{\Gamma} f_i(\cos\theta_1, \cos\theta_2, \phi)\,,
+\end{equation}
+where $q^2$ denotes the dilepton mass squared, and $\theta_1 \equiv \theta_\ell$ and $\theta_2 \equiv \theta_\Lambda$ denote the
+helicity angles in the dilepton and $N\pi$ systems, respectively. The basis of angular functions reads
+\begin{equation}
+    \begin{aligned}
+% 1
+        f_{1ss} & = \sin^2\theta_1 &
+        f_{1cc} & = \cos^2\theta_1 &
+        f_{1c}  & = \cos\theta_1\\
+% 2
+        f_{2ss} & = \sin^2\theta_1 \cos\theta_2 &
+        f_{2cc} & = \cos^2\theta_1 \cos\theta_2 &
+        f_{2c}  & = \cos\theta_1   \cos\theta_2 \\
+% 3
+        f_{3sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\phi &
+        f_{3s}  & = \sin\theta_1              \sin\theta_2 \cos\phi \\
+% 4
+        f_{4sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\phi &
+        f_{4s}  & = \sin\theta_1              \sin\theta_2 \sin\phi
+    \end{aligned}
+\end{equation}
+The decay width reads $\langle\Gamma\rangle = \langle2 K_{1ss} + K_{1cc}\rangle$. In terms of the angles $\theta_1$ and $\theta_2$, instead of the cosines, the PDF reads
+\begin{equation}
+    P_{\Lambda_b}(q^2, \theta_1, \theta_2, \phi) = \frac{3}{8\pi} \sum_i P_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \phi) \sin\theta_1 \sin\theta_2\,,
+\end{equation}
+where we also define $P_i(q^2) = K_i(q^2) / \Gamma$.
+
+We provide a dual basis $\hat{f}_i$ of the angular functions which is orthogonal to the basis $f_j$ in the sense that
+\begin{equation}
+    \frac{3}{8\pi}\int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\theta_2,\phi) f_j(\theta_1,\theta_2,\phi) \sin\theta_1 \sin\theta_2 = \delta_{ij}\,,
+\end{equation}
+thereby enabling us to project out exactly one of the angular observables $P_i(q^2)$ using
+\begin{equation}
+    \int_0^\pi \dd \theta_1 \int_0^\pi \dd \theta_2 \int_0^{2\pi} \dd \phi P(q^2, \theta_1, \theta_2, \phi) \hat{f}_i(\theta_1, \theta_2, \phi) = P_i(q^2)\,.
+\end{equation}
+The dual basis reads
+\begin{equation}
+    \begin{aligned}
+% 1
+        \hat f_{1ss} & = \frac{\pi^3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
+        \hat f_{1cc} & = \frac{\pi^3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
+        \hat f_{1c}  & = \pi^3 \cos\theta_1\\
+% 2
+        \hat f_{2ss} & = \frac{3\pi^3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
+        \hat f_{2cc} & = \frac{3\pi^3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
+        \hat f_{2c}  & = 3\pi^3 \cos\theta_1   \cos\theta_2 \\
+% 3
+        \hat f_{3sc} & = \frac{15\pi^3}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\phi &
+        \hat f_{3s}  & = \frac{3\pi^3}{2} \sin\theta_1              \sin\theta_2 \cos\phi \\
+% 4
+        \hat f_{4sc} & = \frac{15\pi^3}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\phi &
+        \hat f_{4s}  & = \frac{3\pi^3}{2} \sin\theta_1              \sin\theta_2 \sin\phi
+    \end{aligned}
+\end{equation}
+
+
+\bibliography{references}
+
+\end{document}

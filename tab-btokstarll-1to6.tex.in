@@ -1,0 +1,22 @@
+\left(
+\begin{array}{cccccc}
+ \frac{13}{35} \text{eps}(1,2)-\frac{1}{4} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) & \frac{9}{70} \text{eps}(1,2) & 0 & -\frac{39}{140} \text{eps}(2,2) & 0 & 0 \\
+ -\frac{12}{35} \text{eps}(1,2) & -\frac{23}{35} \text{eps}(1,2)-\frac{1}{4} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) & -\text{eps}(1,1) & 0 & -\frac{39}{140} \text{eps}(2,2) & 0 \\
+ -\frac{2}{5} \text{eps}(1,1) & -\frac{3}{5} \text{eps}(1,1) & -\frac{2}{5} \text{eps}(1,2)-\frac{1}{4} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) & 0 & 0 & -\frac{39}{140} \text{eps}(2,2) \\
+ -\frac{3}{4} \text{eps}(2,2) & 0 & 0 & \frac{13}{35} \text{eps}(1,2)-\frac{1}{28} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) & \frac{9}{70} \text{eps}(1,2) & 0 \\
+ 0 & -\frac{3}{4} \text{eps}(2,2) & 0 & -\frac{12}{35} \text{eps}(1,2) & -\frac{23}{35} \text{eps}(1,2)-\frac{1}{28} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) & -\text{eps}(1,1) \\
+ 0 & 0 & -\frac{3}{4} \text{eps}(2,2) & -\frac{2}{5} \text{eps}(1,1) & -\frac{3}{5} \text{eps}(1,1) & -\frac{2}{5} \text{eps}(1,2)-\frac{1}{28} \text{eps}(2,2)-\frac{1}{4} \text{eps}(3,2) \\
+ -\frac{15}{16} \text{eps}(3,2) & -\frac{15}{64} \text{eps}(3,2) & 0 & \frac{9}{16} \text{eps}(3,2) & \frac{9}{64} \text{eps}(3,2) & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & -\frac{45}{512} \pi ^2 \text{eps}(3,1) & 0 & 0 & \frac{45 \pi ^2 \text{eps}(3,1)}{1024} \\
+ -\frac{27}{256} \pi ^2 \text{eps}(3,1) & -\frac{9}{256} \pi ^2 \text{eps}(3,1) & 0 & \frac{27}{512} \pi ^2 \text{eps}(3,1) & \frac{9}{512} \pi ^2 \text{eps}(3,1) & 0 \\
+ -\text{eps}(2,1) & 0 & 0 & -\frac{1}{5} \text{eps}(2,1) & 0 & 0 \\
+ 0 & -\text{eps}(2,1) & 0 & 0 & -\frac{1}{5} \text{eps}(2,1) & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array}
+\right)
