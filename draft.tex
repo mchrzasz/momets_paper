@@ -189,6 +189,10 @@ by a suitable MC estimator, the sample covariance
         = \frac{1}{N - 1} \sum_{k=1}^{N} \big[\hat{f}_i^{(k)} - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\hat{f}_j^{(k)} - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
         \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
 \end{equation}
+We would like to emphasize that the sample covariance should rapidly converge towards the true covariance matrix.
+This will allow to construct constraints on optimized observables with correlated uncertainties 
+from the experimental constraints on the angular observables. (See \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf}
+for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays).
 
 
 
@@ -236,6 +240,12 @@ to $\vec{\nu}$. For such a case we parametrize
 \end{equation}
 where $p_j(\cos\theta_i)$ denotes the $j$th Legendre polynomial. Since we only consider residual
 acceptance effects, we expect $\eps_i^{(j)} \ll 1$. \footnote{\danny{what are reasonable values/upper limits on the $\eps$?}}\\
+
+We are aware that setting a bin width that fulfills the aforementioned criterion can be at odds with
+other requirements. For instance, in exclusive $b\to s\ell^+\ell^-$ decays, the bin width for
+$\vec{\nu} = q^2$ needs to cover a sufficiently large part of the phase space beyond the open charm
+threshold. We emphasize that the outcome of an analysis as proposed here can easily combine several
+bins by means of a weighted average.\\
 
 \paragraph{Uniangular Distribution}
 For definiteness and clarity, we consider first an uni-angular distribution $P(\theta)$.
@@ -304,7 +314,6 @@ a difficult task. Here, we will show a systematic method to determine these coef
     \item Simulate this for three angles $\theta_{1\dots 3}$ (similar to $B\to K^*(\to K \pi)\ell^+\ell^-$) with varying samples sizes.
     \item Also, check explicitly the variance and covariance of the results for all sample sizes considered.
 \end{itemize}}
-
 
 
 \section{Conclusion}
