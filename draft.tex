@@ -4,7 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 
 %% Shortcuts %%
 \newcommand{\dd}{\text{d}}
@@ -26,7 +26,7 @@
 %% Draft Macros %%
 \newcommand{\todo}[1]{{\color{red}\bf ToDo: #1}}
 \newcommand{\danny}[1]{{\color{purple}#1}}
-\newcommand{\fred}[1]{{\color{gold!85!black}#1}}
+\newcommand{\fred}[1]{{\color{brown!85!black}#1}}
 \newcommand{\nico}[1]{{\color{green!85!black}#1}}
 \newcommand{\citeneeded}{{\color{red}\bf [cite needed]}}
 
@@ -35,7 +35,7 @@
 \allowdisplaybreaks
 
 \preprint{SI-HEP-2014-xx}
-\title{Sample Based Determination of Angular Observables}
+\title{Sample-Based Determination of Angular Observables}
 \author{Frederik Beaujean}
 \email{frederik.beaujean@lmu.de}
 \affiliation{C2PAP, Universe Cluster, Ludwig-Maximilians-Universit\"at M\"unchen, Garching, Germany}
@@ -51,7 +51,7 @@ Universit\"at Siegen, Siegen, Germany}
 
 \begin{abstract}
 We study means to determine angular observables for a generic angular distribution
-of either decays or scattering processes. \dots
+of a decay or scattering process. \dots
 \end{abstract}
 
 \maketitle
@@ -59,41 +59,46 @@ of either decays or scattering processes. \dots
 \section{Introduction}
 \label{sec:intro}
 
-In this letter we study how to obtain a set of angular observables $P_i$
-that arise in a generic multi-body processes without the need to carry out
-an explicit fit of an angular distribution to data. Instead, we present a method
-that only relies on orthogonality of angular functions, and estimation of integrals
-by means of Monte Carlo techniques.\\
+In this letter we study how to obtain a set of angular observables
+$\{P_i\}$ that arise in a generic multi-body process without the need
+to carry out a likelihood fit of an angular distribution to the
+measured events. Instead, we present a method that only relies on
+orthogonality of angular functions, and estimation of integrals
+by means of Monte Carlo techniques. \fred{Paragraph sounds like abstract}\\
 
 The initial motivation for studying what we wish to call the \emph{Method of Moments}
-is the determination of angular observables in the decay rare, FCNC-mediated decay
+is the determination of angular observables in the rare decay FCNC-mediated decay
 $\bar{B}\to \bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$. However, we emphasize that
-he method we describe in the remainder of this letter is applicable to arbitrary
+he method we describe in the remainder of this letter is general and applies to arbitrary
 decay or scattering processes.\\
 
-For the purpose of this work, let $P_i$ be a set of functions of $m$ non-angular
-kinematic variables $\nuvec$, $P_i \equiv P_i(\nuvec)$, with $\nuvec = (\nu_1, \dots \nu_m)$.
-These include, among others, invariant masses or center of mass energies pertinent
-to the respective decay or scattering processes. Let us further assume the angular
-observables to be defined via a suitably factorizing probability distribution (PDF),
+Let $\thvec = (\theta_1, \dots \theta_n)$ denote the set of all
+angles, and let $\nuvec = (\nu_1, \dots \nu_m)$ denote the set of all
+other non-angular kinematic variables needed to fully specify the
+final state of the process under study. For example, $\nuvec$ may
+include invariant masses or center-of-mass energies. We define an
+angular observable $P_i$ as a coefficient in the probability density
+function (PDF) of the process,
 \begin{align}
     \label{eq:def-P}
-    P(\nuvec, \thvec) = \sum_k P_i(\nuvec) \times f_i(\thvec)\,,
+    P(\nuvec, \thvec) = \sum_i P_i(\nuvec) \times f_i(\thvec)\,,
 \end{align}
-Here, the dependence on the $n$ decay angles $\thvec = (\theta_1, \dots, \theta_n)$ has been
-explicitly factored out in terms of the angular functions $f_i(\thvec)$, which we assume to fulfill the
-orthonormality relations
+Here, the dependence on the $n$ decay angles $\thvec$ has been
+explicitly factored out in terms of the angular functions
+$f_i(\thvec)$, which we assume to fulfill the orthonormality relations
 \begin{equation}
     \label{eq:def-ortho-rel}
     \int_\Omega f_i(\thvec) f_j(\thvec) \dd^n \theta = \delta_{ij}\,.
 \end{equation}
-(For the purpose of this letter, however, it suffices that the system of angular
-functions $f_i(\thvec)$ can be transformed into an orthonorml basis. The transformations to these
-bases for a selection of decays has been written out in the appendices \ref{app:btokll} through
+(For the purpose of this letter, however, it suffices that the system
+of angular functions $f_i(\thvec)$ can be transformed into an
+orthonormal basis. The transformation needs to be worked out on a
+case-by-case basis. For a selection of $B$ decays, the transformations
+are listed in the appendices \ref{app:btokll} through
 \ref{app:lambdabtolambdall}.)\\
 
 
-For particle decays, we $P$ is expressed in terms of the fully differential decay width,
+For particle decays, $P$ is generally expressed in terms of the fully differential decay width,
 \begin{align}
     \label{eq:def-P-decay}
     P(\nuvec, \thvec) \equiv \frac{1}{\Gamma}\frac{\dd^{n+m}\Gamma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
@@ -119,7 +124,7 @@ at the hand of the several rare $b$ decays.
 
 
 
-\section{Sample Based Determination}
+\section{Sample-Based Determination}
 \label{sec:sample-based-det}
 
 From the orthonormality relations \refeq{def-ortho-rel} follows that a single angular observable $P_i$
@@ -190,7 +195,7 @@ by a suitable MC estimator, the sample covariance
         \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
 \end{equation}
 We would like to emphasize that the sample covariance should rapidly converge towards the true covariance matrix.
-This will allow to construct constraints on optimized observables with correlated uncertainties 
+This will allow to construct constraints on optimized observables with correlated uncertainties
 from the experimental constraints on the angular observables. (See \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf}
 for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays).
 
