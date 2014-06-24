@@ -193,7 +193,7 @@ Therefore, we introduce the bin-integrated quantity
     & = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec)
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,
         %% \theta^{(m)}(\nuvec - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec)
-        \dd^n\theta\right]\dd^m \nu\,,
+        \dd^N\theta\right]\dd^M \nu\,,
 \end{align}
 where the argument of the indicator function $ \mathbf{1}(\vec{a} \le
 \nuvec \le \vec{b})$ is to be interpreted componentwise.
@@ -201,7 +201,7 @@ Application of \refeq{mc-id} immediately yields
 \begin{equation}
     \label{bin-importance}
     \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}
-    = \frac{1}{N} \sum_{k=1}^{K} f_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
+    = \frac{1}{K} \sum_{k=1}^{K} f_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
 This basically reduces the estimation of
 $\aver{P_i}_{\vec{a},\vec{b}}$ to a (weighted) counting experiment. In
