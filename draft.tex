@@ -41,7 +41,7 @@
 \email{frederik.beaujean@lmu.de}
 \affiliation{C2PAP, Universe Cluster, Ludwig-Maximilians-Universit\"at M\"unchen, Garching, Germany}
 \author{Marcin Chrzaszcz}
-\email{chrzaszcz.marcin@gmail.com}
+\email{marcin.chrzaszcz@uzh.ch}
 \author{Nicola Serra}
 \email{nicola.serra@cern.ch}
 \affiliation{Physik-Institut, Universit\"at Z\"urich, Z\"urich, Switzerland}
@@ -349,7 +349,11 @@ We provide the matrix $N$ in \reftab{eff-corrected-est-btokstarll}.\\
 \paragraph{Recipe to determine the acceptance effects}
 
 The determination of the coefficients $\eps_i^{(j)}$ that parametrize the detectory effects is generally
-a difficult task. Here, we will show a systematic method to determine these coefficients. \dots
+a difficult task. Here, we will show a systematic method to determine these coefficients.\\
+One starts from generating a flap phase space MonteCarlo sample. Simulated events are then put thought the detector simulation, and selection requirements. Since flap phase space ensures flat distribution of angles on the generated level, the only non zero moment is one associated to Fl. Measuring the moments of this MC sample leads will etc. Mayby this should be an appendix.
+
+
+
 
 
 \section{Toy Studies}
@@ -379,7 +383,7 @@ In this letter \dots
 
 The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung (BMBF).
 \dots
-\danny{Potential people to read the manuscript: Jochen Dingfelder (Belle-II, Bonn), Ulrik Egede (LHCb, Imperial London), Christoph Langenbruch (LHCb, Warwick), Michel De Cian (LHCb, Heidelberg).}
+\danny{Potential people to read the manuscript: Jochen Dingfelder (Belle-II, Bonn), Ulrik Egede (LHCb, Imperial London), Christoph Langenbruch (LHCb, Warwick), Michel De Cian (LHCb, Heidelberg), Adrian Bevan (ATLAS, Queen Mary)  }
 D.v.D would like to thank Gudrun Hiller and Martin Jung for discussing the results of \cite{Das:2014xx} prior to publication.
 
 \appendix
@@ -632,15 +636,16 @@ The dual basis reads
 \end{equation}
 
 
-\section{On the Partial Wave Expansions of Interference Terms}
+\section{On the Partial Wave Expansions of Angular Observables}
 \label{app:partial-waves}
 
 Let $P \equiv P(\vec{\nu},\theta)$ be an observable of only one angle $\theta$ and further non-angular variables $\vec{\nu}$. Further, let
 $P$ have an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots \hat{=} S,P,D,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
 \begin{equation}
-    P(\theta) \equiv A_1(\theta) A_2^*(\theta) \equiv \left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_1^{(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\,.
+    \label{eq:def-partial-wave-observable}
+    P(\theta) \equiv F\big(A_1(\theta) A_2^*(\theta)\big) \equiv \left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_1^{(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\,,\qquad F=\Re{},\Im{}\,.
 \end{equation}
-Here $m_1$ and $m_2$ denote the third component of the angular momentum of the respective amplitude $A_1$ or $A_2$, and we impose $l_1 \geq l_2$.\\
+Here $m_1$ and $m_2$ denote the third component of the angular momentum of the respective amplitude $A_1$ or $A_2$, and we impose $m_1 \geq m_2$.\\
 
 From positivity of the amplitudes one immediately finds
 \begin{equation}
@@ -651,15 +656,16 @@ where we introduce $n_{l,m}$ via the scalar product of two associated Legendre p
     \label{eq:legendre-scalar-product}
     n_{l, m} \delta_{l, l'} \equiv \int_{0}^\pi p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta) \dd \cos\theta = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
 \end{equation}
-Using the large-$l$ behaviour of $n_{l_i,m_i}$ one finds that with increasing $l_i$ the partial waves amplitudes must asymptotically fall off,
+Using the large-$l$ behaviour of $n_{l,m}$ one finds that with increasing $l_i$ the partial waves amplitudes must asymptotically fall off,
 \begin{equation}
     |A_i^{(l_i)}(\cos\theta)| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.
 \end{equation}
-This motivates to cut-off of the partial-wave expansion at some angular momentum $L$. Will will show in the following that such a cut-off
-is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$.\\
+This motivates to cut the partial-wave expansion off at some angular momentum $L$.\\
 
-We propose the decomposition of $P$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$, with $m=m_1 + m_2$, and
-$l_1 - l_2 \leq j \leq l_1 + l_2$,
+Will will show in the following that such a cut off
+is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies a well-defined total angular momentum for each observables, one ensures that the observables can in fact be disentangled experimentally.\\
+
+We propose the decomposition of $P$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$, with total angular momentum $j$ and its third component $m=m_1 + m_2$.
 \begin{equation}
     P(\vec{\nu}, \theta) = \sum_j P_{j,m}(\vec{\nu}) p_{j}^{(m)}(\cos\theta)\,.
 \end{equation}
@@ -672,8 +678,8 @@ Second, we can immediately express $P_{j,m}(\vec{\nu})$ in terms of the partial-
     \label{eq:partial-wave-observable-infinite}
     \begin{aligned}
         P_{j,m}(\vec{\nu})
-            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty A_{1}^{l_1} p_{l_1}^{(m_1)}(\cos\theta) \big(A_{2}^{(l_2)}\big)^* p_{l_2}^{(m_2)}(\cos\theta)\\
-            & = \sum_{l_1,l_2=0}^\infty A_{1}^{l_1} \big(A_{2}^{(l_2)}\big)^* \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
+            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty F\left(A_{1}^{l_1} p_{l_1}^{(m_1)}(\cos\theta) \big(A_{2}^{(l_2)}\big)^*\right) p_{l_2}^{(m_2)}(\cos\theta)\\
+            & = \sum_{l_1,l_2=0}^\infty F\left(A_{1}^{l_1} \big(A_{2}^{(l_2)}\big)^*\right) \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
     \end{aligned}
 \end{equation}
 In the last step, we use Gaunt's formula \cite{Gaunt:1929} to integrate a triple product of associated Legendre polynomials,
@@ -704,9 +710,15 @@ and
 \end{equation}
 The necessary condition for $T \neq 0$ are
 \begin{equation}
+    \label{eq:angular-momentum-addition}
     s \in \mathbb{N}\qquad \wedge \qquad l_1 - l_2 \leq l \leq l_1 + l_2,.
 \end{equation}
-The latter condition is well known from adding angular momenta.
+The latter condition is well known from adding angular momenta. Note, however, that
+the sum in \refeq{def-partial-wave-observable} goes to infinitely high angular momenta $l_1$ and $l_2$. As a consequence
+of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,m}$
+consist of sums with infinite terms. It is then up to theoretical analyses to
+estimate or calculate the impact of individual contributions, with or without the cut off $L$.
+For such an analysis in the decay $B\to K\pi\ell^+\ell^-$ we refer to \cite{Das:2014}.
 
 
 \bibliography{references}
