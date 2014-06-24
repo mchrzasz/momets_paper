@@ -19,6 +19,7 @@
 \newcommand{\GeV}{\text{GeV}}
 \newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
 \let\eps\varepsilon
+\newcommand{\aver}[1]{\langle #1 \rangle}
 \newcommand{\what}[1]{\widehat{#1}}
 \newcommand{\wwhat}[1]{\widehat{\widehat{#1}}}
 \DeclareMathOperator{\cov}{Cov}
@@ -81,7 +82,7 @@ angular observable $P_i$ as a coefficient in the probability density
 function (PDF) of the process,
 \begin{align}
     \label{eq:def-P}
-    P(\nuvec, \thvec) = \sum_i P_i(\nuvec) \times f_i(\thvec)\,,
+    P(\nuvec, \thvec) = \sum_i P_i(\nuvec) \times f_i(\thvec)\,.
 \end{align}
 Here, the dependence on the $n$ decay angles $\thvec$ has been
 explicitly factored out in terms of the angular functions
@@ -90,12 +91,12 @@ $f_i(\thvec)$, which we assume to fulfill the orthonormality relations
     \label{eq:def-ortho-rel}
     \int_\Omega f_i(\thvec) f_j(\thvec) \dd^n \theta = \delta_{ij}\,.
 \end{equation}
-(For the purpose of this letter, however, it suffices that the system
+For the purpose of this letter, however, it suffices that the system
 of angular functions $f_i(\thvec)$ can be transformed into an
 orthonormal basis. The transformation needs to be worked out on a
 case-by-case basis. For a selection of $B$ decays, the transformations
 are listed in the appendices \ref{app:btokll} through
-\ref{app:lambdabtolambdall}.)\\
+\ref{app:lambdabtolambdall}.  Note that $P_i$ is \emph{not} a PDF.  \\
 
 
 For particle decays, $P$ is generally expressed in terms of the fully differential decay width,
@@ -108,38 +109,52 @@ where $\Gamma$ is the total decay width. For a scattering process, one can simil
     \label{eq:def-P-scattering}
     P(\nuvec, \thvec) \equiv \frac{1}{\sigma}\frac{\dd^{n+m}\sigma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
 \end{align}
-where the total cross section $\sigma$ is used for the normalisation. Since the determination of
-the total decay width or total cross section can be quite difficult, we emphasize that different normalizations for
-$P$ can be used. For instance, the total decay width (or cross section) of the process of interest can be replaced
-by the corresponding quantity of a control-channel process.\\
+where the total cross section $\sigma$ is used for the
+normalization. Since the determination of the total decay width or
+total cross section can be quite difficult, we emphasize that
+different normalizations for $P$ can be used.  For instance, the total
+decay width (or cross section) of the process of interest can be
+replaced by the corresponding quantity of a control-channel
+process.\fred{How would $P$ remain a proper probability such that
+  $\int P = 1$? You can't simply change the normalization. I propose a
+  change of notation: I find it terribly confusing that $P(\nuvec,
+  \thvec)$ is a probability but $P_i(\nuvec)$ is not. For $P_i$, later
+  on the symbols $J_i, K_i$ etc are used. We don't have to use the
+  same symbol everywhere but let's not use $P_i$}\\
 
 
-In the remainder of this letter we discuss how to obtain the angular observables $P_i(\nuvec)$ in an experimental
-setup where each recorded event is (approximately) as variate of $P$.
-We lay down the groundwork in section \ref{sec:sample-based-det}. Section \ref{sec:systematics} is dedicated to
-the impact of systematic effects, such as mismodelling of the underlying physics and detector acceptance
-effects. Numerical studies for one uni-angular and one triple-angular distribution are provided in section
-\ref{sec:numerics}. In a series of appendices we discuss the relevant orthonormal bases of angular functions
-at the hand of the several rare $b$ decays.
+In the remainder of this letter we discuss how to obtain the angular
+observables $P_i(\nuvec)$ in an experimental setup where each recorded
+event is (approximately) distributed according to $P$.  We establish
+the statistical basics in section \ref{sec:sample-based-det}. Section
+\ref{sec:systematics} is dedicated to the impact of systematic effects
+such as mismodeling the underlying physics or detector acceptance
+effects. Numerical studies for one uni-angular and one triple-angular
+distribution are provided in section \ref{sec:numerics}. In a series
+of appendices we provide the orthonormal bases of angular functions
+relevant to several rare $b$ decays.
 
 
 
 \section{Sample-Based Determination}
 \label{sec:sample-based-det}
 
-From the orthonormality relations \refeq{def-ortho-rel} follows that a single angular observable $P_i$
+The orthonormality relations \refeq{def-ortho-rel} imply that a single angular observable $P_i$
 can be projected out of the full PDF $P$ by means of
 \begin{equation}
     \label{eq:det-Pi-analytical}
     P_i(\nuvec) = \int_{\thvec = 0}^{2\pi} f_i(\thvec) P(\nuvec, \thvec) \dd^n \theta\,.
 \end{equation}
-In point of fact, $P_i$ is the $f_i$-moment of the PDF $P$. Additionally, Integration over the non-angular variables yields
+In point of fact, $P_i$ is the $f_i$-th moment of the PDF $P$\fred{This
+  notation is uncommon. Is that how we \emph{define} the $f_i$-th
+  moment?}. Additionally, integration over the non-angular variables
+yields
 \begin{equation}
     \langle P_i\rangle
     \equiv \int P_i(\nuvec) \dd^m \nu
     = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\,.
 \end{equation}
-The remainder of this section is describes the method of moments, in which we replace the
+The remainder of this section  describes the method of moments, in which we replace the
 analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.\\
 
 
@@ -148,53 +163,66 @@ $g(x)$ under the probability density $P(x)$,
 \begin{equation}
     E_P[g] \equiv \int g(x) P(x) \dd x
 \end{equation}
-can be replaced \citeneeded by an MC estimator $\what{E_P[g]}$
+can be approximated \citeneeded\fred{Robert, Casella} by an MC estimator $\what{E_P[g]}$
 \begin{equation}
     \label{eq:mc-id}
-    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{N} \sum_{k=1} g(x^{(k)})\,.
+    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{N} \sum_{k=1} g(x^{(k)})
 \end{equation}
-For the purpose of the estimation, the variates $x^{(k)}$, $k = 1, \dots, N$ must distributed under $P$,
+due to the strong law of large numbers for $N \to \infty$ assuming
+that the variates $x^{(k)}$, $k = 1, \dots, N$ are distributed as
+$P$; i.e.,
 \begin{equation}
     x^{(k)} \sim P\,.
 \end{equation}
-(Throughout this letter we denote all MC estimators with a wide hat.)\\
+Throughout this letter we denote all MC estimators with a wide hat.\\
 
 
 We assume, for a moment, that $P$ describes the distribution of the underlying
 physical process truthfully. In that case, all events detected in an experimental setup are in fact, up to
-detection efficiencies, distributed as $P$. Application of \refeq{mc-id} then yields
+detection efficiencies, distributed as $P$. \fred{Paragraph is redundant an can be omitted.}
+
+Application of \refeq{mc-id} then yields \fred{notation is very confusing $P_i$ for $x^{(k)} \sim P$}
 \begin{equation}
     \langle P_i\rangle \to \widehat{\langle P_i\rangle} = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)})\,.
 \end{equation}
-However, it is often of interest to obtain the $\nuvec$-integrated observables for
-certain $\nuvec$ ranges, i.e. binned measurements of $\langle P_i\rangle$\footnote{%
-We refer for example to the determination of the angular observables $J_i$ in $\bar{B}\to\bar{K}^*\ell^+\ell^-$
-decays, see e.g. \cite{Aaij:2013iag}. For details on the relation between the $P_i$ and the angular observable $J_i$ in the
-aforementioned decay, we refer to appendix \ref{app:btokstarll}.
-}.
-Therefore, we introduce the bin-integrated quantities
+It is often of interest to obtain the $\nuvec$- observables integrated
+over certain ranges of $\nuvec$; i.e., binned measurements of $\langle
+P_i\rangle$\footnote{% We refer for example to the determination of
+  the angular observables $J_i$ in $\bar{B}\to\bar{K}^*\ell^+\ell^-$
+  decays, see e.g. \cite{Aaij:2013iag}. For details on the relation
+  between the $P_i$ and the angular observable $J_i$ in the
+  aforementioned decay, we refer to appendix \ref{app:btokstarll}.  }.
+Therefore, we introduce the bin-integrated quantity
 \begin{align}
     \langle P_i\rangle_{\vec{a},\vec{b}}
     & = \int_{\vec{a}}^{\vec{b}} P_i(\nuvec) \dd^m \nu\\
     & = \int_{\vec{a}}^{\vec{b}} \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\\
     & = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec)
-        \theta^{(m)}(\nuvec - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec) \dd^n\theta\right]\dd^m \nu\,.
+        \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,
+        %% \theta^{(m)}(\nuvec - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec)
+        \dd^n\theta\right]\dd^m \nu\,,
 \end{align}
+where the argument of the indicator function $ \mathbf{1}(\vec{a} \le
+\nuvec \le \vec{b})$ is to be interpreted componentwise.
 Application of \refeq{mc-id} immediately yields
 \begin{equation}
+    \label{bin-importance}
     \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}
-    = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)}) \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
+    = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-This basically reduces the determination of $P_i$ to a (weighted) counting experiment. As a consequence,
-the statistical error on $\what{P_i}$ can be expected to follow a multivariate gaussian distribution \citeneeded.
-In this case, the covariance $\cov[\what{P_i},\what{P_j}]$ is of particular interest. The latter can be replaced
-by a suitable MC estimator, the sample covariance
+This basically reduces the estimation of
+$\aver{P_i}_{\vec{a},\vec{b}}$ to a (weighted) counting experiment. In
+the limit $N \to \infty$, the random vector $( \dots,
+\aver{P_i}_{\vec{a},\vec{b}}, \dots)$ follows a multivariate Gaussian
+distribution \citeneeded\fred{Why?  multivariate in $\widehat{P_i}$?}
+with a mean vector estimated by \refeq{bin-importance} and covariance
+estimated as
 \begin{equation}
-    \cov[\what{P}_i,\what{P}_j] \to \what{\cov}[\what{P}_i, \what{P}_j]_{\vec{a},\vec{b}}
-        = \frac{1}{N - 1} \sum_{k=1}^{N} \big[\hat{f}_i^{(k)} - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\hat{f}_j^{(k)} - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
-        \theta^{(m)}(\nuvec^{(k)} - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec^{(k)})\,.
+    \cov[\aver{P_i},\aver{P_j}]_{\vec{a},\vec{b}} \to \what{\cov}[\aver{P}_i, \aver{P}_j]_{\vec{a},\vec{b}}
+        = \frac{1}{N - 1} \sum_{k=1}^{N} \big[{f}_i(x^{(k)}) - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[f_j(x^{(k)}) - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
+        \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-We would like to emphasize that the sample covariance should rapidly converge towards the true covariance matrix.
+We would like to emphasize that the sample covariance should rapidly \fred{So what value of $N$ is close enought to $\infty$?} converge towards the true covariance matrix.
 This will allow to construct constraints on optimized observables with correlated uncertainties
 from the experimental constraints on the angular observables. (See \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf}
 for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays).
@@ -204,12 +232,14 @@ for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays).
 \section{Sources of Systematic Uncertainties}
 \label{sec:systematics}
 
-In \refsec{sample-based-det}, we assumed that the PDF $P$ described the physical reality accurately,
-and that the experiment observed each event with perfect accuracy. In order to estimate systematic
+In \refsec{sample-based-det}, we assume that the PDF $P$ describe the physical reality accurately,
+and that the experiment observes each event with perfect accuracy. In order to estimate systematic
 uncertainties, we lift these assumptions.
 
-\subsection{Mismodelling due to Contributions by Higher Partial Waves}
+\subsection{Mismodeling due to Contributions by Higher Partial Waves}
 \label{sec:systematics:partial-waves}
+
+\fred{Paragraph is very specific to one physics case. Needs a drawing}
 
 \danny{
 So far, we assumed that our underlying physical process was accurately described by our PDF $P$.
@@ -228,10 +258,22 @@ Therefore, we will restrict integration to the angles $\theta_1$ and $\theta_3$.
 \subsection{Detector Acceptance Effects and Backgrounds}
 \label{sec:systematics:acceptance}
 
+\fred{If this is to be general, should explain what we mean by
+  acceptance. Isn't it that experiments just model the detector well?
+  The P. to observe an event in $\nuvec, \thvec$ might be very
+  different from the P. to create an event in $\nuvec, \thvec$. All
+  that's needed is a full forward model. I'm not sure that in
+  \refeq{eq:PDFwithDE} we still have a normalized probability. Am I
+  right to say that detector effects can be very much localized and
+  nondifferentiable? Like some wires are inactive, or the region close
+  to the beam has zero acceptance. In the latter case, modeling
+  residual acceptance effects with smooth Legendre polynomials seems a
+  bad idea.}
+
 Thanks to accurate detector simulations and control studies, the experimental analyses have become
 remarkably good at removing detector acceptance effects. In this section we therefore assume that
 there are only a small, residual acceptance effects left that affect the events. In particular, we
-assume that the latter can be modelled as a modified probability density,
+assume that the latter can be modeled as a modified probability density,
 \begin{equation}
     \label{eq:PDFwithDE}
     P(\nuvec,\thvec) \to P(\nuvec,\thvec) \times \Omega(\thvec),
@@ -318,6 +360,9 @@ a difficult task. Here, we will show a systematic method to determine these coef
     \item Simulate this for one angle $\theta_{1}$ (similar to $B\to K \ell^+\ell^-$) with varying samples sizes.
     \item Simulate this for three angles $\theta_{1\dots 3}$ (similar to $B\to K^*(\to K \pi)\ell^+\ell^-$) with varying samples sizes.
     \item Also, check explicitly the variance and covariance of the results for all sample sizes considered.
+    \item compare robustness to likelihood fit when fit doesn't
+      converge. Why exactly doesn't it converge? What if physics model
+      wrong, say some angular terms are missing.
 \end{itemize}}
 
 
@@ -326,7 +371,7 @@ a difficult task. Here, we will show a systematic method to determine these coef
 In this letter \dots
 \begin{enumerate}
     \item errors on the means are in very good approximation gaussian.
-    \item correlation are small and faithfully model a multivariate gaussian.
+    \item correlation are small and faithfully model a multivariate gaussian. \fred{$\Rightarrow$ easy transfer of knowledge to theory fits}
 \end{enumerate}
 
 
@@ -356,12 +401,12 @@ where the basis of angular functions $f_i$ reads
 \end{aligned}
 \end{equation}
 Here we denote the dilepton mass squared as $q^2$, and the dilepton helicity angle as $\theta_1 \equiv \theta_{\ell}$. We transform the PDF from a $\cos\theta_1$-dependence
-to a $\theta_1$-dependence,
+to a $\theta_1$-dependence \fred{why? Formula easier? Where is the ``-'' sign from the Jacobian $\partial_{\theta} \cos \theta = - \sin \theta$ },
 \begin{equation}
     P(q^2, \theta_1) = \sum_i P_i f_i(\cos\theta_1) \sin \theta_1\,.
 \end{equation}
 
-We provide dual basis $\hat{f}_i$ of angular functions which is dual to the basis $f_i$ in the sence that
+We provide dual basis $\hat{f}_i$ of angular functions which is dual to the basis $f_i$ in the sense that \fred{What are the upper limits? $\pi$ or $2 \pi$? Not consistent with section I and II. I think it would be fair to talk about the dual basis already there.}
 \begin{equation}
     \int_0^\pi \dd\theta_1 \hat{f}_i(\theta_1) f_j(\theta_1) \sin\theta_1 = \delta_{ij}\,,
 \end{equation}
