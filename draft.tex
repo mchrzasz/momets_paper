@@ -70,8 +70,8 @@ $\bar{B}\to \bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$. However, we emphasize that
 he method we describe in the remainder of this letter is general and applies to arbitrary
 decay or scattering processes.\\
 
-Let $\thvec = (\theta_1, \dots \theta_n)$ denote the set of all
-angles, and let $\nuvec = (\nu_1, \dots \nu_m)$ denote the set of all
+Let $\thvec = (\theta_1, \dots \theta_N)$ denote the set of all
+angles, and let $\nuvec = (\nu_1, \dots \nu_M)$ denote the set of all
 other non-angular kinematic variables needed to fully specify the
 final state of the process under study. For example, $\nuvec$ may
 include invariant masses or center-of-mass energies. We define an
@@ -86,7 +86,7 @@ explicitly factored out in terms of the angular functions
 $f_i(\thvec)$, which we assume to fulfill the orthonormality relations
 \begin{equation}
     \label{eq:def-ortho-rel}
-    \int_\Omega f_i(\thvec) f_j(\thvec) \dd^n \theta = \delta_{ij}\,.
+    \int_\Omega f_i(\thvec) f_j(\thvec) \dd^N \theta = \delta_{ij}\,.
 \end{equation}
 For the purpose of this letter, however, it suffices that the system
 of angular functions $f_i(\thvec)$ can be transformed into an
@@ -99,12 +99,12 @@ are listed in the appendices \ref{app:btokll} through
 For particle decays, $P$ is generally expressed in terms of the fully differential decay width,
 \begin{align}
     \label{eq:def-P-decay}
-    P(\nuvec, \thvec) \equiv \frac{1}{\Gamma}\frac{\dd^{n+m}\Gamma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
+    P(\nuvec, \thvec) \equiv \frac{1}{\Gamma}\frac{\dd^{N+M}\Gamma}{\dd \nu_1 \dots \dd \nu_M\, \dd \theta_1 \dots \theta_N}\,,
 \end{align}
 where $\Gamma$ is the total decay width. For a scattering process, one can similarly use
 \begin{align}
     \label{eq:def-P-scattering}
-    P(\nuvec, \thvec) \equiv \frac{1}{\sigma}\frac{\dd^{n+m}\sigma}{\dd \nu_1 \dots \dd \nu_m\, \dd \theta_1 \dots \theta_n}\,,
+    P(\nuvec, \thvec) \equiv \frac{1}{\sigma}\frac{\dd^{N+M}\sigma}{\dd \nu_1 \dots \dd \nu_M\, \dd \theta_1 \dots \theta_N}\,,
 \end{align}
 where the total cross section $\sigma$ is used for the
 normalization. Since the determination of the total decay width or
@@ -140,7 +140,7 @@ The orthonormality relations \refeq{def-ortho-rel} imply that a single angular o
 can be projected out of the full PDF $P$ by means of
 \begin{equation}
     \label{eq:det-Pi-analytical}
-    P_i(\nuvec) = \int_{\thvec = 0}^{2\pi} f_i(\thvec) P(\nuvec, \thvec) \dd^n \theta\,.
+    P_i(\nuvec) = \int_{\thvec = 0}^{2\pi} f_i(\thvec) P(\nuvec, \thvec) \dd^N \theta\,.
 \end{equation}
 In point of fact, $P_i$ is the $f_i$-th moment of the PDF $P$\fred{This
   notation is uncommon. Is that how we \emph{define} the $f_i$-th
@@ -148,8 +148,8 @@ In point of fact, $P_i$ is the $f_i$-th moment of the PDF $P$\fred{This
 yields
 \begin{equation}
     \langle P_i\rangle
-    \equiv \int P_i(\nuvec) \dd^m \nu
-    = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\,.
+    \equiv \int P_i(\nuvec) \dd^M \nu
+    = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^N\theta\right]\dd^M \nu\,.
 \end{equation}
 The remainder of this section  describes the method of moments, in which we replace the
 analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.\\
@@ -163,10 +163,10 @@ $g(x)$ under the probability density $P(x)$,
 can be approximated \citeneeded\fred{Robert, Casella} by an MC estimator $\what{E_P[g]}$
 \begin{equation}
     \label{eq:mc-id}
-    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{N} \sum_{k=1} g(x^{(k)})
+    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{K} \sum_{k=1} g(x^{(k)})
 \end{equation}
-due to the strong law of large numbers for $N \to \infty$ assuming
-that the variates $x^{(k)}$, $k = 1, \dots, N$ are distributed as
+due to the strong law of large numbers for $K \to \infty$ assuming
+that the variates $x^{(k)}$, $k = 1, \dots, K$ are distributed as
 $P$; i.e.,
 \begin{equation}
     x^{(k)} \sim P\,.
@@ -180,20 +180,16 @@ detection efficiencies, distributed as $P$. \fred{Paragraph is redundant an can 
 
 Application of \refeq{mc-id} then yields \fred{notation is very confusing $P_i$ for $x^{(k)} \sim P$}
 \begin{equation}
-    \langle P_i\rangle \to \widehat{\langle P_i\rangle} = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)})\,.
+    \langle P_i\rangle \to \widehat{\langle P_i\rangle} = \frac{1}{K} \sum_{k=1}^{K} f_i(x^{(k)})\,.
 \end{equation}
 It is often of interest to obtain the $\nuvec$- observables integrated
 over certain ranges of $\nuvec$; i.e., binned measurements of $\langle
-P_i\rangle$\footnote{% We refer for example to the determination of
-  the angular observables $J_i$ in $\bar{B}\to\bar{K}^*\ell^+\ell^-$
-  decays, see e.g. \cite{Aaij:2013iag}. For details on the relation
-  between the $P_i$ and the angular observable $J_i$ in the
-  aforementioned decay, we refer to appendix \ref{app:btokstarll}.  }.
+P_i\rangle$
 Therefore, we introduce the bin-integrated quantity
 \begin{align}
     \langle P_i\rangle_{\vec{a},\vec{b}}
-    & = \int_{\vec{a}}^{\vec{b}} P_i(\nuvec) \dd^m \nu\\
-    & = \int_{\vec{a}}^{\vec{b}} \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^n\theta\right]\dd^m \nu\\
+    & = \int_{\vec{a}}^{\vec{b}} P_i(\nuvec) \dd^M \nu\\
+    & = \int_{\vec{a}}^{\vec{b}} \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec) \dd^N\theta\right]\dd^M \nu\\
     & = \int \left[\int_{\thvec=0}^{2\pi} f_i(\thvec) P(\nuvec,\thvec)
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,
         %% \theta^{(m)}(\nuvec - \vec{a}) \theta^{(m)}(\vec{b} - \nuvec)
@@ -205,7 +201,7 @@ Application of \refeq{mc-id} immediately yields
 \begin{equation}
     \label{bin-importance}
     \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}
-    = \frac{1}{N} \sum_{k=1}^{N} f_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
+    = \frac{1}{N} \sum_{k=1}^{K} f_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
 This basically reduces the estimation of
 $\aver{P_i}_{\vec{a},\vec{b}}$ to a (weighted) counting experiment. In
@@ -216,10 +212,10 @@ with a mean vector estimated by \refeq{bin-importance} and covariance
 estimated as
 \begin{equation}
     \cov[\aver{P_i},\aver{P_j}]_{\vec{a},\vec{b}} \to \what{\cov}[\aver{P}_i, \aver{P}_j]_{\vec{a},\vec{b}}
-        = \frac{1}{N - 1} \sum_{k=1}^{N} \big[{f}_i(x^{(k)}) - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[f_j(x^{(k)}) - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
+        = \frac{1}{K - 1} \sum_{k=1}^{K} \big[{f}_i(x^{(k)}) - \widehat{\langle P_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[f_j(x^{(k)}) - \widehat{\langle P_j\rangle_{\vec{a},\vec{b}}}\big]
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-We would like to emphasize that the sample covariance should rapidly \fred{So what value of $N$ is close enought to $\infty$?} converge towards the true covariance matrix.
+We would like to emphasize that the sample covariance should rapidly \fred{So what value of $K$ is close enought to $\infty$?} converge towards the true covariance matrix.
 This will allow to construct constraints on optimized observables with correlated uncertainties
 from the experimental constraints on the angular observables. (See \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf}
 for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays).
