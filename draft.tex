@@ -8,6 +8,10 @@
 \usepackage{hepparticles}
 \usepackage{hepnicenames}
 \usepackage{hepunits}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{epstopdf}
 %% Shortcuts %%
 \newcommand{\dd}{\text{d}}
 \newcommand{\refapp}[1]{app.~(\ref{app:#1})}
@@ -745,6 +749,7 @@ For such an analysis in the decay $B\to K\pi\ell^+\ell^-$ we refer to \cite{Das:
 In this section we will give a systematic description on how to obtain unfolding matrix based on MC sample. We start by generating so called flat phase space. In this MC all simulated angular distributions of $\cos \theta_l$, $\cos \theta_k$ and $\phi$ are flat. Assuming the massless limit, and not scalars the PDF has only 9 parameters: $F_l$, and $S_{3,4,5,6s,7,8,9}$:
 \begin{multline}
 \dfrac{d^4\Gamma}{ \Gamma dq^2 dcos\theta_k dcos\theta_l d\phi}=\dfrac{9}{32\pi}( \dfrac{3}{4} (1-F_l) \sin^2 \theta_k + F_l\cos^2 \theta_k + ( \dfrac{1}{4}(1-Fl)\sin^2 \theta_k \\ -  F_l\cos^2) cos 2\theta_l  + S_3 \sin^2 \theta_k \sin^2 \theta_l \cos2\phi + S_4 \sin2 \theta_k \sin \theta_l \cos\phi +\\ S_5 \sin2 \theta_k \sin \theta_l \cos \phi +  (S_{6s} \sin^2 \theta_k) \cos \theta_l + \\ S_7 \sin 2\theta_k \sin \theta_l \sin \phi +  S_8 \sin 2 \theta_k \sin 2 \theta_l \sin phi + S_9 sin^2 \theta_k \sin^2 \theta_l \sin 2 \phi)
+\label{PDF}
 \end{multline}
 From theory it is easy to compute that only Fl will have a non zero moment equal to $\dfrac{2}{3}$. Next we apply the detector simulation and selection as done on real data. Then we can measure again all 9 moments which we put in a vector $\overrightarrow{v}$. The first column of an unfolding matrix $M_{unfold}$ will be then equal to $\dfrac{3}{2} \overrightarrow{v}$. Next we can weight selected events accordingly to $f_{s_3}$. From theory one can calculate that only moment corresponding to $S_3$ will be non zero and equal to $\dfrac{32}{225} S3$. Measuring the moments on weighted events and punting them in a vector: $\overrightarrow{v_2}$ leads to second column of unfolding matrix equal the $\dfrac{225}{32} \overrightarrow{v_2}$. Repeating this procedure for all moments will lead to full determination of the unfolding matrix. We provide reader the explicit calculation of the normalization factors for the moments vectors:
 \begin{equation}
@@ -757,6 +762,25 @@ From theory it is easy to compute that only Fl will have a non zero moment equal
 \begin{equation}
 \dfrac{1}{8\pi} \int_{-1}^{1} d\cos \theta_l \int_{-1}^{1} d\cos \theta_k  \int_{-\pi}^{\pi} d\phi f_{F_l}= \dfrac{2}{3} 
 \end{equation}
+
+
+\section{Toy MC studies}
+
+We present a sensitivity study based on toy MC. Events were generated accordingly to \ref{PDF} for Standard Model expectation values corresponding to different $q^2$ bins and different number of events. In all studied cases we have not observed any biases in pull distribution. 
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=0.8\textwidth]{figs/Q2_5_6_S5.png}
+               % \caption{Uncertainty on $S_5$}
+                 \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=0.8\textwidth]{figs/Q2_5_6_S7.png}
+              %\caption{Uncertainty on $S_7$}
+                 \end{subfigure}
+       \caption{Uncertainty on PDF parameters as a function of number of events. Red curve represents a fit to $f(x)=\dfrac{\alpha}{\sqrt{x}}$ function.}
+        \label{errors}
+\end{figure}\\
+The errors as a function of number of signal events are given in~\ref{errors}. As can be see errors follow strictly the $\sqrt{n}$ law. We performed also the fit to the same toys. For low number of events we observed significant biases. For the high number of signal events we observed  errors coming from fit to be $5-15\%$ smaller then  the ones obtained by method of moments. 
 
 
 \bibliography{references}
