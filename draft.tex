@@ -315,8 +315,60 @@ of angular functions. The means to cope with this problem are discussed in the f
 \subsection{Detector Acceptance Effects}
 \label{sec:systematics:acceptance}
 
+\paragraph{Recipe to determine the acceptance effects}
+
+The determination of detector acceptance is generally a difficult task. Here, we will show a systematic
+method to estimate its effects based on both the method of moments, and MC simulations of the detector.\\
+
+As previous, we use a PDF $P$ decomposed into $N$ angular observables $\lbrace S_k\rbrace$,
+\begin{equation}
+    P \equiv P(\vec\nu,\vec\theta | \lbrace S_k \rbrace)\,.
+\end{equation}
+We denote the estimator of an
+observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that there is a linear relation
+between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$,
+\begin{equation}
+    \label{eq:linear-assumption}
+    \est{S_i} = \sum_{i = 1}^N M_{i j} S_j^\text{true}\,.
+\end{equation}
+In that case, the matrix $M_{ij}$ can be fully determined through the following steps.
+\begin{enumerate}
+    \item For a fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
+    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace = \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ (dubbed ``true'') from the PDF $P_j$,
+        \begin{equation}
+            P_j \equiv P(\vec\nu,\vec\theta | \lbrace S_j = 1, S_{k\neq j} = 0\rbrace)\,.
+        \end{equation}
+    \item Use the true events as input for the MC simulation of the detector, in order to obtain the detector
+        events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,\vec\theta^{(k)}_d)\rbrace$.
+    \item Use the method of moments to determine the uncorrected observables $\lbrace \est{S_k} \rbrace$, based on the detector
+        events $\lbrace x^{(k)}_d\rbrace$.
+    \item By virtue of \refeq{linear-assumption} and step 1, the $j$-th column of $M$ has been determined via
+        \begin{equation}
+            M_{ij} = \est{S_i}\,.
+        \end{equation}
+    \item Repeat the above steps for all values of $j$ to determine all columns of $M$.
+\end{enumerate}
+
+It remains to invert the relation \refeq{linear-assumption}, so that one can determine the unfolded
+angular observables $\lbrace \wwhat{S_k}\rbrace$ as
+\begin{equation}
+    \wwhat{S_i} = \left(M^{-1}\right)_{ij} \est{S_j}\,.
+\end{equation}
+
+We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}, which might not be fulfilled in general.
+In particular, if detector effects are small, of it they can be reduced through other means, our approach is expected to work.
+The effects can be considered small if
+\begin{equation}
+    ||M - \mathbf{1}||_2 \ll N\,.
+\end{equation}
+Here $||\cdot||_2$ denotes the Frobenius norm.
+
+\danny{$@$Marcin: How well does this work? Is \refeq{linear-assumption} fulfilled in your cases?}
+
+\vspace{\bigskipamount}
+\hrule
+\danny{Should we remove the remainder of this section?}
 \fred{Comment that in this section $\vec\nu$ and $\vec\theta$ are used after ``correction'' has been applied.}
-\danny{Rethink order of this section.}
 Thanks to accurate detector simulations and control studies, the experimental analyses have become
 remarkably good at removing detector acceptance effects. In this section we therefore assume that
 there are only a small, residual acceptance effects left that affect the events. In particular, we
@@ -393,36 +445,8 @@ estimators $\est{S}_j$,
     \wwhat{S}_i = \sum_{j=1\text{s},\dots\,9} \big(\delta_{ij} + N_{ij}\big) \est{S}_j\,.
 \end{equation}
 We provide the matrix $N$ in \reftab{eff-corrected-est-btokstarll}.\\
+\hrule
 
-\paragraph{Recipe to determine the acceptance effects}
-
-The determination of detector acceptance is generally a difficult task. Here, we will show a systematic
-method to its effects.\\
-
-As previous, we use a PDF $P$ decomposed into $N$ angular observables $S_k$. We denote the estimator of the observable
-$S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that the acceptance-corrected estimator
-$\wwhat{S_k}$ is a linear combination of the uncorrected estimators $\lbrace \est{S_k}\rbrace$,
-\begin{equation}
-    \label{eq:linear-assumption}
-    \wwhat{S_k} = \sum_j M_{kj} \est{S}_j\,.
-\end{equation}
-The coefficients $M_{kj}$ can now be systematically determined from MC studies of the detector geometry.
-\begin{enumerate}
-    \item In step $i$, let $S_i = 1$, and $S_{k\neq i} = 0$.
-    \item Simulate events from the PDF, and adjust each event based on the detector geometry. This allows
-        to compute $\est{S_j^{(i)}}$ from the simulation.
-    \item Solve the system of linear equations
-        \begin{equation}
-        \begin{aligned}
-            1 & = \sum_j M_{ij}^{(i)} \est{S_j^{(i)}}\,,\\
-            0 & = \sum_j M_{kj}^{(i)} \est{S_j^{(i)}}\,,\qquad\forall k \neq i\,.
-        \end{aligned}
-        \end{equation}
-        This allows the dermination of those coefficients $M_{kj}^{(i)}$ for which $\est{S_j^{(i)}} \neq 0$.
-    \item If $i < N$ advance $i$ by one and go to step 1
-\end{enumerate}
-We can now check if the assumption \refeq{linear-assumption} is valid, by checking that
-$M_{kj}^{(i)} = M_{kj}^{(i')}$ for all $i$, $i'$.
 
 
 \section{Toy Studies}
