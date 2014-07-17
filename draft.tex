@@ -317,16 +317,39 @@ of angular functions. The means to cope with this problem are discussed in the f
 
 \paragraph{Recipe to determine the acceptance effects}
 
-The determination of detector acceptance is generally a difficult task. Here, we will show a systematic
-method to estimate its effects based on both the method of moments, and MC simulations of the detector.\\
+The determination of detector acceptance is generally a difficult
+task. Here, we will show a systematic method to estimate its effects
+based on both the method of moments, and MC simulations of the
+detector.
 
-As previous, we use a PDF $P$ decomposed into $N$ angular observables $\lbrace S_k\rbrace$,
+\fred{In the ideal case, one would have an explicit probabilistic
+  model of the detector acceptance effects and could thus write down
+  the full forward model of the measured events arise. In practice,
+  this would require much more CPU time than available, and one is
+  therefore forced to simplify the model. The standard approach is to
+  generate \emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
+  \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from a PDF
+  assumed to describe the bare physical process, and to propagate
+  those particles through a detailed simulation of the detector. The
+  observable traces that the particles leave in the detector are fed
+  into reconstruction algorithms resulting in the \emph{detector}
+  events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
+  \vec\theta^{(k)}_d)\rbrace$.
+
+[Where does the reconstruction uncertainty enter? Below we just
+  account for systematic shifts but our estimate of the uncertainty of
+  one $S_k$ would be only the statistical uncertainty from the finite
+  sample size. How about the extra correlation between different $S_k$
+  that is induced?] }\\
+
+As before, we assume a PDF $P$ can be decomposed into $N$ parts with angular observables $\lbrace S_k\rbrace$,
 \begin{equation}
     P \equiv P(\vec\nu,\vec\theta | \lbrace S_k \rbrace)\,.
 \end{equation}
 We denote the estimator of an
 observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that there is a linear relation
 between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$,
+\fred{Do we need $S_k^\text{true}$? Isn't it just $S_k$?}
 \begin{equation}
     \label{eq:linear-assumption}
     \est{S_i} = \sum_{i = 1}^N M_{i j} S_j^\text{true}\,.
@@ -346,6 +369,8 @@ In that case, the matrix $M_{ij}$ can be fully determined through the following 
         \begin{equation}
             M_{ij} = \est{S_i}\,.
         \end{equation}
+        \fred{I wonder if a small sample size also leads to artificial
+          nonzero off-diagonal elements of $M$}
     \item Repeat the above steps for all values of $j$ to determine all columns of $M$.
 \end{enumerate}
 
@@ -547,7 +572,7 @@ The dual basis $\lbrace \hat{f}_i\rbrace$ reads
     \hat{f}_3 & = -\frac{15}{8} + \frac{45}{8}\cos^2\theta_1\,,
 \end{aligned}
 \end{equation}
-such that 
+such that
 \begin{equation}
     \int_0^\pi \dd \theta_1\hat{f}_i(\theta_1) P(q^2, \theta_1) = S_i(q^2)\,.
 \end{equation}
@@ -622,7 +647,7 @@ as well as
     \hat{f}_{8i} & = \frac{15 \sin  \theta_1 \sin 2\theta_2 \sin \phi}{8}                 \,.
 \end{aligned}
 \end{equation}
-such that 
+such that
 \begin{equation}
     \int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\theta_2,\phi) P(q^2, \theta_1,\theta_2,\phi) = S_i(q^2)\,.
 \end{equation}
@@ -852,7 +877,7 @@ From theory it is easy to compute that only Fl will have a non zero moment equal
 \dfrac{1}{8\pi} \int_{-1}^{1} d\cos \theta_l \int_{-1}^{1} d\cos \theta_k  \int_{-\pi}^{\pi} d\phi f_{S_{5,6,7}}*f_{S_{5,6,7}}= \dfrac{8}{45} ,
 \end{equation}
 \begin{equation}
-\dfrac{1}{8\pi} \int_{-1}^{1} d\cos \theta_l \int_{-1}^{1} d\cos \theta_k  \int_{-\pi}^{\pi} d\phi f_{F_l}= \dfrac{2}{3} 
+\dfrac{1}{8\pi} \int_{-1}^{1} d\cos \theta_l \int_{-1}^{1} d\cos \theta_k  \int_{-\pi}^{\pi} d\phi f_{F_l}= \dfrac{2}{3}
 \end{equation}
 
 
