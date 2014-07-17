@@ -349,11 +349,12 @@ As before, we assume a PDF $P$ can be decomposed into $N$ parts with angular obs
 We denote the estimator of an
 observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that there is a linear relation
 between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$,
-\fred{Do we need $S_k^\text{true}$? Isn't it just $S_k$?}
 \begin{equation}
     \label{eq:linear-assumption}
     \est{S_i} = \sum_{i = 1}^N M_{i j} S_j^\text{true}\,.
 \end{equation}
+This assumption is based on a smooth angular acceptance function. While this will not be true for the laboratory frame,
+smoothness may be recovered in boosted frame, e.g. the rest frame of the decaying particle.
 In that case, the matrix $M_{ij}$ can be fully determined through the following steps.
 \begin{enumerate}
     \item For a fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
@@ -380,98 +381,13 @@ angular observables $\lbrace \wwhat{S_k}\rbrace$ as
     \wwhat{S_i} = \left(M^{-1}\right)_{ij} \est{S_j}\,.
 \end{equation}
 
-We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}, which might not be fulfilled in general.
-In particular, if detector effects are small, of it they can be reduced through other means, our approach is expected to work.
-The effects can be considered small if
+We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}, We thus suggest to explicitly
+test the assumption. One way of testing involves repeating the previous procedure
+with $S_j^\text{true} = 1/x$. If the lineary assumption holds, one should find
 \begin{equation}
-    ||M - \mathbf{1}||_2 \ll N\,.
+    M_{ij} = x \est{S_i}\,,
 \end{equation}
-Here $||\cdot||_2$ denotes the Frobenius norm.
-
-\danny{$@$Marcin: How well does this work? Is \refeq{linear-assumption} fulfilled in your cases?}
-
-\vspace{\bigskipamount}
-\hrule
-\danny{Should we remove the remainder of this section?}
-\fred{Comment that in this section $\vec\nu$ and $\vec\theta$ are used after ``correction'' has been applied.}
-Thanks to accurate detector simulations and control studies, the experimental analyses have become
-remarkably good at removing detector acceptance effects. In this section we therefore assume that
-there are only a small, residual acceptance effects left that affect the events. In particular, we
-assume that the latter can be modeled as a modified probability density,
-\begin{equation}
-    \label{eq:PDFwithDE}
-    P(\nuvec,\thvec) \to P(\nuvec,\thvec) \times \Omega(\thvec),
-\end{equation}
-where $\Omega$ is independent of the non-angular kinematics $\nuvec$. The latter assumption is only
-is invalid in general. However, if residual angular acceptance only weakly depends on $\vec{\nu}$, one
-can always choose appropriate bin $\vec{\nu}$ so that $\Omega$ is approximately constant with respect
-to $\vec{\nu}$. For such a case we parametrize
-\begin{equation}
-    \Omega_{m,l}(\thvec) = \prod_{i=1}^{m} \Big[1 + \sum_{j=1}^l \eps_i^{(j)} p_j(\cos\theta_i)\big]
-\end{equation}
-where $p_j(\cos\theta_i)$ denotes the $j$th Legendre polynomial. Since we only consider residual
-acceptance effects, we expect $\eps_i^{(j)} \ll 1$. \footnote{\danny{what are reasonable values/upper limits on the $\eps$?}}\\
-
-We are aware that setting a bin width that fulfills the aforementioned criterion can be at odds with
-other requirements. For instance, in exclusive $b\to s\ell^+\ell^-$ decays, the bin width for
-$\vec{\nu} = q^2$ needs to cover a sufficiently large part of the phase space beyond the open charm
-threshold. We emphasize that the outcome of an analysis as proposed here can easily combine several
-bins by means of a weighted average.\\
-
-\paragraph{Uniangular Distribution}
-For definiteness and clarity, we consider first an uni-angular distribution $P(\theta)$.
-In this case we can parametrize the PDF $P$ as
-\begin{equation}
-    P(\theta) = S_1 + S_2 \cos\theta + S_2 \cos^2\theta\,,
-\end{equation}
-which is a parametrization that has been used in the literature for $\bar{B}\to\bar{K}\ell^+\ell^-$ decays \cite{Bobeth:2007dw}.
-While this system of angular functions is not orthonormal, it can easily be orthonormalized. For the basis of angular
-functions, see \refapp{btokll}.
-Considering detector acceptance effects up to second order in $\cos\theta$, the function $\Omega(\vec\theta)$ reads
-\begin{equation}
-    \Omega_{1,2}(\theta_1) = 1 + \eps_{1}^{(1)} \cos\theta + \frac{\eps_{1}^{(2)}}{2}\big(3 \cos^2\theta - 1\big)\qquad\eps_{1}^{(i)} = \order{\eps}\,.
-\end{equation}
-Inclusion of $\Omega_{1,2}$ as part of the PDF as proposed in \refeq{PDFwithDE} modifies the MC estimators for the angular observables.
-We find
-\begin{equation}
-\begin{aligned}
-    \wwhat{S_1} & = \Big(1 + \frac{\eps_{1}^{(2)}}{2}\Big) \est{S_1} + \frac{9 \eps_{1}^{(2)}}{70} \est{S_3}\\
-    \wwhat{S_2} & = \Big(1 - \frac{2 \eps_{1}^{(2)}}{5}\Big) \est{S_2} - \eps_{1}^{(1)} \est{S_1} - \frac{3\eps_{1}^{(1)}}{5} \est{P_3}\\
-    \wwhat{S_3} & = \Big(1 - \frac{11\eps_{1}^{(2)}}{14}\Big)\est{S_3} - \frac{3\eps_{1}^{(2)}}{2} \est{S_1} - \eps_{1}^{(1)} \est{P_2}\,.
-\end{aligned}
-\end{equation}
-Here $\lbrace \est{S_i}\rbrace$ are the uncorrected estimators, while $\lbrace \wwhat{S_i}\rbrace$ denote the
-acceptance-corrected estimators of the angular observables.\\
-
-\paragraph{Triangular Distribution}
-
-\begin{table*}
-    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-1to6.tex}}}\\[2.5\medskipamount]
-    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-7to12.tex}}}\\[2.5\medskipamount]
-    \resizebox{.99\textwidth}{!}{\ensuremath{\input{tab-btokstarll-13to18.tex}}}
-    \caption{The matrix $N_{ij}$ that appears in \refeq{eff-corrected-est-btokstarll}. Due to spatial
-        constraints, we split its display into columns $j=1s,1c,1i,2s,2c,2i$ (top),
-        $j=3,4,4i,5,5i,6s$ (middle) and $j=6c,7,7i,8,8i,9$ (bottom).
-        \label{tab:eff-corrected-est-btokstarll}
-    }
-\end{table*}
-
-As an example for a triangular distribution we use the decay $\bar{B}\to\bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$.
-A parametrization of its angular distribution can be found in \refapp{btokstarll}.\\
-
-For this type of distribution, we expand $\Omega_3$ to linear order in $\eps$,
-\begin{equation}
-    \Omega_{3,2}(\theta_1,\theta_2,\theta_3) = 1 + \sum_{i=1}^3 \sum_{j=1}^2 \eps_i^{(j)} p_j(\cos\theta_i) + \order{\eps^2}\,.
-\end{equation}
-This leads to a matrix-valued equation that relates the effiency-corrected estimators $\wwhat{S}_i$ to the uncorrected
-estimators $\est{S}_j$,
-\begin{equation}
-    \label{eq:eff-corrected-est-btokstarll}
-    \wwhat{S}_i = \sum_{j=1\text{s},\dots\,9} \big(\delta_{ij} + N_{ij}\big) \est{S}_j\,.
-\end{equation}
-We provide the matrix $N$ in \reftab{eff-corrected-est-btokstarll}.\\
-\hrule
-
+for arbitrary values of $x > 1$.
 
 
 \section{Toy Studies}
