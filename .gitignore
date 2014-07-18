@@ -46,6 +46,11 @@
 *.snm
 *.vrb
 
+# emacs preview
+auto/*
+_region_.prv/*
+_region_.tex
+
 # glossaries
 *.acn
 *.acr
