@@ -13,7 +13,7 @@
 \usepackage{subcaption}
 \usepackage{epstopdf}
 %% Shortcuts %%
-\newcommand{\dd}{\text{d}}
+\newcommand{\dd}{\text{d}\!}
 \newcommand{\refapp}[1]{app.~(\ref{app:#1})}
 \newcommand{\refeq}[1]{eq.~(\ref{eq:#1})}
 \newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
@@ -698,12 +698,13 @@ such that
 \section{On the Partial Wave Expansions of Angular Observables}
 \label{app:partial-waves}
 
-Let $P \equiv P(\vec{\nu},\theta)$ be an observable of only one angle $\theta$ and further non-angular variables $\vec{\nu}$. Further, let
-$P$ have an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots \hat{=} S,P,D,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
+Let $S \equiv S(\vec{\nu},\theta)$ be an observable of only one angle $\theta$ and further non-angular variables $\vec{\nu}$. Further, let
+$S$ have an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots \hat{=}$ S,P,D of the underlying amplitudes $A_1$ and $A_2$,
 \begin{equation}
     \label{eq:def-partial-wave-observable}
-    P(\theta) \equiv F\big(A_1(\theta) A_2^*(\theta)\big) \equiv \left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_1^{(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\,,\qquad F=\Re{},\Im{}\,.
+    S(\theta) \equiv F\left[A_1(\theta) A_2^*(\theta)\right] \equiv F\left[\left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_2^{*(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\right]\,,
 \end{equation}
+where $F = \text{Re},\text{Im}$ denotes taking either the real or the imaginary part.
 Here $m_1$ and $m_2$ denote the third component of the angular momentum of the respective amplitude $A_1$ or $A_2$, and we impose $m_1 \geq m_2$.\\
 
 From positivity of the amplitudes one immediately finds
@@ -722,30 +723,31 @@ Using the large-$l$ behaviour of $n_{l,m}$ one finds that with increasing $l_i$ 
 This motivates to cut the partial-wave expansion off at some angular momentum $L$.\\
 
 Will will show in the following that such a cut off
-is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies a well-defined total angular momentum for each observables, one ensures that the observables can in fact be disentangled experimentally.\\
+is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies
+a well-defined total angular momentum for each observable, one ensures that the observables can in fact be disentangled experimentally.\\
 
-We propose the decomposition of $P$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$, with total angular momentum $j$ and its third component $m=m_1 + m_2$.
+We propose the decomposition of $S$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$, with total angular momentum $j$ and its third component $m=m_1 + m_2$.
 \begin{equation}
-    P(\vec{\nu}, \theta) = \sum_j P_{j,m}(\vec{\nu}) p_{j}^{(m)}(\cos\theta)\,.
+    S(\vec{\nu}, \theta) = \sum_j S_{j,m}(\vec{\nu}) p_{j}^{(m)}(\cos\theta)\,.
 \end{equation}
-This parametrization has two merits. First, we can immediately project out the angular observables $P_{j,m}$ by means of \refeq{legendre-scalar-product}:
+This parametrization has two merits. First, we can immediately project out the angular observables $S_{j,m}$ by means of \refeq{legendre-scalar-product}:
 \begin{equation}
-    P_{j,m}(\vec{\nu}) = \frac{1}{n_{j,m}} \int_{-1}^{+1} P(\vec{\nu},\cos \theta) p_{j}^{(m)}(\cos\theta) \dd\cos\theta\,.
+    S_{j,m}(\vec{\nu}) = \frac{1}{n_{j,m}} \int_{-1}^{+1} S(\vec{\nu},\cos \theta) p_{j}^{(m)}(\cos\theta)\,\dd\cos\theta\,.
 \end{equation}
-Second, we can immediately express $P_{j,m}(\vec{\nu})$ in terms of the partial-wave amplitudes,
+Second, we can immediately express $S_{j,m}(\vec{\nu})$ in terms of the partial-wave amplitudes,
 \begin{equation}
     \label{eq:partial-wave-observable-infinite}
     \begin{aligned}
-        P_{j,m}(\vec{\nu})
-            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty F\left(A_{1}^{l_1} p_{l_1}^{(m_1)}(\cos\theta) \big(A_{2}^{(l_2)}\big)^*\right) p_{l_2}^{(m_2)}(\cos\theta)\\
-            & = \sum_{l_1,l_2=0}^\infty F\left(A_{1}^{l_1} \big(A_{2}^{(l_2)}\big)^*\right) \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
+        S_{j,m}(\vec{\nu})
+            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{l_1} p_{l_1}^{(m_1)}(\cos\theta) A_{2}^{*(l_2)}p_{l_2}^{(m_2)}(\cos\theta)\right]\\
+            & = \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{l_1} A_{2}^{*(l_2)}\right] \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
     \end{aligned}
 \end{equation}
 In the last step, we use Gaunt's formula \cite{Gaunt:1929} to integrate a triple product of associated Legendre polynomials,
 \begin{equation}
 \begin{aligned}
     T_{l_1,l_2,j}^{(m_1,m_2)}
-        & = \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) p_{l_1}^{(m_1)}(\cos\theta) p_{l_2}^{(m_2)}(\cos\theta) \dd\cos\theta\\
+        & = \int_{-1}^{+1} p_{j}^{(m_1 + m_2)}(\cos\theta) p_{l_1}^{(m_1)}(\cos\theta) p_{l_2}^{(m_2)}(\cos\theta)\,\dd\cos\theta\\
         & = (-1)^{s - l_1 - m_2} \frac{2 (l_1 + m_1)! (l_2 + m_2)! (2s - 2 l_2)! s!}{(l_1 - m_1)! (s - j)! (s - l_1)! (s - l_2)! (2s + 1)!}\\
         & \times \sum_{t=p}^q (-1)^t \frac{(j + m + t)!(l_1 + l_2 - m - t)!}{t! (j - m - t)! (l_1 - l_2 + m + t)! (l_2 - m_2 - t)!}\,,
 \end{aligned}
@@ -778,6 +780,11 @@ of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,
 consist of sums with infinite terms. It is then up to theoretical analyses to
 estimate or calculate the impact of individual contributions, with or without the cut off $L$.
 For such an analysis in the decay $B\to K\pi\ell^+\ell^-$ we refer to \cite{Das:2014sra}.
+We close by remarking that for any angular momentum cut-off $\ell < L$, one can find an upper limit for the squared sum
+of all remaining partial waves through the inclusive decay; i.e. schematically
+\begin{equation}
+    \sum_{i=1}^2 \sum_{l=L}^\infty |A_i^{(l)}|^2 \leq \frac{\dd^{1 + \dim\vec\nu} \Gamma_\text{incl}}{\dd \cos\theta\, \dd\,\vec\nu}\,.
+\end{equation}
 
 
 \bibliography{references}
