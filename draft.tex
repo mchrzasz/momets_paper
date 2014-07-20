@@ -496,21 +496,21 @@ such that
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ (S-wave and P-wave)}
 \label{app:btokstarll}
 
-The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ -- up to and
-including P-wave contributions -- has been calculated for the most
-general basis of dimension-six $b\to s$ operators. \fred{In
-  \cite{Bobeth:2012vn} below (A.1), it says that the S wave is assumed
-  to be removed.} It reads, expressed in terms of the angular
-observables $\lbrace J_i\rbrace$ \cite{Blake:2012mb,Bobeth:2012vn}
+The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ -- up to and including P-wave contributions -- has been calculated
+for the most general basis of dimension-six $b\to s$ operators. It reads, expressed in terms of the angular observables $\lbrace J_i\rbrace$ \cite{Blake:2012mb,Bobeth:2012vn}
 \begin{equation}
-    P(q^2, \cos\theta_1, \cos\theta_2, \phi) = \frac{1}{\dd\Gamma/\dd q^2} \frac{\dd^4\Gamma}{\dd q^2\,\dd \cos\theta_1\,\dd \cos\theta_2\,\dd \phi} = \frac{3}{8\pi} \sum_i \frac{J_{i}(q^2)}{\dd\Gamma/\dd q^2} f_i(\cos\theta_1, \cos\theta_2, \phi)\,,
+    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\dd\Gamma/\dd q^2} \frac{\dd^4\Gamma}{\dd q^2\,\dd \cos\theta_1\,\dd \cos\theta_2\,\dd \theta_3} = \frac{3}{8\pi} \sum_k \frac{J_{k}(q^2)}{\dd\Gamma/\dd q^2} f_k(\cos\theta_1, \cos\theta_2, \theta_3)\,,
 \end{equation}
-where $\theta_1 \equiv \theta_\ell$ is the dilepton helicity angle, and $\theta_2 \equiv \theta_{K^*}$\fred{In \cite{Bobeth:2012vn} it is called $\theta_{K}$} is the $\bar{K}\pi$ helicity angle, and $\theta_3 \equiv \phi$ is the azimuthal angle.
+where $\theta_1 \equiv \theta_\ell$ is the dilepton helicity angle, and $\theta_2 \equiv \theta_{K}$ is the $\bar{K}\pi$ helicity angle, and $\theta_3 \equiv \phi$ is the azimuthal angle.
 The $q^2$-differential decay width reads
 \begin{equation}
     \frac{\dd\Gamma}{\dd q^2} = \frac{\big(3 J_{1c} - J_{2c}\big) + 2\big(3J_{1s} - J_{2s}\big)}{3}\,.
 \end{equation}
-The angular functions read \cite{Blake:2012mb,Bobeth:2012vn} \fred{I can't find $f_{1i}$ in either paper}
+The angular functions\footnote{%
+    We consistently use the label "$i$" to denote angular function and observables that arise
+    from interference between S-wave and P-wave amplitudes. Our convention is related to the convention
+    of \cite{Bobeth:2012vn} through $f_{1i} \leftrightarrow f_{1sc}$, $f_{2i} \leftrightarrow f_{2sc}$.
+} read \cite{Blake:2012mb,Bobeth:2012vn}
 \begin{equation}
 \begin{aligned}
     f_{1s} & = \sin^2\theta_2 &
@@ -519,57 +519,57 @@ The angular functions read \cite{Blake:2012mb,Bobeth:2012vn} \fred{I can't find 
     f_{2s} & = \sin^2\theta_2 \cos 2\theta_1 &
     f_{2c} & = \cos^2\theta_2 \cos 2\theta_1 &
     f_{2i} & = \cos\theta_2 \cos 2\theta_1\\
-    f_{3}  & = \sin^2\theta_2\sin^2\theta_1 \cos 2\phi &
-    f_{9}  & = \sin^2\theta_2\sin^2\theta_1 \sin 2\phi\\
-    f_{4}  & = \sin 2\theta_2 \sin 2\theta_1 \cos\phi & & &
-    f_{4i} & = \sin\theta_2 \sin 2\theta_1 \cos\phi\\
-    f_{5}  & = \sin 2\theta_2 \sin \theta_1 \cos\phi & & &
-    f_{5i} & = \sin\theta_2 \sin \theta_1 \cos\phi\\
+    f_{3}  & = \sin^2\theta_2\sin^2\theta_1 \cos 2\theta_3 &
+    f_{9}  & = \sin^2\theta_2\sin^2\theta_1 \sin 2\theta_3\\
+    f_{4}  & = \sin 2\theta_2 \sin 2\theta_1 \cos\theta_3 & & &
+    f_{4i} & = \sin\theta_2 \sin 2\theta_1 \cos\theta_3\\
+    f_{5}  & = \sin 2\theta_2 \sin \theta_1 \cos\theta_3 & & &
+    f_{5i} & = \sin\theta_2 \sin \theta_1 \cos\theta_3\\
     f_{6s} & = \sin^2\theta_2 \cos\theta_1 &
     f_{6c} & = \cos^2\theta_2 \cos\theta_1\\
-    f_{7}  & = \sin 2\theta_2 \sin \theta_1 \sin\phi & & &
-    f_{7i} & = \sin\theta_2 \sin \theta_1 \sin\phi\\
-    f_{8}  & = \sin 2\theta_2 \sin 2\theta_1 \sin\phi & & &
-    f_{8i} & = \sin\theta_2 \sin 2\theta_1 \sin\phi\,.
+    f_{7}  & = \sin 2\theta_2 \sin \theta_1 \sin\theta_3 & & &
+    f_{7i} & = \sin\theta_2 \sin \theta_1 \sin\theta_3\\
+    f_{8}  & = \sin 2\theta_2 \sin 2\theta_1 \sin\theta_3 & & &
+    f_{8i} & = \sin\theta_2 \sin 2\theta_1 \sin\theta_3\,.
 \end{aligned}
 \end{equation}
 We indicate contributions from the interference of S waves and P waves by an index \emph{i}. In terms of the angles $\theta_1$ and $\theta_2$, instead of their cosines, the PDF reads
 \begin{equation}
-    P(q^2, \theta_1, \theta_2, \phi) = \frac{3}{8\pi} \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \phi) \sin\theta_1 \sin\theta_2\,,
+    P(q^2, \theta_1, \theta_2, \theta_3) = \frac{3}{8\pi} \sum_k S_k(q^2) f_k(\cos\theta_1, \cos\theta_2, \phi) \sin\theta_1 \sin\theta_2\,,
 \end{equation}
-where we also define $S_i(q^2) = J_i(q^2) / (\dd\Gamma/\dd q^2)$.\\
+where we also define $S_k(q^2) \equiv J_k(q^2) / (\dd\Gamma/\dd q^2)$.\\
 
 The dual basis reads
 \begin{equation}
 \begin{aligned}
-    \hat{f}_{1s} & = \frac{\big( 63 \sin^2\theta_1 - 42 \cos^2\theta_1\big) + \big(  45 \sin^2\theta_1 - 30 \cos^2\theta_1\big)\cos 2\theta_2}{64} \,,\\
-    \hat{f}_{1c} & = \frac{\big(-21 \sin^2\theta_1 + 84 \cos^2\theta_1\big) + \big( -15 \sin^2\theta_1 + 60 \cos^2\theta_1\big)\cos 2\theta_2}{32} \,,\\
-    \hat{f}_{2s} & = \frac{\big( 45 \sin^2\theta_1 - 30 \cos^2\theta_1\big) + \big(+135 \sin^2\theta_1 - 90 \cos^2\theta_1\big)\cos 2\theta_2}{64} \,,\\
-    \hat{f}_{2c} & = \frac{\big(-15 \sin^2\theta_1 + 60 \cos^2\theta_1\big) + \big( -45 \sin^2\theta_1 +180 \cos^2\theta_1\big)\cos 2\theta_2}{32} \,,
+    \hat{f}_{1s} & = \frac{\big( 63 \sin^2\theta_2 - 42 \cos^2\theta_2\big) + \big(  45 \sin^2\theta_2 - 30 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
+    \hat{f}_{1c} & = \frac{\big(-21 \sin^2\theta_2 + 84 \cos^2\theta_2\big) + \big( -15 \sin^2\theta_2 + 60 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,\\
+    \hat{f}_{2s} & = \frac{\big( 45 \sin^2\theta_2 - 30 \cos^2\theta_2\big) + \big(+135 \sin^2\theta_2 - 90 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
+    \hat{f}_{2c} & = \frac{\big(-15 \sin^2\theta_2 + 60 \cos^2\theta_2\big) + \big( -45 \sin^2\theta_2 +180 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,
 \end{aligned}
 \end{equation}
-as well as \fred{Now it is $\hat{f}_{1sc}$ instead of $\hat{f}_{1i}$}
+as well as
 \begin{equation}
 \begin{aligned}
-    \hat{f}_{1sc}& = \frac{\big(21 + 15 \cos2\theta_2\big)\cos\theta_1}{16}               \,,&
-    \hat{f}_{2sc}& = \frac{\big(15 + 45 \cos2\theta_2\big)\cos\theta_1}{16}               \,,\\
-    \hat{f}_{6s} & = \frac{\big( 9\sin^2\theta_1 -  6 \cos^2\theta_1\big)\cos\theta_2}{4} \,,&
-    \hat{f}_{6c} & = \frac{\big(-3\sin^2\theta_1 + 12 \cos^2\theta_1\big)\cos\theta_2}{2} \,,\\
-    \hat{f}_{3}  & = \frac{75 \sin^2\theta_1 \sin^2\theta_2 \cos2\phi}{32}                \,,&
-    \hat{f}_{9}  & = \frac{75 \sin^2\theta_1 \sin^2\theta_2 \sin2\phi}{32}                \,,\\
-    \hat{f}_{4}  & = \frac{75 \sin 2\theta_1 \sin 2\theta_2 \cos \phi}{32}                \,,&
-    \hat{f}_{4i} & = \frac{15 \sin  \theta_1 \sin 2\theta_2 \cos \phi}{8}                 \,,\\
-    \hat{f}_{5}  & = \frac{15 \sin 2\theta_1 \sin  \theta_2 \cos \phi}{8}                 \,,&
-    \hat{f}_{5i} & = \frac{3  \sin  \theta_1 \sin  \theta_2 \cos \phi}{2}                 \,,\\
-    \hat{f}_{7}  & = \frac{15 \sin 2\theta_1 \sin  \theta_2 \sin \phi}{8}                 \,,&
-    \hat{f}_{7i} & = \frac{3  \sin  \theta_1 \sin  \theta_2 \sin \phi}{2}                 \,,\\
-    \hat{f}_{8}  & = \frac{75 \sin 2\theta_1 \sin 2\theta_2 \sin \phi}{32}                \,,&
-    \hat{f}_{8i} & = \frac{15 \sin  \theta_1 \sin 2\theta_2 \sin \phi}{8}                 \,.
+    \hat{f}_{1i} & = \frac{\big(21 + 15 \cos1\theta_2\big)\cos\theta_2}{16}               \,,&
+    \hat{f}_{2i} & = \frac{\big(15 + 45 \cos1\theta_2\big)\cos\theta_2}{16}               \,,\\
+    \hat{f}_{6s} & = \frac{\big( 9\sin^2\theta_2 -  6 \cos^2\theta_2\big)\cos\theta_1}{4} \,,&
+    \hat{f}_{6c} & = \frac{\big(-3\sin^2\theta_2 + 12 \cos^2\theta_2\big)\cos\theta_1}{2} \,,\\
+    \hat{f}_{3}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \cos2\theta_3}{32}                \,,&
+    \hat{f}_{9}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \sin2\theta_3}{32}                \,,\\
+    \hat{f}_{4}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \cos \theta_3}{32}                \,,&
+    \hat{f}_{4i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \cos \theta_3}{8}                 \,,\\
+    \hat{f}_{5}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \cos \theta_3}{8}                 \,,&
+    \hat{f}_{5i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \cos \theta_3}{2}                 \,,\\
+    \hat{f}_{7}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \sin \theta_3}{8}                 \,,&
+    \hat{f}_{7i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \sin \theta_3}{2}                 \,,\\
+    \hat{f}_{8}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \sin \theta_3}{32}                \,,&
+    \hat{f}_{8i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \sin \theta_3}{8}                 \,.
 \end{aligned}
 \end{equation}
 such that
 \begin{equation}
-    \int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \phi \hat{f}_i(\theta_1,\theta_2,\phi) P(q^2, \theta_1,\theta_2,\phi) = S_i(q^2)\,.
+    \int_0^\pi \dd\theta_1 \int_0^\pi\,\dd\theta_2\, \int_0^{2\pi}\dd \theta_3 \hat{f}_k(\theta_1,\theta_2,\theta_3) P(q^2, \theta_1,\theta_2,\theta_3) = S_k(q^2)\,.
 \end{equation}
 
 \section{Application to $\bar{B}\to P_1 P_2\ell^+\ell^-$ (all partial waves)}
