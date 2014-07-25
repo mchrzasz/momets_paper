@@ -578,14 +578,14 @@ such that
 \section{Application to $\bar{B}\to P_1 P_2\ell^+\ell^-$ (all partial waves)}
 \label{app:btokpill}
 
-The class of $P\to P_1 P_2 \ell_1\bar\ell_2$ decays \fred{title has $\bar{B}$ instead of $P$}, where $P,P_1$, and $P_2$ are pseudoscalar mesons,
+The class of semileptonic $\bar{B}\to P_1 P_2 \ell_1\bar\ell_2$ decays, where $P_1$, and $P_2$ are pseudoscalar mesons,
 and $\ell_1$ and $\bar\ell_2$ are charged or neutral leptons, includes decays
 such as $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ and $\bar{B}\to \pi\pi\ell^-\bar\nu_\ell$.
 Their decay PDFs can generally be written as \cite{Lee:1992ih}
 \begin{equation}
-    P(q^2, k^2, \cos\theta_1, \cos \theta_2, \phi) = \frac{1}{\langle \Gamma\rangle}\frac{\rmdx{^5 \Gamma}}{\rmdx{q^2} \rmdx{k^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\phi}} = \frac{1}{4\pi} \sum_i \frac{I_i(q^2, k^2, \cos\theta_2)}{\Gamma} f_i(\cos\theta_1,\phi)\,,
+    P(q^2, p^2, \cos\theta_1, \cos \theta_2, \theta_3) = \frac{1}{\langle \Gamma\rangle}\frac{\rmdx{^5 \Gamma}}{\rmdx{q^2} \rmdx{p^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\phi}} = \frac{1}{4\pi} \sum_k \frac{I_k(q^2, p^2, \cos\theta_2)}{\Gamma} f_k(\cos\theta_1,\phi)\,,
 \end{equation}
-\fred{rather use index $k$ as in previous appendix} where
+where
 \begin{equation}
 \begin{aligned}
     f_1 & = 1\,,              &
@@ -600,38 +600,36 @@ Their decay PDFs can generally be written as \cite{Lee:1992ih}
 \end{aligned}
 \end{equation}
 Here we denote dilepton mass squared and the dilepton helicity angle as $q^2$ and $\theta_1$, while
-the dimeson mass squared and the dimeson helicity angles are denoted as $k^2$ and $\theta_2$. The
-azimuthal angle is denoted as $\phi$. \fred{Danny changed $\phi$ to $\theta_3$ in previous appendix. Here, too?}
-The total decay width is \fred{integrand independent of $\theta_1$? I guess you want to integrate over $\theta_2$}
+the dimeson mass squared and the dimeson helicity angles are denoted as $p^2$ and $\theta_2$. The
+azimuthal angle is denoted as $\theta_3$.
+The total decay width is
 \begin{equation}
-    \langle \Gamma\rangle = \int_0^\pi \rmdx{\theta_1} \rmdx{q^2} \rmdx{k^2} \sin\theta_2 \frac{3I_1(q^2, k^2, \cos\theta_2) - I_2(q^2, k^2, \cos\theta_2)}{3}\,.
+    \langle \Gamma\rangle = \int_0^\pi \rmdx{\theta_2} \rmdx{q^2} \rmdx{p^2} \sin\theta_2 \frac{3I_1(q^2, p^2, \cos\theta_2) - I_2(q^2, p^2, \cos\theta_2)}{3}\,.
 \end{equation}
-As usual, we transform from a $\cos\theta_1$-dependence to a $\theta_1$-dependence.
+As previous, we transform from a $\cos\theta_2$-dependence to a $\theta_2$-dependence.
 \begin{equation}
 \begin{aligned}
-    P(q^2, k^2, \theta_1, \theta_2, \phi)
-    & = \frac{1}{4\pi} \sum_i \frac{I(q^2, k^2, \cos\theta_2)}{\Gamma} f_i(\theta_1, \phi) \sin\theta_1 \sin\theta_2\\
-    & \equiv \frac{1}{4\pi} \sum_i S_i(q^2, k^2, \theta_2) f_i(\theta_1, \phi)\,.
+    P(q^2, p^2, \theta_1, \theta_2, \theta_3)
+    & = \frac{1}{4\pi} \sum_k \frac{I_k(q^2, p^2, \cos\theta_2)}{\Gamma} f_i(\theta_1, \theta_3) \sin\theta_1 \sin\theta_2\\
+    & \equiv \frac{1}{4\pi} \sum_k S_k(q^2, p^2, \theta_2) f_k(\theta_1, \theta_3) \sin\theta_1\,.
 \end{aligned}
 \end{equation}
-where we also define $S_i(q^2, k^2, \theta_2) \equiv \sin\theta_2 I_i(q^2, k^2, \cos\theta_2) / (\rmdx{\Gamma} /\, \rmdx{q^2})$.
-\fred{$\sin\theta_1$ missing after $f_i$? Why $\rmdx{\Gamma} /\, \rmdx{q^2}$ and not just $\Gamma$ in definition?}\\
+where we also define $S_k(q^2, p^2, \theta_2) \equiv \sin\theta_2 I_k(q^2, p^2, \cos\theta_2) / \langle \Gamma\rangle$.\\
 
 The dual basis reads
 \begin{equation}
 \begin{aligned}
     \hat{f}_1 & = \frac{21 + 15 \cos 2\theta_1}{16}\,, &
     \hat{f}_2 & = \frac{15 + 45 \cos 2\theta_1}{16}\,, &
-    \hat{f}_3 & = \frac{15}{4}                \cos 2\phi     \,,\\
+    \hat{f}_3 & = \frac{15}{4} \sin^2\theta_1 \cos 2\phi     \,,\\
     \hat{f}_4 & = \frac{15}{4} \sin 2\theta_1 \cos  \phi     \,, &
     \hat{f}_5 & = 3            \sin  \theta_1 \cos  \phi     \,, &
     \hat{f}_6 & = 3 \cos\theta_1                   \,,\\
     \hat{f}_7 & = 3            \sin  \theta_1 \sin  \phi     \,, &
     \hat{f}_8 & = \frac{15}{4} \sin 2\theta_1 \sin  \phi     \,, &
-    \hat{f}_9 & = \frac{15}{4}                \sin 2\phi     \,.\\
+    \hat{f}_9 & = \frac{15}{4} \sin^2\theta_1 \sin 2\phi     \,.\\
 \end{aligned}
 \end{equation}
-\fred{$\hat{f}_3$ and $\hat{f}_9$ need factor $\frac{4}{5}$}
 such that
 \begin{equation}
     \int_0^\pi \rmdx{\theta_1} \int_0^{2\pi} \rmdx{\phi} \hat{f}_i(\theta_1,\phi) P(q^2, k^2, \theta_1,\theta_2,\phi) = S_i(q^2, k^2, \theta_2)\,.
@@ -643,11 +641,11 @@ such that
 
 The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts -- reads \cite{Boeer:2014xx}
 \begin{equation}
-    P_{\Lambda_b}(q^2, \cos\theta_1, \cos\theta_2, \phi) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\phi}} = \frac{3}{8\pi} \sum_i \frac{K_{i}(q^2)}{\rmdx{\Gamma} /\, \rmdx{q^2}} f_i(\cos\theta_1, \cos\theta_2, \phi)\,,
+    P(q^2, \cos\theta_1, \cos\theta_2, \phi) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\phi}} = \frac{3}{8\pi} \sum_i \frac{K_{i}(q^2)}{\rmdx{\Gamma} /\, \rmdx{q^2}} f_i(\cos\theta_1, \cos\theta_2, \phi)\,,
 \end{equation}
 where $q^2$ denotes the dilepton mass squared, $\theta_1 \equiv \theta_\ell$ and $\theta_2 \equiv \theta_\Lambda$ denote the
 helicity angles in the dilepton and
-$N\pi$ systems, respectively, and $\theta_3 = \phi$ \fred{Then use $\theta_3$ below and not $\phi$} denotes the azimuthal angle.
+$N\pi$ systems, respectively, and $\theta_3 = \phi$ denotes the azimuthal angle.
 The basis of angular functions reads \cite{Boeer:2014xx}
 \begin{equation}
     \begin{aligned}
@@ -660,11 +658,11 @@ The basis of angular functions reads \cite{Boeer:2014xx}
         f_{2cc} & = \cos^2\theta_1 \cos\theta_2 &
         f_{2c}  & = \cos\theta_1   \cos\theta_2 \\
 % 3
-        f_{3sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\phi &
-        f_{3s}  & = \sin\theta_1              \sin\theta_2 \cos\phi \\
+        f_{3sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\theta_3 &
+        f_{3s}  & = \sin\theta_1              \sin\theta_2 \cos\theta_3 \\
 % 4
-        f_{4sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\phi &
-        f_{4s}  & = \sin\theta_1              \sin\theta_2 \sin\phi
+        f_{4sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\theta_3 &
+        f_{4s}  & = \sin\theta_1              \sin\theta_2 \sin\theta_3
     \end{aligned}
 \end{equation}
 The decay width reads
@@ -673,30 +671,30 @@ The decay width reads
 \end{equation}
 In terms of the angles $\theta_1$ and $\theta_2$, instead of the cosines, the PDF reads
 \begin{equation}
-    P_{\Lambda_b}(q^2, \theta_1, \theta_2, \phi) = \frac{3}{8\pi} \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \phi) \sin\theta_1 \sin\theta_2\,,
+    P(q^2, \theta_1, \theta_2, \theta_3) = \frac{3}{8\pi} \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \theta_3) \sin\theta_1 \sin\theta_2\,,
 \end{equation}
-where we also define $S_i(q^2) = K_i(q^2) / (\rmdx{\Gamma} /\, \rmdx{q^2})$.\\
+where we also define $S_i(q^2) \equiv K_i(q^2) / (\rmdx{\Gamma} /\, \rmdx{q^2})$.\\
 
 The dual basis reads
 \begin{equation}
     \begin{aligned}
 % 1
-        \hat f_{1ss} & = \frac{\pi^3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
-        \hat f_{1cc} & = \frac{\pi^3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
-        \hat f_{1c}  & = \pi^3 \cos\theta_1\\
+        \hat f_{1ss} & = \frac{1}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
+        \hat f_{1cc} & = \frac{1}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
+        \hat f_{1c}  & = \cos\theta_1\\
 % 2
-        \hat f_{2ss} & = \frac{3\pi^3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
-        \hat f_{2cc} & = \frac{3\pi^3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
-        \hat f_{2c}  & = 3\pi^3 \cos\theta_1   \cos\theta_2 \\
+        \hat f_{2ss} & = \frac{3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
+        \hat f_{2cc} & = \frac{3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
+        \hat f_{2c}  & = 3 \cos\theta_1   \cos\theta_2 \\
 % 3
-        \hat f_{3sc} & = \frac{15\pi^3}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\phi &
-        \hat f_{3s}  & = \frac{3\pi^3}{2} \sin\theta_1              \sin\theta_2 \cos\phi \\
+        \hat f_{3sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\phi &
+        \hat f_{3s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \cos\phi \\
 % 4
-        \hat f_{4sc} & = \frac{15\pi^3}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\phi &
-        \hat f_{4s}  & = \frac{3\pi^3}{2} \sin\theta_1              \sin\theta_2 \sin\phi
+        \hat f_{4sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\phi &
+        \hat f_{4s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \sin\phi
     \end{aligned}
 \end{equation}
-such that \fred{Works out only if $\pi^3$ dropped everywhere, and $\hat f_{2cc} \to 2 \hat f_{2cc}$}
+such that
 \begin{equation}
     \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\phi} P(q^2, \theta_1, \theta_2, \phi) \hat{f}_i(\theta_1, \theta_2, \phi) = S_i(q^2)\,.
 \end{equation}
