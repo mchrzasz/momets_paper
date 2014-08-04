@@ -12,8 +12,6 @@
 \usepackage{hepnicenames}
 \usepackage{hepunits}
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{epstopdf}
 
 %% Shortcuts %%
@@ -25,6 +23,7 @@
 \newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
 \newcommand{\refapp}[1]{app.~(\ref{app:#1})}
 \newcommand{\refeq}[1]{eq.~(\ref{eq:#1})}
+\newcommand{\reffig}[1]{fig.~(\ref{fig:#1})}
 \newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
 \newcommand{\reftab}[1]{tab.~(\ref{tab:#1})}
 \newcommand{\rmdx}[1]{\mbox{d} #1 \,} % differential
@@ -44,8 +43,6 @@
 \newcommand{\fred}[1]{{\color{brown!85!black}#1}}
 \newcommand{\nico}[1]{{\color{green!85!black}#1}}
 \newcommand{\citeneeded}{{\color{red}\bf [cite needed]}}
-
-\captionsetup{compatibility=false}
 
 \begin{document}
 
@@ -92,13 +89,21 @@ advocates this method chiefly for the determination of angular observables in no
 $B$ decays, but also mentions the applicability to semileptonic decays. We improve
 upon this previous work by studying correlations between the angular observables,
 and sources of systematic uncertainties. Moreover, we will show that the method
-at hand has two benefits over the usual approach based on likelihood fits.
+at hand has two benefits over the usual approach based on likelihood fits. To wit:
 \begin{enumerate}
-    \item Likelihood fits do not always converge. \fred{Why? Mismodelling? Expand!}
-    \item Using the method at hand, the joint probability distribution of the
+    \item Likelihood fits have convergence problems for a small number of
+        events, and can require reparametrizations and/or approximations
+        for a successful fit to the signal PDF, see e.g. \cite{Egede:2008uy}.
+        The method of moments has no such convergence problems.
+    \item The results of likelihood fits suffer from systematic uncertainties
+        and systematic bias (see e.g. \cite{Egede:2008uy}), especially in but not limited
+        to cases in which the PDFs do not faithfully model the underlying physics. We will
+        show that the method of moments does not suffer a very particular type of
+        mismodelling that arises from introducing a cutoff in a partial wave expansion.
+    \item Using the method of moments, the joint probability distribution of the
         angular observables converges towards a multivariate normal distribution.
-        This allows easy transfer of information from the experiment to interest
-        theorists.
+        This allows an easy transfer of correlation information from the experiments to
+        interested theorists.
 \end{enumerate}
 
 
@@ -219,7 +224,7 @@ estimator $\est{E_P[g]}$~\cite[sec. 8.2]{James:2006zz}
     \label{eq:mc-id}
     E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{K} \sum_{k=1}^K g(x^{(k)}) \,,\,    x^{(k)} \sim P
 \end{equation}
-due to the strong law of large numbers for $K \to \infty$ assuming
+due to the strong law of large numbers for $K \to \infty$, assuming
 that the variates $x^{(k)}$, $k = 1, \dots, K$ are distributed as
 $P$.
 Throughout this letter we denote all MC estimators with a wide hat.\\
@@ -275,9 +280,11 @@ towards the true covariance matrix.  We propose to declare convergence
 \fred{I'd prefer: check that skewness and kurtosis are sufficiently
   small} once estimators for skewness and kurtosis are sufficiently
 small,
+
 \begin{equation}
-    \est{\operatorname{Skew}}[\aver{S_i},\aver{S_j}] \ll 1\,\,\text{ and }\,\,\est{\kurt}[\aver{S_i},\aver{S_j}] \ll 1\,.
+    \est{\operatorname{Skew}}[\aver{S_i},\aver{S_j}] \leq B_S\,\,\text{ and }\,\,\est{\kurt}[\aver{S_i},\aver{S_j}] \leq B_K\,.
 \end{equation}
+where the limits $B_S$ and $B_K$ should be determined from process-specific, dedicated toy studies.\\
 
 Compared to the usual maximum-likelihood approach, we find for the method of moments:
 \begin{enumerate}
@@ -347,6 +354,20 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   includes the results as independent measurements with a Gaussian
   distribution and disregards the constraint altogether. This last
   situation is undesirable for both experimentalists and theorists.
+  \danny{Two comments:
+      \begin{itemize}
+      \item We should tune down the ``data privacy'' line of thought. LHCb
+      actively works on providing the full likelihood to theorists.
+      Rather, we should emphasize that providing the likelihood
+      as obtained from the ML-fit is technically much harder (think: profile likelihood,
+      since the theorists are not interested in control channels, \dots)
+      \item The constraints as described here are \emph{theoretical}
+      in nature! If one changes the PDF (e.g. in $B\to K^*\ell^+\ell^-$,
+      higher partial waves will have an impact on the shape of the
+      \emph{physical region}. Thus, imposing these constraints should
+      not be done on the side of the experiment.
+      \end{itemize}
+  }
 \end{enumerate}
 
 
@@ -368,39 +389,43 @@ uncertainties, we lift these assumptions.
 
 So far, we assumed that our underlying physical process was accurately described by our PDF $P$.
 However, in several interesting processes we might only have an approximative result for $P$.
-In this section, we take the interesting class of four-body decays $B\to P_1 P_2 \ell_1 \bar\ell_2$
-as an example\footnote{This includes the rare $b\to s$ mediated $B$ decay $B \to K\pi\ell^+\ell^-$, and
+In this section we focus on one particular class of mismodelling of the signal PDF: the angular
+momentum-cutoff in partial wave expansions. This mismodelling potentially affects a large
+number of decays and scattering processes. For the sake of clarity we take the interesting class
+of four-body decays $B\to P_1 P_2 \ell_1 \bar\ell_2$ as an example\footnote{This includes the rare $b\to s$ mediated $B$ decay $B \to K\pi\ell^+\ell^-$, and
 the $V_{ub}$ suppressed decay $B\to \pi\pi\ell^+\bar\nu_\ell$. For both examples the PDF $P$ is known in
 the small-width approximation and when assuming a pure $P$-wave, resonant final state. An extension to
 $S-P$ interference has been studied for $B\to K\pi\ell^+\ell^-$ \cite{Blake:2012mb,Becirevic:2011bp},
 and for $\bar{B}\to \pi\pi\ell^-\bar\nu_\ell$ \cite{Faller:2013dwa}. For a first study of $S$, $P$
-and $D$ interference, see \cite{Das:2014sra}}.%
-The PDFs for these decays are usually expressed in terms of one or a few partial waves
-of the dimeson system. However, the angular momentum of the dimeson system is unbounded from above.
-\\
+and $D$ interference, see \cite{Das:2014sra}}.\\
 
-For the selected class of decays, we face the problem that $P$ has a given dependence on the dilepton
+Within existing analyses, the PDFs for these decays are usually expressed in terms of one or a few
+partial waves of the dimeson system. However, the angular momentum of the dimeson system is unbounded
+from above, and gives rise to an infinite set of angular observables.\\
+
+For the selected class of decays, we can describe that problem as follows: The PDF $P$ has a fixed dependence on the dilepton
 helicity angle $\theta_1$ and the azimuthal angle $\theta_3$. (See also \refapp{btokpill} for details
-on the angular distribution.) However, on the level of decay amplitudes the dimeson system can have an arbitrary
-large total angular momentum $j$; only its third component is restricted to $m = -1,0,+1$.\\
-
+on the angular distribution.) However, on the level of decay amplitudes the dimeson system can have an arbitrarily
+large total angular momentum $j$; only its third component is restricted to $m = -1,0,+1$.
 We advocate here that is a sensible procedure to perform an expansion in terms of Legendre polynomials $p_{j}^{(|m|)}$
 with respect to the remaining angle $\theta_2$. Using the observables $S_k(\vec{\nu})$, $k=1,\dots,9$, with $\vec{\nu}=(q^2, k^2)$
 and as defined in \refapp{partial-waves}, the expansion reads
 \begin{equation}
     S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{j,|m|}} S_{k,j}(\vec{\nu}) p_{j}^{(|m|)}(\cos\theta_2)\sin\theta_2\,,
 \end{equation}
-where the the normalization factor $n_{j,|m|}$ is defined in \refeq{legendre-scalar-product}, and we have
+where the the normalization factor $n_{j,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
+example we have (cf. also \refapp{btokpill})
 \begin{equation}
     |m| = \begin{cases}
         0\,, & k = 1,2,6\,\\
         1\,, & k = 3,4,5,7,8,9\,,
     \end{cases}\,.
 \end{equation}
-The angular observables $S_{k,j}$ defined as coefficients of this expansion
+The angular observables $S_{k,j}$ defined as coefficients of this expansion in Legendre polynomials
 have the merit of a well-defined total angular momentum, and thus are physically discriminable.
 As a consequence of the orthogonality of the Legendre polynomials, any mismodelling (or rather, lack of modelling of higher
-partial-wave observables) \emph{does not affect} the method of moments as discussed in the previous section.\\
+partial-wave observables) \emph{does not affect} the method of moments as discussed in the previous section. To wit,
+ignoring further (orthogonal) terms in the PDF cannot affect the mean vector $(\dots, S_k, \dots)$ nor its variance.\\
 
 Unfortunately, this benefit on the experimental side is accompanied with a theoretical draw back. Each observable
 $S_{k,j}(\vec{\nu})$ consists of an infinite sum of bilinear of partial-wave amplitudes. It remains for theoretical
@@ -408,40 +433,33 @@ analyses to estimate or calculate the impact of partial waves beyond the S and P
 (For $B\to K\pi\ell^+\ell^-$ a first study has been carried out where contributions up to the D wave are studied \cite{Das:2014sra}).\\
 
 We wish to emphasize, however, that detector acceptance effects systematically affect the expansion for any basis
-of angular functions. The means to cope with this problem are discussed in the following subsection.
+of angular functions, including the one suggested in this section. The means to cope with this problem are discussed
+in the following subsection.
 
 
-\subsection{Detector Acceptance Effects}
+\subsection{Recipe for the Determination of Detector Acceptance Effects}
 \label{sec:systematics:acceptance}
 
-\paragraph{Recipe to determine the acceptance effects}
-
-The determination of detector acceptance is generally a difficult
+The determination of a detector's angular acceptance is generally a difficult
 task. Here, we will show a systematic method to estimate its effects
 based on both the method of moments, and MC simulations of the
-detector.
+detector.\\
 
-\fred{In the ideal case, one would have an explicit probabilistic
-  model of the detector acceptance effects and could thus write down
-  the full forward model of the measured events arise. In practice,
-  this would require much more CPU time than available, and one is
-  therefore forced to simplify the model. The standard approach is to
-  generate \emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
-  \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from a PDF
-  assumed to describe the bare physical process, and to propagate
-  those particles through a detailed simulation of the detector. The
-  observable traces that the particles leave in the detector are fed
-  into reconstruction algorithms resulting in the \emph{detector}
-  events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
-  \vec\theta^{(k)}_d)\rbrace$.
+In the ideal case, one would have an explicit probabilistic
+model of the detector acceptance effects and could thus write down
+the full forward model from which the measured events arise. In practice,
+this would require much more CPU time than available, and one is
+therefore forced to simplify the model. The standard approach is to
+generate \emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
+\lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from a PDF
+assumed to describe the bare physical process, and to propagate
+those particles through a detailed simulation of the detector. The
+observable traces that the particles leave in the detector are fed
+into reconstruction algorithms resulting in the \emph{detector}
+events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
+\vec\theta^{(k)}_d)\rbrace$.\\
 
-[Where does the reconstruction uncertainty enter? Below we just
-  account for systematic shifts but our estimate of the uncertainty of
-  one $S_k$ would be only the statistical uncertainty from the finite
-  sample size. How about the extra correlation between different $S_k$
-  that is induced?] }\\
-
-As before, we assume a PDF $P$ can be decomposed into $N$ parts with angular observables $\lbrace S_k\rbrace$,
+As before, we assume the PDF $P$ can be decomposed into $N$ parts with angular observables $\lbrace S_k\rbrace$,
 \begin{equation}
     P \equiv P(\vec\nu,\vec\theta | \lbrace S_k \rbrace)\,.
 \end{equation}
@@ -450,27 +468,26 @@ observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. W
 between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$,
 \begin{equation}
     \label{eq:linear-assumption}
-    \est{S_i} = \sum_{i = 1}^N M_{i j} S_j^\text{true}\,.
+    \est{S_i} = \sum_{j = 1}^N M_{i j} S_j^\text{true}\,.
 \end{equation}
 This assumption is based on a smooth angular acceptance function. While this will not be true for the laboratory frame,
-smoothness may be recovered in boosted frame, e.g. the rest frame of the decaying particle.
+smoothness may be recovered in a boosted frame, e.g. the rest frame of the decaying particle.
 In that case, the matrix $M_{ij}$ can be fully determined through the following steps.
 \begin{enumerate}
     \item For a fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
-    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace = \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ (dubbed ``true'') from the PDF $P_j$,
+    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace = \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from the PDF $P_j$,
         \begin{equation}
             P_j \equiv P(\vec\nu,\vec\theta | \lbrace S_j = 1, S_{k\neq j} = 0\rbrace)\,.
         \end{equation}
     \item Use the true events as input for the MC simulation of the detector, in order to obtain the detector
         events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,\vec\theta^{(k)}_d)\rbrace$.
-    \item Use the method of moments to determine the uncorrected observables $\lbrace \est{S_k} \rbrace$, based on the detector
-        events $\lbrace x^{(k)}_d\rbrace$.
+    \item Determine the uncorrected observables $\lbrace \est{S_k} \rbrace$ based on the detector
+        events $\lbrace x^{(k)}_d\rbrace$. For all intents and purposes, automation of this step is only feasible
+        with to the method of moments, since it does not suffer form convergence problems.
     \item By virtue of \refeq{linear-assumption} and step 1, the $j$-th column of $M$ has been determined via
         \begin{equation}
             M_{ij} = \est{S_i}\,.
         \end{equation}
-        \fred{I wonder if a small sample size also leads to artificial
-          nonzero off-diagonal elements of $M$}
     \item Repeat the above steps for all values of $j$ to determine all columns of $M$.
 \end{enumerate}
 
@@ -480,13 +497,13 @@ angular observables $\lbrace \wwhat{S_k}\rbrace$ as
     \wwhat{S_i} = \left(M^{-1}\right)_{ij} \est{S_j}\,.
 \end{equation}
 
-We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}, We thus suggest to explicitly
-test the assumption. One way of testing involves repeating the previous procedure
-with $S_j^\text{true} = 1/x$. If the lineary assumption holds, one should find
+We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}; we thus suggest to explicitly
+test the linearity. One way of testing involves repeating the previous procedure
+with $S_j^\text{true} = 1/z$, $z > 0$. If the linearity assumption holds, one should find
 \begin{equation}
-    M_{ij} = x \est{S_i}\,,
+    M_{ij}(z) = z \est{S_i}\,,
 \end{equation}
-for arbitrary values of $x > 1$.
+for a fixed value of $j$.
 
 
 \section{Toy Studies}
@@ -497,17 +514,26 @@ and one tri-angular decay distribution for various numbers of events. As inputs 
 for the decays $B\to K\ell^+\ell^-$ and $B\to K^*(\to K\pi)\ell^+\ell^-$, respectively. We cover the
 $q^2$ ranges $1\GeV^2$ to $6\GeV^2$, and $15\GeV^2$ to to the respective kinematic endpoint, with two
 bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that a wide spectrum of possible values for
-the angular observables. We find:
+the angular observables.\\
+
+Our finding can be summarized as follows:
 \begin{itemize}
     \item In all studied cases we observed not a single bias in the pull distribution of the observable.
-    \item The error $\sigma_k(N)$ of an angular observable $S_k$, evaluate for $N$ events is very well
-        fitted by
+        All pull distributions can successfully be fitted to a gaussian distribution. As an example, we
+        show the pull distributions for the observables $S_5$ and $S_7$ for a SM-like $B\to K^*\ell^+\ell^-$
+        decays in \reffig{pulls}.
+    \item We study the absolute uncertainty $\sigma_k(N)$ with respect to the angular observable $S_k$
+        as a function of the number of simulated events $N$. As expected for a multivariate gaussian
+        distribution, we find that the absolute uncertainty is well fitted by
         \begin{equation}
             \sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}
         \end{equation}
-        with $\sigma_k(1) = \order{1}$.
+        with $\sigma_k(1) = \order{1}$, regardless of the size of $S_k$. The latter can best be shown
+        for the uncertainties of two exampular observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
+        for SM-like $B\to K^*\ell^+\ell^-$ decays, we show the absolute uncertainty in \reffig{errors}.
+    \item For all toy studies, we produce plots of their Skewness and their Kurtosis as functions of
+        $N$. We find in all cases that the distributions agree. 
     \item \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of $N$.}
-    \item \todo{Perform Mardia's Skewness and Kurtosis tests.}
     \item \dots
 \end{itemize}
 We find that all of the above results show consistenly convergence of the distribution for the angular observables
@@ -515,12 +541,16 @@ towards a multivariate normal distribution.
 
 \begin{figure}[t]
         \centering
-        \begin{subfigure}[b]{0.45\textwidth}
-                \includegraphics[width=0.8\textwidth]{figs/Q2_5_6_S5.png}
-        \end{subfigure}
-        \begin{subfigure}[b]{0.45\textwidth}
-                \includegraphics[width=0.8\textwidth]{figs/Q2_5_6_S7.png}
-        \end{subfigure}
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S5_200.png}
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S7_200.png}
+        \caption{Pull distribution for the angular observables $S_5$ and $S_7$, extracted from $200$ simulated events of the decay $B\to K^*\ell^+\ell^-$. The red curve represents a fit to a gaussian distribution.}
+        \label{fig:pulls}
+\end{figure}
+
+\begin{figure}[t]
+        \centering
+            \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S5.png}
+            \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S7.png}
         \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $N$. The red curve represents a fit to the function $\sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}$.}
         \label{fig:errors}
 \end{figure}
