@@ -15,23 +15,25 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{epstopdf}
+
 %% Shortcuts %%
-\newcommand{\rmdx}[1]{\mbox{d} #1 \,} % differential
+\newcommand{\aver}[1]{\langle #1 \rangle}
+\newcommand{\dual}[1]{\tilde{#1}}
+\newcommand{\est}[1]{\widehat{#1}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\nuvec}{\vec{\nu}}
+\newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
 \newcommand{\refapp}[1]{app.~(\ref{app:#1})}
 \newcommand{\refeq}[1]{eq.~(\ref{eq:#1})}
 \newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
 \newcommand{\reftab}[1]{tab.~(\ref{tab:#1})}
-\newcommand{\ie}{\textit{i.e.}}
-\newcommand{\nuvec}{\vec{\nu}}
+\newcommand{\rmdx}[1]{\mbox{d} #1 \,} % differential
 \newcommand{\thvec}{\vec{\vartheta}}
 \let\oldtheta\theta
 \renewcommand{\theta}{\vartheta}
-%\newcommand{\GeV}{\text{GeV}}
-\newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
 \let\eps\varepsilon
-\newcommand{\aver}[1]{\langle #1 \rangle}
-\newcommand{\est}[1]{\widehat{#1}}
 \newcommand{\wwhat}[1]{\widehat{\widehat{#1}}}
+
 \DeclareMathOperator{\cov}{Cov}
 %\DeclareMathOperator{\skew}{Skew}
 \DeclareMathOperator{\kurt}{Kurt}
@@ -114,21 +116,15 @@ function (PDF) of the process by means of
 \end{align}
 Here, the dependence on the $n$ decay angles $\thvec$ has been
 explicitly factored out in terms of the angular functions
-$\{f_i(\thvec)\}$, which we assume to fulfill the orthonormality relations
+$\{f_i(\thvec)\}$. We assume there exists a dual basis of functions
+$\{\dual{f}_i(\thvec)\}$ such that the orthonormality relations
 \begin{equation}
     \label{eq:def-ortho-rel}
-    \int_\Omega \rmdx{^N \theta} f_i(\thvec) f_j(\thvec)  = \delta_{ij}\,,
+    \int_\Omega \rmdx{^N \theta} \dual{f}_i(\thvec) f_j(\thvec)  = \delta_{ij}
 \end{equation}
-with $\Omega$ representing the full angular phase space relevant to the process.
-For the purpose of this letter, however, it suffices that the system
-of angular functions $\{f_i(\thvec)\}$ can be transformed into an
-orthonormal basis. The transformation needs to be worked out on a
-case-by-case basis. For a selection of $B$ decays which we consider the most interesting
-we list the transformations in a series of appendices \ref{app:btokll} through
-\ref{app:lambdabtolambdall}.\\
-
-
-For particle decays, $P$ is generally expressed in terms of the fully differential decay width,
+hold with $\Omega$ representing the full angular phase space relevant
+to the process.  For particle decays, $P$ is generally expressed in
+terms of the fully differential decay width,
 \begin{align}
     \label{eq:def-P-decay}
     P(\nuvec, \thvec) \equiv \frac{1}{\Gamma}\frac{\rmdx{^{N+M}\Gamma}}{\rmdx{\nu_1} \dots \rmdx{\nu_M} \rmdx{\theta_1} \dots \rmdx{\theta_N}}\,,
@@ -153,7 +149,25 @@ of the angular observables are invariant.\\
 % depends on parameters $\nuvec$. Then one approximates the population
 % (central) moments $x^k$ by the sample moments
 Our method is an extension of the classical method of moments with
-orthogonal functions~\cite{James:2006zz}.
+orthogonal functions~\cite[sec. 8.2]{James:2006zz}. The only difference
+is that conventionally the angular functions are assumed
+\emph{self-dual}, $\dual{f}_i = f_i$. However, it suffices that the
+system of angular functions $\{f_i(\thvec)\}$ \emph{can} be transformed into
+an orthonormal basis. It turns out to be much more convenient to work
+in the basis natural to each process but the statistical properties
+are equivalent for both approaches provided that one replace $f_i \to
+\dual{f}_i$ appropriately. Using the ansatz
+\begin{equation}
+  \label{eq:dual-ansatz}
+  \dual{f}_i = \sum_{j} a_{ij} f_j \,,
+\end{equation}
+the dual basis needs to be worked out case by case through solving the
+linear system of equations (\ref{eq:def-ortho-rel}). For a selection
+of hadron decays with a $b$ quark in the initial state and two leptons
+in the final state, we list the dual bases in a series of appendices
+\ref{app:btokll} through \ref{app:lambdabtolambdall}. Note that a
+similar analysis was done in~\cite{Dighe:1998vk} for the decays $B \to
+J/\psi \phi$ and $B \to J/\psi K^{*}$.
 
 In the remainder of this letter we discuss how to obtain an angular
 observable $S_i(\nuvec)$ in an experimental setup where each recorded
@@ -175,13 +189,12 @@ The orthonormality relations \refeq{def-ortho-rel} imply that a single angular o
 can be projected out of the full PDF $P$ by means of
 \begin{equation}
     \label{eq:det-Pi-analytical}
-    S_i(\nuvec) = \int_{\Omega} \rmdx{^N \theta} \hat{f}_i(\thvec) P(\nuvec, \thvec)\,.
+    S_i(\nuvec) = \int_{\Omega} \rmdx{^N \theta}  P(\nuvec, \thvec) \dual{f}_i(\thvec)\,.
 \end{equation}
-where $\lbrace \hat{f}_i \rbrace$ denotes a \emph{dual basis} of angular function. In all generality
-the bases $\lbrace f_i \rbrace$ and $\lbrace \hat{f}_i \rbrace$ are not identical. This is the
+where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
 case for our selection of applications in appendices \ref{app:btokll} through \ref{app:lambdabtolambdall}.\\
 
-It is sensible to refer to the angular observable $S_i$ as the \emph{$\hat{f}_i$-moment} of the PDF $P$.
+It is sensible to refer to the angular observable $S_i$ as the \emph{$f_i$-moment} of the PDF $P$.
 We emphasize that a relation of type \refeq{det-Pi-analytical} holds for any combination of
 scalar product and orthonormal basis of angular functions $\lbrace f_i \rbrace$; \ie, there is no unique
 basis of angular functions. For the proof we refer to ref. \cite{Dighe:1998vk}.\\
@@ -189,7 +202,7 @@ In addition, integration over the non-angular variables yields
 \begin{equation}
     \langle S_i\rangle
     \equiv \int \rmdx{^M \nu} S_i(\nuvec)
-    = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N \theta}\hat{f}_i(\thvec) P(\nuvec,\thvec) \right].
+    = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N \theta} P(\nuvec,\thvec) \dual{f}_i(\thvec) \right].
 \end{equation}
 The remainder of this section describes the method of moments, in which we replace the
 analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.\\
@@ -198,25 +211,23 @@ analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.
 The central tenet of MC integration is the fact that the expectation value $E_P[g]$ of some function
 $g(x)$ under the probability density $P(x)$,
 \begin{equation}
-    E_P[g] \equiv \int \rmdx{x} g(x) P(x)
+    E_P[g] \equiv \int \rmdx{x} P(x) g(x)
 \end{equation}
-can be approximated \cite{MCSM-2004} by an MC estimator $\est{E_P[g]}$
+can be approximated \cite{MCSM-2004} by the consistent and unbiased
+estimator $\est{E_P[g]}$~\cite[sec. 8.2]{James:2006zz}
 \begin{equation}
     \label{eq:mc-id}
-    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{K} \sum_{k=1} g(x^{(k)})
+    E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{K} \sum_{k=1}^K g(x^{(k)}) \,,\,    x^{(k)} \sim P
 \end{equation}
 due to the strong law of large numbers for $K \to \infty$ assuming
 that the variates $x^{(k)}$, $k = 1, \dots, K$ are distributed as
-$P$; i.e.,
-\begin{equation}
-    x^{(k)} \sim P\,.
-\end{equation}
+$P$.
 Throughout this letter we denote all MC estimators with a wide hat.\\
 
 
 Application of \refeq{mc-id} then yields
 \begin{equation}
-    \langle S_i\rangle \to \widehat{\langle S_i\rangle} = \frac{1}{K} \sum_{k=1}^{K} \hat{f}_i(x^{(k)})\,.
+    \langle S_i\rangle \to \widehat{\langle S_i\rangle} = \frac{1}{K} \sum_{k=1}^{K} \dual{f}_i(x^{(k)})\,.
 \end{equation}
 It is often of interest to obtain the $\nuvec$- observables integrated
 over certain ranges of $\nuvec$; i.e., binned measurements of $\langle
@@ -225,8 +236,8 @@ Therefore, we introduce the bin-integrated quantity
 \begin{align}
     \langle S_i\rangle_{\vec{a},\vec{b}}
     & = \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} S_i(\nuvec)\\
-    & = \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta} \hat{f}_i(\thvec) P(\nuvec,\thvec)  \right]\\
-    & = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta} \hat{f}_i(\thvec) P(\nuvec,\thvec)
+    & = \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta} P(\nuvec,\thvec) \dual{f}_i(\thvec)  \right]\\
+    & = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta}  P(\nuvec,\thvec) \dual{f}_i(\thvec)
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,
         \right],
 \end{align}
@@ -236,31 +247,107 @@ Application of \refeq{mc-id} immediately yields
 \begin{equation}
     \label{eq:bin-importance}
     \widehat{\langle S_i\rangle_{\vec{a},\vec{b}}}
-    = \frac{1}{K} \sum_{k=1}^{K} \hat{f}_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
+    = \frac{1}{K} \sum_{k=1}^{K} \dual{f}_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-This basically reduces the estimation of
-$\aver{S_i}_{\vec{a},\vec{b}}$ to a (weighted) counting experiment. In
-the limit $N \to \infty$, the random vector $( \dots,
-\aver{S_i}_{\vec{a},\vec{b}}, \dots)$ follows a multivariate Gaussian
-distribution \citeneeded\fred{Robert,Casella?}
-with the mean vector estimated by \refeq{bin-importance}, and the covariance
+This reduces the estimation of $\aver{S_i}_{\vec{a},\vec{b}}$ to a
+(weighted) counting experiment. In the limit $N \to \infty$, the
+central limit theorem (CLT) implies that the random vector
+\begin{equation}
+  \label{eq:angular-obs-vec}
+  \widehat{\vec{S}_{\vec{a},\vec{b}}} \equiv (\aver{S_1}_{\vec{a},\vec{b}}\,, \dots, \aver{S_i}_{\vec{a},\vec{b}}\,,
+  \dots)
+\end{equation}
+ follows a multivariate Gaussian distribution whose mean vector
+is approximated by \refeq{bin-importance} and whose covariance is
 estimated as
 \begin{equation}
     \cov[\aver{S_i},\aver{S_j}]_{\vec{a},\vec{b}} \to \est{\cov}[\aver{S}_i, \aver{S}_j]_{\vec{a},\vec{b}}
-        = \frac{1}{K - 1} \sum_{k=1}^{K} \big[\hat{f}_i(x^{(k)}) - \est{\langle S_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\hat{f}_j(x^{(k)}) - \widehat{\langle S_j\rangle_{\vec{a},\vec{b}}}\big]
+        = \frac{1}{K - 1} \sum_{k=1}^{K} \big[\dual{f}_i(x^{(k)}) - \est{\langle S_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\dual{f}_j(x^{(k)}) - \widehat{\langle S_j\rangle_{\vec{a},\vec{b}}}\big]
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-We would like to emphasize that the sample covariance should rapidly converge towards the true covariance matrix.
-We propose to declare convergence once estimators for skewness and kurtosis are sufficiently small,
+In our physics applications, the parameter space is compact and each
+$\dual{f}_i$ is bounded. Hence the requisites for the most basic
+version of the CLT to hold --- finite mean and covariance of
+$\dual{f}_i$ --- are automatically satisfied.  We would like to
+emphasize that the sample covariance should \fred{``Should'' as in it
+  does in practice? Reference toy studies below} rapidly converge
+towards the true covariance matrix.  We propose to declare convergence
+\fred{I'd prefer: check that skewness and kurtosis are sufficiently
+  small} once estimators for skewness and kurtosis are sufficiently
+small,
 \begin{equation}
     \est{\operatorname{Skew}}[\aver{S_i},\aver{S_j}] \ll 1\,\,\text{ and }\,\,\est{\kurt}[\aver{S_i},\aver{S_j}] \ll 1\,.
 \end{equation}
 
-The convergence towards a normal distribution for the results allows to transfer correlation information to interested
-theorists. In particular, this will allow to constrict predictive distributions of optimized observables.
-(See e.g. \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf}
-for definitions of such optimized observables in $B\to K^*\ell^+\ell^-$ decays, \cite{Faller:2013dwa} for application to
-the decay $B\to \pi\pi\ell^-\bar\nu_\ell$, and \cite{Boeer:2014xx} for observables in $\Lambda_b\to\Lambda(\to N\pi)\ell^+\ell^-$).
+Compared to the usual maximum-likelihood approach, we find for the method of moments:
+\begin{enumerate}
+\item The angular observable $\aver{S_i}$ can be determined
+  independently of any other observable $\aver{S_j}$. It is therefore
+  much more robust to physics assumptions needed to define the full
+  likelihood. In particular, this means one does not have to be
+  specific regarding the form of new-physics contributions.
+\item It is superior for a small number of samples $N$. Likelihood
+  fits tend to be numerically unstable if lots of parameters need to
+  be estimated from sparse data. This is more severe if the mode of
+  the likelihood is near the boundary of the physically allowed
+  region.\fred{Is there some LHCb note we could cite?} In many of the
+  decays of interest, there are only say dozens of events recorded.
+\item The estimate is unbiased for any $N$. In contrast, the
+  maximum-likelihood estimate has a bias of order
+  $1/N$~\cite{Cox:1968}. In practice, one should keep in mind the
+  bias-variance trade-off: it is a well known phenomenon that removing
+  the bias usually leads to an increase in variance of the sampling
+  distribution of the estimator~\cite[sec. 7.3]{James:2006zz}. From a
+  Bayesian decision-theory point of view, both contribute similarly to
+  the expected loss associated with deciding on just one value of the
+  unknown parameter. It is therefore highly questionable to reduce
+  only the bias~\cite[sections 13.8,17.2]{jaynes:2003}. In fact, for
+  the results discussed below in \refsec{numerics}, the likelihood
+  fits --- if they converge --- produce uncertainties (10--15)\%
+  smaller than those from the method of moments.
+\item The approximate normal distribution allows easier and more
+  correct transfer of the information in the data to interested
+  theorists for more accurate fits of standard-model and new-physics
+  parameters \citeneeded\fred{Our fits and others'?} or for more precise predictions of
+  optimized observables; e.g.,
+  \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,
+    Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf} for definitions
+  of such optimized observables in $B\to K^*\ell^+\ell^-$ decays,
+  \cite{Faller:2013dwa} for application to the decay $B\to
+  \pi\pi\ell^-\bar\nu_\ell$, and \cite{Boeer:2014xx} for observables
+  in $\Lambda_b\to\Lambda(\to N\pi)\ell^+\ell^-$). While the
+  likelihood also approaches a multivariate Gaussian as $N \to
+  \infty$, the two methods differ in their utility as input for
+  theorists if $\widehat{\vec{S}_{\vec{a},\vec{b}}}$ is not well
+  inside the physical region. For example, suppose there are two
+  angular observables that are constrained to a triangular region by
+  phase-space or unitarity arguments as \fred{Could add a sketch. It
+    is supposed to resemble $A_{\text{FB}},F_L$ for $B \to K^* \ell \ell$.}
+  \begin{equation}
+    \label{eq:constr-ex}
+    |S_1| + S_2 \le 1, \, S_1 \in [-1,1],\, S_2 \in [0,1] \,.
+  \end{equation}
+  It may (and often does) happen in practice that
+  $\widehat{\vec{S}_{\vec{a},\vec{b}}}$ is close or even outside the
+  allowed region such that a significant part of the probability mass
+  of $\vec{S}$ covers unphysical values. In a Bayesian fit, one would
+  take $\mathcal{N}(\vec{S} | \widehat{\vec{S}_{\vec{a},\vec{b}}},
+  \widehat{\Sigma})$ as the sampling distribution of the ``data'', and
+  simply set a uniform prior on the triangle defined by
+  \refeq{constr-ex} to have a well defined problem. This could be
+  trivially combined with other independent information in a global
+  fit. For a likelihood fit, the constraint needs to be built in by
+  the experiment into the analysis of the actual events and the
+  resulting likelihood as a function of $\vec{S}$ is distinctly not
+  Gaussian. Since experimental collaborations as a whole tend to favor
+  data-privacy over accurate use of their results in theorist's
+  analyses, the multivariate likelihood is kept secret, and cannot be
+  recovered from the numerical value of $\vec{S}$ and the standard
+  errors reported in written publications. The theorist then usually
+  includes the results as independent measurements with a Gaussian
+  distribution and disregards the constraint altogether. This last
+  situation is undesirable for both experimentalists and theorists.
+\end{enumerate}
 
 
 
@@ -491,17 +578,17 @@ to a $\theta_1$-dependence,
 \end{equation}
 where we define $P_{\lbrace 1,2,3\rbrace} \equiv \lbrace a, b, c\rbrace / \Gamma$.\\
 
-The dual basis $\lbrace \hat{f}_i\rbrace$ reads
+The dual basis $\lbrace \dual{f}_i\rbrace$ reads
 \begin{equation}
 \begin{aligned}
-    \hat{f}_1 & = \frac{9}{8} - \frac{15}{8}\cos^2\theta_1\,, &
-    \hat{f}_2 & = \frac{3}{2}\cos\theta_1\,, &
-    \hat{f}_3 & = -\frac{15}{8} + \frac{45}{8}\cos^2\theta_1\,,
+    \dual{f}_1 & = \frac{9}{8} - \frac{15}{8}\cos^2\theta_1\,, &
+    \dual{f}_2 & = \frac{3}{2}\cos\theta_1\,, &
+    \dual{f}_3 & = -\frac{15}{8} + \frac{45}{8}\cos^2\theta_1\,,
 \end{aligned}
 \end{equation}
 such that
 \begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \hat{f}_i(\theta_1) P(q^2, \theta_1) = S_i(q^2)\,.
+    \int_0^\pi \rmdx{\theta_1} \dual{f}_i(\theta_1) P(q^2, \theta_1) = S_i(q^2)\,.
 \end{equation}
 
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ (S-wave and P-wave)}
@@ -553,34 +640,34 @@ where we also define $S_k(q^2) \equiv J_k(q^2) / (\rmdx{\Gamma} /\, \rmdx{q^2})$
 The dual basis reads
 \begin{equation}
 \begin{aligned}
-    \hat{f}_{1s} & = \frac{\big( 63 \sin^2\theta_2 - 42 \cos^2\theta_2\big) + \big(  45 \sin^2\theta_2 - 30 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
-    \hat{f}_{1c} & = \frac{\big(-21 \sin^2\theta_2 + 84 \cos^2\theta_2\big) + \big( -15 \sin^2\theta_2 + 60 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,\\
-    \hat{f}_{2s} & = \frac{\big( 45 \sin^2\theta_2 - 30 \cos^2\theta_2\big) + \big(+135 \sin^2\theta_2 - 90 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
-    \hat{f}_{2c} & = \frac{\big(-15 \sin^2\theta_2 + 60 \cos^2\theta_2\big) + \big( -45 \sin^2\theta_2 +180 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,
+    \dual{f}_{1s} & = \frac{\big( 63 \sin^2\theta_2 - 42 \cos^2\theta_2\big) + \big(  45 \sin^2\theta_2 - 30 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
+    \dual{f}_{1c} & = \frac{\big(-21 \sin^2\theta_2 + 84 \cos^2\theta_2\big) + \big( -15 \sin^2\theta_2 + 60 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,\\
+    \dual{f}_{2s} & = \frac{\big( 45 \sin^2\theta_2 - 30 \cos^2\theta_2\big) + \big(+135 \sin^2\theta_2 - 90 \cos^2\theta_2\big)\cos 2\theta_1}{64} \,,\\
+    \dual{f}_{2c} & = \frac{\big(-15 \sin^2\theta_2 + 60 \cos^2\theta_2\big) + \big( -45 \sin^2\theta_2 +180 \cos^2\theta_2\big)\cos 2\theta_1}{32} \,,
 \end{aligned}
 \end{equation}
 as well as
 \begin{equation}
 \begin{aligned}
-    \hat{f}_{1i} & = \frac{\big(21 + 15 \cos1\theta_2\big)\cos\theta_2}{16}               \,,&
-    \hat{f}_{2i} & = \frac{\big(15 + 45 \cos1\theta_2\big)\cos\theta_2}{16}               \,,\\
-    \hat{f}_{3}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \cos2\theta_3}{32}                \,,& &\\
-    \hat{f}_{4}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \cos \theta_3}{32}                \,,&
-    \hat{f}_{4i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \cos \theta_3}{8}                 \,,\\
-    \hat{f}_{5}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \cos \theta_3}{8}                 \,,&
-    \hat{f}_{5i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \cos \theta_3}{2}                 \,,\\
-    \hat{f}_{6s} & = \frac{\big( 9\sin^2\theta_2 -  6 \cos^2\theta_2\big)\cos\theta_1}{4} \,,&
-    \hat{f}_{6c} & = \frac{\big(-3\sin^2\theta_2 + 12 \cos^2\theta_2\big)\cos\theta_1}{2} \,,\\
-    \hat{f}_{7}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \sin \theta_3}{8}                 \,,&
-    \hat{f}_{7i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \sin \theta_3}{2}                 \,,\\
-    \hat{f}_{8}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \sin \theta_3}{32}                \,,&
-    \hat{f}_{8i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \sin \theta_3}{8}                 \,,\\
-    \hat{f}_{9}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \sin2\theta_3}{32}                \,.\\
+    \dual{f}_{1i} & = \frac{\big(21 + 15 \cos1\theta_2\big)\cos\theta_2}{16}               \,,&
+    \dual{f}_{2i} & = \frac{\big(15 + 45 \cos1\theta_2\big)\cos\theta_2}{16}               \,,\\
+    \dual{f}_{3}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \cos2\theta_3}{32}                \,,& &\\
+    \dual{f}_{4}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \cos \theta_3}{32}                \,,&
+    \dual{f}_{4i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \cos \theta_3}{8}                 \,,\\
+    \dual{f}_{5}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \cos \theta_3}{8}                 \,,&
+    \dual{f}_{5i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \cos \theta_3}{2}                 \,,\\
+    \dual{f}_{6s} & = \frac{\big( 9\sin^2\theta_2 -  6 \cos^2\theta_2\big)\cos\theta_1}{4} \,,&
+    \dual{f}_{6c} & = \frac{\big(-3\sin^2\theta_2 + 12 \cos^2\theta_2\big)\cos\theta_1}{2} \,,\\
+    \dual{f}_{7}  & = \frac{15 \sin 2\theta_2 \sin  \theta_1 \sin \theta_3}{8}                 \,,&
+    \dual{f}_{7i} & = \frac{3  \sin  \theta_2 \sin  \theta_1 \sin \theta_3}{2}                 \,,\\
+    \dual{f}_{8}  & = \frac{75 \sin 2\theta_2 \sin 2\theta_1 \sin \theta_3}{32}                \,,&
+    \dual{f}_{8i} & = \frac{15 \sin  \theta_2 \sin 2\theta_1 \sin \theta_3}{8}                 \,,\\
+    \dual{f}_{9}  & = \frac{75 \sin^2\theta_2 \sin^2\theta_1 \sin2\theta_3}{32}                \,.\\
 \end{aligned}
 \end{equation}
 such that
 \begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\theta_3} \hat{f}_k(\theta_1,\theta_2,\theta_3) P(q^2, \theta_1,\theta_2,\theta_3) = S_k(q^2)\,.
+    \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\theta_3} \dual{f}_k(\theta_1,\theta_2,\theta_3) P(q^2, \theta_1,\theta_2,\theta_3) = S_k(q^2)\,.
 \end{equation}
 
 \section{Application to $\bar{B}\to P_1 P_2\ell^+\ell^-$ (all partial waves)}
@@ -627,20 +714,20 @@ where we also define $S_k(q^2, p^2, \theta_2) \equiv \sin\theta_2 I_k(q^2, p^2, 
 The dual basis reads
 \begin{equation}
 \begin{aligned}
-    \hat{f}_1 & = \frac{21 + 15 \cos 2\theta_1}{16}\,, &
-    \hat{f}_2 & = \frac{15 + 45 \cos 2\theta_1}{16}\,, &
-    \hat{f}_3 & = \frac{15}{4} \sin^2\theta_1 \cos 2\theta_3     \,,\\
-    \hat{f}_4 & = \frac{15}{4} \sin 2\theta_1 \cos  \theta_3     \,, &
-    \hat{f}_5 & = 3            \sin  \theta_1 \cos  \theta_3     \,, &
-    \hat{f}_6 & = 3 \cos\theta_1                   \,,\\
-    \hat{f}_7 & = 3            \sin  \theta_1 \sin  \theta_3     \,, &
-    \hat{f}_8 & = \frac{15}{4} \sin 2\theta_1 \sin  \theta_3     \,, &
-    \hat{f}_9 & = \frac{15}{4} \sin^2\theta_1 \sin 2\theta_3     \,.\\
+    \dual{f}_1 & = \frac{21 + 15 \cos 2\theta_1}{16}\,, &
+    \dual{f}_2 & = \frac{15 + 45 \cos 2\theta_1}{16}\,, &
+    \dual{f}_3 & = \frac{15}{4} \sin^2\theta_1 \cos 2\theta_3     \,,\\
+    \dual{f}_4 & = \frac{15}{4} \sin 2\theta_1 \cos  \theta_3     \,, &
+    \dual{f}_5 & = 3            \sin  \theta_1 \cos  \theta_3     \,, &
+    \dual{f}_6 & = 3 \cos\theta_1                   \,,\\
+    \dual{f}_7 & = 3            \sin  \theta_1 \sin  \theta_3     \,, &
+    \dual{f}_8 & = \frac{15}{4} \sin 2\theta_1 \sin  \theta_3     \,, &
+    \dual{f}_9 & = \frac{15}{4} \sin^2\theta_1 \sin 2\theta_3     \,.\\
 \end{aligned}
 \end{equation}
 such that
 \begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \int_0^{2\pi} \rmdx{\theta_3} \hat{f}_i(\theta_1,\theta_3) P(q^2, k^2, \theta_1,\theta_2,\theta_3) = S_i(q^2, k^2, \theta_2)\,.
+    \int_0^\pi \rmdx{\theta_1} \int_0^{2\pi} \rmdx{\theta_3} \dual{f}_i(\theta_1,\theta_3) P(q^2, k^2, \theta_1,\theta_2,\theta_3) = S_i(q^2, k^2, \theta_2)\,.
 \end{equation}
 
 
@@ -687,24 +774,24 @@ The dual basis reads
 \begin{equation}
     \begin{aligned}
 % 1
-        \hat f_{1ss} & = \frac{1}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
-        \hat f_{1cc} & = \frac{1}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
-        \hat f_{1c}  & = \cos\theta_1\\
+        \dual f_{1ss} & = \frac{1}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
+        \dual f_{1cc} & = \frac{1}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
+        \dual f_{1c}  & = \cos\theta_1\\
 % 2
-        \hat f_{2ss} & = \frac{3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
-        \hat f_{2cc} & = \frac{3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
-        \hat f_{2c}  & = 3 \cos\theta_1   \cos\theta_2 \\
+        \dual f_{2ss} & = \frac{3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
+        \dual f_{2cc} & = \frac{3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
+        \dual f_{2c}  & = 3 \cos\theta_1   \cos\theta_2 \\
 % 3
-        \hat f_{3sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\theta_3 &
-        \hat f_{3s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \cos\theta_3 \\
+        \dual f_{3sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\theta_3 &
+        \dual f_{3s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \cos\theta_3 \\
 % 4
-        \hat f_{4sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\theta_3 &
-        \hat f_{4s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \sin\theta_3
+        \dual f_{4sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\theta_3 &
+        \dual f_{4s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \sin\theta_3
     \end{aligned}
 \end{equation}
 such that
 \begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\theta_3} P(q^2, \theta_1, \theta_2, \theta_3) \hat{f}_i(\theta_1, \theta_2, \theta_3) = S_i(q^2)\,.
+    \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\theta_3} P(q^2, \theta_1, \theta_2, \theta_3) \dual{f}_i(\theta_1, \theta_2, \theta_3) = S_i(q^2)\,.
 \end{equation}
 
 
