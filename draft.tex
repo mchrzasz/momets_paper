@@ -114,14 +114,14 @@ function (PDF) of the process by means of
 \end{align}
 Here, the dependence on the $n$ decay angles $\thvec$ has been
 explicitly factored out in terms of the angular functions
-$f_i(\thvec)$, which we assume to fulfill the orthonormality relations
+$\{f_i(\thvec)\}$, which we assume to fulfill the orthonormality relations
 \begin{equation}
     \label{eq:def-ortho-rel}
     \int_\Omega \rmdx{^N \theta} f_i(\thvec) f_j(\thvec)  = \delta_{ij}\,,
 \end{equation}
 with $\Omega$ representing the full angular phase space relevant to the process.
 For the purpose of this letter, however, it suffices that the system
-of angular functions $f_i(\thvec)$ can be transformed into an
+of angular functions $\{f_i(\thvec)\}$ can be transformed into an
 orthonormal basis. The transformation needs to be worked out on a
 case-by-case basis. For a selection of $B$ decays which we consider the most interesting
 we list the transformations in a series of appendices \ref{app:btokll} through
@@ -148,9 +148,15 @@ process. This change of normalization is equivalent to a linear rescaling of
 the angular observables $\lbrace S_i\rbrace$; thus ratios or similar suitable combinations
 of the angular observables are invariant.\\
 
+% Our method is closely related to Pearson's method of moments
+% \citeneeded{}. One draws samples from a PDF $P(x | \nuvec)$ that
+% depends on parameters $\nuvec$. Then one approximates the population
+% (central) moments $x^k$ by the sample moments
+Our method is an extension of the classical method of moments with
+orthogonal functions~\cite{James:2006zz}.
 
-In the remainder of this letter we discuss how to obtain the angular
-observables $S_i(\nuvec)$ in an experimental setup where each recorded
+In the remainder of this letter we discuss how to obtain an angular
+observable $S_i(\nuvec)$ in an experimental setup where each recorded
 event is (approximately) distributed according to $P$.  We establish
 the statistical basics in section \ref{sec:sample-based-det}. Section
 \ref{sec:systematics} is dedicated to the impact of systematic effects
@@ -412,7 +418,7 @@ the angular observables. We find:
         \begin{equation}
             \sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}
         \end{equation}
-        with $\sigma_k(1) = \order{1}$. 
+        with $\sigma_k(1) = \order{1}$.
     \item \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of $N$.}
     \item \todo{Perform Mardia's Skewness and Kurtosis tests.}
     \item \dots
@@ -500,6 +506,7 @@ such that
 
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ (S-wave and P-wave)}
 \label{app:btokstarll}
+
 The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ --- up to and including P-wave contributions --- has been calculated
 for the most general basis of dimension-six $b\to s$ operators. It reads, expressed in terms of the angular observables $\lbrace J_i\rbrace$ \cite{Blake:2012mb,Bobeth:2012vn}
 \begin{equation}
