@@ -31,6 +31,7 @@
 \let\oldtheta\theta
 \renewcommand{\theta}{\vartheta}
 \let\eps\varepsilon
+\newcommand{\vecest}[1]{\widehat{\vec{#1}}}
 \newcommand{\wwhat}[1]{\widehat{\widehat{#1}}}
 
 \DeclareMathOperator{\cov}{Cov}
@@ -101,7 +102,7 @@ at hand has two benefits over the usual approach based on likelihood fits. To wi
         show that the method of moments does not suffer a very particular type of
         mismodelling that arises from introducing a cutoff in a partial wave expansion.
     \item Using the method of moments, the joint probability distribution of the
-        angular observables converges towards a multivariate normal distribution.
+        angular observables converges towards a multivariate Gaussian distribution.
         This allows an easy transfer of correlation information from the experiments to
         interested theorists.
 \end{enumerate}
@@ -199,11 +200,14 @@ can be projected out of the full PDF $P$ by means of
 where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
 case for our selection of applications in appendices \ref{app:btokll} through \ref{app:lambdabtolambdall}.\\
 
-It is sensible to refer to the angular observable $S_i$ as the \emph{$f_i$-moment} of the PDF $P$.
-We emphasize that a relation of type \refeq{det-Pi-analytical} holds for any combination of
-scalar product and orthonormal basis of angular functions $\lbrace f_i \rbrace$; \ie, there is no unique
+It is sensible to refer to the angular observable $S_i$ as the
+\emph{$f_i$-moment} of the PDF $P$.  We emphasize that a relation of
+type \refeq{det-Pi-analytical} holds for any combination of a density
+written as in \refeq{def-P} and an orthonormal basis of angular
+functions $\lbrace f_i \rbrace$; \ie, there is no unique
 basis of angular functions. For the proof we refer to ref. \cite{Dighe:1998vk}.\\
-In addition, integration over the non-angular variables yields
+
+Integration over the non-angular variables yields
 \begin{equation}
     \langle S_i\rangle
     \equiv \int \rmdx{^M \nu} S_i(\nuvec)
@@ -216,7 +220,7 @@ analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.
 The central tenet of MC integration is the fact that the expectation value $E_P[g]$ of some function
 $g(x)$ under the probability density $P(x)$,
 \begin{equation}
-    E_P[g] \equiv \int \rmdx{x} P(x) g(x)
+    E_P[g] \equiv \int \rmdx{x} P(x) g(x),
 \end{equation}
 can be approximated \cite{MCSM-2004} by the consistent and unbiased
 estimator $\est{E_P[g]}$~\cite[sec. 8.2]{James:2006zz}
@@ -234,13 +238,11 @@ Application of \refeq{mc-id} then yields
 \begin{equation}
     \langle S_i\rangle \to \widehat{\langle S_i\rangle} = \frac{1}{K} \sum_{k=1}^{K} \dual{f}_i(x^{(k)})\,.
 \end{equation}
-It is often of interest to obtain the $\nuvec$- observables integrated
-over certain ranges of $\nuvec$; i.e., binned measurements of $\langle
-S_i\rangle$.
-Therefore, we introduce the bin-integrated quantity
+It is often of interest to obtain observables integrated over certain
+bins of $\nuvec$. We define
 \begin{align}
     \langle S_i\rangle_{\vec{a},\vec{b}}
-    & = \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} S_i(\nuvec)\\
+    & \equiv \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} S_i(\nuvec)\\
     & = \int_{\vec{a}}^{\vec{b}} \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta} P(\nuvec,\thvec) \dual{f}_i(\thvec)  \right]\\
     & = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N\theta}  P(\nuvec,\thvec) \dual{f}_i(\thvec)
         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,
@@ -254,21 +256,20 @@ Application of \refeq{mc-id} immediately yields
     \widehat{\langle S_i\rangle_{\vec{a},\vec{b}}}
     = \frac{1}{K} \sum_{k=1}^{K} \dual{f}_i(x^{(k)})         \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
 \end{equation}
-This reduces the estimation of $\aver{S_i}_{\vec{a},\vec{b}}$ to a
-(weighted) counting experiment. In the limit $N \to \infty$, the
+For notational simplicity, let us forget about the $\nuvec$
+integration and consider only $S_i$. In the limit $K \to \infty$, the
 central limit theorem (CLT) implies that the random vector
 \begin{equation}
   \label{eq:angular-obs-vec}
-  \widehat{\vec{S}_{\vec{a},\vec{b}}} \equiv (\aver{S_1}_{\vec{a},\vec{b}}\,, \dots, \aver{S_i}_{\vec{a},\vec{b}}\,,
+  \vecest{S} \equiv (S_1, \dots, S_i\,,
   \dots)
 \end{equation}
- follows a multivariate Gaussian distribution whose mean vector
-is approximated by \refeq{bin-importance} and whose covariance is
-estimated as
+follows a multivariate Gaussian distribution $\mathcal{N}( \vec{S},
+\widehat{\Sigma})$ centered on the true value $\vec{S}$ with a
+covariance estimated as
 \begin{equation}
-    \cov[\aver{S_i},\aver{S_j}]_{\vec{a},\vec{b}} \to \est{\cov}[\aver{S}_i, \aver{S}_j]_{\vec{a},\vec{b}}
-        = \frac{1}{K - 1} \sum_{k=1}^{K} \big[\dual{f}_i(x^{(k)}) - \est{\langle S_i\rangle_{\vec{a},\vec{b}}}\big]\,\big[\dual{f}_j(x^{(k)}) - \widehat{\langle S_j\rangle_{\vec{a},\vec{b}}}\big]
-        \mathbf{1}(\vec{a} \le \nuvec \le \vec{b})\,.
+    \cov[S_i,S_j] \to \est{\cov}[{S}_i, {S}_j]
+        = \frac{1}{K - 1} \sum_{k=1}^{K} \big[\dual{f}_i(x^{(k)}) - \est{ S_i}\big]\,\big[\dual{f}_j(x^{(k)}) - \widehat{ S_j}\big]\,.
 \end{equation}
 In our physics applications, the parameter space is compact and each
 $\dual{f}_i$ is bounded. Hence the requisites for the most basic
@@ -282,17 +283,19 @@ towards the true covariance matrix.  We propose to declare convergence
 small,
 
 \begin{equation}
-    \est{\operatorname{Skew}}[\aver{S_i},\aver{S_j}] \leq B_S\,\,\text{ and }\,\,\est{\kurt}[\aver{S_i},\aver{S_j}] \leq B_K\,.
+    \est{\operatorname{Skew}}[S_i,S_j] \leq B_S\,\,\text{ and }\,\,\est{\kurt}[S_i,S_j] \leq B_K\,.
 \end{equation}
-where the limits $B_S$ and $B_K$ should be determined from process-specific, dedicated toy studies.\\
+where the limits $B_S$ and $B_K$ should be determined from process-specific dedicated toy studies.\\
 
 Compared to the usual maximum-likelihood approach, we find for the method of moments:
 \begin{enumerate}
-\item The angular observable $\aver{S_i}$ can be determined
-  independently of any other observable $\aver{S_j}$. It is therefore
+  \item The angular observable ${S_i}$ can be determined
+  independently of any other observable ${S_j}$. It is therefore
   much more robust to physics assumptions needed to define the full
   likelihood. In particular, this means one does not have to be
-  specific regarding the form of new-physics contributions.
+  specific regarding the form of new-physics contributions; in fact,
+  one does not even need to be able to explicitly formulate the
+  likelihood at all.
 \item It is superior for a small number of samples $N$. Likelihood
   fits tend to be numerically unstable if lots of parameters need to
   be estimated from sparse data. This is more severe if the mode of
@@ -312,62 +315,55 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   the results discussed below in \refsec{numerics}, the likelihood
   fits --- if they converge --- produce uncertainties (10--15)\%
   smaller than those from the method of moments.
-\item The approximate normal distribution allows easier and more
-  correct transfer of the information in the data to interested
-  theorists for more accurate fits of standard-model and new-physics
-  parameters \citeneeded\fred{Our fits and others'?} or for more precise predictions of
-  optimized observables; e.g.,
+  \item The approximate multivariate Gaussian distribution of $\vecest{S}$
+  allows easier and more correct transfer of the information in the
+  data to interested theorists for more accurate fits of
+  standard-model and new-physics parameters \citeneeded\fred{Our fits
+    and others'?} or for more precise predictions of optimized
+  observables; e.g.,
   \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,
     Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf} for definitions
   of such optimized observables in $B\to K^*\ell^+\ell^-$ decays,
   \cite{Faller:2013dwa} for application to the decay $B\to
   \pi\pi\ell^-\bar\nu_\ell$, and \cite{Boeer:2014xx} for observables
   in $\Lambda_b\to\Lambda(\to N\pi)\ell^+\ell^-$). While the
-  likelihood also approaches a multivariate Gaussian as $N \to
+  likelihood also approaches a multivariate Gaussian as $K \to
   \infty$, the two methods differ in their utility as input for
-  theorists if $\widehat{\vec{S}_{\vec{a},\vec{b}}}$ is not well
+  theorists if $\widehat{\vec{S}}$ is not well
   inside the physical region. For example, suppose there are two
   angular observables that are constrained to a triangular region by
   phase-space or unitarity arguments as \fred{Could add a sketch. It
-    is supposed to resemble $A_{\text{FB}},F_L$ for $B \to K^* \ell \ell$.}
+    is supposed to resemble $A_{\text{FB}},F_L$ for $B \to K^* \ell
+    \ell$.}
   \begin{equation}
     \label{eq:constr-ex}
     |S_1| + S_2 \le 1, \, S_1 \in [-1,1],\, S_2 \in [0,1] \,.
   \end{equation}
-  It may (and often does) happen in practice that
-  $\widehat{\vec{S}_{\vec{a},\vec{b}}}$ is close or even outside the
-  allowed region such that a significant part of the probability mass
-  of $\vec{S}$ covers unphysical values. In a Bayesian fit, one would
-  take $\mathcal{N}(\vec{S} | \widehat{\vec{S}_{\vec{a},\vec{b}}},
+  It may (and often does) happen in practice that $\widehat{\vec{S}}$
+  is close or even outside the allowed region such that a significant
+  part of the probability mass covers unphysical values. In a Bayesian
+  fit, one would take $\mathcal{N}(\vecest{S} | \vec{S},
   \widehat{\Sigma})$ as the sampling distribution of the ``data'', and
-  simply set a uniform prior on the triangle defined by
-  \refeq{constr-ex} to have a well defined problem. This could be
-  trivially combined with other independent information in a global
-  fit. For a likelihood fit, the constraint needs to be built in by
-  the experiment into the analysis of the actual events and the
+  simply set a uniform prior on the triangle in the $\vec{S}$ plane
+  defined by \refeq{constr-ex} to have a well defined problem. This
+  could be trivially combined with other independent information in a
+  global fit. Someone with a different physics model might have to
+  consider a
+  different physical region, and could incorporate it just as easily.\\
+
+  For a likelihood fit, the constraint needs to be part of the
+  analysis performed by the experimental collaboration, and the
   resulting likelihood as a function of $\vec{S}$ is distinctly not
-  Gaussian. Since experimental collaborations as a whole tend to favor
-  data-privacy over accurate use of their results in theorist's
-  analyses, the multivariate likelihood is kept secret, and cannot be
-  recovered from the numerical value of $\vec{S}$ and the standard
-  errors reported in written publications. The theorist then usually
-  includes the results as independent measurements with a Gaussian
-  distribution and disregards the constraint altogether. This last
-  situation is undesirable for both experimentalists and theorists.
-  \danny{Two comments:
-      \begin{itemize}
-      \item We should tune down the ``data privacy'' line of thought. LHCb
-      actively works on providing the full likelihood to theorists.
-      Rather, we should emphasize that providing the likelihood
-      as obtained from the ML-fit is technically much harder (think: profile likelihood,
-      since the theorists are not interested in control channels, \dots)
-      \item The constraints as described here are \emph{theoretical}
-      in nature! If one changes the PDF (e.g. in $B\to K^*\ell^+\ell^-$,
-      higher partial waves will have an impact on the shape of the
-      \emph{physical region}. Thus, imposing these constraints should
-      not be done on the side of the experiment.
-      \end{itemize}
-  }
+  Gaussian.  For experimentalists, communicating such a result has
+  proved to be challenging due to technical reasons (data formats,
+  size etc.) and the fear that theorists misinterprete the many
+  nuisance parameters (from control channels, detector calibrations
+  etc.) that are also part of the likelihood. This leads to the
+  undesirable situation that that only the mode and standard errors
+  are reported, and theorists often include the results as independent
+  measurements with a Gaussian distribution and disregard the boundary
+  problem altogether.
+
 \end{enumerate}
 
 
@@ -516,6 +512,7 @@ $q^2$ ranges $1\GeV^2$ to $6\GeV^2$, and $15\GeV^2$ to to the respective kinemat
 bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that a wide spectrum of possible values for
 the angular observables.\\
 
+\fred{$N$ used for the symbol $K$ of section I and II}
 Our finding can be summarized as follows:
 \begin{itemize}
     \item In all studied cases we observed not a single bias in the pull distribution of the observable.
@@ -532,12 +529,12 @@ Our finding can be summarized as follows:
         for the uncertainties of two exampular observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
         for SM-like $B\to K^*\ell^+\ell^-$ decays, we show the absolute uncertainty in \reffig{errors}.
     \item For all toy studies, we produce plots of their Skewness and their Kurtosis as functions of
-        $N$. We find in all cases that the distributions agree. 
+        $N$. We find in all cases that the distributions agree.
     \item \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of $N$.}
     \item \dots
 \end{itemize}
 We find that all of the above results show consistenly convergence of the distribution for the angular observables
-towards a multivariate normal distribution.
+towards a multivariate Gaussian distribution.
 
 \begin{figure}[t]
         \centering
