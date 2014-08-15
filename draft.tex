@@ -490,8 +490,17 @@ In that case, the matrix $M_{ij}$ can be fully determined through the following 
 It remains to invert the relation \refeq{linear-assumption}, so that one can determine the unfolded
 angular observables $\lbrace \wwhat{S_k}\rbrace$ as
 \begin{equation}
-    \wwhat{S_i} = \left(M^{-1}\right)_{ij} \est{S_j}\,.
+    \wwhat{S_i} = \danny{N_\eps} \left(M^{-1}\right)_{ij} \est{S_j}\,.
 \end{equation}
+\danny{Here $N_\eps$ is a normalization factor based on the detector acceptance function $\eps$. It emerges
+    since the product $P(x) \eps(x)$ is not a PDF; it is not normalized appropriately\footnote{We thank
+    X.X\danny{Marcin: Please insert whathisname} for pointing this out.}. We can determine $N_\eps$ by
+    imposing
+    \begin{gather}
+        1 \equiv \int \rmdx{x} P(x | \lbrace \wwhat{S}_k\rbrace) = N_\eps \sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j}\int \rmdx{x} f_k(x)\,,\\
+        \Rightarrow N_\eps \equiv \frac{1}{\sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j} \int \rmdx{x} f_k(x)}\,.
+    \end{gather}
+}
 
 We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}; we thus suggest to explicitly
 test the linearity. One way of testing involves repeating the previous procedure
