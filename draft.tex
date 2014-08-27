@@ -494,7 +494,7 @@ angular observables $\lbrace \wwhat{S_k}\rbrace$ as
 \end{equation}
 \danny{Here $N_\eps$ is a normalization factor based on the detector acceptance function $\eps$. It emerges
     since the product $P(x) \eps(x)$ is not a PDF; it is not normalized appropriately\footnote{We thank
-    X.X\danny{Marcin: Please insert whathisname} for pointing this out.}. We can determine $N_\eps$ by
+    X.X\danny{Marcin: Please insert whatshisname} for pointing this out.}. We can determine $N_\eps$ by
     imposing
     \begin{gather}
         1 \equiv \int \rmdx{x} P(x | \lbrace \wwhat{S}_k\rbrace) = N_\eps \sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j}\int \rmdx{x} f_k(x)\,,\\
@@ -544,7 +544,6 @@ $q^2$ ranges $1\GeV^2$ to $6\GeV^2$, and $15\GeV^2$ to to the respective kinemat
 bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that a wide spectrum of possible values for
 the angular observables.\\
 
-\fred{$N$ used for the symbol $K$ of section I and II}
 Our finding can be summarized as follows:
 \begin{itemize}
     \item In all studied cases we observed not a single bias in the pull distribution of the observable.
@@ -555,7 +554,8 @@ Our finding can be summarized as follows:
         as a function of the number of simulated events $K$. As expected for a multivariate gaussian
         distribution, we find that the absolute uncertainty is well fitted by
         \begin{equation}
-            \sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}
+            \label{eq:unc-on-mean}
+            \sigma_k(K) = \frac{\sigma_k(1)}{\sqrt{K}}
         \end{equation}
         with $\sigma_k(1) = \order{1}$, regardless of the absolute size of $S_k$. The latter can best be shown
         for the uncertainties of two exampular observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
@@ -581,20 +581,22 @@ are subject to the details of the physical analysis, and therefore outside the s
         \centering
             \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S5.png}
             \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S7.png}
-        \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $N$. The red curve represents a fit to the function $\sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}$.}
+            \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $K$. The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
         \label{fig:errors}
 \end{figure}
 
-{\textbf{[dvd: can the following be removed?]}
+\hrulefill\\
+{\textbf{\color{red}[dvd: can the following be removed?]}
 We used the simulated events and fitted a likelihood function to them.
 \begin{itemize}
-    \item For a small number of simulated events, \danny{$N=?$}, we observe a significant bias in the pull distributions.
-    \item For a large number of simulated events, \danny{$N=?$}, the uncertainty of the angular observables is
+    \item For a small number of simulated events, \danny{$K=?$}, we observe a significant bias in the pull distributions.
+    \item For a large number of simulated events, \danny{$K=?$}, the uncertainty of the angular observables is
         smaller compared to the results of the method of moments.
 \end{itemize}
-\todo{compare robustness to likelihood fit when fit doesn't
+todo: compare robustness to likelihood fit when fit doesn't
 converge. Why exactly doesn't it converge? What if physics model
-wrong, say some angular terms are missing.}}
+wrong, say some angular terms are missing.}
+\hrulefill
 
 
 \section{Conclusion}
