@@ -502,13 +502,36 @@ angular observables $\lbrace \wwhat{S_k}\rbrace$ as
     \end{gather}
 }
 
-We emphasize that this methods hinges on the assumption in \refeq{linear-assumption}; we thus suggest to explicitly
+We emphasize that this method hinges on the assumption in \refeq{linear-assumption}\danny{which is well motivated:
+the PDF is a linear combination of the basis functions $f_i$, and the moments are therefore a linear
+functional of said basis functions. Nevertheless,}
+we thus suggest to explicitly
 test the linearity. One way of testing involves repeating the previous procedure
 with $S_j^\text{true} = 1/z$, $z > 0$. If the linearity assumption holds, one should find
 \begin{equation}
     M_{ij}(z) = z \est{S_i}\,,
 \end{equation}
 for a fixed value of $j$.
+
+\danny{In order to better understand the detector aceptance effects, we propose two steps. For the sake of
+    clarity of our argument, we assume in the following that the PDF $P$ is expanded in products of
+    appropriately chosen Legendre polynomials to some multi-index order $\vec{l}_P^{(0)}$. Similarly,
+    moments and detector effects are nominally determined up to some order $\vec{l}_M^{(0)}$, with
+    $\vec{l}_M^{(0)} \leq \vec{l}_P^{(0)}$. Here and in the following all comparisons are to be read
+    for each compoenent.\\
+    For the first step, we remind that the unfolding matrix $M$ depends implicitly on the physical
+    PDF $P$. We therefore recommend variation of the order of the expansion of $P$ to $\vec{l}_P \geq \vec{l}_P^{(0)}$
+    component-wise. This way one can estimate the mixing of PDF terms of order $\vec{l}_P$ into moments of order $\vec{l}_M^{(0)}$
+    or lower.\\
+    In a second step, we assume using the nominal expansion of the PDF up to order $\vec{l}_P^{(0)}$.
+    With moments of order $\vec{l}_M \geq \vec{l}_M^{(0)}$ one can therefore find the impact of the
+    acceptance effects on the mixing of moments of order $\vec{l}_M^{(0})$ and below
+    into moments beyond the order of the PDF.
+    Our recommendation is not illustrated at the hand of numerical examples, which would necessitate
+    access to realistic detector models. The latter are not available to persons outside the
+    respective collaborations. The proposed studies are therefore beyond the scope of this work.
+}
+
 
 
 \section{Toy Studies}
@@ -528,22 +551,23 @@ Our finding can be summarized as follows:
         All pull distributions can successfully be fitted to a gaussian distribution. As an example, we
         show the pull distributions for the observables $S_5$ and $S_7$ for a SM-like $B\to K^*\ell^+\ell^-$
         decays in \reffig{pulls}.
-    \item We study the absolute uncertainty $\sigma_k(N)$ with respect to the angular observable $S_k$
-        as a function of the number of simulated events $N$. As expected for a multivariate gaussian
+    \item We study the absolute uncertainty $\sigma_k(K)$ with respect to the angular observable $S_k$
+        as a function of the number of simulated events $K$. As expected for a multivariate gaussian
         distribution, we find that the absolute uncertainty is well fitted by
         \begin{equation}
             \sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}
         \end{equation}
-        with $\sigma_k(1) = \order{1}$, regardless of the size of $S_k$. The latter can best be shown
+        with $\sigma_k(1) = \order{1}$, regardless of the absolute size of $S_k$. The latter can best be shown
         for the uncertainties of two exampular observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
         for SM-like $B\to K^*\ell^+\ell^-$ decays, we show the absolute uncertainty in \reffig{errors}.
-    \item For all toy studies, we produce plots of their Skewness and their Kurtosis as functions of
-        $N$. We find in all cases that the distributions agree.
-    \item \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of $N$.}
-    \item \dots
+    \item For all toy studies, we produce plots of their skewness and their kurtosis as functions of
+        $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
+        \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $K$.}
 \end{itemize}
-We find that all of the above results show consistenly convergence of the distribution for the angular observables
-towards a multivariate Gaussian distribution.
+We find that all of the above results show consistently that the joint distrbution of the angular observables
+converges towards a multivariate Gaussian distribution. We propose to describe the resulting distribution as
+a multivariate Gauss when skewness and kurtosis are small enough. The precise targets for these quantities
+are subject to the details of the physical analysis, and therefore outside the scope of our work.
 
 \begin{figure}[t]
         \centering
@@ -561,7 +585,7 @@ towards a multivariate Gaussian distribution.
         \label{fig:errors}
 \end{figure}
 
-
+{\textbf{[dvd: can the following be removed?]}
 We used the simulated events and fitted a likelihood function to them.
 \begin{itemize}
     \item For a small number of simulated events, \danny{$N=?$}, we observe a significant bias in the pull distributions.
@@ -570,22 +594,43 @@ We used the simulated events and fitted a likelihood function to them.
 \end{itemize}
 \todo{compare robustness to likelihood fit when fit doesn't
 converge. Why exactly doesn't it converge? What if physics model
-wrong, say some angular terms are missing.}
+wrong, say some angular terms are missing.}}
 
 
 \section{Conclusion}
 
-In this letter \dots
-\begin{enumerate}
-    \item errors on the means are in very good approximation gaussian.
-    \item correlation are small and faithfully model a multivariate gaussian. \fred{$\Rightarrow$ easy transfer of knowledge to theory fits}
-\end{enumerate}
+We have carried out a combined analytical and numerical study of the method of moments; a method for
+the extraction of angular observales from the angular distribution of a generic multi-body process.
+We have studied the performance of the method of moments using pseudo data derived from the SM
+predctions for one uniangular decay ($B\to K\ell^+\ell^-$) and one triangular decay ($B\to K^*\ell^+\ell^-$).
+From this, we find rapid convergence of the joint likelihood of the angular observables towards a multivariate Gaussian.
+We draw the conclusion that this method exhibits several benefits in the determination of angular observables when
+compared with a maximum-likelihood fit.\\
+
+First, we find no bias in the determinations of the angular observables even for a small number of events.
+However, this comes at the expense of a slight increase of the order of $10\%$ for the statistical uncertainty
+on the mean.
+Second, in the absence of acceptance effects, a determination using the method of moments is correct and unbiased
+even when not all aspects of the physical distribution are modelled. This is explicitl shown for the case of
+higher partial waveds in multibody final states.
+Third, we develop a systematic method for the dertermination of detector acceptance effects that lead to
+dilution and mixing of the angular observables. We present a way to calculate the necessary unfolding matrix,
+which is only computationally feasible when using the method of moments.\\
+Fourth, the fact that the joint distribution of the results is Gaussian allows for an easy transfer of correlation
+information to theory analyses.
+Last but not least, the resulting distribution arises without additional constraints necessary for the convergence
+of some maximum-likelihood fits. Therefore the results can be directly combined with similarly-obtained results from
+a different experiment, without the need to remove the constraints of measurements that stem from different experiments.\\
+
+In conclusion, we argue that the method of moments is a competetive alternative to maximum-likelihood fits as long
+as angular distributions are involved. We wish to raise the interesting prospect of extending this very method to
+applications with non-angular orthogonal bases for the PDF.
 
 
 \acknowledgments
 
 The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung (BMBF).
-\dots
+We would like to thank Ulrik Egede and Konstantinos Petridis for insightful discussions.
 \danny{Potential people to read the manuscript: Jochen Dingfelder (Belle-II, Bonn), Ulrik Egede (LHCb, Imperial London), Christoph Langenbruch (LHCb, Warwick), Michel De Cian (LHCb, Heidelberg), Adrian Bevan (ATLAS, Queen Mary)  }
 D.v.D would like to thank Gudrun Hiller and Martin Jung for discussing the results of \cite{Das:2014sra} prior to publication.
 
