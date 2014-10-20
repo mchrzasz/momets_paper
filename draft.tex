@@ -474,16 +474,21 @@ between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the e
     \label{eq:linear-assumption}
     \est{S_i} = \sum_{j = 1}^N M_{i j} S_j^\text{true}\,.
 \end{equation}
-This assumption is based on a smooth angular acceptance function. While this will not be true for the laboratory frame,
-smoothness may be recovered in a boosted frame, e.g. the rest frame of the decaying particle.
-In that case, the matrix $M_{ij}$ can be fully determined through the following steps.
+This assumption is based on a smooth angular acceptance
+function. \fred{Check the LHCb \href{http://inspirehep.net/record/1287929}{paper} on $B \to K \ell \ell$: their
+  acceptance (fig. 1) is not smooth due to a cut!} \fred{I don't understand. Need a derivation of why this hinges on smoothness} While this will not be true for
+the laboratory frame, smoothness may be recovered in a boosted frame,
+e.g. the rest frame of the decaying particle.  In that case, the
+matrix $M_{ij}$ can be fully determined through the following steps.
 \begin{enumerate}
-    \item For a fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
-    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace = \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from the PDF $P_j$,
-        \begin{equation}
+    \item For fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
+    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace =
+      \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ \fred{don't use $k$ as superscript and subscript} from the PDF $P_j$,
+      \begin{equation}
+        \label{eq:single-comp}
             P_j \equiv P(\vec\nu,\vec\theta | \lbrace S_j = 1, S_{k\neq j} = 0\rbrace)\,.
         \end{equation}
-    \item Use the true events as input for the MC simulation of the detector, in order to obtain the detector
+    \item Use the true events as input for the MC simulation of the detector in order to obtain the detector
         events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,\vec\theta^{(k)}_d)\rbrace$.
     \item Determine the uncorrected observables $\lbrace \est{S_k} \rbrace$ based on the detector
         events $\lbrace x^{(k)}_d\rbrace$. For all intents and purposes, automation of this step is only feasible
@@ -519,7 +524,10 @@ with $S_j^\text{true} = 1/z$, $z > 0$. If the linearity assumption holds, one sh
 \begin{equation}
     M_{ij}(z) = z \est{S_i}\,,
 \end{equation}
-for a fixed value of $j$.
+for a fixed value of $j$. \fred{This is useless. \refeq{single-comp}
+  says: draw from a single component $f_j$. This $f_j$ defines the
+  distribution, and whatever factor you put in front of it, you get
+  the same distribution of events.}
 
 \danny{In order to better understand the detector aceptance effects, we propose two steps. For the sake of
     clarity of our argument, we assume in the following that the PDF $P$ is expanded in products of
@@ -722,7 +730,7 @@ The angular functions\footnote{%
     f_{9}  & = \sin^2\theta_2\sin^2\theta_1 \sin 2\theta_3\\
 \end{aligned}
 \end{equation}
-We indicate contributions from the interference of S waves and P waves by an index \emph{i}. In terms of the angles $\theta_1$ and $\theta_2$, instead of their cosines, the PDF reads
+In terms of the angles $\theta_1$ and $\theta_2$, instead of their cosines, the PDF reads
 \begin{equation}
     P(q^2, \theta_1, \theta_2, \theta_3) = \frac{3}{8\pi} \sum_k S_k(q^2) f_k(\cos\theta_1, \cos\theta_2, \theta_3) \sin\theta_1 \sin\theta_2\,,
 \end{equation}
