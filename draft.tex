@@ -11,6 +11,7 @@
 \usepackage{hepparticles}
 \usepackage{hepnicenames}
 \usepackage{hepunits}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 
@@ -213,23 +214,22 @@ Integration over the non-angular variables yields
     \equiv \int \rmdx{^M \nu} S_i(\nuvec)
     = \int \rmdx{^M \nu} \left[\int_{\Omega} \rmdx{^N \theta} P(\nuvec,\thvec) \dual{f}_i(\thvec) \right].
 \end{equation}
-The remainder of this section describes the method of moments, in which we replace the
-analytical integration \refeq{det-Pi-analytical} by Monte Carlo (MC) estimators.\\
-
-
-The central tenet of MC integration is the fact that the expectation value $E_P[g]$ of some function
-$g(x)$ under the probability density $P(x)$,
+The remainder of this section describes the method of moments, in
+which we replace the analytical integration by Monte Carlo (MC)
+estimates.  The central tenet of MC integration is the fact that the
+expectation value $E_P[g]$ of some function $g(x)$ under the
+probability density $P(x)$,
 \begin{equation}
     E_P[g] \equiv \int \rmdx{x} P(x) g(x),
 \end{equation}
-can be approximated \cite{MCSM-2004} by the consistent and unbiased
+can be approximated by the consistent and unbiased
 estimator $\est{E_P[g]}$~\cite[sec. 8.2]{James:2006zz}
 \begin{equation}
     \label{eq:mc-id}
     E_P[g] \to \widehat{E_P[g]} \equiv \frac{1}{K} \sum_{k=1}^K g(x^{(k)}) \,,\,    x^{(k)} \sim P
 \end{equation}
 due to the strong law of large numbers for $K \to \infty$, assuming
-that the variates $x^{(k)}$, $k = 1, \dots, K$ are distributed as
+that the variates $x^{(k)}$, $k = 1, \dots, K$, are distributed as
 $P$.
 Throughout this letter we denote all MC estimators with a wide hat.\\
 
@@ -265,8 +265,8 @@ central limit theorem (CLT) implies that the random vector
   \dots)
 \end{equation}
 follows a multivariate Gaussian distribution $\mathcal{N}( \vec{S},
-\widehat{\Sigma})$ centered on the true value $\vec{S}$ with a
-covariance estimated as
+\widehat{\Sigma})$ centered on the true value $\vec{S}$ with the
+covariance $\widehat{\Sigma}_{ij}$ estimated as
 \begin{equation}
     \cov[S_i,S_j] \to \est{\cov}[{S}_i, {S}_j]
         = \frac{1}{K - 1} \sum_{k=1}^{K} \big[\dual{f}_i(x^{(k)}) - \est{ S_i}\big]\,\big[\dual{f}_j(x^{(k)}) - \widehat{ S_j}\big]\,.
@@ -362,7 +362,7 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   undesirable situation that that only the mode and standard errors
   are reported, and theorists often include the results as independent
   measurements with a Gaussian distribution and disregard the boundary
-  problem altogether.
+  problem as well as correlations altogether.
 
 \end{enumerate}
 
@@ -371,7 +371,7 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
 \section{Sources of Systematic Uncertainties}
 \label{sec:systematics}
 
-In \refsec{sample-based-det}, we assume that the PDF $P$ describe the underlying physics accurately,
+In \refsec{sample-based-det}, we assume that the PDF $P$ describes the underlying physics accurately,
 and that the experiment observes each event with perfect accuracy. In order to estimate systematic
 uncertainties, we lift these assumptions.
 
@@ -380,32 +380,40 @@ uncertainties, we lift these assumptions.
 
 \begin{figure}
     \includegraphics[width=.6\textwidth]{fig-topology.pdf}
-    \caption{Decay topology for decays $B\to P_1 P_2 \ell_1 \bar\ell_2$. \label{fig:topology}}
+    \caption{Decay topology for decays $B\to P_1 P_2 \ell_1 \bar\ell_2$. \label{fig:topology}\fred{We should use the same symbol $\theta$ as in text}}
 \end{figure}
 
-So far, we assumed that our underlying physical process was accurately described by our PDF $P$.
-However, in several interesting processes we might only have an approximative result for $P$.
-In this section we focus on one particular class of mismodelling of the signal PDF: the angular
-momentum-cutoff in partial wave expansions. This mismodelling potentially affects a large
-number of decays and scattering processes. For the sake of clarity we take the interesting class
-of four-body decays $B\to P_1 P_2 \ell_1 \bar\ell_2$ as an example\footnote{This includes the rare $b\to s$ mediated $B$ decay $B \to K\pi\ell^+\ell^-$, and
-the $V_{ub}$ suppressed decay $B\to \pi\pi\ell^+\bar\nu_\ell$. For both examples the PDF $P$ is known in
-the small-width approximation and when assuming a pure $P$-wave, resonant final state. An extension to
-$S-P$ interference has been studied for $B\to K\pi\ell^+\ell^-$ \cite{Blake:2012mb,Becirevic:2011bp},
-and for $\bar{B}\to \pi\pi\ell^-\bar\nu_\ell$ \cite{Faller:2013dwa}. For a first study of $S$, $P$
-and $D$ interference, see \cite{Das:2014sra}}.\\
+In several interesting processes we might only have an approximate
+result for $P$.  In this section, we focus on one particular class of
+mismodelling of the signal PDF: the angular momentum-cutoff in partial
+wave expansions. This mismodelling potentially affects a large number
+of decays and scattering processes. For the sake of clarity we take
+the interesting class of four-body decays $B\to P_1 P_2 \ell_1
+\bar\ell_2$ \fred{How general is this? The plot implies that the
+  dimeson and the dilepton do not have a common vertex. But this
+  requires an intermediate state, e.g., $K^{*}$}as an
+example\footnote{This includes the rare $b\to s$ mediated $B$ decay $B
+  \to K\pi\ell^+\ell^-$, and the $V_{ub}$ suppressed decay $B\to
+  \pi\pi\ell^+\bar\nu_\ell$. For both examples the PDF $P$ is known in
+  the small-width approximation and when assuming a pure $P$-wave,
+  resonant final state. An extension to $S-P$ interference has been
+  studied for $B\to K\pi\ell^+\ell^-$
+  \cite{Blake:2012mb,Becirevic:2011bp}, and for $\bar{B}\to
+  \pi\pi\ell^-\bar\nu_\ell$ \cite{Faller:2013dwa}. For a first study
+  of $S$, $P$
+  and $D$ interference, see \cite{Das:2014sra}}.\\
 
-Within existing analyses, the PDFs for these decays are usually expressed in terms of one or a few
+Within existing analyses, the PDFs of these decays are usually expressed in terms of one or a few
 partial waves of the dimeson system. However, the angular momentum of the dimeson system is unbounded
 from above, and gives rise to an infinite set of angular observables.\\
 
 For the selected class of decays, we can describe that problem as follows: The PDF $P$ has a fixed dependence on the dilepton
 helicity angle $\theta_1$ and the azimuthal angle $\theta_3$. (See also \refapp{btokpill} for details
-on the angular distribution.) However, on the level of decay amplitudes the dimeson system can have an arbitrarily
-large total angular momentum $j$; only its third component is restricted to $m = -1,0,+1$.
+on the angular distribution.) However, at the level of decay amplitudes the dimeson system can have an arbitrarily
+large total angular momentum $j$; only its third component is restricted to $m = -1,0,+1$. \fred{check}
 We advocate here that is a sensible procedure to perform an expansion in terms of Legendre polynomials $p_{j}^{(|m|)}$
 with respect to the remaining angle $\theta_2$. Using the observables $S_k(\vec{\nu})$, $k=1,\dots,9$, with $\vec{\nu}=(q^2, k^2)$
-and as defined in \refapp{partial-waves}, the expansion reads
+and as defined in \refapp{partial-waves} \fred{A lot of mixing between appendices C and E}, the expansion reads
 \begin{equation}
     S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{j,|m|}} S_{k,j}(\vec{\nu}) p_{j}^{(|m|)}(\cos\theta_2)\sin\theta_2\,,
 \end{equation}
@@ -418,13 +426,13 @@ example we have (cf. also \refapp{btokpill})
     \end{cases}\,.
 \end{equation}
 The angular observables $S_{k,j}$ defined as coefficients of this expansion in Legendre polynomials
-have the merit of a well-defined total angular momentum, and thus are physically discriminable.
+have the merit of a well defined total angular momentum, and thus are physically discriminable.
 As a consequence of the orthogonality of the Legendre polynomials, any mismodelling (or rather, lack of modelling of higher
 partial-wave observables) \emph{does not affect} the method of moments as discussed in the previous section. To wit,
-ignoring further (orthogonal) terms in the PDF cannot affect the mean vector $(\dots, S_k, \dots)$ nor its variance.\\
+ignoring further (orthogonal) terms in the PDF cannot affect the mean vector $(\dots, S_k, \dots)$ nor its variance. \fred{yes!}\\
 
 Unfortunately, this benefit on the experimental side is accompanied with a theoretical draw back. Each observable
-$S_{k,j}(\vec{\nu})$ consists of an infinite sum of bilinear of partial-wave amplitudes. It remains for theoretical
+$S_{k,j}(\vec{\nu})$ consists of an infinite sum of bilinears of partial-wave amplitudes. It remains for theoretical
 analyses to estimate or calculate the impact of partial waves beyond the S and P wave contributions.
 (For $B\to K\pi\ell^+\ell^-$ a first study has been carried out where contributions up to the D wave are studied \cite{Das:2014sra}).\\
 
@@ -438,22 +446,22 @@ in the following subsection.
 
 The determination of a detector's angular acceptance is generally a difficult
 task. Here, we will show a systematic method to estimate its effects
-based on both the method of moments, and MC simulations of the
+based on both the method of moments and MC simulations of the
 detector.\\
 
-In the ideal case, one would have an explicit probabilistic
-model of the detector acceptance effects and could thus write down
-the full forward model from which the measured events arise. In practice,
-this would require much more CPU time than available, and one is
-therefore forced to simplify the model. The standard approach is to
-generate \emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
+In the ideal case, one would have an explicit probabilistic model of
+the detector acceptance effects and could thus write down the full
+forward model from which the measured events arise. In practice, this
+would require much more CPU time than available, and one is therefore
+forced to simplify the model. The standard approach is to generate
+\emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
 \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from a PDF
-assumed to describe the bare physical process, and to propagate
-those particles through a detailed simulation of the detector. The
+assumed to describe the bare physical process, and to propagate those
+particles through a detailed simulation of the detector. The
 observable traces that the particles leave in the detector are fed
-into reconstruction algorithms resulting in the \emph{detector}
-events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
-\vec\theta^{(k)}_d)\rbrace$.\\
+into reconstruction algorithms resulting in the \emph{detector} events
+$\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
+\vec\theta^{(k)}_d)\rbrace$.\fred{What about uncertainty in $\vec{\nu}, \vec{\theta}$? How does it enter the experimental likelihood? And how our method?}\\
 
 As before, we assume the PDF $P$ can be decomposed into $N$ parts with angular observables $\lbrace S_k\rbrace$,
 \begin{equation}
@@ -461,7 +469,7 @@ As before, we assume the PDF $P$ can be decomposed into $N$ parts with angular o
 \end{equation}
 We denote the estimator of an
 observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that there is a linear relation
-between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$,
+between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$, \fred{We don't need the $^{\text true}$.}
 \begin{equation}
     \label{eq:linear-assumption}
     \est{S_i} = \sum_{j = 1}^N M_{i j} S_j^\text{true}\,.
@@ -558,7 +566,7 @@ Our finding can be summarized as follows:
             \sigma_k(K) = \frac{\sigma_k(1)}{\sqrt{K}}
         \end{equation}
         with $\sigma_k(1) = \order{1}$, regardless of the absolute size of $S_k$. The latter can best be shown
-        for the uncertainties of two exampular observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
+        for the example of uncertainties of two observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
         for SM-like $B\to K^*\ell^+\ell^-$ decays, we show the absolute uncertainty in \reffig{errors}.
     \item For all toy studies, we produce plots of their skewness and their kurtosis as functions of
         $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
@@ -817,7 +825,7 @@ such that
 \section{Application to $\Lambda_b\to \Lambda(\to N \pi)\ell^+\ell^-$}
 \label{app:lambdabtolambdall}
 
-The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts -- reads \cite{Boeer:2014xx}
+The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts --- reads \cite{Boeer:2014xx}
 \begin{equation}
     P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}} = \frac{3}{8\pi} \sum_i \frac{K_{i}(q^2)}{\rmdx{\Gamma} /\, \rmdx{q^2}} f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
 \end{equation}
@@ -881,7 +889,7 @@ such that
 \section{On the Partial-Wave Expansions of Angular Observables}
 \label{app:partial-waves}
 
-Let $S \equiv S(\vec{\nu},\theta)$ be an observable of only one angle $\theta$ and further non-angular variables $\vec{\nu}$. Further, let
+Let $S \equiv S(\vec{\nu},\theta)$ be an observable of only one angle $\theta$ and further non-angular variables $\vec{\nu}$. \fred{This is confusing: in the intro, we define $S$ as independent of any angle.} \fred{What about two angles? More amplitudes seem trivial, one would just have more $S_i$} Further, let
 $S$ have an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots \hat{=}$ S,P,D$,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
 \begin{equation}
     \label{eq:def-partial-wave-observable}
@@ -900,7 +908,7 @@ where we introduce $n_{l,m}$ via the scalar product of two associated Legendre p
     \label{eq:legendre-scalar-product}
     n_{l, m} \delta_{l, l'} \equiv \int_{-1}^1 \rmdx{\cos\theta} p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta)  = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
 \end{equation}
-Using the large-$l$ behaviour of $n_{l,m}$ one finds that with increasing $l_i$ the partial-wave amplitudes must asymptotically fall off as
+Using the large-$l$ behaviour of $n_{l,m}$ one finds that with increasing $l_i$ the partial-wave amplitudes must asymptotically fall off as \fred{Let's say why. Unitarity?}
 \begin{equation}
     |A_i^{(l_i)}(\cos\theta)| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.
 \end{equation}
