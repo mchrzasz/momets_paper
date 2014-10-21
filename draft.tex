@@ -417,6 +417,7 @@ and as defined in \refapp{partial-waves} \fred{A lot of mixing between appendice
 \begin{equation}
     S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{j,|m|}} S_{k,j}(\vec{\nu}) p_{j}^{(|m|)}(\cos\theta_2)\sin\theta_2\,,
 \end{equation}
+\fred{since when is $S_k a fct. of \cos \theta_2$?}
 where the the normalization factor $n_{j,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
 example we have (cf. also \refapp{btokpill})
 \begin{equation}
@@ -504,11 +505,15 @@ It remains to invert the relation \refeq{linear-assumption}, so that one can det
 angular observables $\lbrace \wwhat{S_k}\rbrace$ as
 \begin{equation}
     \wwhat{S_i} = \danny{N_\eps} \left(M^{-1}\right)_{ij} \est{S_j}\,.
-\end{equation}
-\danny{Here $N_\eps$ is a normalization factor based on the detector acceptance function $\eps$. It emerges
-    since the product $P(x) \eps(x)$ is not a PDF; it is not normalized appropriately\footnote{We thank
-    X.X\danny{Marcin: Please insert whatshisname} for pointing this out.}. We can determine $N_\eps$ by
-    imposing
+  \end{equation}
+  \fred{What happens to the uncertainties? Unfolding is used in many
+    places, so there are elaborate recipes. Should we assume the same
+    uncertainties as before? Since it is linear, rescaling should be sufficient. Or compute covariance directly for transformed observables} \danny{Here $N_\eps$ is a normalization factor
+    based on the detector acceptance function $\eps$. It emerges since
+    the product $P(x) \eps(x)$ is not a PDF; it is not normalized
+    appropriately\footnote{We thank X.X\danny{Marcin: Please insert
+        whatshisname} for pointing this out.}. We can determine
+    $N_\eps$ by imposing
     \begin{gather}
         1 \equiv \int \rmdx{x} P(x | \lbrace \wwhat{S}_k\rbrace) = N_\eps \sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j}\int \rmdx{x} f_k(x)\,,\\
         \Rightarrow N_\eps \equiv \frac{1}{\sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j} \int \rmdx{x} f_k(x)}\,.
@@ -541,28 +546,35 @@ for a fixed value of $j$. \fred{This is useless. \refeq{single-comp}
     or lower.\\
     In a second step, we assume using the nominal expansion of the PDF up to order $\vec{l}_P^{(0)}$.
     With moments of order $\vec{l}_M \geq \vec{l}_M^{(0)}$ one can therefore find the impact of the
-    acceptance effects on the mixing of moments of order $\vec{l}_M^{(0})$ and below
+    acceptance effects on the mixing of moments of order $\vec{l}_M^{(0)}$ and below
     into moments beyond the order of the PDF.
     Our recommendation is not illustrated at the hand of numerical examples, which would necessitate
     access to realistic detector models. The latter are not available to persons outside the
     respective collaborations. The proposed studies are therefore beyond the scope of this work.
 }
 
+\fred{I'm puzzled. If you can do the calculation to some order
+  $\vec{l}_P$, why would you use a lower order for the actual result?
+  I.e., if you have the NNLO results, why would you limit yourself to
+  NLO?}
 
 
 \section{Toy Studies}
 \label{sec:numerics}
 
-In order to study the performance of the proposed method, we simulate measurements for one uni-angular
-and one tri-angular decay distribution for various numbers of events. As inputs we use the SM predictions
-for the decays $B\to K\ell^+\ell^-$ and $B\to K^*(\to K\pi)\ell^+\ell^-$, respectively. We cover the
-$q^2$ ranges $1\GeV^2$ to $6\GeV^2$, and $15\GeV^2$ to to the respective kinematic endpoint, with two
-bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that a wide spectrum of possible values for
+In order to study the performance of the proposed method, we simulate
+measurements for one uni-angular and one tri-angular decay
+distribution for various numbers of events. As inputs we use the SM
+predictions for the decays $B\to K\ell^+\ell^-$ and $B\to K^*(\to
+K\pi)\ell^+\ell^-$, respectively. We cover the $q^2$ ranges $1 \GeV^2$
+to $6 \GeV^2$, and $15 \GeV^2$ to the respective kinematic endpoint,
+with two bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that
+a wide spectrum of possible values for
 the angular observables.\\
 
 Our finding can be summarized as follows:
 \begin{itemize}
-    \item In all studied cases we observed not a single bias in the pull distribution of the observable.
+    \item In all studied cases we observed not a single bias in the pull \fred{should define pull} distribution of the observable.
         All pull distributions can successfully be fitted to a gaussian distribution. As an example, we
         show the pull distributions for the observables $S_5$ and $S_7$ for a SM-like $B\to K^*\ell^+\ell^-$
         decays in \reffig{pulls}.
