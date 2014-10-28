@@ -161,7 +161,7 @@ is that conventionally the angular functions are assumed
 \emph{self-dual}, $\dual{f}_i = f_i$. However, it suffices that the
 system of angular functions $\{f_i(\thvec)\}$ \emph{can} be transformed into
 an orthonormal basis. It turns out to be much more convenient to work
-in the basis natural to each process but the statistical properties
+in the basis of Legendre polynomials but the statistical properties
 are equivalent for both approaches provided that one replace $f_i \to
 \dual{f}_i$ appropriately. Using the ansatz
 \begin{equation}
@@ -445,118 +445,110 @@ in the following subsection.
 \subsection{Recipe for the Determination of Detector Acceptance Effects}
 \label{sec:systematics:acceptance}
 
-The determination of a detector's angular acceptance is generally a difficult
-task. Here, we will show a systematic method to estimate its effects
-based on both the method of moments and MC simulations of the
-detector.\\
-
-In the ideal case, one would have an explicit probabilistic model of
+The determination of a detector's performance to detect signal events
+with accurate determination of the event's angles is generally a difficult
+task. In the ideal case, one would have an explicit probabilistic model of
 the detector acceptance effects and could thus write down the full
 forward model from which the measured events arise. In practice, this
 would require much more CPU time than available, and one is therefore
 forced to simplify the model. The standard approach is to generate
-\emph{true} particle events $\lbrace x_t^{(k)}\rbrace =
-\lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ from a PDF
+the \emph{true} particle events $\lbrace x_\text{t}^{(n)}\rbrace =
+\lbrace(\vec{\nu}^{(n)}_\text{t},\vec\theta^{(n)}_\text{t})\rbrace$, $n=1,\dots,N_\text{t}$, from a PDF
 assumed to describe the bare physical process, and to propagate those
-particles through a detailed simulation of the detector. The
-observable traces that the particles leave in the detector are fed
+particles through a detailed simulation of the detector.
+The observable traces that the particles leave in the detector are fed
 into reconstruction algorithms resulting in the \emph{detector} events
-$\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,
-\vec\theta^{(k)}_d)\rbrace$.\fred{What about uncertainty in $\vec{\nu}, \vec{\theta}$? How does it enter the experimental likelihood? And how our method?}\\
-
-As before, we assume the PDF $P$ can be decomposed into $N$ parts with angular observables $\lbrace S_k\rbrace$,
+$\lbrace x^{(n)}_\text{d}\rbrace = \lbrace(\vec{\nu}^{(n)}_\text{d},
+\vec\theta^{(n)}_\text{d})\rbrace$, $n=1,\dots,N_\text{d}$.
+Most generally, the detected events $\lbrace x_\text{d}^{(k)}\rbrace$
+are distributed as $P_\text{d}$,
 \begin{equation}
-    P \equiv P(\vec\nu,\vec\theta | \lbrace S_k \rbrace)\,.
+    P_\text{d}(x_\text{d}) = \int P_\text{t}(x_\text{t}) E(x_\text{d}, x_\text{t}) \rmdx{x_\text{t}}\,.
 \end{equation}
-We denote the estimator of an
-observable $S_k$ as $\est{S_k}$, which is affected by the detector acceptance. We assume now that there is a linear relation
-between the true angular observables $\lbrace S_k^\text{true}\rbrace$, and the estimators $\lbrace \est{S_k}\rbrace$, \fred{We don't need the $^{\text true}$.}
+Here $P$ is the probability distribution of the true events, and the kernel $E(x_\text{d}, x_\text{t})$
+parametrizes acceptance and resolution
+effects. Note that $P_\text{d}$ is \emph{not} a PDF, since it is not normalized,
 \begin{equation}
-    \label{eq:linear-assumption}
-    \est{S_i} = \sum_{j = 1}^N M_{i j} S_j^\text{true}\,.
+    \int P_\text{d}(x) \rmdx{x} \neq 1\,.
 \end{equation}
-This assumption is based on a smooth angular acceptance
-function. \fred{Check the LHCb \href{http://inspirehep.net/record/1287929}{paper} on $B \to K \ell \ell$: their
-  acceptance (fig. 1) is not smooth due to a cut!} \fred{I don't understand. Need a derivation of why this hinges on smoothness} While this will not be true for
-the laboratory frame, smoothness may be recovered in a boosted frame,
-e.g. the rest frame of the decaying particle.  In that case, the
-matrix $M_{ij}$ can be fully determined through the following steps.
-\begin{enumerate}
-    \item For fixed $j$, let $S_j^\text{true} = 1$, and $S_k^\text{true} = 0\,\forall k\neq j$.
-    \item Draw simulated events $\lbrace x_t^{(k)}\rbrace =
-      \lbrace(\vec{\nu}^{(k)}_t,\vec\theta^{(k)}_t)\rbrace$ \fred{don't use $k$ as superscript and subscript} from the PDF $P_j$,
-      \begin{equation}
-        \label{eq:single-comp}
-            P_j \equiv P(\vec\nu,\vec\theta | \lbrace S_j = 1, S_{k\neq j} = 0\rbrace)\,.
-        \end{equation}
-    \item Use the true events as input for the MC simulation of the detector in order to obtain the detector
-        events $\lbrace x^{(k)}_d\rbrace = \lbrace(\vec{\nu}^{(k)}_d,\vec\theta^{(k)}_d)\rbrace$.
-    \item Determine the uncorrected observables $\lbrace \est{S_k} \rbrace$ based on the detector
-        events $\lbrace x^{(k)}_d\rbrace$. For all intents and purposes, automation of this step is only feasible
-        with to the method of moments, since it does not suffer form convergence problems.
-    \item By virtue of \refeq{linear-assumption} and step 1, the $j$-th column of $M$ has been determined via
-        \begin{equation}
-            M_{ij} = \est{S_i}\,.
-        \end{equation}
-    \item Repeat the above steps for all values of $j$ to determine all columns of $M$.
-\end{enumerate}
-
-It remains to invert the relation \refeq{linear-assumption}, so that one can determine the unfolded
-angular observables $\lbrace \wwhat{S_k}\rbrace$ as
+For the sake of clarity, we will restrict ourselves
+to pure acceptance effects and suppress resolution effects in the remainder of this section; i.e.,
 \begin{equation}
-    \wwhat{S_i} = \danny{N_\eps} \left(M^{-1}\right)_{ij} \est{S_j}\,.
-  \end{equation}
-  \fred{What happens to the uncertainties? Unfolding is used in many
-    places, so there are elaborate recipes. Should we assume the same
-    uncertainties as before? Since it is linear, rescaling should be sufficient. Or compute covariance directly for transformed observables} \danny{Here $N_\eps$ is a normalization factor
-    based on the detector acceptance function $\eps$. It emerges since
-    the product $P(x) \eps(x)$ is not a PDF; it is not normalized
-    appropriately\footnote{We thank X.X\danny{Marcin: Please insert
-        whatshisname} for pointing this out.}. We can determine
-    $N_\eps$ by imposing
-    \begin{gather}
-        1 \equiv \int \rmdx{x} P(x | \lbrace \wwhat{S}_k\rbrace) = N_\eps \sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j}\int \rmdx{x} f_k(x)\,,\\
-        \Rightarrow N_\eps \equiv \frac{1}{\sum_{k,j} \left(M^{-1}\right)_{kj} \est{S_j} \int \rmdx{x} f_k(x)}\,.
-    \end{gather}
+    E(x_\text{d}, x_\text{t}) \equiv \eps(x_\text{t}) \delta(x_\text{d}, x_\text{t})\,.
+\end{equation}
+We will refer to $\eps$ as the \emph{detector acceptance} function. In what follows,
+we propose a systematic methods to unfold all effects of $\eps$ through MC simulations
+and the method of moments.\\
+
+
+We will now proceed with the explicit usage of a uniangular PDF with $x = \cos\theta$.\footnote{%
+    The generalization of this section to multiangular PDFs is straighforward. It can be achieved
+    by promoting $x$ to a vector, promoting the Legendre polynomials to products of independent polynomials
+    and the indices $i,j,k,m$ to multi-indices.
 }
-
-We emphasize that this method hinges on the assumption in \refeq{linear-assumption}\danny{which is well motivated:
-the PDF is a linear combination of the basis functions $f_i$, and the moments are therefore a linear
-functional of said basis functions. Nevertheless,}
-we thus suggest to explicitly
-test the linearity. One way of testing involves repeating the previous procedure
-with $S_j^\text{true} = 1/z$, $z > 0$. If the linearity assumption holds, one should find
+Let us define the PDF in terms of the Legendre polymials (i.e., $f_k(x) \equiv P_k(x)$),
 \begin{equation}
-    M_{ij}(z) = z \est{S_i}\,,
+    P(x) \equiv \sum_k S_k f_k(x),
 \end{equation}
-for a fixed value of $j$. \fred{This is useless. \refeq{single-comp}
-  says: draw from a single component $f_j$. This $f_j$ defines the
-  distribution, and whatever factor you put in front of it, you get
-  the same distribution of events.}
+where $k = 0, 1, \dots$ denotes the total angular momentum of the observables.
+From the normalization of the PDF then follows $S_0 = 1/2$. From positivity of $P$ one
+obtains $|S_k| \leq 1/2$ for angular momentum $k > 0$. More stringent relations between the
+$S_k$ might hold, but are beyond the scope of this work. For latter use, we define
+$\vec{S}^{(m)}_k \equiv 1/2 (\delta_{k,0} + \delta_{k,m})$, and we emphasize that
+\begin{equation}
+    P^{(m)}(x) \equiv P(x | \lbrace S^{(m)}_k \rbrace)
+\end{equation}
+is a PDF. The dual basis of angular functions follows then from the normalization
+and orthogonality of the Legendre polynomials, and one therefore has
+\begin{equation}
+    \tilde{f}_k(x) = \frac{2 k + 1}{2} f_k(x),\qquad \int_{-1}^{+1} \tilde{f}_k(x) f_l(x) \rmdx{x} = \delta_{k,l}\,.
+\end{equation}
 
-\danny{In order to better understand the detector aceptance effects, we propose two steps. For the sake of
-    clarity of our argument, we assume in the following that the PDF $P$ is expanded in products of
-    appropriately chosen Legendre polynomials to some multi-index order $\vec{l}_P^{(0)}$. Similarly,
-    moments and detector effects are nominally determined up to some order $\vec{l}_M^{(0)}$, with
-    $\vec{l}_M^{(0)} \leq \vec{l}_P^{(0)}$. Here and in the following all comparisons are to be read
-    for each compoenent.\\
-    For the first step, we remind that the unfolding matrix $M$ depends implicitly on the physical
-    PDF $P$. We therefore recommend variation of the order of the expansion of $P$ to $\vec{l}_P \geq \vec{l}_P^{(0)}$
-    component-wise. This way one can estimate the mixing of PDF terms of order $\vec{l}_P$ into moments of order $\vec{l}_M^{(0)}$
-    or lower.\\
-    In a second step, we assume using the nominal expansion of the PDF up to order $\vec{l}_P^{(0)}$.
-    With moments of order $\vec{l}_M \geq \vec{l}_M^{(0)}$ one can therefore find the impact of the
-    acceptance effects on the mixing of moments of order $\vec{l}_M^{(0)}$ and below
-    into moments beyond the order of the PDF.
-    Our recommendation is not illustrated at the hand of numerical examples, which would necessitate
-    access to realistic detector models. The latter are not available to persons outside the
-    respective collaborations. The proposed studies are therefore beyond the scope of this work.
-}
 
-\fred{I'm puzzled. If you can do the calculation to some order
-  $\vec{l}_P$, why would you use a lower order for the actual result?
-  I.e., if you have the NNLO results, why would you limit yourself to
-  NLO?}
+We now define the \emph{simulated raw} moments $\lbrace Q_{i}^{(m)}\rbrace$,
+\begin{equation}
+    Q_i^{(m)} \equiv \int_{-1}^{+1} \tilde{f}_i(x) P^{(m)}(x) \eps(x) \rmdx{x} = \frac{1}{2} \int_{-1}^{+1} \tilde{f}_i(x) \big[f_0(x) + f_m(x)\big] \eps(x) \rmdx{x}\,,
+\end{equation}
+which are instrumental to our recipe. MC estimators for these simulated moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$, where
+\begin{equation}
+    x_\text{d}^{(n,m)} \sim P_\eps^{(m)} \equiv \frac{P^{(m)} \eps}{R^{(m)}}\,.
+\end{equation}
+Here the normalization $R^{(m)}$ is chosen such that $\int P_\eps^{(m)}(x) \rmdx{x} = 1$.
+We emphasize that $R^{(m)}$ can estimated as $\est{R}^{(m)} = N_\text{d}^{(m)} / N_\text{t}$, where $N_\text{t}$ corresponds to the number of simulated true events.
+The estimators then read
+\begin{equation}
+    \est{Q}_i^{(m)} \equiv \est{R}^{(m)} \frac{1}{N_\text{d}} \sum_n^{N_\text{d}} \tilde{f}_i(x_\text{d}^{(n,m)})
+\end{equation}
+
+Linearity of the integral over $x$ and convergence of the expansion of $P_\eps^{(m)}$ in terms Legendre polynomials ensures that
+\begin{equation}
+    Q_i^{(m)} = \sum_j M_{ij} S_j^{(m)}\,.
+\end{equation}
+We call the matrix $M_{ij}$ the \emph{unfolding matrix}, which is specific to our decay at hand. Given our definition of
+$S_k^{(m)}$ it can easily be calculated as
+\begin{equation}
+    M_{ij} = \begin{cases}
+        2 Q_i^{(0)}                          & j = 0\,,\\
+        2\left(Q_i^{(j)} - Q_i^{(0)}\right)  & j \neq 0\,,\\
+    \end{cases}
+\end{equation}
+and its MC estimator $\est{M}_{ij}$  can be obtained through the replacements $Q_i^{(m)} \to \est{Q}_i^{(m)}$.\\
+
+In order to finally extract the angular observables from data, we use the \emph{measured raw moments}. Their MC estimator
+$\lbrace \est{Q}_i\rbrace$ -- based on the \emph{detected events} $x^{(n)}$, $n=1,\dots,N$ -- reads
+\begin{equation}
+    \est{Q}_i \equiv R \frac{1}{N} \sum_n^N \tilde{f}_i(x^{(n)})\,.
+\end{equation}
+Here $R \equiv \int P(x) \eps(x)$ is an a priori unknown normalization that also occurs in the determination of the branching
+ratio of the specific decay. We then obtain MC estimators of the angular observables via
+\begin{equation}
+    \est{S}_i \equiv \sum_{i} \left(\hat{M}^{-1}\right)_{ij} \est{Q}_j\,.
+\end{equation}
+The precise value of $R$ depends on the a priori unknown angular observables $\lbrace S_i\rbrace$.
+However, ratios and other suitable combinations of the estimators $\lbrace \est{S}_i\rbrace$ are independent
+of $R$.
+
+\todo{size of $M$ in relation to the maximum angular momentum of $\eps$}
 
 
 \section{Toy Studies}
@@ -672,38 +664,39 @@ D.v.D would like to thank Gudrun Hiller and Martin Jung for discussing the resul
 The PDF for the decay $\bar{B}\to\bar{K}\ell^+\ell^-$ has been calculated for the most
 complete basis of dimension-six $b\to s \ell^+\ell^-$ operators. It reads \cite{Bobeth:2007dw,Bobeth:2012vn}
 \begin{equation}
-    P(q^2, \cos\theta_1) = \frac{1}{\Gamma} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1}} = \frac{a(q^2)}{\Gamma} + \frac{b(q^2)}{\Gamma} \cos\theta_1 + \frac{c(q^2)}{\Gamma} \cos^2\theta_1 = \sum_i P_i f_i(\cos\theta_1)\,,
+    P(q^2, \cos\theta_1)
+        = \frac{1}{\rmdx{\Gamma}/\rmdx{q^2}} \frac{\rmdx{^2\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1}}
+        = \frac{a(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} + \frac{b(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos\theta_1 + \frac{c(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos^2\theta_1
+        = \sum_i S_i p_i(\cos\theta_1)\,,
 \end{equation}
-where the basis of angular functions $\lbrace f_i\rbrace$ reads
+with the conventional observables $a(q^2)$ through $c(q^2)$, and $\rmdx{\Gamma}/\rmdx{q^2} = 2a + 2/3 c$. We conveniently use the Legendre polynomials
+$p_i(x)$, $i=0,1,2$,
 \begin{equation}
 \begin{aligned}
-    f_1 & = 1\,, &
-    f_2 & = \cos\theta_1\,, &
-    f_2 & = \cos^2\theta_1\,.
+    p_0(x) & = 1\,, &
+    p_1(x) & = x\,, &
+    p_2(x) & = \frac{1}{2} (3x^2 - 1)\,,
 \end{aligned}
 \end{equation}
-Here we denote the dilepton mass squared as $q^2$, and the dilepton helicity angle as $\theta_1 \equiv \theta_{\ell}$. We transform the PDF from a $\cos\theta_1$-dependence
-to a $\theta_1$-dependence,
-\begin{equation}
-    P(q^2, \theta_1) = \sum_i P_i f_i(\cos\theta_1) \sin \theta_1\,.
-\end{equation}
-where we define $P_{\lbrace 1,2,3\rbrace} \equiv \lbrace a, b, c\rbrace / \Gamma$.\\
-
-The dual basis $\lbrace \dual{f}_i\rbrace$ reads
+as our basis of angular functions. Our basis of angular observables then
+translates to the conventional basis as
 \begin{equation}
 \begin{aligned}
-    \dual{f}_1 & = \frac{9}{8} - \frac{15}{8}\cos^2\theta_1\,, &
-    \dual{f}_2 & = \frac{3}{2}\cos\theta_1\,, &
-    \dual{f}_3 & = -\frac{15}{8} + \frac{45}{8}\cos^2\theta_1\,,
+    S_0 & = \frac{1}{2}\,, &
+    S_1 & = \frac{b}{\Gamma}\,, &
+    S_2 & = \frac{2c}{3\Gamma}\,.
 \end{aligned}
 \end{equation}
+In this case, the dual basis is simply given by $\tilde{p}_i(x) = (2 i + 1)/2 p_i(x)$
 such that
 \begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \dual{f}_i(\theta_1) P(q^2, \theta_1) = S_i(q^2)\,.
+    \int_0^\pi \rmdx{\theta_1} \dual{p}_i(\cos\theta_1) P(q^2, \cos\theta_1)\sin\theta_1 = S_i(q^2)\,.
 \end{equation}
 
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ (S-wave and P-wave)}
 \label{app:btokstarll}
+
+\todo{rewrite to use Legendre polynomials}
 
 The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ --- up to and including P-wave contributions --- has been calculated
 for the most general basis of dimension-six $b\to s$ operators. It reads, expressed in terms of the angular observables $\lbrace J_i\rbrace$ \cite{Blake:2012mb,Bobeth:2012vn}
@@ -784,6 +777,8 @@ such that
 \section{Application to $\bar{B}\to P_1 P_2\ell^+\ell^-$ (all partial waves)}
 \label{app:btokpill}
 
+\todo{rewrite to use Legendre polynomials}
+
 The class of semileptonic $\bar{B}\to P_1 P_2 \ell_1\bar\ell_2$ decays, where $P_1$, and $P_2$ are pseudoscalar mesons,
 and $\ell_1$ and $\bar\ell_2$ are charged or neutral leptons, includes decays
 such as $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ and $\bar{B}\to \pi\pi\ell^-\bar\nu_\ell$.
@@ -844,6 +839,8 @@ such that
 
 \section{Application to $\Lambda_b\to \Lambda(\to N \pi)\ell^+\ell^-$}
 \label{app:lambdabtolambdall}
+
+\todo{rewrite to use Legendre polynomials}
 
 The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts --- reads \cite{Boeer:2014xx}
 \begin{equation}
