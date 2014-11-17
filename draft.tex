@@ -840,66 +840,62 @@ such that
 \section{Application to $\Lambda_b\to \Lambda(\to N \pi)\ell^+\ell^-$}
 \label{app:lambdabtolambdall}
 
-\todo{rewrite to use Legendre polynomials}
-
 The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts --- reads \cite{Boeer:2014xx}
 \begin{equation}
-    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}} = \frac{3}{8\pi} \sum_i \frac{K_{i}(q^2)}{\rmdx{\Gamma} /\, \rmdx{q^2}} f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
+    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}} = \sum_i S_i f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
 \end{equation}
 where $q^2$ denotes the dilepton mass squared, $\theta_1 \equiv \theta_\ell$ and $\theta_2 \equiv \theta_\Lambda$ denote the
 helicity angles in the dilepton and
 $N\pi$ systems, respectively, and $\theta_3 = \phi$ denotes the azimuthal angle.
-The basis of angular functions reads \cite{Boeer:2014xx}
+The index $i$ should be interpreted as a multi-index, $i \equiv (l_1, l_2, m)$,
+where $0 \leq l_1 \leq 2$ and $0 \leq l_2 \leq 1$ denote the total angular momentum in the
+dilepton and the $N\pi$ system, respectively, and $-1 \leq m \leq 1$
+is the third component of either of the angular momenta.
+Our choice of an orthonormal basis and its dual reads
 \begin{equation}
-    \begin{aligned}
-% 1
-        f_{1ss} & = \sin^2\theta_1 &
-        f_{1cc} & = \cos^2\theta_1 &
-        f_{1c}  & = \cos\theta_1\\
-% 2
-        f_{2ss} & = \sin^2\theta_1 \cos\theta_2 &
-        f_{2cc} & = \cos^2\theta_1 \cos\theta_2 &
-        f_{2c}  & = \cos\theta_1   \cos\theta_2 \\
-% 3
-        f_{3sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\theta_3 &
-        f_{3s}  & = \sin\theta_1              \sin\theta_2 \cos\theta_3 \\
-% 4
-        f_{4sc} & = \sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\theta_3 &
-        f_{4s}  & = \sin\theta_1              \sin\theta_2 \sin\theta_3
-    \end{aligned}
+\begin{aligned}
+    f_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)
+    & = \frac{1}{8\pi} \sqrt{\frac{(l_1 - |m|)!\,(l_2 - |m|)!}{(l_1 + |m|)!\,(l_2 + |m|)!}} p_{l_1}^{|m|}(\cos\theta_1) p_{l_2}^{|m|}(\cos\theta_2)\\
+    & \times \begin{cases}
+            \cos(|m|\theta_3) & m > 0\\
+            \sin(|m|\theta_3) & m < 0\\
+            1                 & m = 0
+        \end{cases}\,,\\
+    \tilde{f}_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)
+    & = (2l_1 + 1)(2l_2 + 1)\sqrt{\frac{(l_1 - m)!\,(l_2 - m)!}{(l_1 + m)!\,(l_2 + m)!}} p_{l_1}^m(\cos\theta_1) p_{l_2}^m(\cos\theta_2)\\
+    & \times \begin{cases}
+            2 \cos(|m|\theta_3) & m > 0\\
+            2 \sin(|m|\theta_3) & m < 0\\
+            1                   & m = 0
+        \end{cases}\,.\\
+\end{aligned}
 \end{equation}
-The decay width reads
+The correspondence between out choice of angular observables in the angular momentum basis, and the angular
+observables as defined in reference \cite{Boeer:2014xx} reads
 \begin{equation}
-    \frac{\rmdx{\Gamma}} {\rmdx{q^2}} = 2 K_{1ss} + K_{1cc}
+\begin{aligned}
+    S_{0, 0,  0} & = 1\,,                                                             &
+    S_{1, 0,  0} & = \frac{3 K_{1c}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+    S_{2, 0,  0} & = \frac{2(K_{1cc} - K_{1ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           \\
+    S_{0, 1,  0} & = \frac{K_{2cc} + 2 K_{2ss}}{\rmdx\Gamma/\rmdx{q^2}}\,,            &
+    S_{1, 1,  0} & = \frac{3 K_{2c}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+    S_{2, 1,  0} & = \frac{2(K_{2cc} - K_{2ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           \\
+                 &                                                                    &
+    S_{1, 1, -1} & = \frac{6 K_{4s}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+    S_{2, 1, -1} & = \frac{2 \sqrt{3} K_{4sc}}{\rmdx\Gamma/\rmdx{q^2}}\,,             \\
+                 &                                                                    &
+    S_{1, 1, +1} & = \frac{6 K_{3s}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+    S_{2, 1, +1} & = \frac{2 \sqrt{3} K_{3sc}}{\rmdx\Gamma/\rmdx{q^2}}\,,
+\end{aligned}
 \end{equation}
-In terms of the angles $\theta_1$ and $\theta_2$, instead of the cosines, the PDF reads
+where the decay width is
 \begin{equation}
-    P(q^2, \theta_1, \theta_2, \theta_3) = \frac{3}{8\pi} \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \theta_3) \sin\theta_1 \sin\theta_2\,,
+    \frac{\rmdx{\Gamma}} {\rmdx{q^2}} = 2 K_{1ss} + K_{1cc}\,.
 \end{equation}
-where we also define $S_i(q^2) \equiv K_i(q^2) / (\rmdx{\Gamma} /\, \rmdx{q^2})$.\\
 
-The dual basis reads
+The dual basis is chosen such that
 \begin{equation}
-    \begin{aligned}
-% 1
-        \dual f_{1ss} & = \frac{1}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) &
-        \dual f_{1cc} & = \frac{1}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) &
-        \dual f_{1c}  & = \cos\theta_1\\
-% 2
-        \dual f_{2ss} & = \frac{3}{4}\big(3 \sin^2\theta_1 - 2 \cos^2\theta_1\big) \cos\theta_2 &
-        \dual f_{2cc} & = \frac{3}{2}\big(- \sin^2\theta_1 + 4 \cos^2\theta_1\big) \cos\theta_2 &
-        \dual f_{2c}  & = 3 \cos\theta_1   \cos\theta_2 \\
-% 3
-        \dual f_{3sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \cos\theta_3 &
-        \dual f_{3s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \cos\theta_3 \\
-% 4
-        \dual f_{4sc} & = \frac{15}{2}\sin\theta_1 \cos\theta_1 \sin\theta_2 \sin\theta_3 &
-        \dual f_{4s}  & = \frac{3}{2} \sin\theta_1              \sin\theta_2 \sin\theta_3
-    \end{aligned}
-\end{equation}
-such that
-\begin{equation}
-    \int_0^\pi \rmdx{\theta_1} \int_0^\pi \rmdx{\theta_2} \int_0^{2\pi} \rmdx{\theta_3} P(q^2, \theta_1, \theta_2, \theta_3) \dual{f}_i(\theta_1, \theta_2, \theta_3) = S_i(q^2)\,.
+    \int_{-1}^{+1} \rmdx{\cos \theta_1} \int_{-1}^{+1} \rmdx{\cos \theta_2} \int_0^{2\pi} \rmdx{\theta_3} P(q^2, \cos \theta_1, \cos \theta_2, \theta_3) \dual{f}_i(\cos \theta_1, \cos \theta_2, \theta_3) = S_i(q^2)\,.
 \end{equation}
 
 
