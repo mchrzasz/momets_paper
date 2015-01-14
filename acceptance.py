@@ -197,7 +197,8 @@ def unfolding_matrix(_process, acceptance, components, chunks, chunk_size):
             samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)
             for i in range(components):
                 estimator = 0
-                for x in samples:
+                # discard burn-in of 2000 samples
+                for x in samples[2000:]:
                     estimator += process.dual_component(i, x)
                 estimator *= Rm / len(samples)
 
@@ -217,8 +218,8 @@ def flat_acceptance_btokll_matrix():
     print("Flat acceptance in B->Kll")
     acceptance = lambda x: 1.
     samples = []
-    for i in range(10):
-        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=100, chunk_size=500)
+    for i in range(1):
+        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=2000, chunk_size=500)
         output = []
         for n in M.flatten():
             output.append("%4.4f" % n)
@@ -271,4 +272,3 @@ try:
     f()
 except KeyError:
     print("Unknown command '%s'" % sys.argv[1])
-
