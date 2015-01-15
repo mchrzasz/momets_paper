@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import numpy as np
 import numpy.matlib as matlib
 from numpy.polynomial.legendre import Legendre
@@ -8,6 +9,7 @@ from matplotlib import pyplot as plt
 
 import scipy as sp
 import scipy.integrate as integrate
+from scipy.misc import factorial
 
 import sys
 
@@ -55,10 +57,20 @@ class Process:
     def integrate(self, function):
         raise NotImplementedError()
 
+    def test(self):
+        for i in range(self.number_of_components()):
+            for j in range(self.number_of_components()):
+                integrand = lambda x: self.dual_component(i, x) * self.component(j, x)
+                print("test: i=%d, j=%d, result=%f" % (i, j, self.integrate(integrand)))
+
 
 class BToKDilepton(Process):
     def __init__(self, S):
         self.S = S
+
+    @staticmethod
+    def make(S):
+        return BToKDilepton(S)
 
     def dim(self):
         return 1
@@ -96,61 +108,103 @@ class BToKDilepton(Process):
         plt.savefig('samples-btokll-%s.pdf' % name)
 
 
-#class LambdaBToLambdaDilepton(Process):
-#    momenta = [
-#        (0, 0,  0),
-#        (1, 0,  0),
-#        (2, 0,  0),
-#        (0, 1,  0),
-#        (1, 1,  0),
-#        (2, 1,  0),
-#        (1, 1, -1),
-#        (2, 1, -1),
-#        (1, 1, +1),
-#        (2, 1, +1)
-#    ]
-#
-#    def __init__(self, S):
-#        self.S = S
-#
-#    def dim(self):
-#        return 3
-#
-#    def pdf(self, x):
-#        result = 0
-#        for i in [0, 1, 2]:
-#            result += self.S[i] * self.component(i, x)
-#        return result
-#
-#    def number_of_components(self):
-#        return 3
-#
-#    def component(self, i, x):
-#        c_th_1 = x[0]
-#        c_th_2 = x[1]
-#        th_3 = x[2]
-#        (l1, l2, m) = self.momenta[i]
-#
-#        result = 0
-#        if m == 0:
-#            result = 1.
-#        elif m > 0:
-#            result = np.cos(th_3)
-#        elif m < 0:
-#            result = np.sin(th_3)
-#
-#        m = abs(m)
-#
-#        result *= np.sqrt(factorial(l1 - m) * factorial(l2 - m) / (factorial(l1 + m) * factorial(l2 + m))) / (8 * np.pi)
-#        result *= sp.special.lpmv(m, l1, c_th_1) * sp.sepcial.lpmv(m, l2, c_th_2)
-#
-#    def dual_component(self, i, x):
-#        return (2 * i + 1) / 2 * self.component(i, x)
-#
-#    def plot(self, samples):
-#        plt.figure()
-#        n, bins, patches = plt.hist(samples, 25 + 1, normed=1, facecolor='green', alpha=0.75)
-#        plt.savefig('lambdabtolambdall.pdf')
+class LambdaBToLambdaDilepton(Process):
+    angular_momenta = [
+        (0, 0,  0),
+        (1, 0,  0),
+        (2, 0,  0),
+        (0, 1,  0),
+        (1, 1,  0),
+        (2, 1,  0),
+        (1, 1, -1),
+        (2, 1, -1),
+        (1, 1, +1),
+        (2, 1, +1)
+    ]
+
+    def __init__(self, S):
+        self.S = S
+
+    @staticmethod
+    def make(S):
+        return LambdaBToLambdaDilepton(S)
+
+    def dim(self):
+        return 3
+
+    def pdf(self, x):
+        result = 0
+        for i in range(self.number_of_components()):
+            result += self.S[i] * self.component(i, x)
+        return result
+
+    def number_of_components(self):
+        return 10
+
+    def component(self, i, x):
+        c_th_1 = x[0]
+        c_th_2 = x[1]
+        th_3 = x[2]
+        (l1, l2, m) = self.angular_momenta[i]
+
+        result = 0.0
+        abs_m = abs(m)
+        if m == 0:
+            result = 1.0
+        elif m > 0:
+            result = np.cos(abs_m * th_3)
+        elif m < 0:
+            result = np.sin(abs_m * th_3)
+
+        m = abs_m
+
+        result *= np.sqrt(factorial(l1 - m) * factorial(l2 - m) / (factorial(l1 + m) * factorial(l2 + m)))
+        result *= sp.special.lpmv(m, l1, c_th_1) * sp.special.lpmv(m, l2, c_th_2)
+
+        return result
+
+    def dual_component(self, i, x):
+        c_th_1 = x[0]
+        c_th_2 = x[1]
+        th_3 = x[2]
+        (l1, l2, m) = self.angular_momenta[i]
+
+        result = 0.0
+        abs_m = abs(m)
+        if m == 0:
+            result = 1.0
+        elif m > 0:
+            result = 2.0 * np.cos(abs_m * th_3)
+        elif m < 0:
+            result = 2.0 * np.sin(abs_m * th_3)
+
+        m = abs_m
+
+        result *= np.sqrt(factorial(l1 - m) * factorial(l2 - m) / (factorial(l1 + m) * factorial(l2 + m)))
+        result *= sp.special.lpmv(m, l1, c_th_1) * sp.special.lpmv(m, l2, c_th_2)
+        result *= (2.0 * l1 + 1.0) * (2.0 * l2 + 1.0) / (8.0 * np.pi)
+        return result
+
+    def start(self):
+        return [np.random.uniform(-1.0, +1.0), np.random.uniform(-1.0, +1.0), np.random.uniform(0.0, 2.0 * np.pi)]
+
+    def integrate(self, function):
+        # pdf and acceptance expect x as an array of kinematic variables: adjust for that!
+        opts = [
+            {"epsabs": 1e-5, "limit": 10},
+            {"epsabs": 1e-5, "limit": 10},
+            {"epsabs": 1e-5, "limit": 10}
+        ]
+        integrand = lambda x1,x2,x3: function([x1,x2,x3])
+        integral, error = sp.integrate.nquad(integrand, [(-1.0, +1.0), (-1.0, +1.0), (0.0, 2.0 * np.pi)],
+                    opts=opts
+                )
+        return integral
+
+    def plot(self, samples):
+        plt.figure()
+        n, bins, patches = plt.hist(samples, 25 + 1, normed=1, facecolor='green', alpha=0.75)
+        plt.savefig('lambdabtolambdall.pdf')
 
 
 class Sampler:
@@ -177,24 +231,31 @@ class Sampler:
         #print("The chain accepted %4.2f%% of the proposed points" % (accept_rate * 100) )
         return samples
 
-def unfolding_matrix(_process, acceptance, components, chunks, chunk_size):
+def unfolding_matrix(_process, acceptance, components, chunks, chunk_size, ovalue):
         if "B->Kll" == _process:
-            process = BToKDilepton([0.5, 0, 0])
+            process = BToKDilepton([0.5, 0.0, 0.0])
+            factory = BToKDilepton.make
             indicator = pypmc.tools.indicator.hyperrectangle([-1], [1])
+        elif "Lambda_b->Lambdall" == _process:
+            process = LambdaBToLambdaDilepton([0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+            factory = LambdaBToLambdaDilepton.make
+            indicator = pypmc.tools.indicator.hyperrectangle([-1.0, -1.0, 0.0], [+1.0, +1.0, 2.0 * np.pi])
         else:
             raise NotImplementedError("Unknown process %s", process)
+
+        skip_index = int(chunks * chunk_size * 0.05)
 
         sampler = Sampler(process.dim())
         log_acceptance = lambda x: np.log(acceptance(x))
         raw_moments = np.matlib.zeros((components, components))
         for m in range(components): # index named as in draft
             S = [0.0] * components
-            S[0] = 0.5
-            S[m] = 0.5
-            process = BToKDilepton(S)
+            S[0] = ovalue
+            S[m] = ovalue
+            process = factory(S)
             Rm = process.integrate(lambda x: process.pdf(x) * acceptance(x))
             log_target = lambda x: process.log_pdf(x) + log_acceptance(x)
-            samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)
+            samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)[skip_index:]
             for i in range(components):
                 estimator = 0
                 # discard burn-in of 2000 samples
@@ -204,11 +265,12 @@ def unfolding_matrix(_process, acceptance, components, chunks, chunk_size):
 
                 raw_moments[i, m] = estimator
 
-        M = 2.0 * np.array(raw_moments)
+        M = np.array(raw_moments) / ovalue
         for j in range(1, components):
             M[:, j] -= M[:, 0]
 
-        return np.linalg.inv(M)
+        return M
+        #np.linalg.inv(M)
 
 
 # Use cases
@@ -219,7 +281,7 @@ def flat_acceptance_btokll_matrix():
     acceptance = lambda x: 1.
     samples = []
     for i in range(1):
-        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=2000, chunk_size=500)
+        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=2000, chunk_size=500, ovalue=0.5)
         output = []
         for n in M.flatten():
             output.append("%4.4f" % n)
@@ -232,8 +294,20 @@ def generic_acceptance_btokll_matrix():
     print("Generic acceptance Legendre([%s]) in B->Kll, with unfolding matrix %d x %d" % (','.join(acceptance_coeffs.astype(str)), components, components))
     acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
     samples = []
-    for i in range(10):
-        M = unfolding_matrix("B->Kll", acceptance, components=components, chunks=100, chunk_size=500)
+    for i in range(1):
+        M = unfolding_matrix("B->Kll", acceptance, components=components, chunks=100, chunk_size=500, ovalue=0.5)
+        output = []
+        for n in M.flatten():
+            output.append("%4.4f" % n)
+        print "{ " + ", ".join(output) + " },"
+
+#      c. flat acceptance "Lambda_b->Lambdall"
+def flat_acceptance_lambdabtolambdall_matrix():
+    print("Flat acceptance in Lambda_b->Lambdall")
+    acceptance = lambda x: 1.
+    samples = []
+    for i in range(1):
+        M = unfolding_matrix("Lambda_b->Lambdall", acceptance, components=10, chunks=30, chunk_size=500, ovalue=1/(8.0 * np.pi))
         output = []
         for n in M.flatten():
             output.append("%4.4f" % n)
@@ -252,7 +326,7 @@ def flat_acceptance_btokll_moments():
     acceptance = lambda x: 1.
     samples = []
     for i in range(10):
-        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=100, chunk_size=500)
+        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=100, chunk_size=500, ovalue=0.5)
 
         output = []
         for n in M.flatten():
@@ -260,15 +334,17 @@ def flat_acceptance_btokll_moments():
         print "{ " + ", ".join(output) + " },"
 
 commands = {
-        "unfolding-flat-btokll": flat_acceptance_btokll_matrix,
-        "unfolding-generic-btokll": generic_acceptance_btokll_matrix,
-        "moments-flat-btokll": flat_acceptance_btokll_moments,
+        "unfolding-flat-btokll":              flat_acceptance_btokll_matrix,
+        "unfolding-generic-btokll":           generic_acceptance_btokll_matrix,
+        "unfolding-flat-lambdabtolambdall":   flat_acceptance_lambdabtolambdall_matrix,
+        "moments-flat-btokll":                flat_acceptance_btokll_moments,
 }
-if not len(sys.argv) > 1:
-    print("Need to specify a command!")
-    sys.exit(-1)
-try:
-    f = commands[sys.argv[1]]
-    f()
-except KeyError:
-    print("Unknown command '%s'" % sys.argv[1])
+if __name__ == '__main__':
+    if not len(sys.argv) > 1:
+        print("Need to specify a command!")
+        sys.exit(-1)
+    try:
+        f = commands[sys.argv[1]]
+        f()
+    except KeyError:
+        print("Unknown command '%s'" % sys.argv[1])
