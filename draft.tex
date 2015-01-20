@@ -318,9 +318,9 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   \item The approximate multivariate Gaussian distribution of $\vecest{S}$
   allows easier and more correct transfer of the information in the
   data to interested theorists for more accurate fits of
-  standard-model and new-physics parameters \citeneeded\fred{Our fits
-    and others'?} or for more precise predictions of optimized
-  observables; e.g.,
+  standard-model and new-physics parameters \cite{Altmannshofer:2013foa,
+    Descotes-Genon:2013wba,Bobeth:2013soa},
+  or for more precise predictions of optimized observables; e.g.,
   \cite{Egede:2008uy,Egede:2010zc,Bobeth:2010wg,Becirevic:2011bp,
     Bobeth:2012vn,Matias:2012xw,DescotesGenon:2012zf} for definitions
   of such optimized observables in $B\to K^*\ell^+\ell^-$ decays,
@@ -466,7 +466,7 @@ are distributed as $P_\text{d}$,
 \begin{equation}
     P_\text{d}(x_\text{d}) = \int P_\text{t}(x_\text{t}) E(x_\text{d}, x_\text{t}) \rmdx{x_\text{t}}\,.
 \end{equation}
-Here $P$ is the probability distribution of the true events, and the kernel $E(x_\text{d}, x_\text{t})$
+Here $P_\text{t}$ is the probability distribution of the true events, and the kernel $E(x_\text{d}, x_\text{t})$
 parametrizes acceptance and resolution
 effects. Note that $P_\text{d}$ is \emph{not} a PDF, since it is not normalized,
 \begin{equation}
@@ -485,7 +485,7 @@ and the method of moments.\\
 We will now proceed with the explicit usage of a uniangular PDF with $x = \cos\theta$.\footnote{%
     The generalization of this section to multiangular PDFs is straighforward. It can be achieved
     by promoting $x$ to a vector, promoting the Legendre polynomials to products of independent polynomials
-    and the indices $i,j,k,m$ to multi-indices.
+    or spherical harmonics, and promoting the indices $i,j,k,m$ to multi-indices.
 }
 Let us define the PDF in terms of the Legendre polymials (i.e., $f_k(x) \equiv P_k(x)$),
 \begin{equation}
@@ -561,26 +561,46 @@ has to be determined in the same way for each angle.)
 Since the $\eps$ depends highly on the nature of the particle detector at hand, it remains for
 the experimental collaborations to determine the maximum order of such an expansion.
 
+The accuracy of the unfolding process as outlined above critically depends on both the accuracy
+of the detector simulation, as well as the uncertainties induced by the MC estimates. While
+considerations of any detector simulation is beyond the scope of this work, we can, however,
+comment on the MC-induced uncertainties. As usual, one needs to find a balance between
+compute time and accuarcy. We find for a uniangular distribution and a total of $6\cdot 10^6$ MC
+samples (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$) that the error on the mean is
+smaller than $6\cdot 10^{-4}$. Let us conclude this section by commenting that the unfolding
+matrix is universal in a sense. Specifically, it can be reused in analyses with a similar underlying decay.
+Therefore, computing resources spent on improving its accuracy are therefore not wasted.
+
 
 \section{Toy Studies}
 \label{sec:numerics}
 
-In order to study the performance of the proposed method, we simulate
-measurements for one uni-angular and one tri-angular decay
-distribution for various numbers of events. As inputs we use the SM
-predictions for the decays $B\to K\ell^+\ell^-$ and $B\to K^*(\to
-K\pi)\ell^+\ell^-$, respectively. We cover the $q^2$ ranges $1 \GeV^2$
-to $6 \GeV^2$, and $15 \GeV^2$ to the respective kinematic endpoint,
-with two bin widths: $1\GeV^2$ and $0.5\GeV^2$. This is to ensure that
-a wide spectrum of possible values for
-the angular observables.\\
+We now study the performance of the proposed method. In order to do so, we simulate
+individual events for two separate physical processes: one uni-angular, and one tri-angular decay
+distribution. We repeats theses analysis for varying sample sizes, ranging from
+$50$ to $500$ events. Our toy analysis base on SM predictions for angular observables
+in the decays $B\to K\ell^+\ell^-$ and $B\to K^*(\to K\pi)\ell^+\ell^-$, respectively.
+In order to faithfully investigate the performance of the method of moments, we repeats our
+numerical studies for several bin sizes in the kinematic range $1 \GeV^2 \leq q^2 \leq 6\GeV^2$,
+as well as $15 \GeV^2 \leq q^2 \leq q^2_\text{max}$. Here, the bin size is chosen either
+as $1\GeV^2$ or $0.5\GeV^2$. This setup is meant to ensure that a wide spectrum of possible
+values for the angular observables is investigated.\\
 
 Our finding can be summarized as follows:
 \begin{itemize}
-    \item In all studied cases we observed not a single bias in the pull \fred{should define pull} distribution of the observable.
-        All pull distributions can successfully be fitted to a gaussian distribution. As an example, we
-        show the pull distributions for the observables $S_5$ and $S_7$ for a SM-like $B\to K^*\ell^+\ell^-$
-        decays in \reffig{pulls}.
+    \item In all studied cases we observed not a single bias in the distribution of the $\mathrm{pull}$
+        of any observables $S$,
+        \begin{equation}
+            \mathrm{pull_i} \equiv \frac{\est{S} - S}{\est{\sigma}_S}\,.
+        \end{equation}
+        Here $S$ refers to the true (input) value for the angular observables, $\est{S}$ refers to the
+        MC estimate, and $\est{\sigma} \equiv \sqrt{\est{\Sigma}}$ refers to an estimator of the
+        variance of the measurement. All pull distributions obtained in our studies can be successfully
+        fitted to a gaussian distribution. Due to the large number of studied distributions, we have
+        to restrict ourselved to a subset. In our opinion the pull distributions for the observables
+        $S_5 \simeq 27\%$ and $S_7 \simeq 2\%$, which are obtained from SM-like $B\to K^*\ell^+\ell^-$
+        decays, are good examples. We show their respective pull distributions for \danny{$XXX$} toy studies
+        of $200$ events per study in \reffig{pulls}.
     \item We study the absolute uncertainty $\sigma_k(K)$ with respect to the angular observable $S_k$
         as a function of the number of simulated events $K$. As expected for a multivariate gaussian
         distribution, we find that the absolute uncertainty is well fitted by
@@ -595,10 +615,10 @@ Our finding can be summarized as follows:
         $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
         \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $K$.}
 \end{itemize}
-We find that all of the above results show consistently that the joint distrbution of the angular observables
-converges towards a multivariate Gaussian distribution. We propose to describe the resulting distribution as
-a multivariate Gauss when skewness and kurtosis are small enough. The precise targets for these quantities
-are subject to the details of the physical analysis, and therefore outside the scope of our work.
+All results of our toy studies, as summarised above, show consistently that the joint distribution of the angular
+observables converges towards a multivariate Gaussian distribution. We therefore propose to describe the
+resulting distribution as a multivariate Gauss when skewness and kurtosis fall below a given threshold.
+The precise target threshold for skewness and kurtosis are subject to the details of the underlying physical analysis, and reside therefore outside the scope of this work.
 
 \begin{figure}[t]
         \centering
@@ -615,20 +635,6 @@ are subject to the details of the physical analysis, and therefore outside the s
             \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $K$. The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
         \label{fig:errors}
 \end{figure}
-
-\hrulefill\\
-{\textbf{\color{red}[dvd: can the following be removed?]}
-We used the simulated events and fitted a likelihood function to them.
-\begin{itemize}
-    \item For a small number of simulated events, \danny{$K=?$}, we observe a significant bias in the pull distributions.
-    \item For a large number of simulated events, \danny{$K=?$}, the uncertainty of the angular observables is
-        smaller compared to the results of the method of moments.
-\end{itemize}
-todo: compare robustness to likelihood fit when fit doesn't
-converge. Why exactly doesn't it converge? What if physics model
-wrong, say some angular terms are missing.}
-\hrulefill
-
 
 \section{Conclusion}
 
@@ -850,9 +856,9 @@ where also $j$ is now a multi-index representing $j \sim (l_1, l_2, m)$.
 \label{app:partial-waves}
 
 Let us assume that the angular decomposition has been achieved for some
-PDF $P$ for all except one angle $\theta$. We now focus on only of the resulting
-observables $S(\theta) \equiv S(\vec{\nu},\theta)$. The dependence on the non-angular
-variables will be dropped in the following. \danny{Fred: is this less confusing now?}
+PDF $P$ for all angles except one, which we label $\theta$. We now focus on only of of the resulting
+observables, which we label $S(\theta) \equiv S(\vec{\nu},\theta)$. The dependence on the non-angular
+variables will be suppressed in the following. \danny{Fred: is this less confusing now?}
 Further, let $S$ have an expansion in terms of partial waves
 $l_1, l_2 = 0,1,2,\dots \hat{=}$ S,P,D$,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
 \begin{equation}
@@ -941,11 +947,8 @@ of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,
 consist of sums with infinitely many terms. It is then up to theoretical analyses to
 estimate or calculate the impact of individual contributions, with or without the cut off $L$.
 For such an analysis in the decay $B\to K\pi\ell^+\ell^-$ we refer to \cite{Das:2014sra}.
-We close by remarking that for any angular-momentum cut off $l < L$\fred{Do you mean $L < \infty$?}, one can find an upper limit for the squared sum
-of all remaining partial waves through the inclusive decay; i.e., schematically
-\begin{equation}
-    \sum_{i=1}^2 \sum_{l=L}^\infty |A_i^{(l)}|^2 \leq \frac{\rmdx{^{1 + \dim\vec\nu}} \Gamma_\text{incl}}{\rmdx{\cos\theta} \rmdx{\vec\nu}}\,.
-\end{equation}
+We close by remarking that for any angular-momentum cut off $l < L$\fred{Do you mean $L < \infty$?}, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
+width.
 
 
 \bibliography{references}

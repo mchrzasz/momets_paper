@@ -259,7 +259,7 @@ def unfolding_matrix(_process, acceptance, components, chunks, chunk_size, ovalu
             for i in range(components):
                 estimator = 0
                 # discard burn-in of 2000 samples
-                for x in samples[2000:]:
+                for x in samples:
                     estimator += process.dual_component(i, x)
                 estimator *= Rm / len(samples)
 
@@ -280,12 +280,14 @@ def flat_acceptance_btokll_matrix():
     print("Flat acceptance in B->Kll")
     acceptance = lambda x: 1.
     samples = []
-    for i in range(1):
-        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=2000, chunk_size=500, ovalue=0.5)
+    for i in range(20):
+        chunks=100
+        chunk_size=750
+        M = unfolding_matrix("B->Kll", acceptance, components=3, chunks=chunks, chunk_size=chunk_size, ovalue=0.5)
         output = []
         for n in M.flatten():
             output.append("%4.4f" % n)
-        print "{ " + ", ".join(output) + " },"
+        print "{ %s }, (* samples=%d *)" % (", ".join(output), chunks * chunk_size)
 
 #      b. generic acceptance "B->Kll"
 def generic_acceptance_btokll_matrix():
@@ -295,11 +297,13 @@ def generic_acceptance_btokll_matrix():
     acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
     samples = []
     for i in range(1):
-        M = unfolding_matrix("B->Kll", acceptance, components=components, chunks=100, chunk_size=500, ovalue=0.5)
+        chunks=2000
+        chunk_size=500
+        M = unfolding_matrix("B->Kll", acceptance, components=components, chunks=chunks, chunk_size=chunk_size, ovalue=0.5)
         output = []
         for n in M.flatten():
             output.append("%4.4f" % n)
-        print "{ " + ", ".join(output) + " },"
+        print "{ %s }, (* samples=%d *)" % (", ".join(output), chunks * chunk_size)
 
 #      c. flat acceptance "Lambda_b->Lambdall"
 def flat_acceptance_lambdabtolambdall_matrix():
