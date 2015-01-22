@@ -28,12 +28,17 @@
 \newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
 \newcommand{\reftab}[1]{tab.~(\ref{tab:#1})}
 \newcommand{\rmdx}[1]{\mbox{d} #1 \,} % differential
+\newcommand{\subd}{_{\text{d}}}
+\newcommand{\subt}{_{\text{t}}}
 \newcommand{\thvec}{\vec{\vartheta}}
 \let\oldtheta\theta
 \renewcommand{\theta}{\vartheta}
 \let\eps\varepsilon
 \newcommand{\vecest}[1]{\widehat{\vec{#1}}}
 \newcommand{\wwhat}[1]{\widehat{\widehat{#1}}}
+\newcommand{\xd}{x\subd}
+\newcommand{\xt}{x\subt}
+\newcommand{\Ekernel}{E(\xd|\xt)}
 
 \DeclareMathOperator{\cov}{Cov}
 %\DeclareMathOperator{\skew}{Skew}
@@ -448,7 +453,7 @@ of angular functions, including the one suggested in this section. The means to 
 in the following subsection.
 
 
-\subsection{Recipe for the Determination of Detector Acceptance Effects}
+\subsection{Recipe for the Determination of Detector Effects}
 \label{sec:systematics:acceptance}
 
 The determination of a detector's performance to detect signal events
@@ -470,70 +475,98 @@ in the \emph{detector} events $\lbrace x^{(n)}_\text{d}\rbrace =
 $n=1,\dots,N_\text{d}$.  In general, the distribution of the detected
 events is
 \begin{equation}
-    P_\text{d}(x_\text{d}) = \int P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}}\,.
+    P_\text{d}(x_\text{d}) = \frac{1}{R} \int P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}}\,.
 \end{equation}
 Here $P_\text{t}$ is the probability distribution of the true events,
+\fred{the normalization constant $R$ is given by
+\begin{equation}
+    R \equiv \int \int P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}} \rmdx{x_\text{d}}\,,
+\end{equation}
 and the kernel $E(x_\text{d}| x_\text{t})$ parametrizes acceptance and
-resolution effects. Note that $P_\text{d}$ is \emph{not} a PDF, since
-it is not normalized,
+resolution effects. The kernel is usually decomposed as
 \begin{equation}
-    \int P_\text{d}(x) \rmdx{x} \neq 1\,.
+  \Ekernel = \eps(\xt) P(\xd|\xt),
 \end{equation}
-For the sake of clarity, we will restrict ourselves
-to pure acceptance effects and suppress resolution effects in the remainder of this section; i.e.,
+where the PDF $P(\xd|\xt)$ includes the resolution effects and the
+unnormalized density $\eps(\xt)$ is the \emph{detector acceptance}
+function. Perfect resolution corresponds to
 \begin{equation}
-    E(x_\text{d}, x_\text{t}) \equiv \eps(x_\text{t}) \delta(x_\text{d}, x_\text{t})\,.
+  \label{eq:def-R}
+  P(\xd|\xt) = \delta(\xd - \xt) \,.
 \end{equation}
-We will refer to $\eps$ as the \emph{detector acceptance} function. In what follows,
-we propose a systematic methods to unfold all effects of $\eps$ through MC simulations
-and the method of moments.\\
-
-
-We will now proceed with the explicit usage of a uniangular PDF with $x = \cos\theta$.\footnote{%
-    The generalization of this section to multiangular PDFs is straighforward. It can be achieved
-    by promoting $x$ to a vector, promoting the Legendre polynomials to products of independent polynomials
-    or spherical harmonics, and promoting the indices $i,j,k,m$ to multi-indices.
 }
-Let us define the PDF in terms of the Legendre polymials (i.e., $f_k(x) \equiv P_k(x)$),
+% For the sake
+% of clarity, we will restrict ourselves to pure acceptance effects and
+% suppress resolution effects in the remainder of this section; i.e.,
+% \begin{equation}
+%     E(x_\text{d}, x_\text{t}) \equiv \eps(x_\text{t}) \delta(x_\text{d}, x_\text{t})\,.
+% \end{equation}
+% We will refer to $\eps$ as the \emph{detector acceptance} function.
+In what follows, we propose a systematic method to unfold all effects
+of \fred{$\Ekernel$} through MC simulations and the method of moments
+\fred{assuming that $\Ekernel$ is independent of the angular
+  observables, and that it is possible to expand $\Ekernel$ --- at
+  least formally --- in Legendre polymials}.  For illustration, we
+proceed with the explicit example of a uniangular\footnote{%
+  The generalization of this section to multiangular PDFs is
+  straighforward. It can be achieved by promoting $x$ to a vector,
+  promoting the Legendre polynomials to products of independent
+  polynomials or spherical harmonics, and promoting the indices
+  $i,j,k,m$ to multi-indices.  } PDF with $x = \cos\theta$. Let us
+define the PDF in terms of the Legendre polymials (i.e., $f_k(x)
+\equiv P_k(x)$) \fred{and angular observables $\lbrace S_k \rbrace$ as
 \begin{equation}
-    P(x) \equiv \sum_k S_k f_k(x),
-\end{equation}
-where $k = 0, 1, \dots$ denotes the total angular momentum of the observables.
-From the normalization of the PDF then follows $S_0 = 1/2$. From positivity of $P$ one
-obtains $|S_k| \leq 1/2$ for angular momentum $k > 0$. More stringent relations between the
-$S_k$ might hold, but are beyond the scope of this work. For latter use, we define
-$\vec{S}^{(m)}_k \equiv 1/2 (\delta_{k,0} + \delta_{k,m})$, and we emphasize that
+    P\subt(\xt) \equiv P\subt(\xt | \lbrace S_k \rbrace) =   \sum_k S_k f_k(\xt),
+  \end{equation}}
+where $k = 0, 1, \dots$ denotes the total angular momentum of the observables \fred{adjust ``angular momentum'' to language at the end of the section}.
+\fred{Normalization of $P\subt$ is equivalent to choosing} $S_0 = 1/2$. \fred{Requiring $P\subt(\xt) \ge 0 \,\forall \xt$ implies} $|S_k| \leq 1/2$ for angular momentum \fred{$k$ just an index, can we remove ``angular momentum''?} $k > 0$. More stringent relations between the
+$S_k$ might hold, but are beyond the scope of this work. For later use, we define
+\fred{
+  \begin{equation}
+    \label{eq:def-Sk}
+  \vec{S}^{(m)}_k \equiv
+  \begin{cases}
+    1/2 \delta_{k,0}, & m=0\\
+    1/2 (\delta_{k,0} + \delta_{k,m}), & m>0 \,,
+  \end{cases}
+\end{equation}}
+and \fred{note} that
 \begin{equation}
-    P^{(m)}(x) \equiv P(x | \lbrace S^{(m)}_k \rbrace)
+    P^{(m)}(\fred{\xt}) \equiv P(\fred{\xt} | \lbrace S^{(m)}_k \rbrace)
 \end{equation}
-is a PDF. The dual basis of angular functions follows then from the normalization
+is a \fred{valid} PDF. The dual basis of angular functions follows then from the normalization
 and orthogonality of the Legendre polynomials, and one therefore has
 \begin{equation}
     \tilde{f}_k(x) = \frac{2 k + 1}{2} f_k(x),\qquad \int_{-1}^{+1} \tilde{f}_k(x) f_l(x) \rmdx{x} = \delta_{k,l}\,.
 \end{equation}
-
-
-We now define the \emph{simulated raw} moments $\lbrace Q_{i}^{(m)}\rbrace$,
+We now define the \emph{simulated raw} moments $\lbrace Q_{i}^{(m)}\rbrace$ as
 \begin{equation}
-    Q_i^{(m)} \equiv \int_{-1}^{+1} \tilde{f}_i(x) P^{(m)}(x) \eps(x) \rmdx{x} = \frac{1}{2} \int_{-1}^{+1} \tilde{f}_i(x) \big[f_0(x) + f_m(x)\big] \eps(x) \rmdx{x}\,,
+    Q_i^{(m)} \equiv \fred{\int \int \tilde{f}_i(\xd) P^{(m)}(\xt) \Ekernel \rmdx{\xt} \rmdx{\xd},}
 \end{equation}
-which are instrumental to our recipe. MC estimators for these simulated moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$, where
+which are instrumental to our recipe. \fred{Monte Carlo} estimators of these moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$, where
 \begin{equation}
-    x_\text{d}^{(n,m)} \sim P_\eps^{(m)} \equiv \frac{P^{(m)} \eps}{R^{(m)}}\,.
-\end{equation}
-Here the normalization $R^{(m)}$ is chosen such that $\int P_\eps^{(m)}(x) \rmdx{x} = 1$.
-We emphasize that $R^{(m)}$ can estimated as $\est{R}^{(m)} = N_\text{d}^{(m)} / N_\text{t}$, where $N_\text{t}$ corresponds to the number of simulated true events.
-The estimators then read
+    x_\text{d}^{(n,m)} \sim \fred{P_E^{(m)}(\xd) \equiv \frac{1}{R^{(m)}} \int P^{(m)}(\xt) \Ekernel \rmdx{\xt}}\,.
+  \end{equation}
+  \fred{In words, for each $m$ it is required to generate events from
+    a toy physical distribution in which $S_0 = S_m=1/2$ and all other
+    observables are set to zero, and to propagate those events through
+    a detector simulation.} The normalization $R^{(m)}$ is chosen such
+  that \fred{$\int P_E^{(m)}(\xd) \rmdx{\xd} = 1$}.  We emphasize that
+  $R^{(m)}$ can be estimated as $\est{R}^{(m)} = N_\text{d}^{(m)} /
+  N_\text{t}$, where $N_\text{t}$ corresponds to the number of
+  simulated true events.  The estimators then read
 \begin{equation}
     \est{Q}_i^{(m)} \equiv \est{R}^{(m)} \frac{1}{N_\text{d}} \sum_n^{N_\text{d}} \tilde{f}_i(x_\text{d}^{(n,m)})
 \end{equation}
 
-Linearity of the integral over $x$ and convergence of the expansion of $P_\eps^{(m)}$ in terms Legendre polynomials ensures that
+Linearity of the integral over $x$ and convergence of the expansion of
+$P_E^{(m)}$ in terms of Legendre polynomials ensures that
 \begin{equation}
     Q_i^{(m)} = \sum_j M_{ij} S_j^{(m)}\,.
 \end{equation}
-We call the matrix $M_{ij}$ the \emph{unfolding matrix}, which is specific to our decay at hand. Given our definition of
-$S_k^{(m)}$ it can easily be calculated as
+We call the matrix $M_{ij}$ the \emph{unfolding matrix}, which is
+specific to the decay at hand. Given our definition of $S_k^{(m)}$ in
+\fred{\refeq{def-Sk} it is easy to see that}
 \begin{equation}
     M_{ij} = \begin{cases}
         2 Q_i^{(0)}                          & j = 0\,,\\
@@ -547,18 +580,21 @@ $\lbrace \est{Q}_i\rbrace$ -- based on the \emph{detected events} $x^{(n)}$, $n=
 \begin{equation}
     \est{Q}_i \equiv R \frac{1}{N} \sum_n^N \tilde{f}_i(x^{(n)})\,.
 \end{equation}
-Here $R \equiv \int P(x) \eps(x)$ is an a priori unknown normalization that also occurs in the determination of the branching
-ratio of the specific decay. We then obtain MC estimators of the angular observables via
+We then obtain MC estimators of the angular observables via
 \begin{equation}
     \label{eq:estS}
     \est{S}_i \equiv \sum_{i} \left(\hat{M}^{-1}\right)_{ij} \est{Q}_j\,.
 \end{equation}
-The precise value of $R$ depends on the a priori unknown angular observables $\lbrace S_i\rbrace$.
-However, ratios and other suitable combinations of the estimators $\lbrace \est{S}_i\rbrace$ are independent
-of $R$. Conversely, $R$ can be extracted from the self-consistency condition\footnote{This condition
-is process dependent; see \refeq{recipe:lambdabtolambdall} and \refeq{recipe:btokstarll}.}
-$\hat{S}_0 = \frac{1}{2}$. Since $R$ is relevant in the determination of the branching ratio, it is therefore useful
-to carry out that determination and the extraction of the angular observables in a combined analysis.
+The precise value of $R$ (see \refeq{def-R}) depends on the a priori
+unknown angular observables $\lbrace S_i\rbrace$.  However, ratios and
+other suitable combinations of the estimators $\lbrace
+\est{S}_i\rbrace$ are independent of $R$. Conversely, $R$ can be
+extracted from the self-consistency condition\footnote{This condition
+  is process dependent; see \refeq{recipe:lambdabtolambdall} and
+  \refeq{recipe:btokstarll}.}  $\hat{S}_0 = \frac{1}{2}$. Since $R$ is
+relevant in the determination of the branching ratio, it is therefore
+useful to carry out that determination and the extraction of the
+angular observables in a combined analysis.
 
 \danny{
 We note that the set $\lbrace \est{S}_k\rbrace$ as determined from \refeq{estS} does not fully correspond to the
@@ -572,7 +608,7 @@ The MC estimators then have the following structure:
 The method is consistent as long as the MC estimators for the ``superfluous'' observables with indices $\dim S + 1$ to $\dim Q$
 are compatible with zero. \footnote{This holds only for the physical model of uniangular decay distributions. For some decays, these superfluous observables
 correspond to higher partial waves that have been suppressed in the physical model; see \refapp{btokstarll} for such a case.}
-Since $L$ depends on the construction of the particle detector at hand, it remains for
+Since $L$ depends on the \fred{setup} of the particle detector \fred{under consideration}, it remains for
 the experimental collaborations to determine the maximum order of such an expansion.
 }
 
@@ -580,8 +616,8 @@ The accuracy of the unfolding process as outlined above critically depends on bo
 of the detector simulation, as well as the uncertainties induced by the MC estimates. While
 considerations of any detector simulation is beyond the scope of this work, we can, however,
 comment on the MC-induced uncertainties. As usual, one needs to find a balance between
-compute time and accuarcy. We find for a uniangular distribution and a total of $6\cdot 10^6$ MC
-samples (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$) that the error on the mean is
+compute time and accuracy. \fred{For a uniangular distribution and a total of $6\cdot 10^6$ MC
+samples (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find} that the error on the mean is
 smaller than $6\cdot 10^{-4}$. Let us conclude this section by commenting that the unfolding
 matrix is universal in a sense. Specifically, it can be reused in analyses with a similar underlying decay.
 Therefore, computing resources spent on improving its accuracy are therefore not wasted.
