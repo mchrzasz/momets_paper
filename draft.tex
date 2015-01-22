@@ -82,16 +82,20 @@ acceptance effects can be accounted for in the analysis.
 \section{Introduction}
 \label{sec:intro}
 
-The initial motivation for studying what we wish to call the \emph{Method of Moments}
-is the determination of angular observables in the rare decay FCNC-mediated decay
-$\bar{B}\to \bar{K}^*(\to \bar{K}\pi)\ell^+\ell^-$. However, we emphasize that
-the method we describe in this letter is general, and it applies to arbitrary
-decay or scattering processes. We find a previous work \cite{Dighe:1998vk}
-advocates this method chiefly for the determination of angular observables in non-leptonic
-$B$ decays, but also mentions the applicability to semileptonic decays. We improve
-upon this previous work by studying correlations between the angular observables,
-and sources of systematic uncertainties. Moreover, we will show that the method
-at hand has two benefits over the usual approach based on likelihood fits. To wit:
+The initial motivation for studying what we wish to call the
+\emph{method of moments} is the determination of angular observables
+in the rare decay FCNC-mediated decay $\bar{B}\to \bar{K}^*(\to
+\bar{K}\pi)\ell^+\ell^-$. However, we emphasize that the method we
+describe in this letter is general, and it applies to arbitrary decay
+or scattering processes. We find a previous work \cite{Dighe:1998vk}
+advocates this method chiefly for the determination of angular
+observables in non-leptonic $B$ decays, but also mentions the
+applicability to semileptonic decays. We improve upon this previous
+work by studying correlations \fred{really? because of higher $l$}
+between the angular observables, and by showing explicitly how to
+incorporate uncertainties due to acceptance effects. Moreover, we show
+that the method of moments has two major advantages over the usual
+approach based on likelihood fits:
 \begin{enumerate}
     \item Likelihood fits have convergence problems for a small number of
         events, and can require reparametrizations and/or approximations
@@ -447,28 +451,30 @@ in the following subsection.
 \label{sec:systematics:acceptance}
 
 The determination of a detector's performance to detect signal events
-with accurate determination of the event's angles is generally a difficult
-task. In the ideal case, one would have an explicit probabilistic model of
-the detector acceptance effects and could thus write down the full
-forward model from which the measured events arise. In practice, this
-would require much more CPU time than available, and one is therefore
-forced to simplify the model. The standard approach is to generate
-the \emph{true} particle events $\lbrace x_\text{t}^{(n)}\rbrace =
-\lbrace(\vec{\nu}^{(n)}_\text{t},\vec\theta^{(n)}_\text{t})\rbrace$, $n=1,\dots,N_\text{t}$, from a PDF
-assumed to describe the bare physical process, and to propagate those
-particles through a detailed simulation of the detector.
-The observable traces that the particles leave in the detector are fed
-into reconstruction algorithms resulting in the \emph{detector} events
-$\lbrace x^{(n)}_\text{d}\rbrace = \lbrace(\vec{\nu}^{(n)}_\text{d},
-\vec\theta^{(n)}_\text{d})\rbrace$, $n=1,\dots,N_\text{d}$.
-Most generally, the detected events $\lbrace x_\text{d}^{(k)}\rbrace$
-are distributed as $P_\text{d}$,
+with accurate determination of the event's angles is generally a
+difficult task. In the ideal case, one would have an explicit
+probabilistic model of the detector acceptance effects and could thus
+write down the full forward model from which the measured events
+arise. In practice, this would require much more CPU time than
+available, and one is therefore forced to simplify the model. The
+standard approach is to generate the \emph{true} particle events
+$\lbrace x_\text{t}^{(n)}\rbrace =
+\lbrace(\vec{\nu}^{(n)}_\text{t},\vec\theta^{(n)}_\text{t})\rbrace$,
+$n=1,\dots,N_\text{t}$, from a PDF assumed to describe the bare
+physical process, and to propagate those particles through a detailed
+simulation of the detector.  The observable traces that the particles
+leave in the detector are fed into reconstruction algorithms resulting
+in the \emph{detector} events $\lbrace x^{(n)}_\text{d}\rbrace =
+\lbrace(\vec{\nu}^{(n)}_\text{d}, \vec\theta^{(n)}_\text{d})\rbrace$,
+$n=1,\dots,N_\text{d}$.  In general, the distribution of the detected
+events is
 \begin{equation}
-    P_\text{d}(x_\text{d}) = \int P_\text{t}(x_\text{t}) E(x_\text{d}, x_\text{t}) \rmdx{x_\text{t}}\,.
+    P_\text{d}(x_\text{d}) = \int P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}}\,.
 \end{equation}
-Here $P_\text{t}$ is the probability distribution of the true events, and the kernel $E(x_\text{d}, x_\text{t})$
-parametrizes acceptance and resolution
-effects. Note that $P_\text{d}$ is \emph{not} a PDF, since it is not normalized,
+Here $P_\text{t}$ is the probability distribution of the true events,
+and the kernel $E(x_\text{d}| x_\text{t})$ parametrizes acceptance and
+resolution effects. Note that $P_\text{d}$ is \emph{not} a PDF, since
+it is not normalized,
 \begin{equation}
     \int P_\text{d}(x) \rmdx{x} \neq 1\,.
 \end{equation}
