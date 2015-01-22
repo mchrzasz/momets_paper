@@ -412,9 +412,9 @@ partial waves of the dimeson system. However, the angular momentum of the dimeso
 from above, and gives rise to an infinite set of angular observables.\\
 
 For the selected class of decays, we can describe that problem as follows: The PDF $P$ has a fixed dependence on the dilepton
-helicity angle $\theta_1$ and the azimuthal angle $\theta_3$. (See also \refapp{btokpill} for details
+helicity angle $\theta_1$ and the azimuthal angle $\theta_3$. (See also \refapp{btokstarll} for details
 on the angular distribution.) However, at the level of decay amplitudes the dimeson system can have an arbitrarily
-large total angular momentum $j$; only its third component is restricted to $m = -1,0,+1$.
+large total angular momentum $j$; only its third component is restricted to $j_z = -1,0,+1$.
 It is then usual to compute the angular distribution explicitly in terms of $\theta_1$ and $\theta_3$, but leave
 the angular observables dependent on the remaining helicity angle $\theta_2$.
 We advocate here that is a sensible procedure to perform an expansion in terms of Legendre polynomials $p_{j}^{(|m|)}$
@@ -424,11 +424,12 @@ and as defined in \refapp{partial-waves} \fred{A lot of mixing between appendice
     S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{j,|m|}} S_{k,j}(\vec{\nu}) p_{j}^{(|m|)}(\cos\theta_2)\sin\theta_2\,,
 \end{equation}
 where the the normalization factor $n_{j,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
-example we have (cf. also \refapp{btokpill})
+example we have (cf. also \refapp{btokstarll} and \cite{Lee:1992ih})
 \begin{equation}
     |m| = \begin{cases}
-        0\,, & k = 1,2,6\,\\
-        1\,, & k = 3,4,5,7,8,9\,,
+        0\,, & k = 1,2,6\,,\\
+        1\,, & k = 4,5,7,8\,,\\
+        m\,, & k = 3,9
     \end{cases}\,.
 \end{equation}
 The angular observables $S_{k,j}$ defined as coefficients of this expansion in Legendre polynomials
@@ -549,23 +550,31 @@ $\lbrace \est{Q}_i\rbrace$ -- based on the \emph{detected events} $x^{(n)}$, $n=
 Here $R \equiv \int P(x) \eps(x)$ is an a priori unknown normalization that also occurs in the determination of the branching
 ratio of the specific decay. We then obtain MC estimators of the angular observables via
 \begin{equation}
+    \label{eq:estS}
     \est{S}_i \equiv \sum_{i} \left(\hat{M}^{-1}\right)_{ij} \est{Q}_j\,.
 \end{equation}
 The precise value of $R$ depends on the a priori unknown angular observables $\lbrace S_i\rbrace$.
 However, ratios and other suitable combinations of the estimators $\lbrace \est{S}_i\rbrace$ are independent
-of $R$.
+of $R$. Conversely, $R$ can be extracted from the self-consistency condition\footnote{This condition
+is process dependent; see \refeq{recipe:lambdabtolambdall} and \refeq{recipe:btokstarll}.}
+$\hat{S}_0 = \frac{1}{2}$. Since $R$ is relevant in the determination of the branching ratio, it is therefore useful
+to carry out that determination and the extraction of the angular observables in a combined analysis.
 
-It remains to be emphasized that the dimensionality of the raw angular observables is not completely
-fixed by the number of angular momentum configurations of the process at hand. Let us revisit the
-decay $B\to K\ell^+\ell^-$, with only one angle,  to clear this up. For $B\to K\ell^+\ell^-$, the
-total angular momentum associated the dilepton pair can, at the level of observables, be either $0$,
-$1$ or $2$. We assume now that the acceptance function $\eps$ can be conveniently expanded in terms
-of Legendre polynomials up to maximal angular momentum $L$. From angular momentum conservation
-follows immediately that $\dim Q = L + 2$, and thus the unfolding matrix $M$ will be of
-dimension $L + 2 \times L + 2$. (For a multiangular distribution the maximum angular momentum
-has to be determined in the same way for each angle.)
-Since the $\eps$ depends highly on the nature of the particle detector at hand, it remains for
+\danny{
+We note that the set $\lbrace \est{S}_k\rbrace$ as determined from \refeq{estS} does not fully correspond to the
+set $\lbrace S_k\rbrace$ for an arbitrary $\eps$. Taking again the decay $B\to K\ell^+\ell^-$
+as an example, we have $\dim S = 3$. Assuming an expansion of the detector acceptance $\eps$
+in terms of Legendre polynomial up to order $L$, we obtain $\dim \est{Q} = \dim \est{S} = \dim S + L$.
+The MC estimators then have the following structure:
+\begin{equation}
+    \lbrace \est{S}_k \rbrace = \lbrace \underbrace{\est{S}_0, \dots, \est{S}_{\dim S}}_\text{physical}, \underbrace{\est{S}_{\dim S + 1}, \dots, \est{S}_{\dim Q}}_\text{``superfluous''}\rbrace\,.
+\end{equation}
+The method is consistent as long as the MC estimators for the ``superfluous'' observables with indices $\dim S + 1$ to $\dim Q$
+are compatible with zero. \footnote{This holds only for the physical model of uniangular decay distributions. For some decays, these superfluous observables
+correspond to higher partial waves that have been suppressed in the physical model; see \refapp{btokstarll} for such a case.}
+Since $L$ depends on the construction of the particle detector at hand, it remains for
 the experimental collaborations to determine the maximum order of such an expansion.
+}
 
 The accuracy of the unfolding process as outlined above critically depends on both the accuracy
 of the detector simulation, as well as the uncertainties induced by the MC estimates. While
@@ -755,16 +764,34 @@ observables as defined in reference \cite{Boeer:2014xx} reads
 \begin{equation}
 \begin{aligned}
     8\pi S_{0, 0,  0} & = 1\,,                                                             &
+    8\pi S_{0, 1,  0} & = \frac{K_{2cc} + 2 K_{2ss}}{\rmdx\Gamma/\rmdx{q^2}}\,,
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+%
+                      &                                                                    &
+    8\pi S_{1, 1, -1} & = \frac{6 K_{4s}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       \\
+%
     8\pi S_{1, 0,  0} & = \frac{3 K_{1c}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
-    8\pi S_{2, 0,  0} & = \frac{2(K_{1cc} - K_{1ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           \\
-    8\pi S_{0, 1,  0} & = \frac{K_{2cc} + 2 K_{2ss}}{\rmdx\Gamma/\rmdx{q^2}}\,,            &
-    8\pi S_{1, 1,  0} & = \frac{3 K_{2c}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
-    8\pi S_{2, 1,  0} & = \frac{2(K_{2cc} - K_{2ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           \\
-                 &                                                                    &
-    8\pi S_{1, 1, -1} & = \frac{6 K_{4s}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+    8\pi S_{1, 1,  0} & = \frac{3 K_{2c}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       \\
+%
+                      &                                                                    &
+    8\pi S_{1, 1, +1} & = \frac{6 K_{3s}}{\rmdx\Gamma/\rmdx{q^2}}\,,
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+%
+                      &                                                                    &
     8\pi S_{2, 1, -1} & = \frac{2 \sqrt{3} K_{4sc}}{\rmdx\Gamma/\rmdx{q^2}}\,,             \\
-                 &                                                                    &
-    8\pi S_{1, 1, +1} & = \frac{6 K_{3s}}{\rmdx\Gamma/\rmdx{q^2}}\,,                       &
+%
+    8\pi S_{2, 0,  0} & = \frac{2(K_{1cc} - K_{1ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           &
+    8\pi S_{2, 1,  0} & = \frac{2(K_{2cc} - K_{2ss})}{\rmdx\Gamma/\rmdx{q^2}}\,,           \\
+%
+                      &                                                                    &
     8\pi S_{2, 1, +1} & = \frac{2 \sqrt{3} K_{3sc}}{\rmdx\Gamma/\rmdx{q^2}}\,,
 \end{aligned}
 \end{equation}
@@ -782,9 +809,14 @@ For the purpose of unfolding acceptance effects as laid down in \refsec{systemat
 to know that $f_{0,0,0} \equiv 1$, and that $\max_{\cos\theta_1,\cos\theta_2,\phi} |f_{l_1, l_2, m}| < 1$.
 The recipe's generating PDFs are therefore
 \begin{equation}
-    P(x|\lbrace S_i^{(j)}\rbrace)\,,\quad\text{with}\quad S_i^{(j)} = \frac{1}{8\pi}\left(\delta_{i,(0,0,0)} + \delta_{i,j}\right)\,,
+    \label{eq:recipe:lambdabtolambdall}
+    P(x|\lbrace S_i^{(j)}\rbrace)\,,\quad\text{with}\quad S_i^{(j)} = \frac{1}{8\pi}
+        \begin{cases}
+            \delta_{i,(0,0,0)}                  & j = (0, 0, 0)\\
+            \delta_{i,(0,0,0)}  + \delta_{i,j}  & j \neq (0, 0, 0)
+        \end{cases}
 \end{equation}
-where $j$ ís now also a multi-index representing $j \equiv (\tilde l_1, \tilde l_2, \tilde m)$.
+where $j$ is now also a multi-index representing $j \equiv (\tilde l_1, \tilde l_2, \tilde m)$.
 
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$}
 \label{app:btokstarll}
@@ -828,24 +860,32 @@ and
 %
                       &                                                                                    &
     8\pi S_{1, 1, +1} & = \frac{6 J_{5i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                     &
-    8\pi S_{1, 2, +1} & = \frac{4 \sqrt{3} J_{5i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,
+    8\pi S_{1, 2, +1} & = \frac{4 \sqrt{3} J_{5}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,
 \end{aligned}
 \end{equation}
 and
 \begin{equation}
 \begin{aligned}
 %
-                 &                                                                                    &
-                 &                                                                                    &
+                      &                                                                                    &
+                      &                                                                                    &
     8\pi S_{2, 2, -2} & = \frac{8 J_9}{\rmdx{\Gamma}/\rmdx{q^2}}                                           \\
 %
-                 &                                                                                    &
-    8\pi S_{1, 2, -1} & = \frac{6 J_{?}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                      &
-    8\pi S_{1, 2, -1} & = \frac{4 \sqrt{3} J_{?}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                             \\
+                      &                                                                                    &
+    8\pi S_{2, 1, -1} & = \frac{4 \sqrt{3} J_{8i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                            &
+    8\pi S_{2, 2, -1} & = \frac{8 J_8}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                        \\
 %
-    8\pi S_{2, 0,  0} & = \frac{4 (J_{2c} + 2 J_{2s})}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                        &
+    8\pi S_{2, 0,  0} & = \frac{4 (J_{2c} + 2 J_{2s})}{3\, \rmdx{\Gamma}/\rmdx{q^2}}\,,                    &
     8\pi S_{2, 1,  0} & = \frac{4 J_{2i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                     &
-    8\pi S_{2, 2,  0} & = \frac{8 (J_{2c} - J_{2s})}{3 \rmdx{\Gamma}/\rmdx{q^2}}\,,                        \\
+    8\pi S_{2, 2,  0} & = \frac{8 (J_{2c} - J_{2s})}{3\, \rmdx{\Gamma}/\rmdx{q^2}}\,,                      \\
+%
+                      &                                                                                    &
+    8\pi S_{2, 1, +1} & = \frac{4\sqrt{3} J_{4i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                             &
+    8\pi S_{2, 2, +1} & = \frac{8 J_{4}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                      \\
+%
+                      &                                                                                    &
+                      &                                                                                    &
+    8\pi S_{2, 2, +2} & = \frac{8 J_3}{\rmdx{\Gamma}/\rmdx{q^2}}                                           \\
 \end{aligned}
 \end{equation}
 
@@ -853,9 +893,21 @@ As before, for the purpose of unfolding acceptance effects as laid down in \refs
 to know that $f_{0,0,0} \equiv 1$, and that $\max_{\cos\theta_1,\cos\theta_2,\phi} |f_{l_1, l_2, m}| \leq 1$.
 The recipe's generating PDFs are therefore
 \begin{equation}
-    P(x|\lbrace S_k^{(j)}\rbrace)\,,\quad\text{with}\quad S_k^{(j)} = \frac{1}{8\pi}\left(\delta_{k,0} + \delta_{k,j}\right)\,,
+    \label{eq:recipe:btokstarll}
+    P(x|\lbrace S_i^{(j)}\rbrace)\,,\quad\text{with}\quad S_i^{(j)} = \frac{1}{8\pi}
+        \begin{cases}
+            \delta_{i,(0,0,0)}                  & j = (0, 0, 0)\\
+            \delta_{i,(0,0,0)}  + \delta_{i,j}  & j \neq (0, 0, 0)
+        \end{cases}
 \end{equation}
 where also $j$ is now a multi-index representing $j \sim (l_1, l_2, m)$.
+
+\danny{
+To conclude this section, we remind that the angular momentum $l_2$, associated with the angle $\theta$, is not bounded from above.
+This has to be considered if partial waves beyond the P-wave are included in the analysis, see e.g. \cite{Das:2014sra}.
+However, our choice of basis is well suited to these applications with $0 \leq l < \infty$. Note, that the
+physical range of $m$ is not affected by higher partial waves.
+}
 
 
 \section{On the Partial-Wave Expansions of Angular Observables}
@@ -911,8 +963,8 @@ the partial-wave amplitudes,
     \label{eq:partial-wave-observable-infinite}
     \begin{aligned}
         S_{j,m}
-            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} \rmdx{\cos\theta} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{l_1} p_{l_1}^{(m_1)}(\cos\theta) A_{2}^{*(l_2)}p_{l_2}^{(m_2)}(\cos\theta)\right]\\
-            & = \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{l_1} A_{2}^{*(l_2)}\right] \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
+            & = \frac{1}{n_{j,m}} \int_{-1}^{+1} \rmdx{\cos\theta} p_{j}^{(m_1 + m_2)}(\cos\theta) \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta) A_{2}^{*(l_2)}p_{l_2}^{(m_2)}(\cos\theta)\right]\\
+            & = \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{(l_1)} A_{2}^{*(l_2)}\right] \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
     \end{aligned}
 \end{equation}
 
