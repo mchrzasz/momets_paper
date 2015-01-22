@@ -399,7 +399,7 @@ uncertainties, we lift these assumptions.
 
 In several interesting processes we might only have an approximate
 result for $P$.  In this section, we focus on one particular class of
-mismodelling of the signal PDF: the angular momentum-cutoff in partial
+mismodelling of the signal PDF: the angular-momentum cutoff in partial
 wave expansions. This mismodelling potentially affects a large number
 of decays and scattering processes. For the sake of clarity we take
 the interesting class of four-body decays $B\to P_1 P_2 \ell_1
@@ -458,7 +458,7 @@ of angular functions, including the one suggested in this section. The means to 
 in the following subsection.
 
 
-\subsection{Recipe for the Determination of Detector Effects}
+\subsection{Recipe for \fred{Including} Detector Effects}
 \label{sec:systematics:acceptance}
 
 The determination of a detector's performance to detect signal events
@@ -581,7 +581,7 @@ specific to the decay at hand. Given our definition of $S_k^{(m)}$ in
 and its MC estimator $\est{M}_{ij}$  can be obtained through the replacements $Q_i^{(m)} \to \est{Q}_i^{(m)}$.\\
 
 In order to finally extract the angular observables from data, we use the \emph{measured raw moments}. Their MC estimator
-$\lbrace \est{Q}_i\rbrace$ -- based on the \emph{detected events} $x^{(n)}$, $n=1,\dots,N$ -- reads
+$\lbrace \est{Q}_i\rbrace$ --- based on the \emph{detected events} $x^{(n)}$, $n=1,\dots,N$ --- reads
 \begin{equation}
     \est{Q}_i \equiv R \frac{1}{N} \sum_n^N \tilde{f}_i(x^{(n)})\,.
 \end{equation}
@@ -689,7 +689,8 @@ The precise target threshold for skewness and kurtosis are subject to the detail
             \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S5.png}
             \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S7.png}
             \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $K$. The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
-        \label{fig:errors}
+            \label{fig:errors}
+            \fred{Plots convey exactly was is said in words. I see they are useful for a talk, but do we really need them in the write-up?}
 \end{figure}
 
 \section{Conclusion}
@@ -954,12 +955,13 @@ physical range of $m$ is not affected by higher partial waves.
 \section{On the Partial-Wave Expansions of Angular Observables}
 \label{app:partial-waves}
 
-Let us assume that the angular decomposition has been achieved for some
-PDF $P$ for all angles except one, which we label $\theta$. We now focus on only of of the resulting
-observables, which we label $S(\theta) \equiv S(\vec{\nu},\theta)$. The dependence on the non-angular
-variables will be suppressed in the following. \danny{Fred: is this less confusing now?}
-Further, let $S$ have an expansion in terms of partial waves
-$l_1, l_2 = 0,1,2,\dots \hat{=}$ S,P,D$,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
+Let us assume that the angular decomposition has been achieved for
+some PDF $P$ for all angles except for one angle $\theta$. We now
+focus on just one of the resulting observables and denote it by
+$S(\theta)$. The dependence on the non-angular variables will be
+ignored in the following. \fred{I rephrased it sligthly} Suppose $S$
+has an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots
+\hat{=}$ S,P,D$,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
 \begin{equation}
     \label{eq:def-partial-wave-observable}
     S(\theta) \equiv F\left[A_1(\theta) A_2^*(\theta)\right] \equiv F\left[\left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_2^{*(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\right]\,,
@@ -976,13 +978,18 @@ where we introduce $n_{l,m}$ via the scalar product of two associated Legendre p
     \label{eq:legendre-scalar-product}
     n_{l, m} \delta_{l, l'} \equiv \int_{-1}^1 \rmdx{\cos\theta} p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta)  = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
 \end{equation}
-Using the large-$l$ behaviour of $n_{l,m}$ one finds that with increasing $l_i$ the partial-wave amplitudes must asymptotically fall off as \fred{Let's say why. Unitarity?} \danny{Finiteness of observables, so yes: unitarity!}
+Using the large-$l$ behaviour of $n_{l,m}$ one finds that with
+increasing $l_i$ the partial-wave amplitudes must asymptotically fall
+off as \fred{Let's say why. Unitarity?} \danny{Finiteness of
+  observables, so yes: unitarity!} \fred{So can't we just say
+  unitarity before the first equation? That's the reason why the sum
+  need be finite, I guess. But if I look at (D2) again, it goes down as $1/(2l + 1)$, so If remember correctly, $A_i^{(l_i)} \propto 1/l^{\eps}$ would be enough to ensure convergence. So why $1/\sqrt{l_i}$?}
 \begin{equation}
     |A_i^{(l_i)}(\cos\theta)| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.
 \end{equation}
 This motivates to cut off the partial-wave expansion at some arbitrary angular momentum $L$.\\
 
-Will will show in the following that such a cut off
+Will will show in the following that such a cutoff
 is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies
 a well defined total angular momentum for each observable, one ensures that the observables can in fact be disentangled experimentally.\\
 
@@ -1044,9 +1051,9 @@ The latter condition is well known from the addition rules of angular momenta. N
 the sum in \refeq{def-partial-wave-observable} goes to infinitely high angular momenta $l_1$ and $l_2$. As a consequence
 of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,m}$
 consist of sums with infinitely many terms. It is then up to theoretical analyses to
-estimate or calculate the impact of individual contributions, with or without the cut off $L$.
+estimate or calculate the impact of individual contributions, with or without the cutoff $L$.
 For such an analysis in the decay $B\to K\pi\ell^+\ell^-$ we refer to \cite{Das:2014sra}.
-We close by remarking that for any angular-momentum cut off $l < L$\fred{Do you mean $L < \infty$?}, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
+We close by remarking that for any angular-momentum cutoff $l < L$\fred{Do you mean $L < \infty$?}, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
 width.
 
 
