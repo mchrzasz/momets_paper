@@ -71,20 +71,20 @@
 Universit\"at Siegen, Siegen, Germany}
 
 \begin{abstract}
-  \fred{Our goal is to obtain a complete set} of angular observables
+  Our goal is to obtain a complete set of angular observables
   arising in a generic multi-body process without the need to carry
   out a likelihood fit of the angular distribution to the measured
-  events. Instead, we \fred{apply the method of moments} that relies
+  events. Instead, we apply the method of moments that relies
   both on the orthogonality of angular functions and the estimation of
-  integrals by Monte Carlo techniques. \fred{The main advantage of
-    this method is that the joint distribution of all observables
-    given the data can be easily extracted, even for very few
-    events. Our main contribution is to show explicitly how systematic
-    uncertainties from detector-resolution and acceptance effects can
-    be incorporated in a general algorithm. Finally, we present the
-    necessary process-dependent formulae needed for direct
-    implementation of the method for several rare decays of
-    interest.}
+  integrals by Monte Carlo techniques. The main advantage of
+  this method is that the joint distribution of all observables
+  given the data can be easily extracted, even for very few
+  events. Our main contribution is to show explicitly how systematic
+  uncertainties from detector-resolution and acceptance effects can
+  be incorporated in a general algorithm. Finally, we present the
+  necessary process-dependent formulae needed for direct
+  implementation of the method for several rare decays of
+  interest.
 \end{abstract}
 
 \maketitle
@@ -380,7 +380,7 @@ uncertainties, we lift these assumptions.
 
 \begin{figure}
     \includegraphics[width=.6\textwidth]{fig-topology.pdf}
-    \caption{Decay topology for decays $B\to P_1 P_2 \ell_1 \bar\ell_2$. \label{fig:topology}\fred{We should use the same symbol $\theta$ as in text}}
+    \caption{Decay topology for decays $B\to P_1 P_2 \ell_1 \bar\ell_2$. \label{fig:topology}}
 \end{figure}
 
 In several interesting processes we might only have an approximate
@@ -442,7 +442,7 @@ of angular functions, including the one suggested in this section. The means to 
 in the following subsection.
 
 
-\subsection{Recipe for \fred{Including} Detector Effects}
+\subsection{Recipe for Including Detector Effects}
 \label{sec:systematics:acceptance}
 
 The determination of a detector's performance to detect signal events
@@ -595,8 +595,11 @@ Since $L$ depends on the setup of the particle detector under consideration, it 
 the experimental collaborations to determine the maximum order of such an expansion.\\
 
 The accuracy of the unfolding process as outlined above critically depends on both the accuracy
-of the detector simulation, as well as the uncertainties induced by the MC estimates. While
-considerations of any detector simulation is beyond the scope of this work, we can, however,
+of the detector simulation, as well as the uncertainties induced by the MC estimates.
+For an experimental analysis, one would now turn to the determination of the distribution of $\vecest{S}$
+as a function of the detector setup. This would involve the determination of both $M$ and $\vecest{Q}$ for a number of
+detector configurations, and subsequent profiling or marginalization.
+While such considerations of any detector simulation are beyond the scope of this work, we can, however,
 comment on the MC-induced uncertainties. As usual, one needs to find a balance between
 compute time and accuracy. For a uniangular distribution and a total of $6\cdot 10^6$ MC
 samples (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find that the error on the mean is
@@ -672,7 +675,6 @@ The precise target threshold for skewness and kurtosis are subject to the detail
             \includegraphics[width=0.45\textwidth]{figs/error-Q2_5_6_S7.png}
             \caption{Uncertainty of the angular observables $S_5$ and $S_7$, extracted from simulated events of the decay $B\to K^*\ell^+\ell^-$ and as a function of the number of simulated events $K$. The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
             \label{fig:errors}
-            \fred{Plots convey exactly was is said in words. I see they are useful for a talk, but do we really need them in the write-up?}
 \end{figure}
 
 \section{Conclusion}
@@ -965,7 +967,7 @@ Using the large-$l$ behaviour of $n_{l,m}$ one finds that with
 increasing $l_i$ the partial-wave amplitudes must asymptotically fall
 off as
 \begin{equation}
-    |A_i^{(l_i)}| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.
+    |A_i^{(l_i)}| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.\todo{wrong!}
 \end{equation}
 This motivates to cut off the partial-wave expansion at some arbitrary angular momentum $L$.\\
 
@@ -1032,7 +1034,7 @@ the sum in \refeq{def-partial-wave-observable} goes to infinitely high angular m
 of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,m}$
 consist of sums with infinitely many terms. It is then up to theoretical analyses to
 estimate or calculate the impact of individual contributions, with or without the cutoff $L$.
-We close by remarking that for any angular-momentum cutoff $l < L$\fred{Do you mean $L < \infty$?}, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
+We close by remarking that for any angular-momentum cutoff $l < L < \infty$, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
 width.
 
 
