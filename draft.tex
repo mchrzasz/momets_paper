@@ -109,10 +109,10 @@ approach based on likelihood fits:
 \begin{enumerate}
     \item Likelihood fits have convergence problems for a small number of
         events, and can require reparametrizations and/or approximations
-        for a successful fit to the signal PDF, see e.g. \cite{Egede:2008uy}.
+        for a successful fit to the signal PDF, see e.g. \cite{Egede:1142152}.
         The method of moments has no such convergence problems.
     \item The results of likelihood fits suffer from systematic uncertainties
-        and systematic bias (see e.g. \cite{Egede:2008uy}), especially in but not limited
+        and systematic bias (see e.g. \cite{Egede:1142152}), especially in but not limited
         to cases in which the PDFs do not faithfully model the underlying physics. We will
         show that the method of moments does not suffer a very particular type of
         mismodelling that arises from introducing a cutoff in a partial wave expansion.
@@ -625,36 +625,38 @@ values for the angular observables is investigated.\\
 Our finding can be summarized as follows:
 \begin{itemize}
     \item In all studied cases we observed not a single bias in the distribution of the $\mathrm{pull}$
-        of any observables $S$,
+        of any observables $S_i$,
         \begin{equation}
-            \mathrm{pull_i} \equiv \frac{\est{S} - S}{\est{\sigma}_S}\,.
+            \mathrm{pull_i} \equiv \frac{\est{S}_i - S_i}{\est{\sigma}_{i}}\,.
         \end{equation}
-        Here $S$ refers to the true (input) value for the angular observables, $\est{S}$ refers to the
-        MC estimate, and $\est{\sigma} \equiv \sqrt{\est{\Sigma}}$ refers to an estimator of the
-        variance of the measurement. All pull distributions obtained in our studies can be successfully
+        Here $S_i$ refers to the true (input) value for the angular observables, $\est{S}_i$ refers to the
+        mean of the pseudomeasurement via the MC estimate, and $\est{\sigma}_{i} \equiv \sqrt{\est{\Sigma_{ii}}}$
+        refers to an estimator of the standard deviation of the pseudomeasurement. All pull distributions
+        obtained in our studies can be successfully
         fitted to a gaussian distribution. Due to the large number of studied distributions, we have
         to restrict ourselved to a subset. In our opinion the pull distributions for the observables
         $S_5 \simeq 27\%$ and $S_7 \simeq 2\%$, which are obtained from SM-like $B\to K^*\ell^+\ell^-$
-        decays, are good examples. We show their respective pull distributions for \danny{$XXX$} toy studies
+        decays, are good examples. We show their respective pull distributions for $2\cdot 10^5$ toy studies
         of $200$ events per study in \reffig{pulls}.
-    \item We study the absolute uncertainty $\sigma_k(N)$ with respect to the angular observable $S_k$
+    \item We study the MC estimate for the absolute uncertainty $\est{\sigma_i(N)}$ with respect to the angular observable $S_i$
         as a function of the number of simulated events $N$. As expected for a multivariate gaussian
         distribution, we find that the absolute uncertainty is well fitted by
         \begin{equation}
             \label{eq:unc-on-mean}
-            \sigma_k(N) = \frac{\sigma_k(1)}{\sqrt{N}}
+            \est{\sigma_i(N)} = \frac{\sigma_i}{\sqrt{N}}
         \end{equation}
-        with $\sigma_k(1) = \order{1}$, regardless of the absolute size of $S_k$. The latter can best be shown
+        with $\sigma_i(1) = \order{1}$, regardless of the absolute size of $S_k$. The latter can best be shown
         for the example of uncertainties of two observables. Taking again $S_5$ ($\simeq 27\%$) and $S_7$ ($\simeq 2\%$)
         for SM-like $B\to K^*\ell^+\ell^-$ decays, we show the absolute uncertainty in \reffig{errors}.
         We find that the the method of moments yields uncertainties on $\vec{S}$ that are roughly
-        \danny{$10\%$} larger than those obtained from maximum-likelihood fits and with the same
+        $10\%$ larger than those obtained from maximum-likelihood fits and for the same
         number of events \danny{[cite!]}. However, we wish to note that said fits only produce a limited
         subset of the angular observables, and the statistical error of the fit is expected to increase
-        with the number of fit parameters \danny{[cite?]}.
-    \item For all toy studies, we produce plots of their skewness and their kurtosis as functions of
-        $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
-        \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $N$.}
+        with the number of fit parameters \danny{[cite?]}. \danny{The method of moments, on the other hand,
+        does not suffer from this problem.}
+%    \item For all toy studies, we produce plots of their skewness and their kurtosis as functions of
+%        $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
+%        \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $N$.}
 \end{itemize}
 All results of our toy studies, as summarised above, show consistently that the joint distribution of the angular
 observables converges rapidly towards a multivariate Gaussian distribution. We therefore propose to describe the
@@ -677,10 +679,10 @@ The precise target threshold for skewness and kurtosis are subject to the detail
             \label{fig:errors}
 \end{figure}
 
-\section{Conclusion}
+\section{Summary}
 
 We have carried out a combined analytical and numerical study of the method of moments; a method for
-the extraction of angular observales from the angular distribution of a generic multi-body process.
+the extraction of angular observales from the angular distribution of a general multi-body process.
 We have studied the performance of the method of moments using pseudo data derived from the SM
 predctions for one uniangular decay ($B\to K\ell^+\ell^-$) and one triangular decay ($B\to K^*\ell^+\ell^-$).
 From this, we find rapid convergence of the joint likelihood of the angular observables towards a multivariate Gaussian.
@@ -688,7 +690,7 @@ We draw the conclusion that this method exhibits several benefits in the determi
 compared with a maximum-likelihood fit.\\
 
 First, we find no bias in the determinations of the angular observables even for a small number of events.
-However, this comes at the expense of a slight increase of the order of $10\%$\todo{check!} for the statistical uncertainty
+However, this comes at the expense of a slight increase of the order of $10\%$ for the statistical uncertainty
 on the mean.
 Second, in the absence of detector effects, a determination using the method of moments is correct and unbiased
 even when not all aspects of the physical distribution are modelled. This is explicitly shown for the case of
@@ -699,9 +701,9 @@ unfolding matrix, which is only computationally feasible when using the method o
 Fourth, the fact that the joint distribution of the angular observables that results from the method of moments
 is a multivariate Gaussian distribution allows for an easy and precise transfer of correlation
 information to subsequent theoretical analyses.
-Last but not least, the resulting distribution arises without the need for additional constraints necessary
-in order to achieve convergence, such as in some maximum-likelihood fits. Therefore, the results can be
-directly combined with similarly-obtained results from different experiments, without the need to remove
+Last but not least, the resulting distribution arises without the need for additional constraints
+in order to achieve convergence, such as e.g. in some maximum-likelihood fits. Therefore, results obtained
+using the method of moments can be directly averaged, without the need to remove
 the constraints a posteriori.\\
 
 In conclusion, we argue that the method of moments is a competetive alternative to
@@ -712,10 +714,8 @@ PDFs composed from non-angular orthogonal bases.
 
 \acknowledgments
 
+We would like to thank Ulrik Egede, Gudrun Hiller, Martin Jung and Konstantinos Petridis for insightful discussions.
 The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung (BMBF).
-We would like to thank Ulrik Egede and Konstantinos Petridis for insightful discussions.
-\danny{Potential people to read the manuscript: Jochen Dingfelder (Belle-II, Bonn), Ulrik Egede (LHCb, Imperial London), Christoph Langenbruch (LHCb, Warwick), Michel De Cian (LHCb, Heidelberg), Adrian Bevan (ATLAS, Queen Mary)  }
-D.v.D would like to thank Gudrun Hiller and Martin Jung for discussing the results of \cite{Das:2014sra} prior to publication.
 
 \appendix
 
@@ -937,7 +937,7 @@ However, our choice of basis is well suited to these applications with $0 \leq l
 physical range of $m$ is not affected by higher partial waves.
 
 
-\section{On the Partial-Wave Expansions of Angular Observables}
+\section{On the Partial-Wave Expansion of Angular Observables}
 \label{app:partial-waves}
 
 Let us assume that the angular decomposition has been achieved for
@@ -954,28 +954,33 @@ has an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots
 where $F \in \{\text{Re},\text{Im}\}$ denotes taking either the real
 or the imaginary part. Here $p_{l}^{(m)}$ denotes an \emph{associated Legendre} polynomial and $m_i$ is the third component of the angular momentum of the amplitude $A_i$, and we impose $m_1 \geq m_2$.\\
 
-From the positivity of amplitudes and unitarity, one immediately finds
+\danny{
+From the orthogonality of the Legendre polynomials, one immediately finds
 \begin{equation}
-    \int \rmdx{\cos\theta}  \, |A_i(\theta)|^2 = \sum_{l_i = 0}^\infty |A_i^{(l_i)}|^2 n_{l_i, m_i} < \infty\,,
+    \label{eq:partial-waves:bound}
+    \int \rmdx{\cos\theta}  \, |A_i(\theta)|^2 = \sum_{l_i = 0}^\infty |A_i^{(l_i)}|^2 n_{l_i, m_i} < S_\text{incl}\,,
 \end{equation}
-where we introduce $n_{l,m}$ via the scalar product of two associated Legendre polynomials,
+where $S_\text{incl}$ is the corresponding observable in the associated inclusive decays,
+and where we introduce $n_{l,m}$ via the scalar product of two associated Legendre polynomials,
 \begin{equation}
     \label{eq:legendre-scalar-product}
     n_{l, m} \delta_{l, l'} \equiv \int_{-1}^1 \rmdx{\cos\theta} p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta)  = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
 \end{equation}
-Using the large-$l$ behaviour of $n_{l,m}$ one finds that with
-increasing $l_i$ the partial-wave amplitudes must asymptotically fall
-off as
+The positivity of the amplitudes in \refeq{partial-waves:bound} implies that we can estimate
+the error introduced by cutting off the expansion at some arbitrary angular momentum $L$. One
+obtains
 \begin{equation}
-    |A_i^{(l_i)}| \Big|_{l_i \gg m_i} \sim \frac{1}{\sqrt{l_i}}\,.\todo{wrong!}
+    |A_i^{(l' > L)}|^2 < S_\text{incl} - \sum_{l=0}^L |A_i^{(l)}|^2\,.
 \end{equation}
-This motivates to cut off the partial-wave expansion at some arbitrary angular momentum $L$.\\
+}
 
-Will will show in the following that such a cutoff
-is compatible with defining a basis of angular observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies
-a well defined total angular momentum for each observable, one ensures that the observables can in fact be disentangled experimentally.\\
+Will will show in the following that such a cutoff is compatible with defining a basis of angular
+observables as coefficients of Legendre polynomials in $\cos\theta$. Since this expansion implies
+a well defined total angular momentum for each observable, one ensures that the observables can in
+fact be disentangled experimentally.\\
 
-We propose the decomposition of $S$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$, with total angular momentum $j$ and its third component $m=m_1 + m_2$.
+We propose the decomposition of $S$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$,
+with total angular momentum $j$ and its third component $m=m_1 + m_2$.
 \begin{equation}
     S(\theta) = \sum_j S_{j,m} p_{j}^{(m)}(\cos\theta)\,.
 \end{equation}
@@ -1033,9 +1038,7 @@ The latter condition is well known from the addition rules of angular momenta. N
 the sum in \refeq{def-partial-wave-observable} goes to infinitely high angular momenta $l_1$ and $l_2$. As a consequence
 of this and of \refeq{angular-momentum-addition}, the angular observables $P_{j,m}$
 consist of sums with infinitely many terms. It is then up to theoretical analyses to
-estimate or calculate the impact of individual contributions, with or without the cutoff $L$.
-We close by remarking that for any angular-momentum cutoff $l < L < \infty$, one can find an upper limit for the squared sum of all remaining partial waves through a comparison with the inclusive decay
-width.
+estimate or calculate the impact of the neglected partial waves, e.g. as outlined above.
 
 
 \bibliography{references}
