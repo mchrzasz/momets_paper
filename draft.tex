@@ -423,7 +423,7 @@ example we have (cf. also \refapp{btokstarll} and \cite{Lee:1992ih})
     |m| = \begin{cases}
         0\,, & k = 1,2,6\,,\\
         1\,, & k = 4,5,7,8\,,\\
-        m\,, & k = 3,9
+        2\,, & k = 3,9
     \end{cases}\,.
 \end{equation}
 The angular observables $S_{k,j}$ defined as coefficients of this expansion in Legendre polynomials
@@ -586,7 +586,7 @@ in terms of Legendre polynomial up to order $L$, we have to calculate the raw mo
 to $\dim \est{Q} = \dim \est{S} = \dim S + L$. The MC estimators of the corrected angular observables
 then take the following structure:
 \begin{equation}
-    \lbrace \est{S}_k \rbrace = \lbrace \underbrace{\est{S}_0, \dots, \est{S}_{\dim S}}_\text{physical}, \underbrace{\est{S}_{\dim S + 1}, \dots, \est{S}_{\dim Q}}_\text{``superfluous''}\rbrace\,.
+    \vecest{S} = ( \underbrace{\est{S}_0, \dots, \est{S}_{\dim S}}_\text{physical}, \underbrace{\est{S}_{\dim S + 1}, \dots, \est{S}_{\dim Q}}_\text{``superfluous''})\,.
 \end{equation}
 The method is consistent as long as the MC estimators for the ``superfluous'' observables with indices $\dim S + 1$ to $\dim Q$
 are compatible with zero. \footnote{This holds only for the physical model of uniangular decay distributions. For some decays, these superfluous observables
