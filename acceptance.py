@@ -272,6 +272,45 @@ def unfolding_matrix(_process, acceptance, components, chunks, chunk_size, ovalu
         return M
         #np.linalg.inv(M)
 
+def raw_moments(process, acceptance, R, components, chunks, chunk_size):
+        skip_index = int(chunks * chunk_size * 0.05)
+
+        sampler = Sampler(process.dim())
+        log_acceptance = lambda x: np.log(acceptance(x))
+        raw_moments = [0.0, 0.0, 0.0, 0.0, 0.0]
+        log_target = lambda x: process.log_pdf(x) + log_acceptance(x)
+        indicator = pypmc.tools.indicator.hyperrectangle([-1], [1])
+        samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)[skip_index:]
+        samples = samples[::20]
+        for i in range(components):
+            estimator_mean = 0
+            estimator_cov = 0
+            for x in samples:
+                estimator_mean += process.dual_component(i, x)
+
+            estimator_mean *= R / len(samples)
+
+            for x in samples:
+                estimator_cov += (process.dual_component(i, x) - estimator_mean) * (process.dual_component(i, x) - estimator_mean)
+
+            estimator_cov *= R * R / (len(samples) - 1)
+
+            raw_moments[i] = [estimator_mean, np.sqrt(estimator_cov)]
+
+        return raw_moments
+
+def raw_samples(process, acceptance, R, components, chunks, chunk_size):
+        skip_index = int(chunks * chunk_size * 0.05)
+
+        sampler = Sampler(process.dim())
+        log_acceptance = lambda x: np.log(acceptance(x))
+        log_target = lambda x: process.log_pdf(x) + log_acceptance(x)
+        indicator = pypmc.tools.indicator.hyperrectangle([-1], [1])
+        samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)[skip_index:]
+        samples = samples[::120]
+
+        return samples
+
 
 # Use cases
 #   I. determine unfolding matrix:
@@ -291,7 +330,7 @@ def flat_acceptance_btokll_matrix():
 
 #      b. generic acceptance "B->Kll"
 def generic_acceptance_btokll_matrix():
-    acceptance_coeffs = np.array([0.50, 0.05])
+    acceptance_coeffs = np.array([0.47, 0.00, -0.27])
     components = 3 + len(acceptance_coeffs) - 1
     print("Generic acceptance Legendre([%s]) in B->Kll, with unfolding matrix %d x %d" % (','.join(acceptance_coeffs.astype(str)), components, components))
     acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
@@ -337,11 +376,70 @@ def flat_acceptance_btokll_moments():
             output.append("%4.4f" % n)
         print "{ " + ", ".join(output) + " },"
 
+#      b. generic acceptance "B->Kll"
+def generic_acceptance_btokll_moments():
+    signal_obs = np.array([0.50, 0.10, 0.20])
+    signal_process = BToKDilepton(signal_obs)
+    signal_raw = []
+    acceptance_coeffs = np.array([0.47, 0.00, -0.27])
+    acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
+    R = 0.46666667
+    moments = raw_moments(signal_process, acceptance, R, components=5, chunks=100, chunk_size=500)
+    output = []
+    for n in moments:
+        output.append("{ %4.4f, %4.4f }" % (n[0], n[1]))
+    print "{ " + ", ".join(output) + " },"
+
+#   III. generate samples
+#      a. flat acceptance "B->Kll"
+def flat_acceptance_btokll_samples():
+    signal_obs = np.array([0.50, 0.10, 0.20])
+    signal_process = BToKDilepton(signal_obs)
+    signal_raw = []
+    acceptance = lambda x: 1.
+    R = 0.5
+    print "samplesBToKDileptonFlat = {"
+    N = 4000
+    for i in range(N):
+        samples = raw_samples(signal_process, acceptance, R, components=5, chunks=50, chunk_size=500)
+        output = []
+        for n in samples:
+            output.append("%4.4f" % n)
+        komma = ","
+        if i == N - 1:
+            komma = ""
+        print "{ " + ", ".join(output) + " }%s" % komma
+    print "};"
+
+#      b. generic acceptance "B->Kll"
+def generic_acceptance_btokll_samples():
+    signal_obs = np.array([0.50, 0.10, 0.20])
+    signal_process = BToKDilepton(signal_obs)
+    signal_raw = []
+    acceptance_coeffs = np.array([0.47, 0.00, -0.27])
+    acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
+    R = 0.445333
+    print "samplesBToKDileptonGeneric = {"
+    N = 4000
+    for i in range(N):
+        samples = raw_samples(signal_process, acceptance, R, components=5, chunks=50, chunk_size=500)
+        output = []
+        for n in samples:
+            output.append("%4.4f" % n)
+        komma = ","
+        if i == N - 1:
+            komma = ""
+        print "{ " + ", ".join(output) + " }%s" % komma
+    print "};"
+
+
 commands = {
         "unfolding-flat-btokll":              flat_acceptance_btokll_matrix,
         "unfolding-generic-btokll":           generic_acceptance_btokll_matrix,
         "unfolding-flat-lambdabtolambdall":   flat_acceptance_lambdabtolambdall_matrix,
         "moments-flat-btokll":                flat_acceptance_btokll_moments,
+        "moments-generic-btokll":             generic_acceptance_btokll_moments,
+        "samples-generic-btokll":             generic_acceptance_btokll_samples
 }
 if __name__ == '__main__':
     if not len(sys.argv) > 1:
