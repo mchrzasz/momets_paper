@@ -107,6 +107,137 @@ class BToKDilepton(Process):
         n, bins, patches = plt.hist(samples, 25 + 1, normed=1, facecolor='green', alpha=0.75)
         plt.savefig('samples-btokll-%s.pdf' % name)
 
+    def indicator(self):
+        return pypmc.tools.indicator.hyperrectangle([-1], [1])
+
+"""
+SM Case, for 3.0 GeV^2 <= q^2 <= 3.5 GeV^2
+
+Gamma =  7.9504e-21
+J1c =    4.7177e-21
+J1s =    9.6205e-21
+J2c =   -4.5659e-21
+J2s =    3.2005e-22
+J3  =   -1.9674e-23
+J4  =    6.4645e-22
+J5  =   -8.9875e-22
+J6s =    7.3982e-22
+J7  =    2.1124e-22
+J8  =   -7.3283e-23
+J9  =    1.7918e-24
+
+# B->K^*ll::J_5@LargeRecoil: form-factors=KMPW2010,model=SM
+# s_min s_max   central delta_min       delta_max       delta_min       delta_max
+3       3.5     -8.98747e-22    0       0       0       0   (-0% / +0%)
+
+"""
+class BToKstarDilepton(Process):
+    angular_momenta = [
+        (0, 0,  0),     # 1 / (8 * pi)                                              ->  0.039789
+        (0, 2,  0),     # (6 * (J1c - J1s) - 2 * (J2c - J2s)) / (24 * pi * Gamma)   -> -0.032772
+
+        (1, 0,  0),     # 2 * J6s / (8 * pi * Gamma)                                ->  0.007405
+
+        (1, 2, -1),     # 4 * sqrt(3) * J7 / (8 * pi * Gamma)                       ->  0.007324
+        (1, 2,  0),     # -2 * J6s / (8 * pi * Gamma)                               ->  0.007405
+        (1, 2, +1),     # 4 * sqrt(3) * J5 / (8 * pi * Gamma)                       -> -0.031162
+
+        (2, 0,  0),     # 4 * (J2c + 2 * J2s) / (8 * pi * Gamma)                    -> -0.078589
+
+        (2, 2, -2),     # J9 / (pi * Gamma)                                         ->  0.000072
+        (2, 2, -1),     # J8 / (pi * Gamma)                                         -> -0.002934
+        (2, 2,  0),     # (J2c - J2s) / (3 * pi * Gamma)                            -> -0.065206
+        (2, 2, +1),     # J4 / (pi * Gamma)                                         ->  0.025882
+        (2, 2, +2)      # J3 / (pi * Gamma)                                         -> -0.000788
+    ]
+
+    def __init__(self, S):
+        self.S = S
+
+    @staticmethod
+    def make(S):
+        return BToKstarDilepton(S)
+
+    def dim(self):
+        return 3
+
+    def pdf(self, x):
+        result = 0
+        for i in range(self.number_of_components()):
+            result += self.S[i] * self.component(i, x)
+        return result
+
+    def number_of_components(self):
+        return 12
+
+    def component(self, i, x):
+        c_th_1 = x[0]
+        c_th_2 = x[1]
+        th_3 = x[2]
+        (l1, l2, m) = self.angular_momenta[i]
+
+        result = 0.0
+        abs_m = abs(m)
+        if m == 0:
+            result = 1.0
+        elif m > 0:
+            result = np.cos(abs_m * th_3)
+        elif m < 0:
+            result = np.sin(abs_m * th_3)
+
+        m = abs_m
+
+        result *= np.sqrt(factorial(l1 - m) * factorial(l2 - m) / (factorial(l1 + m) * factorial(l2 + m)))
+        result *= sp.special.lpmv(m, l1, c_th_1) * sp.special.lpmv(m, l2, c_th_2)
+
+        return result
+
+    def dual_component(self, i, x):
+        c_th_1 = x[0]
+        c_th_2 = x[1]
+        th_3 = x[2]
+        (l1, l2, m) = self.angular_momenta[i]
+
+        result = 0.0
+        abs_m = abs(m)
+        if m == 0:
+            result = 1.0
+        elif m > 0:
+            result = 2.0 * np.cos(abs_m * th_3)
+        elif m < 0:
+            result = 2.0 * np.sin(abs_m * th_3)
+
+        m = abs_m
+
+        result *= np.sqrt(factorial(l1 - m) * factorial(l2 - m) / (factorial(l1 + m) * factorial(l2 + m)))
+        result *= sp.special.lpmv(m, l1, c_th_1) * sp.special.lpmv(m, l2, c_th_2)
+        result *= (2.0 * l1 + 1.0) * (2.0 * l2 + 1.0) / (8.0 * np.pi)
+        return result
+
+    def start(self):
+        return [np.random.uniform(-1.0, +1.0), np.random.uniform(-1.0, +1.0), np.random.uniform(0.0, 2.0 * np.pi)]
+
+    def integrate(self, function):
+        # pdf and acceptance expect x as an array of kinematic variables: adjust for that!
+        opts = [
+            {"epsabs": 1e-5, "limit": 10},
+            {"epsabs": 1e-5, "limit": 10},
+            {"epsabs": 1e-5, "limit": 10}
+        ]
+        integrand = lambda x1,x2,x3: function([x1,x2,x3])
+        integral, error = sp.integrate.nquad(integrand, [(-1.0, +1.0), (-1.0, +1.0), (0.0, 2.0 * np.pi)],
+                    opts=opts
+                )
+        return integral
+
+    def plot(self, samples):
+        plt.figure()
+        n, bins, patches = plt.hist(samples, 25 + 1, normed=1, facecolor='green', alpha=0.75)
+        plt.savefig('btokstarll.pdf')
+
+    def indicator(self):
+        return pypmc.tools.indicator.hyperrectangle([-1.0, -1.0, 0.0], [1.0, 1.0, 2.0 * np.pi])
+
 
 class LambdaBToLambdaDilepton(Process):
     angular_momenta = [
@@ -301,12 +432,10 @@ def raw_moments(process, acceptance, R, components, chunks, chunk_size):
 
 def raw_samples(process, acceptance, R, components, chunks, chunk_size):
         skip_index = int(chunks * chunk_size * 0.05)
-
         sampler = Sampler(process.dim())
         log_acceptance = lambda x: np.log(acceptance(x))
         log_target = lambda x: process.log_pdf(x) + log_acceptance(x)
-        indicator = pypmc.tools.indicator.hyperrectangle([-1], [1])
-        samples = sampler.draw(log_target, start=process.start(), indicator=indicator, chunks=chunks, chunk_size=chunk_size)[skip_index:]
+        samples = sampler.draw(log_target, start=process.start(), indicator=process.indicator(), chunks=chunks, chunk_size=chunk_size)[skip_index:]
         samples = samples[::120]
 
         return samples
@@ -420,7 +549,7 @@ def generic_acceptance_btokll_samples():
     acceptance = lambda x: Legendre(acceptance_coeffs)(x[0])
     R = 0.445333
     print "samplesBToKDileptonGeneric = {"
-    N = 4000
+    N = 1
     for i in range(N):
         samples = raw_samples(signal_process, acceptance, R, components=5, chunks=50, chunk_size=500)
         output = []
@@ -432,6 +561,26 @@ def generic_acceptance_btokll_samples():
         print "{ " + ", ".join(output) + " }%s" % komma
     print "};"
 
+#      c. flat acceptance "B->K*ll (SM)"
+def flat_acceptance_btokstarll_samples():
+    signal_obs = np.array([0.50, 0.039789, -0.032772, 0.007405, 0.007324, 0.007405, -0.031162, -0.078589,
+        0.000072, -0.002934, -0.065206, 0.025882, -0.000788])
+    signal_process = BToKstarDilepton(signal_obs)
+    signal_raw = []
+    acceptance = lambda x: 1.
+    R = 0.5
+    print "samplesBToKDileptonFlat = {"
+    N = 4000
+    for i in range(N):
+        samples = raw_samples(signal_process, acceptance, R, components=5, chunks=50, chunk_size=500)
+        output = []
+        for n in samples:
+            output.append("{ %4.4f, %4.4f, %4.4f }" % (n[0], n[1], n[2]))
+        komma = ',\n'
+        if i == N - 1:
+            komma = ""
+        print "{" + ",".join(output) + " }%s" % komma
+    print "};"
 
 commands = {
         "unfolding-flat-btokll":              flat_acceptance_btokll_matrix,
@@ -439,7 +588,8 @@ commands = {
         "unfolding-flat-lambdabtolambdall":   flat_acceptance_lambdabtolambdall_matrix,
         "moments-flat-btokll":                flat_acceptance_btokll_moments,
         "moments-generic-btokll":             generic_acceptance_btokll_moments,
-        "samples-generic-btokll":             generic_acceptance_btokll_samples
+        "samples-generic-btokll":             generic_acceptance_btokll_samples,
+        "samples-flat-btokstarll":            flat_acceptance_btokstarll_samples
 }
 if __name__ == '__main__':
     if not len(sys.argv) > 1:
