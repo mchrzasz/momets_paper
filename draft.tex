@@ -427,12 +427,18 @@ We advocate here that is a sensible procedure to perform an expansion in terms o
 with respect to the remaining angle $\theta_2$. \add{Here, the angular-momentum indices $l$ and $m$ follows from the usual
 rules for addition of the angular momenta $j$ and $\tilde{j}$ of the partial wave expansion of the underlying
 amplitude and its complex conjugate: $j - \tilde{j} \leq l \leq j + \tilde{j}$, and $m = j_z + \tilde{j}_z$.}
-Using the observables $S_k(\vec{\nu})$, $k=1,\dots,9$, with $\vec{\nu}=(q^2, k^2)$ \fred{It not clever to use $k$ as an index and momentum variable}
-and as defined in \refapp{partial-waves}, the expansion reads
+
+For the decay at hand, we consider the partial-wave expansion for the angular observables (see \cite{Lee:1992ih} and \refapp{partial-waves})
 \begin{equation}
-    S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{l,|m|}} S_{k,l}(\vec{\nu}) p_{l}^{(|m|)}(\cos\theta_2)\sin\theta_2\,,
+    S_k(\vec{\nu}) \equiv \frac{I_k(\nuvec)}{4\pi \Gamma)}\,,\quad\text{with}\quad \Gamma = I_1(\nuvec) - \frac{I_2(\nuvec)}{3}\,,
 \end{equation}
-where the the normalization factor $n_{l,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
+\fred{It not clever to use $k$ as an index and momentum variable}
+which reads
+\begin{equation}
+    \label{eq:expansion}
+    S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{l,|m|}} S_{k,l}(\vec{\nu}) p_{l}^{(|m|)}(\cos\theta_2)\sin\theta_2\,.
+\end{equation}
+The normalization factor $n_{l,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
 example we have (cf. also \refapp{btokstarll} and \cite{Lee:1992ih})
 \begin{equation}
     |m| = \begin{cases}
@@ -441,15 +447,12 @@ example we have (cf. also \refapp{btokstarll} and \cite{Lee:1992ih})
         2\,, & k = 3,9
     \end{cases}\,.
 \end{equation}
-The angular observables $S_{k,j}$ defined as coefficients of this
-expansion in Legendre polynomials have the merit of a well defined
-total angular momentum, and thus are physically distinguishable.  As a
-consequence of the orthogonality of the Legendre polynomials, any
-mismodeling (or rather, lack of modeling of higher partial-wave
-observables) \emph{does not affect} the method of moments as discussed
-in the previous section. \add{That is to say}, ignoring further
-(orthogonal) terms in the PDF neither affects $\vecest{S}$ nor its
-variance.
+
+The angular observables $S_{k,l}$ -- as defined in \refeq{expansion} --
+have the merit of a well defined total angular momentum, and thus are physically discriminable.
+As a consequence of the orthogonality of the Legendre polynomials, any mismodelling (or rather, lack of modelling of higher
+partial-wave observables) \emph{does not affect} the method of moments as discussed in the previous section. That is to say,
+ignoring further (orthogonal) terms in the PDF cannot affect $\vecest{S}$ nor its variance.\\
 \fred{That's not true. $\vecest{S}$ is enlarged with more angular observables. But the first components are unaffected.}\\
 
 Unfortunately, this benefit on the experimental side is accompanied with a theoretical draw back. Each observable
@@ -551,8 +554,8 @@ which are instrumental to our recipe. Monte Carlo estimators of these moments ca
     x_\text{d}^{(n,m)} \sim P_E^{(m)}(\xd) \equiv \frac{1}{R^{(m)}} \int P^{(m)}(\xt) \Ekernel \rmdx{\xt}\,.
 \end{equation}
 In words, for each $m$ it is required to generate events from
-a toy physical distribution $P^{(m)}$ in which $S_0 = S_m=1/2$ and all other
-observables are set to zero, and to propagate these events through
+a toy physical distribution $P^{(m)}$, for which $S_0 = S_m=1/2$ and all other
+observables are set to zero. Next, propagate these events through
 a detector simulation. The normalization $R^{(m)}$ is chosen such
 that $\int P_E^{(m)}(\xd) \rmdx{\xd} = 1$.  We emphasize that
 $R^{(m)}$ can be estimated as $\est{R}^{(m)} = N_\text{d}^{(m)} /
@@ -657,10 +660,13 @@ detector configurations, and subsequent profiling or marginalization.
 While such considerations of any detector simulation are beyond the scope of this work, we can, however,
 comment on the MC-induced uncertainties. As usual, one needs to find a balance between
 compute time and accuracy. For a uniangular distribution and a total of $6\cdot 10^6$ MC
-samples \fred{Before or after thinning?} (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find that the error on the mean is
-smaller than $6\cdot 10^{-4}$. Let us conclude this section by commenting that parts of the unfolding
+samples \fred{Before or after thinning?} (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find that the error on the mean
+of each matrix element is smaller than $6\cdot 10^{-4}$. \add{This suggests, that the so-induced
+systematic error can be driven below any statistical uncertainty.}
+
+Let us conclude this section by commenting that parts of the unfolding
 matrix are universal in a sense. Specifically, they can be reused in analyses with a similar underlying decay.
-Therefore, computing resources spent on improving its accuracy are not wasted.
+Therefore, computing resources spent on improving \add{the accuracy of $\est{M}$} are not wasted.
 
 
 \section{Toy Studies}
@@ -726,7 +732,8 @@ decays \cite{Aaij:2014tfa}. We want to focus on effects of the unfolding process
 use the analytic expression for the unfolding matrix, which we compute from the raw moments as
 defined in \refeq{analytic-raw-moments}. We simulate $4000$ toy analyses with up to $300$ simulated events each.
 We find that the previous two bullet points still hold; i.e., we do not find any bias, and the distribution
-is well described by a multivariate Gaussian distribution.
+is well described by a multivariate Gaussian distribution. The latter only holds as long as the number of events
+per experiment exceeds $\sim 20$.
 }
 
 All results of our toy studies, as summarised above, show consistently that the joint distribution of the angular
@@ -789,8 +796,9 @@ PDFs composed from non-angular orthogonal bases.
 
 \acknowledgments
 
-We would like to thank Ulrik Egede, Gudrun Hiller, Martin Jung and Konstantinos Petridis for insightful discussions,
-as well as Claus Grupen for helpful advice in searching the literatur.
+We thank Ulrik Egede for insightful discussions and helpful comments on the
+manuscript. We are grateful to Gudrun Hiller, Martin Jung and Konstantinos Petridis for helpful discussions,
+as well as Claus Grupen for helpful advice in searching the literature.
 The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung (BMBF).
 
 \appendix
