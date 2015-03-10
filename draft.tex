@@ -441,7 +441,7 @@ For the decay at hand, we consider the partial-wave expansion for the angular ob
 \end{equation}
 \fred{It not clever to use $k$ as an index and momentum variable}
 \danny{I disagree. We use the same notation as in the literature, and people
-should be able to distinguish these based on context.}
+should be able to distinguish these based on context.} \marcin{I am fine with k}
 which reads
 \begin{equation}
     \label{eq:expansion}
@@ -623,17 +623,17 @@ Moreover, in the applications to $B$ decays only ratios and similar $R$-independ
 of the angular observables are of interest.
 }\\
 
-\del{The precise value of $R$ (see \refeq{def-R}) depends on the a priori
-unknown angular observables $\vec S$.  However, within ratios and
-other suitable combinations of the estimators $\vecest{S}$, the quantity
-$R$ cancels.
-Conversely, $R$ can be
-extracted from the self-consistency condition\footnote{This condition
-  is process dependent; see \refeq{recipe:lambdabtolambdall} and
-\refeq{recipe:btokstarll}.}  $\hat{S}_0 = \frac{1}{2}$. Since $R$ is
-relevant in the determination of the branching ratio, it is therefore
-useful to carry out that determination and the extraction of the
-angular observables in a combined analysis.}\\
+%\del{The precise value of $R$ (see \refeq{def-R}) depends on the a priori
+%unknown angular observables $\vec S$.  However, within ratios and
+%other suitable combinations of the estimators $\vecest{S}$, the quantity
+%$R$ cancels.
+%Conversely, $R$ can be
+%extracted from the self-consistency condition\footnote{This condition
+%  is process dependent; see \refeq{recipe:lambdabtolambdall} and
+%\refeq{recipe:btokstarll}.}  $\hat{S}_0 = \frac{1}{2}$. Since $R$ is
+%relevant in the determination of the branching ratio, it is therefore
+%useful to carry out that determination and the extraction of the
+%angular observables in a combined analysis.}\\
 
 We note that $\vecest{S}$ as determined from \refeq{estS} does not fully correspond to $\vec{S}$
 for arbitrary $\eps$. Taking again the decay $B\to K\ell^+\ell^-$
@@ -699,7 +699,6 @@ Our findings can be summarized as follows:
         \begin{equation}
             \mathrm{pull_i} \equiv \frac{\est{S}_i - S_i}{\est{\sigma}_{i}}\,.
         \end{equation}
-        \danny{Marcin, please check that this is what you used!}
         Here $S_i$ refers to the true (input) value for the angular observables, $\est{S}_i$ refers to the
         mean of the pseudo measurement via the MC estimate, and $\est{\sigma}_{i} \equiv \est{\Sigma_{ii}}^{1/2}$
         refers to an estimator of the standard deviation of the pseudo measurement. All pull distributions
@@ -728,6 +727,14 @@ Our findings can be summarized as follows:
 %        $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
 %        \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $N$.}
 \end{itemize}
+\begin{figure}[b]
+        \centering
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S5_200.png}
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S7_200.png}
+        \caption{Pull distribution for the angular observables $S_5$ (left) and $S_7$ (right), extracted from $2\cdot 10^5$ studies of
+        $200$ simulated events each for the decay $B\to K^*\ell^+\ell^-$. The red curve represents a fit to a Gaussian distribution.}
+        \label{fig:pulls}
+\end{figure}
 
 \add{We emphasize that the above results have been obtained for a flat acceptance function.
 We also study the behaviour of the unfolded angular observables. However, due to limitations of computing
@@ -745,20 +752,13 @@ is well described by a multivariate Gaussian distribution. The latter only holds
 per experiment exceeds $\sim 20$.
 }
 
+
 All results of our toy studies, as summarised above, show consistently that the joint distribution of the angular
 observables converges rapidly towards a multivariate Gaussian distribution. We therefore propose to describe the
 resulting distribution as a multivariate Gauss when skewness and kurtosis fall below a given threshold.
 The precise target threshold for skewness and kurtosis are subject to the details of the underlying physical analysis,
 and reside therefore outside the scope of this work.
 
-\begin{figure}[t]
-        \centering
-            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S5_200.png}
-            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S7_200.png}
-        \caption{Pull distribution for the angular observables $S_5$ (left) and $S_7$ (right), extracted from $2\cdot 10^5$ studies of
-        $200$ simulated events each for the decay $B\to K^*\ell^+\ell^-$. The red curve represents a fit to a Gaussian distribution.}
-        \label{fig:pulls}
-\end{figure}
 
 \begin{figure}[t]
         \centering
@@ -769,6 +769,23 @@ and reside therefore outside the scope of this work.
         The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
         \label{fig:errors}
 \end{figure}
+
+
+We also studied the correlation of the estimators from Method of Moments to a maximum likelihood fit. We performed a toy study by simulating $10^3$ toys of 200 events. We then use for each toy method described in~\refsec{systematics:partial-waves} and a standard maximum likelihood method. In \reffig{correlation} the two estimators distributions are showed. In conclusion the two estimators are highly correlated but different between then can be of the order of statistic uncertainty of the maximum likelihood estimator.
+
+
+\begin{figure}[t]
+        \centering
+            \includegraphics[width=0.45\textwidth]{figs/S3_scat.pdf}
+            \includegraphics[width=0.45\textwidth]{figs/S5_scat.pdf}
+        \caption{Correlation between Method of Moments and maximum likelihood estimators for observables $S_3$ and $S_5$. }
+        \label{fig:correlation}
+\end{figure}
+
+
+
+
+
 
 \section{Summary}
 
