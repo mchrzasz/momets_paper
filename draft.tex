@@ -97,9 +97,11 @@ Our initial motivation for studying what we wish to call the
 \emph{method of moments} is the determination of angular observables
 in the rare FCNC-mediated decay $\bar{B}\to \bar{K}^*(\to
 \bar{K}\pi)\ell^+\ell^-$. However, the method we describe in the
-following is general and applies to arbitrary decay or scattering
-processes \fred{Not really arbitrary, it only works with orthogonal
-  basis functions}. We find a previous work \cite{Dighe:1998vk} that
+following is general and applies to \add{all decay or scattering
+processes that can be formulated in terms of an orthogonal basis of angular functions.}
+\fred{Not really arbitrary, it only works with orthogonal
+basis functions.} \danny{Is this OK?}
+We find a previous work \cite{Dighe:1998vk} that
 advocates this method chiefly for the determination of angular
 observables in non-leptonic $B$ decays but also mentions the
 applicability to semileptonic decays. Our aim is to improve upon this
@@ -178,17 +180,19 @@ decay width (or cross section) of the process of interest can be
 replaced by the corresponding quantity of a control-channel
 process. This change of normalization is equivalent to a linear rescaling of
 the angular observables $\lbrace S_i\rbrace$; thus ratios or similar suitable combinations
-of the angular observables are not affected by this change of normalization.\\
+of the angular observables are not affected by \add{a} change of normalization.\\
 
 Our method is an extension of the classical method of moments with
 orthogonal functions~\cite[sec. 8.2]{James:2006zz}. The only difference
 is that conventionally the angular functions are assumed
 \emph{self-dual}, $\dual{f}_i = f_i$. However, it suffices that the
 system of angular functions $\{f_i(\thvec)\}$ \emph{can} be transformed into
-an orthonormal basis. It turns out to be much more convenient to work
-in the basis of Legendre polynomials but the statistical properties
-are equivalent for both approaches \fred{I'm confused. What are the two approaches? Do we consider Legendre polynomials as an orthonormal basis or not?} provided that one replace $f_i \to
-\dual{f}_i$ appropriately. Using the ansatz
+an orthonormal basis. \add{We find it convenient to work
+in the basis of Legendre polynomials, which is not self-dual.
+However, the statistical properties of the method of moments are equivalent for both self-dual and non-self-dual
+bases, provided that one replace $f_i \to \dual{f}_i$ appropriately.}
+\fred{I'm confused. What are the two approaches? Do we consider Legendre polynomials as an orthonormal basis or not?}
+Using the ansatz
 \begin{equation}
   \label{eq:dual-ansatz}
   \dual{f}_i = \sum_{j} a_{ij} f_j \,,
@@ -219,7 +223,8 @@ can be projected out of the full PDF $P$ as
     \label{eq:det-Pi-analytical}
     S_i(\nuvec) = \int_{\Omega} \rmdx{\vec\theta}  P(\nuvec, \thvec) \dual{f}_i(\thvec)\,.
 \end{equation}
-where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
+where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions
+\add{, and $\Omega$ represents the entire angular phase space.}. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
 case for our selection of applications in appendices \ref{app:btokll} through \ref{app:btokstarll}.\\
 
 It is sensible to refer to the angular observable $S_i$ as the
@@ -236,6 +241,9 @@ Integration over the non-angular variables yields
     = \int \rmdx{\vec \nu} \left[\int_{\Omega} \rmdx{\vec \theta} P(\nuvec,\thvec) \dual{f}_i(\thvec) \right].
 \end{equation}
 \fred{Why is there $\Omega$ but nothing for $\nuvec$?}
+\danny{a) intoduced $\Omega$ one equation earlier, b) we always need
+and integration of the \emph{entire} angular phase space; the integration
+over the non-angular phase space is irrelevant to the discussion.}
 The remainder of this section describes the method of moments, in
 which we replace the analytical integration by Monte Carlo (MC)
 estimates.  The central tenet of MC integration is the fact that the
@@ -329,7 +337,7 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   the bias~\cite[sections 13.8,17.2]{jaynes:2003}. In fact, for
   the results discussed below in \refsec{numerics}, the likelihood
   fits --- if they converge --- produce uncertainties \add{(10--15)\%}
-  smaller than those from the method of moments  \fred{Is this true, Marcin?}.
+      smaller than those from the method of moments  \fred{Is this true, Marcin?} \danny{Marcin already confirmed!}.
 \item The approximate multivariate Gaussian distribution of $\vecest{S}$
     allows easier and more \add{precise} transfer of the information in the
   data to interested theorists for more accurate fits of
@@ -433,6 +441,8 @@ For the decay at hand, we consider the partial-wave expansion for the angular ob
     S_k(\vec{\nu}) \equiv \frac{I_k(\nuvec)}{4\pi \Gamma)}\,,\quad\text{with}\quad \Gamma = I_1(\nuvec) - \frac{I_2(\nuvec)}{3}\,,
 \end{equation}
 \fred{It not clever to use $k$ as an index and momentum variable}
+\danny{I disagree. We use the same notation as in the literature, and people
+should be able to distinguish these based on context.}
 which reads
 \begin{equation}
     \label{eq:expansion}
@@ -660,7 +670,7 @@ detector configurations, and subsequent profiling or marginalization.
 While such considerations of any detector simulation are beyond the scope of this work, we can, however,
 comment on the MC-induced uncertainties. As usual, one needs to find a balance between
 compute time and accuracy. For a uniangular distribution and a total of $6\cdot 10^6$ MC
-samples \fred{Before or after thinning?} (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find that the error on the mean
+samples \fred{Before or after thinning?}\danny{No thinning at all!} (i.e., $2 \cdot 10^6$ MC samples per row of $M_{ij}$), we find that the error on the mean
 of each matrix element is smaller than $6\cdot 10^{-4}$. \add{This suggests, that the so-induced
 systematic error can be driven below any statistical uncertainty.}
 
