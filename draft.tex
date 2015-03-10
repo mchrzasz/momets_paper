@@ -48,6 +48,7 @@
 \newcommand{\todo}[1]{{\color{red}\bf ToDo: #1}}
 \newcommand{\danny}[1]{{\color{purple}#1}}
 \newcommand{\fred}[1]{{\color{brown!85!black}#1}}
+\newcommand{\marcin}[1]{{\color{cyan}#1}}
 \newcommand{\citeneeded}{{\color{red}\bf [cite needed]}}
 \newcommand{\add}[1]{\textcolor{green!85!black}{#1}}
 \newcommand{\del}[1]{\textcolor{red!85!black}{#1}}
@@ -97,10 +98,8 @@ Our initial motivation for studying what we wish to call the
 \emph{method of moments} is the determination of angular observables
 in the rare FCNC-mediated decay $\bar{B}\to \bar{K}^*(\to
 \bar{K}\pi)\ell^+\ell^-$. However, the method we describe in the
-following is general and applies to \add{all decay or scattering
-processes that can be formulated in terms of an orthogonal basis of angular functions.}
-\fred{Not really arbitrary, it only works with orthogonal
-basis functions.} \danny{Is this OK?}
+following is general and applies to all decay or scattering
+processes that can be formulated in terms of an orthogonal basis of angular functions.
 We find a previous work \cite{Dighe:1998vk} that
 advocates this method chiefly for the determination of angular
 observables in non-leptonic $B$ decays but also mentions the
@@ -138,7 +137,7 @@ based on likelihood fits:
         interested theorists.
 \end{enumerate}
 
-\fred{For us, the major advantage is that the experiment can obtain all angular observables at once, and if there are more, one doesn't need more data. I'm not sure this becomes clear from the text, point 1.}
+\fred{For us, the major advantage is that the experiment can obtain all angular observables at once, and if there are more, one doesn't need more data. I'm not sure this becomes clear from the text, point 1.}\marcin{I think it is ok}
 
 We continue with basic definitions that pertain to angular observables, and our
 results in the subsequent sections. Let $\thvec$ denote the set of all
@@ -332,12 +331,12 @@ Compared to the usual maximum-likelihood approach, we find for the method of mom
   distribution of the estimator and vice versa~\cite[sec. 7.3]{James:2006zz}. From a
   Bayesian decision-theory point of view, both contribute similarly to
   the expected loss associated with deciding on just one value of the
-  unknown parameter. \add{One should therefore not prefer the method of moments
-  over likelihood fits just because the former reduces}
-  the bias~\cite[sections 13.8,17.2]{jaynes:2003}. In fact, for
+  unknown parameter. One should therefore not prefer the method of moments
+  over likelihood fits just because the former reduces
+  the bias~\cite[sections 13.8,17.2]{jaynes:2003} \marcin{we said we cahnge this but after reading it again I like it and would not change}. In fact, for
   the results discussed below in \refsec{numerics}, the likelihood
-  fits --- if they converge --- produce uncertainties \add{(10--15)\%}
-      smaller than those from the method of moments  \fred{Is this true, Marcin?} \danny{Marcin already confirmed!}.
+  fits --- if they converge --- produce uncertainties (10--15)\%
+      smaller than those from the method of moments.
 \item The approximate multivariate Gaussian distribution of $\vecest{S}$
     allows easier and more \add{precise} transfer of the information in the
   data to interested theorists for more accurate fits of
@@ -377,8 +376,8 @@ Descotes-Genon:2013wba,Beaujean:2013soa},
   resulting likelihood as a function of $\vec{S}$ is distinctly not
   Gaussian.  Communicating such a result has
   proved to be challenging due to technical reasons (such as data formats,
-  size etc.) \add{as well as political reasons; i.e., the publication of
-  the likelihood also publishes collaboration-internal data.}
+  size etc.) %\add{as well as political reasons; i.e., the publication of
+ % the likelihood also publishes collaboration-internal data.}
   This leads to the
   undesirable situation that only the mode and standard errors
   are reported, and theorists often include the results as independent
