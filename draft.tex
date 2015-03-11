@@ -690,6 +690,15 @@ as well as $15\,\GeV^2 \leq q^2 \leq q^2_\text{max}$. Here, the bin width is cho
 as $1\,\GeV^2$ or $0.5\,\GeV^2$. This setup is meant to ensure that a wide spectrum of possible
 values for the angular observables is investigated.\\
 
+\begin{figure}[b]
+        \centering
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S5_200.png}
+            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S7_200.png}
+        \caption{Pull distribution for the angular observables $S_5$ (upper) and $S_7$ (lower), extracted from $2\cdot 10^5$ studies of
+        $200$ simulated events each for the decay $B\to K^*\ell^+\ell^-$. The red curve represents a fit to a Gaussian distribution.}
+        \label{fig:pulls}
+\end{figure}
+
 Our findings can be summarized as follows:
 \begin{itemize}
     \item In all studied cases we observed not a single bias in the distribution of the $\mathrm{pull}$
@@ -705,6 +714,7 @@ Our findings can be summarized as follows:
         $S_5 \simeq 27\%$ and $S_7 \simeq 2\%$ obtained from SM-like $B\to K^*\ell^+\ell^-$
         decays as representative examples. We generated $2\cdot 10^5$ toy studies
         with $200$ events per study in \reffig{pulls}.
+
     \item We study the MC estimate for the absolute uncertainty $\est{\sigma_i(N)}$ with respect to the angular observable $S_i$
         as a function of the number of simulated events $N$. As expected for a multivariate Gaussian
         distribution, we find that the absolute uncertainty is well fitted by
@@ -721,17 +731,43 @@ Our findings can be summarized as follows:
         subset of the angular observables, and the statistical error of the fit is expected to increase
         with the number of fit parameters until their errors saturate the statistical errors of the method-of-moments
         estimators \cite[sec. 8]{Cowan:1998ji}.
-%    \item For all toy studies, we produce plots of their skewness and their kurtosis as functions of
-%        $N$. We find in all cases that the mean skewness and kurtosis converge towards zero.
-%        \todo{Plot Skewness and Kurtosis for $S_5$ and $S_7$ as functions of the number of simulated events $N$.}
+
+    \item We also compare the results as obtained by the method of moments with
+        results obtained by a conventional likelihood fit. In particular, we
+        study the correlation between the method-of-moment estimators and the
+        maximum-likelihood-fit estimators. We run $10^3$ toy analyses, with
+        $200$ simulated events per analysis. We show the joint distribution of
+        the two estimators in \reffig{correlation}. The two estimators are
+        highly correlated. The distribution of the difference of the estimators
+        exhibits now bias, which is due to the large number of simulated
+        events.  Still, we find that statistical uncertainty on the difference
+        of the two estimators is sizeable and can easily become half as large
+        as the statistical uncertainty of either estimator.
 \end{itemize}
-\begin{figure}[b]
+\begin{figure}[t]
         \centering
-            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S5_200.png}
-            \includegraphics[width=0.45\textwidth]{figs/pull-Q2_5_6_S7_200.png}
-        \caption{Pull distribution for the angular observables $S_5$ (left) and $S_7$ (right), extracted from $2\cdot 10^5$ studies of
-        $200$ simulated events each for the decay $B\to K^*\ell^+\ell^-$. The red curve represents a fit to a Gaussian distribution.}
-        \label{fig:pulls}
+            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S4.png}
+            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S8.png}
+        \caption{Uncertainty of the angular observables $S_4$ (uppwe) and $S_8$
+            (lower), extracted from $2\cdot 10^5$ studies of simulated events
+            for the decay $B\to K^*\ell^+\ell^-$. We show the uncertainty as a
+            function of the number of simulated events $N$.  The red curve
+        represents a fit to the function given in \refeq{unc-on-mean}.}
+        \label{fig:errors}
+\end{figure}
+
+\begin{figure}[t]
+        \centering
+            \includegraphics[width=0.45\textwidth]{figs/S3_scat.pdf}
+            \includegraphics[width=0.45\textwidth]{figs/S5_scat.pdf}
+            \caption{The joint distribution of the two estimators
+                $\est{S}_i^\text{MoM}$ and $\est{S}_i^\text{Fit}$ that arise
+                from the method of moments and a maximum-likelihood fit,
+                respectively. We show the estimators for both of our benchmark
+                observables $S_3$ (upper) and $S_5$ (lower).
+                \danny{Marcin: please replace by $S_5$ (upper) and $S_7$ (lower).}
+            }
+        \label{fig:correlation}
 \end{figure}
 
 \add{We emphasize that the above results have been obtained for a flat acceptance function.
@@ -750,39 +786,11 @@ is well described by a multivariate Gaussian distribution. The latter only holds
 per experiment exceeds $\sim 20$.
 }
 
-
 All results of our toy studies, as summarised above, show consistently that the joint distribution of the angular
 observables converges rapidly towards a multivariate Gaussian distribution. We therefore propose to describe the
 resulting distribution as a multivariate Gauss when skewness and kurtosis fall below a given threshold.
 The precise target threshold for skewness and kurtosis are subject to the details of the underlying physical analysis,
 and reside therefore outside the scope of this work.
-
-
-\begin{figure}[t]
-        \centering
-            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S4.png}
-            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S8.png}
-        \caption{Uncertainty of the angular observables $S_4$ (left) and $S_8$ (right), extracted from $2\cdot 10^5$ studies of
-        simulated events for the decay $B\to K^*\ell^+\ell^-$. We show the uncertainty as a function of the number of simulated events $N$.
-        The red curve represents a fit to the function given in \refeq{unc-on-mean}.}
-        \label{fig:errors}
-\end{figure}
-
-
-We also studied the correlation of the estimators from Method of Moments to a maximum likelihood fit. We performed a toy study by simulating $10^3$ toys of 200 events. We then use for each toy method described in~\refsec{systematics:partial-waves} and a standard maximum likelihood method. In \reffig{correlation} the two estimators distributions are showed. In conclusion the two estimators are highly correlated but different between then can be of the order of statistic uncertainty of the maximum likelihood estimator. We found that in some observables this can reach almost half of the statistical error.
-
-
-\begin{figure}[t]
-        \centering
-            \includegraphics[width=0.45\textwidth]{figs/S3_scat.pdf}
-            \includegraphics[width=0.45\textwidth]{figs/S5_scat.pdf}
-        \caption{Correlation between Method of Moments and maximum likelihood estimators for observables $S_3$ and $S_5$. }
-        \label{fig:correlation}
-\end{figure}
-
-
-
-
 
 
 \section{Summary}
