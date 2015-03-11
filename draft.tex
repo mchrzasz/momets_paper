@@ -1,5 +1,5 @@
 % vim: set sts=4 et :
-\documentclass[aps,prd,reprint,nofootinbib,preprintnumbers]{revtex4}
+\documentclass[aps,nofootinbib,preprintnumbers,prd,twocolumn]{revtex4-1}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -297,8 +297,12 @@ follows a multivariate Gaussian distribution $\mathcal{N}(\vec{S},
 \Sigma)$ centered on the true value $\vec{S}$ with the
 covariance $\Sigma_{ij}$ estimated as
 \begin{equation}
-    \Sigma_{ij} \equiv \cov[S_i,S_j] \to \est{\Sigma_{ij}} \equiv \est{\cov}[{S}_i, {S}_j]
-        = \frac{1}{N - 1} \sum_{n=1}^{N} \Big[\dual{f}_i\big(x^{(n)}\big) - \est{S_i}\Big]\,\Big[\dual{f}_j\big(x^{(n)}\big) - \widehat{S_j}\Big]\,.
+\begin{aligned}
+    \Sigma_{ij}
+        & \equiv \cov[S_i,S_j]\\
+        & \to \est{\Sigma_{ij}} \equiv \est{\cov}[{S}_i, {S}_j]\\
+        & = \frac{1}{N - 1} \sum_{n=1}^{N} \Big[\dual{f}_i\big(x^{(n)}\big) - \est{S_i}\Big]\,\Big[\dual{f}_j\big(x^{(n)}\big) - \widehat{S_j}\Big]\,.
+\end{aligned}
 \end{equation}
 In our physics applications, the parameter space is compact and each
 $\dual{f}_i$ is bounded. Hence the requisites for the most basic
@@ -399,7 +403,7 @@ uncertainties, we lift these assumptions.
 \label{sec:systematics:partial-waves}
 
 \begin{figure}
-    \includegraphics[width=.6\textwidth]{fig-topology.pdf}
+    \includegraphics[width=.45\textwidth]{fig-topology.pdf}
     \caption{Decay topology for decays $B\to P_1 P_2 \ell_1 \bar\ell_2$. \label{fig:topology}}
 \end{figure}
 
@@ -443,10 +447,11 @@ For the decay at hand, we consider the partial-wave expansion for the angular ob
 \danny{I disagree. We use the same notation as in the literature, and people
 should be able to distinguish these based on context.} \marcin{I am fine with k}
 which reads
-\begin{equation}
+\begin{multline}
     \label{eq:expansion}
-    S_{k}(\vec{\nu},\cos\theta_2) \equiv \sum_{j} \frac{1}{n_{l,|m|}} S_{k,l}(\vec{\nu}) p_{l}^{(|m|)}(\cos\theta_2)\sin\theta_2\,.
-\end{equation}
+    S_{k}(\vec{\nu},\cos\theta_2) \\
+        \equiv \sum_{j} \frac{1}{n_{l,|m|}} S_{k,l}(\vec{\nu}) p_{l}^{(|m|)}(\cos\theta_2)\sin\theta_2\,.
+\end{multline}
 The normalization factor $n_{l,|m|}$ is defined in \refeq{legendre-scalar-product}. Within our
 example we have (cf. also \refapp{btokstarll} and \cite{Lee:1992ih})
 \begin{equation}
@@ -478,7 +483,7 @@ as we discuss in the following subsection.
 \subsection{Recipe for Including Detector Effects}
 \label{sec:systematics:acceptance}
 
-\fred{Ascertaining} a detector's performance to detect signal events
+Ascertaining a detector's performance to detect signal events
 with accurate determination of the event's angles is generally a
 difficult task. In the ideal case, one would have an explicit
 probabilistic model of the detector acceptance and could thus
@@ -497,14 +502,14 @@ in the \emph{detector} events $\lbrace x^{(n)}_\text{d}\rbrace =
 $n=1,\dots,N_\text{d}$ with $N_\text{d} \le N_\text{t}$.  In general,
 the distribution of the detected events is
 \begin{equation}
-    P_\text{d}(x_\text{d}) = \frac{1}{R} \int P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}}\,.
+    P_\text{d}(x_\text{d}) = \frac{1}{R} \int \rmdx{x_\text{t}} P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \,.
 \end{equation}
 \fred{In this section, all integration symbols are at the end, in ch. 2 they were right after the $\int$ sign.}
 Here $P_\text{t}$ is the probability distribution of the true events,
 the normalization constant $R$ is given by
 \begin{equation}
   \label{eq:def-R}
-    R \equiv \iint P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t}) \rmdx{x_\text{t}} \rmdx{x_\text{d}}\,.
+    R \equiv \iint \rmdx{x_\text{t}} \rmdx{x_\text{d}} P_\text{t}(x_\text{t}) E(x_\text{d} | x_\text{t})\,.
 \end{equation}
 The kernel $E(x_\text{d}| x_\text{t})$ is usually decomposed as
 \begin{equation}
@@ -550,17 +555,18 @@ and note that
 \end{equation}
 is a valid PDF. The dual basis of angular functions follows then from the normalization
 and orthogonality of the Legendre polynomials, and one therefore has
-\begin{equation}
-    \tilde{f}_k(x) = \frac{2 k + 1}{2} f_k(x),\qquad \int_{-1}^{+1} \tilde{f}_k(x) f_l(x) \rmdx{x} = \delta_{k,l}\,.
-\end{equation}
+\begin{gather}
+    \tilde{f}_k(x) = \frac{2 k + 1}{2} f_k(x)\,,\\
+    \int_{-1}^{+1} \rmdx{x} \tilde{f}_k(x) f_l(x) = \delta_{k,l}\,.
+\end{gather}
 We now define the \emph{simulated raw} moments $\vec{Q}^{(m)}$ as
 \begin{equation}
     \label{eq:analytic-raw-moments}
-    Q_i^{(m)} \equiv \iint \tilde{f}_i(\xd) P^{(m)}(\xt) \Ekernel \rmdx{\xt} \rmdx{\xd},
+    Q_i^{(m)} \equiv \iint \rmdx{\xt} \rmdx{\xd} \tilde{f}_i(\xd) P^{(m)}(\xt) \Ekernel,
 \end{equation}
 which are instrumental to our recipe. Monte Carlo estimators of these moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$, where
 \begin{equation}
-    x_\text{d}^{(n,m)} \sim P_E^{(m)}(\xd) \equiv \frac{1}{R^{(m)}} \int P^{(m)}(\xt) \Ekernel \rmdx{\xt}\,.
+    x_\text{d}^{(n,m)} \sim P_E^{(m)}(\xd) \equiv \frac{1}{R^{(m)}} \int \rmdx{\xt} P^{(m)}(\xt) \Ekernel\,.
 \end{equation}
 In words, for each $m$ it is required to generate events from
 a toy physical distribution $P^{(m)}$, for which $S_0 = S_m=1/2$ and all other
@@ -579,8 +585,10 @@ $P_E^{(m)}$ in terms of Legendre polynomials ensures that
 \begin{equation}
     \vec{Q}^{(m)} = M \vec{S}^{(m)}\,.
 \end{equation}
-We call the matrix $M$ the \emph{unfolding matrix} \fred{actually that's the folding matrix}, which is
-specific to the decay at hand.
+We call the matrix \add{$M^{-1}$} the \emph{unfolding matrix},
+\fred{actually that's the folding matrix}
+\danny{switched to $M^{-1}$ instead. OK?}
+which is specific to the decay at hand.
 Given our definition of $S_k^{(m)}$ in
 \refeq{def-Sk} it is easy to see that
 \begin{equation}
@@ -623,18 +631,6 @@ Moreover, in the applications to $B$ decays only ratios and similar $R$-independ
 of the angular observables are of interest.
 }\\
 
-%\del{The precise value of $R$ (see \refeq{def-R}) depends on the a priori
-%unknown angular observables $\vec S$.  However, within ratios and
-%other suitable combinations of the estimators $\vecest{S}$, the quantity
-%$R$ cancels.
-%Conversely, $R$ can be
-%extracted from the self-consistency condition\footnote{This condition
-%  is process dependent; see \refeq{recipe:lambdabtolambdall} and
-%\refeq{recipe:btokstarll}.}  $\hat{S}_0 = \frac{1}{2}$. Since $R$ is
-%relevant in the determination of the branching ratio, it is therefore
-%useful to carry out that determination and the extraction of the
-%angular observables in a combined analysis.}\\
-
 We note that $\vecest{S}$ as determined from \refeq{estS} does not fully correspond to $\vec{S}$
 for arbitrary $\eps$. Taking again the decay $B\to K\ell^+\ell^-$
 as an example, \add{there are exactly three physical angular observables:} $\dim S = 3$.
@@ -651,6 +647,8 @@ then take the following structure:
 \end{equation}
 but then $\dim S$ is not right.
 }
+\danny{Fred: We simplfy define the label ``physical'' right here, which includes
+$S_0$. Although perhaps a better label would be ``nominal''?}
 The method is consistent as long as the MC estimators for the ``superfluous'' observables with indices $\dim S + 1$ to $\dim Q$
 are compatible with zero. \footnote{This holds only for the physical model of uniangular decay distributions. If the physical
     model involves a partial-wave expansion with cutoff, these superfluous observables
@@ -835,10 +833,13 @@ The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und 
 The PDF for the decay $\bar{B}\to\bar{K}\ell^+\ell^-$ has been calculated for the most
 complete basis of dimension-six $b\to s \ell^+\ell^-$ operators. It reads \cite{Bobeth:2007dw,Bobeth:2012vn}
 \begin{equation}
+\begin{aligned}
     P(q^2, \cos\theta_1)
-        = \frac{1}{\rmdx{\Gamma}/\rmdx{q^2}} \frac{\rmdx{^2\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1}}
-        = \frac{a(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} + \frac{b(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos\theta_1 + \frac{c(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos^2\theta_1
-        = \sum_i S_i p_i(\cos\theta_1)\,,
+        & = \frac{1}{\rmdx{\Gamma}/\rmdx{q^2}} \frac{\rmdx{^2\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1}}\\
+        & = \frac{a(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} + \frac{b(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos\theta_1\\
+        & \quad + \frac{c(q^2)}{\rmdx{\Gamma}/\rmdx{q^2}} \cos^2\theta_1\\
+        & \equiv \sum_i S_i p_i(\cos\theta_1)\,,
+\end{aligned}
 \end{equation}
 with the conventional observables $a(q^2)$ through $c(q^2)$, and $\rmdx{\Gamma}/\rmdx{q^2} = 2a + 2/3 c$. We conveniently use the Legendre polynomials
 $p_i(x)$, $i=0,1,2$,
@@ -869,7 +870,11 @@ such that
 
 The PDF for the decay --- in the presence of Standard-Model operators and their chirality-flipped counter parts --- reads \cite{Boeer:2014xx}
 \begin{equation}
-    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\rmdx{\Gamma} /\, \rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}} = \sum_i S_i f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
+\begin{aligned}
+    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3)
+        & = \frac{(\rmdx{\Gamma} /\, \rmdx{q^2})^{-1} \rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}}\\
+        & = \sum_i S_i f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
+\end{aligned}
 \end{equation}
 where $q^2$ denotes the dilepton mass squared, $\theta_1 \equiv \theta_\ell$ and $\theta_2 \equiv \theta_\Lambda$ denote the
 helicity angles in the dilepton and
@@ -877,27 +882,34 @@ $N\pi$ systems, respectively, and $\theta_3 = \phi$ denotes the azimuthal angle.
 The index $i$ should be interpreted as a multi-index, $i \equiv (l_1, l_2, m)$,
 where $0 \leq l_1 \leq 2$ and $0 \leq l_2 \leq 1$ denote the total angular momentum in the
 dilepton and the $N\pi$ system, respectively, and $-1 \leq m \leq 1$
-is the third component of either of the angular momenta.
-Our choice of an orthonormal basis and its dual reads
-\begin{equation}
-\label{eq:lambdab:bases}
-\begin{aligned}
-    f_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)
-    & = \sqrt{\frac{(l_1 - |m|)!\,(l_2 - |m|)!}{(l_1 + |m|)!\,(l_2 + |m|)!}} p_{l_1}^{|m|}(\cos\theta_1) p_{l_2}^{|m|}(\cos\theta_2)\\
-    & \times \begin{cases}
+is the third component of either of the angular momenta.\\
+
+Our choice of an orthonormal basis reads
+\begin{multline}
+\label{eq:lambdab:bases1}
+    f_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)\\
+    = \sqrt{\frac{(l_1 - |m|)!\,(l_2 - |m|)!}{(l_1 + |m|)!\,(l_2 + |m|)!}}\\
+    \quad \times p_{l_1}^{|m|}(\cos\theta_1) p_{l_2}^{|m|}(\cos\theta_2)\\
+    \quad \times \begin{cases}
             \cos(|m|\theta_3) & m > 0\\
             \sin(|m|\theta_3) & m < 0\\
             1                 & m = 0
-        \end{cases}\,,\\
-    \tilde{f}_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)
-    & = \frac{(2l_1 + 1)(2l_2 + 1)}{8\pi}\sqrt{\frac{(l_1 - m)!\,(l_2 - m)!}{(l_1 + m)!\,(l_2 + m)!}} p_{l_1}^m(\cos\theta_1) p_{l_2}^m(\cos\theta_2)\\
-    & \times \begin{cases}
+        \end{cases}\,,
+\end{multline}
+and its dual is
+\begin{multline}
+\label{eq:lambdab:bases2}
+    \tilde{f}_{l_1, l_2, m}(\cos\theta_1, \cos\theta_2, \theta_3)\\
+    = \frac{(2l_1 + 1)(2l_2 + 1)}{8\pi}\sqrt{\frac{(l_1 - m)!\,(l_2 - m)!}{(l_1 + m)!\,(l_2 + m)!}}\\
+    \quad\times p_{l_1}^m(\cos\theta_1) p_{l_2}^m(\cos\theta_2)\\
+    \quad \times \begin{cases}
             2 \cos(|m|\theta_3) & m > 0\\
             2 \sin(|m|\theta_3) & m < 0\\
             1                   & m = 0
         \end{cases}\,.\\
-\end{aligned}
-\end{equation}
+\end{multline}
+
+\begin{widetext}
 The correspondence between out choice of angular observables in the angular momentum basis, and the angular
 observables as defined in reference \cite{Boeer:2014xx} reads
 \begin{equation}
@@ -943,19 +955,21 @@ The dual basis is chosen such that
 \begin{equation}
     \int_{-1}^{+1} \rmdx{\cos \theta_1} \int_{-1}^{+1} \rmdx{\cos \theta_2} \int_0^{2\pi} \rmdx{\theta_3} P(q^2, \cos \theta_1, \cos \theta_2, \theta_3) \dual{f}_i(\cos \theta_1, \cos \theta_2, \theta_3) = S_i(q^2)\,.
 \end{equation}
+\end{widetext}
 
 For the purpose of unfolding acceptance effects as laid down in \refsec{systematics:acceptance}, it is instrumental
-to know that $f_{0,0,0} \equiv 1$, and that $\max_{\cos\theta_1,\cos\theta_2,\phi} |f_{l_1, l_2, m}| < 1$.
-The recipe's generating PDFs are therefore
+to know that $f_{0,0,0} \equiv 1$, and that $\max_{\cos\theta_1,\cos\theta_2,\phi} |f_{l_1, l_2, m}| < 1$.\\
+
+The recipe's generating PDFs are therefore $P(x|\lbrace S_i^{(j)}\rbrace)$, with
 \begin{equation}
     \label{eq:recipe:lambdabtolambdall}
-    P(x|\lbrace S_i^{(j)}\rbrace)\,,\quad\text{with}\quad S_i^{(j)} = \frac{1}{8\pi}
+        S_i^{(j)} = \frac{1}{8\pi}
         \begin{cases}
             \delta_{i,(0,0,0)}                  & j = (0, 0, 0)\\
             \delta_{i,(0,0,0)}  + \delta_{i,j}  & j \neq (0, 0, 0)
-        \end{cases}
+        \end{cases}\,,
 \end{equation}
-where $j$ is now also a multi-index representing $j \equiv (\tilde l_1, \tilde l_2, \tilde m)$.
+and where $j$ is now also a multi-index representing $j \equiv (\tilde l_1, \tilde l_2, \tilde m)$.
 
 \section{Application to $\bar{B}\to\bar{K}\pi\ell^+\ell^-$}
 \label{app:btokstarll}
@@ -963,8 +977,11 @@ where $j$ is now also a multi-index representing $j \equiv (\tilde l_1, \tilde l
 The PDF for the decay $\bar{B}\to\bar{K}\pi\ell^+\ell^-$ --- up to and including P-wave contributions --- has been calculated
 for the most general basis of dimension-six $b\to s$ operators. It reads, expressed in terms of the angular observables $\lbrace J_i\rbrace$ \cite{Blake:2012mb,Bobeth:2012vn}
 \begin{equation}
-    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3) = \frac{1}{\rmdx{\Gamma}/\rmdx{q^2}} \frac{\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}}
-    = \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
+\begin{aligned}
+    P(q^2, \cos\theta_1, \cos\theta_2, \theta_3)
+    & = \frac{(\rmdx{\Gamma}/\rmdx{q^2})^{-1}\rmdx{^4\Gamma}}{\rmdx{q^2} \rmdx{\cos\theta_1} \rmdx{\cos\theta_2} \rmdx{\theta_3}}\\
+    & = \sum_i S_i(q^2) f_i(\cos\theta_1, \cos\theta_2, \theta_3)\,,
+\end{aligned}
 \end{equation}
 where $\theta_1 \equiv \theta_\ell$ is the dilepton helicity angle; $\theta_2 \equiv \theta_{K}$ is the $\bar{K}\pi$ helicity angle; $\theta_3 \equiv \phi$ is the azimuthal angle;
 and $q^2$ is the square of the dilepton mass. The $q^2$-differential decay width reads
@@ -976,7 +993,9 @@ associated Legendre polynomials $p_l^m(x)$. The index $i$ should thus be interpr
 , $i \equiv (l_1, l_2, m)$, where $0 \leq l_1 \leq 2$ and $0 \leq l_2 \leq 2$ denote the total angular
 momentum in the dilepton and the $K\pi$ system, respectively, and $-2 \leq m \leq 2$
 is the third component of either of the angular momenta.
-We use the same bases of angular functions as given in \refeq{lambdab:bases} for the decay $\Lambda_b\to \Lambda\ell^+\ell^-$.
+We use the same bases of angular functions as given in \refeq{lambdab:bases1} and \refeq{lambdab:bases2}
+for the decay $\Lambda_b\to \Lambda\ell^+\ell^-$.
+\begin{widetext}
 In that case, the angular observables correspond to the usual choice of observables via
 \begin{equation}
 \begin{aligned}
@@ -1008,7 +1027,7 @@ and
 %
                       &                                                                                    &
                       &                                                                                    &
-    8\pi S_{2, 2, -2} & = \frac{8 J_9}{\rmdx{\Gamma}/\rmdx{q^2}}                                           \\
+    8\pi S_{2, 2, -2} & = \frac{8 J_9}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                                        \\
 %
                       &                                                                                    &
     8\pi S_{2, 1, -1} & = \frac{4 \sqrt{3} J_{8i}}{\rmdx{\Gamma}/\rmdx{q^2}}\,,                            &
@@ -1024,16 +1043,17 @@ and
 %
                       &                                                                                    &
                       &                                                                                    &
-    8\pi S_{2, 2, +2} & = \frac{8 J_3}{\rmdx{\Gamma}/\rmdx{q^2}}                                           \\
+    8\pi S_{2, 2, +2} & = \frac{8 J_3}{\rmdx{\Gamma}/\rmdx{q^2}}\,.                                        \\
 \end{aligned}
 \end{equation}
+\end{widetext}
 
 As before, for the purpose of unfolding acceptance effects as laid down in \refsec{systematics:acceptance}, it is instrumental
 to know that $f_{0,0,0} \equiv 1$, and that $\max_{\cos\theta_1,\cos\theta_2,\phi} |f_{l_1, l_2, m}| \leq 1$.
-The recipe's generating PDFs are therefore
+The recipe's generating PDFs are therefore $P(x|\lbrace S_i^{(j)}\rbrace)$ with
 \begin{equation}
     \label{eq:recipe:btokstarll}
-    P(x|\lbrace S_i^{(j)}\rbrace)\,,\quad\text{with}\quad S_i^{(j)} = \frac{1}{8\pi}
+    S_i^{(j)} = \frac{1}{8\pi}
         \begin{cases}
             \delta_{i,(0,0,0)}                  & j = (0, 0, 0)\\
             \delta_{i,(0,0,0)}  + \delta_{i,j}  & j \neq (0, 0, 0)
@@ -1050,6 +1070,8 @@ physical range of $m$ is not affected by higher partial waves.
 \section{On the Partial-Wave Expansion of Angular Observables}
 \label{app:partial-waves}
 
+\add{For convenience, we use this appendix to collect there necessary
+formulae needed in the partial-wave expansion.}
 Let us assume that the angular decomposition has been achieved for
 some PDF $P$ for all angles except for one angle $\theta$. We now
 focus on just one of the resulting observables and denote it by
@@ -1057,10 +1079,12 @@ $S(\theta)$. The dependence on the non-angular variables will be
 ignored in the following. Suppose $S$
 has an expansion in terms of partial waves $l_1, l_2 = 0,1,2,\dots
 \hat{=}$ S,P,D$,\dots$ of the underlying amplitudes $A_1$ and $A_2$,
+\begin{widetext}
 \begin{equation}
     \label{eq:def-partial-wave-observable}
     S(\theta) \equiv F\left[A_1(\theta) A_2^*(\theta)\right] \equiv F\left[\left(\sum_{l_1=0}^\infty A_1^{(l_1)} p_{l_1}^{(m_1)}(\cos\theta)\right) \left(\sum_{l_2=0}^\infty A_2^{*(l_2)} p_{l_2}^{(m_2)}(\cos\theta)\right)\right]\,,
 \end{equation}
+\end{widetext}
 where $F \in \{\text{Re},\text{Im}\}$ denotes taking either the real
 or the imaginary part. Here $p_{l}^{(m)}$ denotes an \emph{associated Legendre} polynomial and $m_i$ is the third component of the angular momentum of the amplitude $A_i$, and we impose $m_1 \geq m_2$.\\
 
@@ -1072,8 +1096,12 @@ From the orthogonality of the Legendre polynomials, one immediately finds
 where $S_\text{incl}$ is the corresponding observable in the associated inclusive decays,
 and where we introduce $n_{l,m}$ via the scalar product of two associated Legendre polynomials,
 \begin{equation}
-    \label{eq:legendre-scalar-product}
-    n_{l, m} \delta_{l, l'} \equiv \int_{-1}^1 \rmdx{\cos\theta} p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta)  = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
+\label{eq:legendre-scalar-product}
+\begin{aligned}
+    n_{l, m} \delta_{l, l'}
+    & \equiv \int_{-1}^1 \rmdx{\cos\theta} p_{l}^{(m)}(\cos\theta) p_{l'}^{(m)} (\cos\theta)\\
+    & = \frac{2}{(2 l + 1)} \frac{(l + m)!}{(l - m)!} \delta_{l, l'}\,.
+\end{aligned}
 \end{equation}
 The positivity of the amplitudes in \refeq{partial-waves:bound} implies that we can estimate
 the error introduced by cutting off the expansion at some arbitrary angular momentum $L$. One
@@ -1087,7 +1115,7 @@ observables as coefficients of Legendre polynomials in $\cos\theta$. Since this 
 a well defined total angular momentum for each observable, one ensures that the observables can in
 fact be disentangled experimentally.\\
 
-We propose the decomposition of $S$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$,
+We \add{decompose}\del{propose the decomposition of} $S$ in terms of the associated Legendre polynomials $p_{j}^{(m)}(\cos\theta)$,
 with total angular momentum $j$ and its third component $m=m_1 + m_2$.
 \begin{equation}
     S(\theta) = \sum_j S_{j,m} p_{j}^{(m)}(\cos\theta)\,.
@@ -1102,6 +1130,7 @@ polynomials on the compact support [-1,1], and thus each integral
 is absolutely convergent).
 Second, we can immediately express $S_{j,m}$ in terms of
 the partial-wave amplitudes,
+\begin{widetext}
 \begin{equation}
     \label{eq:partial-wave-observable-infinite}
     \begin{aligned}
@@ -1110,7 +1139,6 @@ the partial-wave amplitudes,
             & = \sum_{l_1,l_2=0}^\infty F\left[A_{1}^{(l_1)} A_{2}^{*(l_2)}\right] \frac{T_{l_1,l_2,j}^{(m_1,m_2)}}{n_{j,m}}\,,\qquad\text{with }m = m_1 + m_2\,.
     \end{aligned}
 \end{equation}
-
 In the last step, we use Gaunt's formula \cite{Gaunt:1929} to integrate a triple product of associated Legendre polynomials,
 \begin{equation}
 \begin{aligned}
@@ -1120,6 +1148,7 @@ In the last step, we use Gaunt's formula \cite{Gaunt:1929} to integrate a triple
         & \times \sum_{t=p}^q (-1)^t \frac{(j + m + t)!(l_1 + l_2 - m - t)!}{t! (j - m - t)! (l_1 - l_2 + m + t)! (l_2 - m_2 - t)!}\,,
 \end{aligned}
 \end{equation}
+\end{widetext}
 where
 \begin{equation}
 \begin{aligned}
@@ -1132,9 +1161,9 @@ where
 and
 \begin{equation}
 \begin{aligned}
-    s & = \frac{j + l_1 + l_2}{2}\,, &
-    p & = \max(0, l_2 - l_1 - m)\,, &
-    q & = \min(l_1 + l_2 - m, j - m, l_2 - m_2)\,.
+    s & \equiv \frac{j + l_1 + l_2}{2}\,, \\
+    p & \equiv \max(0, l_2 - l_1 - m)\,, \\
+    q & \equiv \min(l_1 + l_2 - m, j - m, l_2 - m_2)\,.
 \end{aligned}
 \end{equation}
 The necessary conditions for $T \neq 0$ are
