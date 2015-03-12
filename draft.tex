@@ -113,11 +113,9 @@ based on likelihood fits:
 \begin{enumerate}
     \item Likelihood fits have convergence problems for a small number of
         events, and can require reparametrizations and/or approximations
-        for a successful fit to the signal PDF. \add{As an example,
-        see the LHCb analysis of \dots}.
-        The method of moments does not require reparametrizations or approximations.
+        for a successful fit to the signal PDF. As an example see LHCb measurement of $\bar{B}\to \bar{K}^*(\to \bar{K}\pi)\mu^+\mu^-$\cite{Aaij:2013qta}. The method of moments does not require reparametrizations or approximations.
 
-    \item \add{Likelihood fits  can be unstable in case the underlying
+    \item Likelihood fits  can be unstable in case the underlying
         physical model is only partially known. This can lead to
         overestimating the number of physical parameters, and consequently
         inhibits the convergence of the fits. As an example, this type
@@ -125,7 +123,6 @@ based on likelihood fits:
         as reported in \cite{Egede:1142152}. It was subsequently solved
         when a missing symmetry relation between the angular observables
         was found and applied, thereby reducing the number of fit parameters.
-    }
     \item Mismodeling the underlying physics model can result in systematic bias
         in likelihood fits. We will
         show that the method of moments is insensitive to a certain type of mismodeling;
@@ -222,8 +219,7 @@ can be projected out of the full PDF $P$ as
     \label{eq:det-Pi-analytical}
     S_i(\nuvec) = \int_{\Omega} \rmdx{\vec\theta}  P(\nuvec, \thvec) \dual{f}_i(\thvec)\,.
 \end{equation}
-where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions
-\add{, and $\Omega$ represents the entire angular phase space.}. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
+where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular functions, and $\Omega$ represents the entire angular phase space. In general, $\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
 case for our selection of applications in appendices \ref{app:btokll} through \ref{app:btokstarll}.\\
 
 It is sensible to refer to the angular observable $S_i$ as the
@@ -746,20 +742,20 @@ Our findings can be summarized as follows:
 \end{itemize}
 \begin{figure}[t]
         \centering
-            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S4.png}
-            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S8.png}
-        \caption{Uncertainty of the angular observables $S_4$ (uppwe) and $S_8$
+            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S5.pdf}
+            \includegraphics[width=0.45\textwidth]{figs/Q2_1_2_S9.pdf}
+        \caption{Uncertainty of the angular observables $S_5$ (upper) and $S_9$
             (lower), extracted from $2\cdot 10^5$ studies of simulated events
             for the decay $B\to K^*\ell^+\ell^-$. We show the uncertainty as a
             function of the number of simulated events $N$.  The red curve
-        represents a fit to the function given in \refeq{unc-on-mean}.}
+        represents a fit to the function given in \refeq{unc-on-mean}. Errors correspond to $68~\%$ spread of measured uncertainties in the toys.}
         \label{fig:errors}
 \end{figure}
 
 \begin{figure}[t]
         \centering
-            \includegraphics[width=0.45\textwidth]{figs/S3_scat.pdf}
             \includegraphics[width=0.45\textwidth]{figs/S5_scat.pdf}
+            \includegraphics[width=0.45\textwidth]{figs/S7_scat.pdf}
             \caption{The joint distribution of the two estimators
                 $\est{S}_i^\text{MoM}$ and $\est{S}_i^\text{Fit}$ that arise
                 from the method of moments and a maximum-likelihood fit,
