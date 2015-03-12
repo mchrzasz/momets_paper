@@ -760,7 +760,7 @@ Our findings can be summarized as follows:
                 $\est{S}_i^\text{MoM}$ and $\est{S}_i^\text{Fit}$ that arise
                 from the method of moments and a maximum-likelihood fit,
                 respectively. We show the estimators for both of our benchmark
-                observables $S_3$ (upper) and $S_5$ (lower). 
+                observables $S_3$ (upper) and $S_5$ (lower).
             }
         \label{fig:correlation}
 \end{figure}
@@ -790,36 +790,46 @@ and reside therefore outside the scope of this work.
 
 \section{Summary}
 
-We have carried out a combined analytical and numerical study of the method of moments; a method for
-the extraction of angular observales from the angular distribution of a general multi-body process.
-We have studied the performance of the method of moments using pseudo data derived from the SM
-predctions for one uniangular decay ($B\to K\ell^+\ell^-$) and one triangular decay ($B\to K^*\ell^+\ell^-$).
-From this, we find rapid convergence of the joint likelihood of the angular observables towards a multivariate Gaussian.
-We draw the conclusion that this method exhibits several benefits in the determination of angular observables when
-compared with a maximum-likelihood fit.\\
+We have carried out a combined analytical and numerical study of the method of
+moments; a method for the extraction of angular observables from the angular
+distribution of a general multi-body process.  We have studied the performance
+of the method of moments using pseudo data derived from the SM predictions for
+one uniangular decay ($B\to K\ell^+\ell^-$) and one triangular decay ($B\to
+K^*\ell^+\ell^-$).  From this, we find rapid convergence of the joint
+likelihood of the angular observables towards a multivariate Gaussian.  We draw
+the conclusion that this method exhibits several benefits in the determination
+of angular observables when compared with a maximum-likelihood fit.\\
 
-First, we find no bias in the determinations of the angular observables even for a small number of events.
-However, this comes at the expense of a slight increase of the order of $10\%$ for the statistical uncertainty
-on the mean.
-Second, in the absence of detector effects, a determination using the method of moments is correct and unbiased
-even when not all aspects of the physical distribution are modeled. This is explicitly shown for the case of
-higher partial waves in multibody final states.
-Third, we develop a systematic method for the dertermination of detector effects that lead to
-dilution and mixing of the angular observables. We present an algorithm to calculate the necessary
-unfolding matrix, which is only computationally feasible when using the method of moments.
-Fourth, the fact that the joint distribution of the angular observables that results from the method of moments
-is a multivariate Gaussian distribution allows for an easy and precise transfer of correlation
-information to subsequent theoretical analyses.
-Last but not least, the resulting distribution arises without the need for additional constraints
-in order to achieve convergence, such as e.g. in some maximum-likelihood fits. Therefore, results obtained
-using the method of moments can be directly averaged, without the need to remove
-the constraints a posteriori.\\
+First, we find no bias in the determinations of the angular
+observables even for a small number of events.  However, due to fewer
+model assumptions, the uncertainty on the mean values increases by
+roughly $10\%$--$30\%$ compared
+to likelihood fits.\\
+Second, in the absence of detector effects, the method of moments does
+not rely on model assumptions for the partial-wave composition of the
+PDF. This is explicitly shown for the case of higher
+partial waves in multibody final states.\\
+Third, we develop a systematic method for the determination of
+detector effects that lead to dilution and mixing of the angular
+observables. We present an algorithm to calculate the necessary
+unfolding matrix, which is computationally feasible only when using
+the method
+of moments. The algorithm also accounts for higher partial waves.\\
+Fourth, the joint distribution of the angular observables resulting
+from the method of moments is well approximated by a multivariate
+Gaussian distribution even for small number of events $N \sim 30$ both
+for the ideal uniform acceptance and a realistic example.  This
+facilitates the precise transfer of correlation information
+to subsequent theoretical analyses.\\
+Last but not least, the resulting distribution arises without the need
+for additional model constraints. Thus more observables can be
+inferred from the same data than in a likelihood fit. In addition,
+the results from the method of moments can be more easily averaged or combined; e.g., in global fits.\\
 
-In conclusion, we argue that the method of moments is a competetive alternative to
-maximum-likelihood fits as long as angular distributions are involved. We wish to raise
+In conclusion, we argue that the method of moments is a competitive alternative to
+maximum-likelihood fits if angular distributions are involved. We wish to raise
 the interesting prospect of extending this method to applications that feature
 PDFs composed from non-angular orthogonal bases.
-
 
 \acknowledgments
 
