@@ -45,7 +45,7 @@
 %% Draft Macros %%
 %\newcommand{\todo}[1]{{\color{red}\bf ToDo: #1}}
 %\newcommand{\danny}[1]{{\color{purple}#1}}
-%\newcommand{\fred}[1]{{\color{brown!85!black}#1}}
+\newcommand{\fred}[1]{{\color{brown!85!black}#1}}
 %\newcommand{\marcin}[1]{{\color{cyan}#1}}
 %\newcommand{\citeneeded}{{\color{red}\bf [cite needed]}}
 %\newcommand{\add}[1]{\textcolor{green!85!black}{#1}}
@@ -206,9 +206,14 @@ the dual basis needs to be worked out case by case through solving the
 linear system of equations (\ref{eq:def-ortho-rel}). For a selection
 of hadron decays with a $b$ quark in the initial state and two leptons
 in the final state, we list the dual bases in a series of appendices
-\ref{app:btokll} through \ref{app:btokstarll}. Note that a
-similar analysis was done in~\cite{Dighe:1998vk} for the decays $B \to
-J/\psi \phi$ and $B \to J/\psi K^{*}$.
+\ref{app:btokll} through \ref{app:btokstarll}. Note that a similar
+analysis was done in~\cite{Dighe:1998vk} for the decays $B \to J/\psi
+\phi$ and $B \to J/\psi K^{*}$. In~\cite[section X]{Chung:1997qd}, the
+basic ideas and formulae were already given but the latter contained a
+number of typographical errors and the presentation was not easy to
+understand. Compared to~\cite{Chung:1997qd}, we fill the gaps needed
+to apply the method in practice and explain in detail its advantages
+and disadvantages on a sound statistical basis.
 
 In the remainder of this letter we discuss how to obtain an angular
 observable $S_i(\nuvec)$ in an experimental setup where each recorded
@@ -228,12 +233,6 @@ can be projected out of the full PDF $P$ as
     \label{eq:det-Pi-analytical}
     S_i(\nuvec) = \int_{\Omega} \rmdx{\vec\theta}  P(\nuvec, \thvec) \dual{f}_i(\thvec)\,.
 \end{equation}
-where $\lbrace \dual{f}_i \rbrace$ denotes a \emph{dual basis} of angular
-functions, and $\Omega$ represents the entire angular phase space. In general,
-$\lbrace \dual{f}_i \rbrace$ may differ from $\lbrace f_i \rbrace$. This is the
-case for our selection of applications in appendices \ref{app:btokll} through
-\ref{app:btokstarll}.\\
-
 It is sensible to refer to the angular observable $S_i$ as the
 \emph{$f_i$-moment} of the PDF $P$.  We emphasize that a relation of
 type \refeq{det-Pi-analytical} holds for any combination of a density
@@ -552,7 +551,7 @@ define the PDF in terms of the Legendre polymials (i.e., $f_k(x)
 where $k = 0, 1, \dots$ denotes an angular-momentum-like index associated with the observables.
 Normalization of $P\subt$ is equivalent to choosing $S_0 = 1/2$. Requiring $P\subt(\xt) \ge 0 \,\forall \xt$
 implies $|S_k| \leq 1/2$ for $k > 0$. More stringent relations between the
-$S_k$ might hold, but are of no concern here. For later use, we define
+$S_k$ might hold but are of no concern here. For later use, we define
 \begin{equation}
   \label{eq:def-Sk}
   S^{(m)}_k \equiv
@@ -576,7 +575,7 @@ We now define the \emph{simulated raw} moments $\vec{Q}^{(m)}$ as
     \label{eq:analytic-raw-moments}
     Q_i^{(m)} \equiv \iint \rmdx{\xt} \rmdx{\xd} \tilde{f}_i(\xd) P^{(m)}(\xt) \Ekernel,
 \end{equation}
-which are instrumental to our recipe. Monte Carlo estimators of these moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$, where
+which are instrumental to our recipe. Monte Carlo estimators of these moments can be constructed from specifically crafted detector events $x_\text{d}^{(n,m)}$, $n = 1, \dots, N_\text{d}^{(m)}$ \fred{This should be $N_\text{t}^{(m)}$, right?}, where
 \begin{equation}
     x_\text{d}^{(n,m)} \sim P_E^{(m)}(\xd) \equiv \frac{1}{R^{(m)}} \int \rmdx{\xt} P^{(m)}(\xt) \Ekernel\,.
 \end{equation}
@@ -584,12 +583,12 @@ In words, for each $m$ it is required to generate events from
 a toy physical distribution $P^{(m)}$, for which $S_0 = S_m=1/2$ and all other
 observables are set to zero. Next, propagate these events through
 a detector simulation. The normalization $R^{(m)}$ is chosen such
-that $\int P_E^{(m)}(\xd) \rmdx{\xd} = 1$.  We emphasize that
+that $\int \rmdx{\xd} P_E^{(m)}(\xd)  = 1$.  We emphasize that
 $R^{(m)}$ can be estimated as $\est{R}^{(m)} = N_\text{d}^{(m)} /
 N_\text{t}$, where $N_\text{t}$ corresponds to the number of
-simulated true events.  The estimators then read
+simulated true events. \fred{We should clarify: generate $N_\text{t}^{(m)}$ events and $N_\text{d}^{(m)}$ pass the simulation. In principle, you could generate a different number of events $N_\text{t}^{(m)}$ for each $m$.  } The estimators then read
 \begin{equation}
-    \est{Q}_i^{(m)} \equiv \est{R}^{(m)} \frac{1}{N_\text{d}} \sum_n^{N_\text{d}} \tilde{f}_i(x_\text{d}^{(n,m)})
+    \est{Q}_i^{(m)} \equiv \est{R}^{(m)} \frac{1}{N_\text{d}^{(m)}} \sum_n^{N_\text{d}^{(m)}} \tilde{f}_i(x_\text{d}^{(n,m)})
 \end{equation}
 
 Linearity of the integral over $x$ and convergence of the expansion of
@@ -658,6 +657,19 @@ observables are compatible with zero. \footnote{This holds only for the
 the physical model; see \refapp{btokstarll} for such a case.} The value $L$ depends
 on the setup of the particle detector under consideration, and remains to
 be determined just as in studies that carry out a likelihood fit.\\
+
+\fred{There is a maximum order of acceptance expansion that could have
+  an influence. See \cite[below (118)]{Chung:1997qd}. I think it is
+  just a consequence of Gaun'ts triple product. This is good news as
+  it relieves the experiment to play around and there is less
+  arbirariness. I suppose that was Ulrik's question. The only
+  arbitrariness comes from cutting on higher partial waves in the
+  angular expansion, that's discussed in
+  \refsec{systematics:partial-waves}
+
+  We should talk about $E$ not $\eps$ alone. In principle we just
+  expand $P$ and $E$ in the polymials and we implicitly estimate the
+  ``angular observables'' of the $E$ expansion.}
 
 The accuracy of the unfolding process as outlined above critically depends on
 both the accuracy of the detector simulation, as well as the uncertainties
@@ -849,10 +861,16 @@ PDFs composed from non-angular orthogonal bases.
 We thank Ulrik Egede for insightful discussions and helpful comments
 on the manuscript. We are grateful to Gudrun Hiller, Martin Jung, and
 Konstantinos Petridis for helpful discussions, as well as Claus Grupen
-for helpful advice in searching the literature.  The work of D.v.D has
-been supported by the Bundesministerium f\"ur Bildung und Forschung
-(BMBF). M.Ch has been supported by the ''Diamond Grant'' founded by Polish Ministry of Higher Education. F.B. is grateful for the support by the DFG Cluster of Excellence "Origin and Structure of the Universe". Part of the numerical simulations have been carried out on the computing facilities of the Computational Center for Particle and Astrophysics
-(C2PAP).
+for helpful advice in searching the literature.  Tobias Schlüter made
+us aware of existing ideas on our method in~\cite{Chung:1997qd} and
+his thesis~\cite[page 123]{Schlueter:2012}. The work of D.v.D has been
+supported by the Bundesministerium f\"ur Bildung und Forschung
+(BMBF). M.C. has been supported by the ''Diamond Grant'' founded by
+the Polish Ministry of Higher Education. F.B. is grateful for the
+support by the DFG Cluster of Excellence "Origin and Structure of the
+Universe". Part of the numerical simulations have been carried out on
+the computing facilities of the Computational Center for Particle and
+Astrophysics (C2PAP).
 
 \appendix
 
