@@ -11,3 +11,18 @@ tab-btokstarll-%.tex: tab-btokstarll-%.tex.in
 	    -e 's/\\text{eps}(\([^,]*\),\([^)]*\))/\\eps_{\1}^{(\2)}/g' \
 	    < $< \
 	    > $@
+
+PLOTS = \
+	fig-topology.pdf \
+	figs/Q2_5_6_S5_200.pdf \
+	figs/Q2_5_6_S7_200.pdf \
+	figs/Q2_1_2_S5.pdf \
+	figs/S5_scat.pdf \
+	figs/S7_scat.pdf
+
+.PHONY: dist
+dist:
+	tar zcf paper-$$(date +%Y-%m-%d).tar.gz \
+	    draft.tex \
+	    draft.bbl \
+	    $(PLOTS)
