@@ -22,11 +22,11 @@
 \newcommand{\ie}{\textit{i.e.}}
 \newcommand{\nuvec}{\vec{\nu}}
 \newcommand{\order}[1]{\mathcal{O}\left({#1}\right)}
-\newcommand{\refapp}[1]{app.~(\ref{app:#1})}
+\newcommand{\refapp}[1]{appendix~\ref{app:#1}}
 \newcommand{\refeq}[1]{eq.~(\ref{eq:#1})}
-\newcommand{\reffig}[1]{fig.~(\ref{fig:#1})}
-\newcommand{\refsec}[1]{sec.~(\ref{sec:#1})}
-\newcommand{\reftab}[1]{tab.~(\ref{tab:#1})}
+\newcommand{\reffig}[1]{figure~\ref{fig:#1}}
+\newcommand{\refsec}[1]{section~\ref{sec:#1}}
+\newcommand{\reftab}[1]{table~\ref{tab:#1}}
 \newcommand{\rmdx}[1]{\mbox{d} #1 \,} % differential
 \newcommand{\subd}{_{\text{d}}}
 \newcommand{\subt}{_{\text{t}}}
@@ -635,7 +635,7 @@ the self-consistency condition
 This self-consistency condition is tightly related to the determination of
 the branching ratio of the underlying decay, and we therefore suggest to
 carry out a combined analysis for the determination of the branching ratio
-and the extraction of the angular observables
+and the extraction of the angular observables.
 Moreover, in the applications to $B$ decays only ratios and similar $R$-independent combinations
 of the angular observables are of interest.
 \\
@@ -683,7 +683,10 @@ uncertainties. As usual, one needs to find a balance between compute time and
 accuracy. For a uniangular distribution and $\order{10^6}$ MC samples, we find
 that the error on the mean of each matrix element is $\order{10^{-4}}$.
 This suggests that the so-induced systematic error can be driven below any
-statistical uncertainty.
+statistical uncertainty.\\
+An alternative method to unfold detector effects is weighting the data on an
+event-by-event basis, with each weight corresponding to the inverse of the detection
+efficiency.\\
 
 Let us conclude this section by commenting that parts of the unfolding matrix
 are universal in a sense: They can be reused in analyses with a
@@ -861,14 +864,18 @@ PDFs composed from non-angular orthogonal bases.
 We thank Ulrik Egede for insightful discussions and helpful comments
 on the manuscript. We are grateful to Gudrun Hiller, Martin Jung, and
 Konstantinos Petridis for helpful discussions, as well as Claus Grupen
-for helpful advice in searching the literature.  Tobias Schlüter made
-us aware of existing ideas on our method in~\cite{Chung:1997qd} and
-his thesis~\cite[page 123]{Schlueter:2012}. The work of D.v.D has been
-supported by the Bundesministerium f\"ur Bildung und Forschung
-(BMBF). M.C. has been supported by the ''Diamond Grant'' founded by
-the Polish Ministry of Higher Education. F.B. is grateful for the
-support by the DFG Cluster of Excellence "Origin and Structure of the
-Universe". Part of the numerical simulations have been carried out on
+for helpful advice in searching the literature.
+Tobias Schlüter made us aware of existing ideas on our method in~\cite{Chung:1997qd} and
+his thesis~\cite[page 123]{Schlueter:2012}.
+F.B. is grateful for the support by the DFG Cluster of Excellence "Origin and Structure of the
+Universe".
+M.C. has been supported by the ''Diamond Grant'' founded by
+the Polish Ministry of Higher Education.
+N.S. acknowledges the support of the Swiss National Science Foundation,
+PP00P2-144674.
+The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung
+(BMBF).
+Part of the numerical simulations have been carried out on
 the computing facilities of the Computational Center for Particle and
 Astrophysics (C2PAP).
 
