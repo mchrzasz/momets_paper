@@ -32,7 +32,7 @@ of occurence as in the cover letter.
     Universit\"at Siegen, 57068 Siegen, Germany
 
 
-2.  We confirm that the second author's name is spelt correctly.
+2.  We confirm that the second author's name is spelled correctly.
 
 
 3.  We have verified the correctness of the copyediting changes.
@@ -41,7 +41,7 @@ of occurence as in the cover letter.
 
 4.  Please replace 'FCNC-mediated decay' by
 
-    flavour-changing-neutral-current-mediated decay
+    flavour-changing neutral-current-mediated decay
 
 
 5.  We confirm that the two occurrences of 'polymials' should be changed to
@@ -89,8 +89,44 @@ of occurence as in the cover letter.
 13. See reply to 10.
 
 
-Beyond the above replies, we would like to make the following minor to the
-manuscript:
+Comments on the proofs with line/equation numbers:
+
+124: the brackets in "[Eq. (2)]" seem odd, instead "...relation of Eq. (2) imply..." should look better
+
+148: please remove the "wide", as most estimators only carry a narrow hat
+
+(10): the wide hat on S_i seems slighly shifted to the right
+
+(14): the wide hat on S_i is centered on the whole expression but this
+doesn't look good. Let's rather have the hat centered on S, so
+identical to (10) in which there is no subscript {a, b}
+
+(16): the hat on \Sigma_{ij} should be a wide hat
+
+223: the hat over S should appear after the conditional; i.e. the
+correct expression is N(\vec{S} | \hat{\vec{S}}, \hat{\Sigma})
+
+237: Missing period after "etc.)"
+
+p.4, footnote and lines 303, 304: we should be consistent in the
+typesetting of S,P, and D wave. In the footnote it is in italics, in
+303, 304, it's upright. I suppose upright would help in distinguishing
+the "P" in P wave from the "P" for the PDF or "P_1" for pseudoscalar
+meson.
+
+p. 6: The hat on the vector estimators extends into the previous line in
+lines 377, 384, 415. This problem does not occur for example in line
+389 so please apply the same formatting to the other three lines.
+
+458: hat over \Sigma to be updated as in eq. (16)
+
+626: Please remove "and" at the beginning
+
+668: Please replace "there" by "the"
+
+
+Beyond the above replies, we would like to make the following minor
+changes to the manuscript:
 
 
 A. After submission to PRD we found it necessary to make the following changes
@@ -120,6 +156,11 @@ A. After submission to PRD we found it necessary to make the following changes
      In the third sentence, please move the differentiall \rmdx{\xd} between
      the integral sign and the integrand, for consistency with the rest of the
      manuscript.
+
+     The fourth sentence should be:
+
+      We emphasize that $R^{(m)}$ can be estimated as $\est{R}^{(m)} =
+      N_\text{d}^{(m)} / N_\text{t}^{(m)}$.
 
    * In eq. (33), please replace both occurrences of 'N_\text{d}' by
      'N_\text{d}^{(m)}'.
