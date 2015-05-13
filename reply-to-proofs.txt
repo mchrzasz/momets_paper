@@ -1,0 +1,161 @@
+Dear Sir or Madam,
+
+our replies to the specific questions and comments follow, in the same
+of occurence as in the cover letter.
+
+1.  The full affiliations should read
+
+    * for author Frederik Beaujean:
+
+    C2PAP, Universe Cluster, Ludwig-Maximilians-Universität M\"unchen, 85748
+    Garching, Germany
+
+
+    * for author Marcin Chrzaszcz:
+
+    Physik-Institut, Universität Z\"urich, 8057 Z\"urich, Switzerland
+
+    and
+
+    H.~Niewodniczanski Institute of Nuclear Physics, Polish Academy of Sciences,
+    31-342 Krakow, Poland
+
+
+    * for author Nicola Serra:
+
+    Physik-Institut, Universität Z\"urich, 8057 Zürich, Switzerland
+
+
+    * for author Danny van Dyk:
+
+    Theoretische Physik 1, Naturwissenschaftlich-Technische Fakult\"at,
+    Universit\"at Siegen, 57068 Siegen, Germany
+
+
+2.  We confirm that the second author's name is spelt correctly.
+
+
+3.  We have verified the correctness of the copyediting changes.
+    Please see also our list of further changes at the end of this letter.
+
+
+4.  Please replace 'FCNC-mediated decay' by
+
+    flavour-changing-neutral-current-mediated decay
+
+
+5.  We confirm that the two occurrences of 'polymials' should be changed to
+    'polynomials'.
+
+
+6.  We verify that the indents are correct.
+
+
+7.  In section III.A, third paragraph, please change the first sentence to read as follows:
+
+    For the selected class of decays, which are illustrated in figure 1, we can describe that
+    problem as follows:
+
+
+8.  The funding information is accurate but incomplete, see also point B below.
+    Unfortunately, the DOI for the funding agency 'Polish ministry of higher
+    education' is not known to us. Please add it to the list of funding
+    agencies.
+
+
+9.  We confirm the change.
+
+
+10. For reference [1] we can provide a link to the document record on inSPIRE:
+
+    http://inspirehep.net/record/469078
+
+    The full entry for reference [6] reads:
+
+    D. R. Cox and E. J. Snell. A general definition of residuals.
+    Journal of the Royal Statistical Society. Series B (Methodological), 30(2):248-275, 1968.
+
+    It can be accessed, e.g., via
+
+    http://www.jstor.org/stable/2984505
+
+
+11. We verify the links in the references.
+
+
+12. We verify the change.
+
+
+13. See reply to 10.
+
+
+Beyond the above replies, we would like to make the following minor to the
+manuscript:
+
+
+A. After submission to PRD we found it necessary to make the following changes
+   to the text.
+
+   * In the paragraph after eq. (5), after the sentence "Note that a similar
+     ...", please append the following text:
+
+      In~\cite[section X]{Chung:1997qd}, the basic ideas and formulae were
+      already given but the latter contained a number of typographical errors
+      and the presentation was not easy to understand. Compared
+      to~\cite{Chung:1997qd}, we fill the gaps needed to apply the method in
+      practice and explain in detail its advantages and disadvantages on a
+      sound statistical basis.
+
+   * Below eq. (32), the first sentence should read:
+
+      In words, for each $m$ it is required to generate $N_\text{t}^{m)}$
+      events from a toy physical distribution $P^{(m)}$, for which $S_0 =
+      S_m=1/2$ and all other observables are set to zero.
+
+     The second sentence should read:
+
+      Next, propagate these $N_\text{t}^{(m)}$ events through a detector
+      simulation to obtain $N_\text{d}^{(m)}$ accepted events.
+
+     In the third sentence, please move the differentiall \rmdx{\xd} between
+     the integral sign and the integrand, for consistency with the rest of the
+     manuscript.
+
+   * In eq. (33), please replace both occurrences of 'N_\text{d}' by
+     'N_\text{d}^{(m)}'.
+
+
+B. Please replace the Acknowledgments with the following:
+
+    We thank Ulrik Egede for insightful discussions and helpful comments
+    on the manuscript. We are grateful to Gudrun Hiller, Martin Jung, and
+    Konstantinos Petridis for helpful discussions, as well as Claus Grupen
+    for helpful advice in searching the literature.
+    Tobias Schlüter made us aware of existing ideas on our method in~\cite{Chung:1997qd} and
+    his thesis~\cite[page 123]{Schlueter:2012}.
+    F.B. is grateful for the support by the DFG Cluster of Excellence "Origin and Structure of the
+    Universe".
+    M.C. has been supported by the ''Diamond Grant'' founded by
+    the Polish Ministry of Higher Education.
+    N.S. acknowledges the support of the Swiss National Science Foundation,
+    PP00P2-144674.
+    The work of D.v.D has been supported by the Bundesministerium f\"ur Bildung und Forschung
+    (BMBF).
+    Part of the numerical simulations have been carried out on
+    the computing facilities of the Computational Center for Particle and
+    Astrophysics (C2PAP).
+
+
+Due to the above changes, two additional references appear. Chung:1997qd can be
+taken from inSPIRE as is. Schlueter:2012 refers to the following inSPIRE
+record:
+
+    http://inspirehep.net/record/1296922
+
+
+
+In light of the substantial changes to the manuscript, we ask you to send us the corrected
+version before we approve.
+
+
+Danny van Dyk (for the authors)
