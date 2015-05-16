@@ -91,38 +91,50 @@ of occurence as in the cover letter.
 
 Comments on the proofs with line/equation numbers:
 
-124: the brackets in "[Eq. (2)]" seem odd, instead "...relation of Eq. (2) imply..." should look better
 
-148: please remove the "wide", as most estimators only carry a narrow hat
+124: The brackets in "[Eq. (2)]" seem odd, instead "...relation of Eq. (2)
+imply..." should look better.
 
-(10): the wide hat on S_i seems slighly shifted to the right
 
-(14): the wide hat on S_i is centered on the whole expression but this
-doesn't look good. Let's rather have the hat centered on S, so
-identical to (10) in which there is no subscript {a, b}
+148: Please remove the "wide", as most estimators only carry a narrow hat.
 
-(16): the hat on \Sigma_{ij} should be a wide hat
 
-223: the hat over S should appear after the conditional; i.e. the
-correct expression is N(\vec{S} | \hat{\vec{S}}, \hat{\Sigma})
+eq. (10): The wide hat on S_i seems slighly shifted to the right.
+
+
+eq. (14): The wide hat on S_i is centered on the whole expression but this
+doesn't look good. Let's rather have the hat centered on S, so identical to
+eq. (10) in which there is no subscript {a, b}.
+
+
+eq. (16): The hat on \Sigma_{ij} right of the arrow should be a wide hat.
+
+
+223: The hat over S should appear after the conditional; i.e. the correct
+expression is "N(\vec{S} | \hat{\vec{S}}, \hat{\Sigma})".
+
 
 237: Missing period after "etc.)"
 
-p.4, footnote and lines 303, 304: we should be consistent in the
-typesetting of S,P, and D wave. In the footnote it is in italics, in
-303, 304, it's upright. I suppose upright would help in distinguishing
-the "P" in P wave from the "P" for the PDF or "P_1" for pseudoscalar
-meson.
 
-p. 6: The hat on the vector estimators extends into the previous line in
-lines 377, 384, 415. This problem does not occur for example in line
-389 so please apply the same formatting to the other three lines.
+p.4, footnote and lines 303, 304: We should be consistent in the typesetting of
+S,P, and D wave. In the footnote it is in italics, in lines 303, 304, it's
+upright. I suppose upright would help in distinguishing the "P" in P wave from
+the "P" for the PDF or "P_1" for pseudoscalar meson.
 
-458: hat over \Sigma to be updated as in eq. (16)
 
-626: Please remove "and" at the beginning
+p. 6: The hat on the vector estimators extends into the previous line in lines
+377, 384, 415. This problem does not occur for example in line 389 so please
+apply the same formatting to the other three lines.
 
-668: Please replace "there" by "the"
+
+458: The hat over \Sigma to be updated as in eq. (16).
+
+
+626: Please remove "and" at the beginning.
+
+
+668: Please replace "there" by "the".
 
 
 Beyond the above replies, we would like to make the following minor
@@ -195,7 +207,7 @@ record:
 
 
 
-In light of the substantial changes to the manuscript, we ask you to send us the corrected
+In light of the changes to the manuscript, we ask you to send us the corrected
 version before we approve.
 
 
